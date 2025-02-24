@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "o6MDyfYlNiXhrvKtiDV/k3VXQWWbLuPbxY1gIF9qNqE=",
+  "Hash": "G0pQeha3MW90ocAlN3jbs+DqPN6ThIOFE+zyRgapB4E=",
   "Source": "TotemPWA",
   "BasePath": "_content/TotemPWA",
   "Mode": "Default",
@@ -1359,6 +1359,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/banner#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hlwbjief07",
+      "Integrity": "O2vMvq118UvSweHQJIZs+O0J+BMXJfnXf6oygn3SCtk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\banner.jpg"
     },
     {
       "Identity": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\js\\site.js",
@@ -3236,6 +3257,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
+        }
+      ]
+    },
+    {
+      "Route": "img/banner.hlwbjief07.jpg",
+      "AssetFile": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "77063"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O2vMvq118UvSweHQJIZs+O0J+BMXJfnXf6oygn3SCtk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Feb 2025 20:15:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hlwbjief07"
+        },
+        {
+          "Name": "label",
+          "Value": "img/banner.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-O2vMvq118UvSweHQJIZs+O0J+BMXJfnXf6oygn3SCtk="
+        }
+      ]
+    },
+    {
+      "Route": "img/banner.jpg",
+      "AssetFile": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "77063"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O2vMvq118UvSweHQJIZs+O0J+BMXJfnXf6oygn3SCtk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Feb 2025 20:15:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-O2vMvq118UvSweHQJIZs+O0J+BMXJfnXf6oygn3SCtk="
         }
       ]
     },
