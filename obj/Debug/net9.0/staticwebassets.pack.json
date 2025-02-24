@@ -1,16 +1,16 @@
 {
   "Files": [
     {
-      "Id": "c:\\xampp\\htdocs\\Totem_ads_burger\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\TotemPWA.bundle.scp.css",
-      "PackagePath": "staticwebassets\\TotemPWA.i6yagiro6r.bundle.scp.css"
-    },
-    {
       "Id": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
+      "PackagePath": "staticwebassets\\img\\banner.jpg"
     },
     {
       "Id": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\js\\site.js",
