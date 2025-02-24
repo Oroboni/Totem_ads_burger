@@ -2,4 +2,216 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
-<img src="~/img/banner.jpeg" alt="">
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+        }
+
+.banner {
+            background: url("https://as1.ftcdn.net/v2/jpg/11/83/61/00/1000_F_1183610030_iUhROCUzBuwVs6SkAk9um8cTY43gNUh8.jpg") center/cover;
+            text-align: center;
+            padding: 120px 20px;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+        
+        /* Barra Lateral */
+        .sidebar {
+            width: 220px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .sidebar h2 {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            margin: 10px 0;
+            background: #444;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .sidebar ul li:hover {
+            background: #e44d26;
+        }
+
+        /* Conteúdo Principal */
+        .content {
+            margin-left: 240px;
+            width: calc(100% - 240px);
+            padding: 20px;
+        }
+
+        .menu-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .menu-item h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .menu-item p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .menu-item .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e44d26;
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 240px;
+            width: calc(100% - 240px);
+            background: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px -2px 5px rgba(0,0,0,0.1);
+        }
+
+        .footer div {
+            font-size: 18px;
+        }
+
+        .footer button {
+            background-color: #e44d26;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .footer button:hover {
+            background: #d14022;
+        }
+    </style>
+
+    <div class="banner">
+</div>
+
+    <!-- Barra Lateral -->
+    <div class="sidebar">
+        <h2>Categorias</h2>
+        <ul>
+            <li>Burgers</li>
+            <li>Combos</li>
+            <li>Sobremesas</li>
+            <li>Bebidas</li>
+            <li>Extras</li>
+            <li>Molhos</li>
+        </ul>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="content">
+        <div class="menu-header">Escolha seu Hambúrguer</div>
+        <div class="menu-grid">
+            <div class="menu-item" onclick="addToCart(24.00)">
+                <img src="https://cdn.pixabay.com/photo/2021/10/11/07/07/burger-6699427_1280.jpg" alt="Burger 404">
+                <h3>Burger 404</h3>
+                <p>Hambúrguer clássico com queijo derretido e molho especial.</p>
+                <p class="price">R$ 24,00</p>
+            </div>
+            <div class="menu-item" onclick="addToCart(25.00)">
+                <img src="https://cdn.pixabay.com/photo/2020/02/20/16/13/burger-4867074_1280.jpg" alt="Full Stack Burger">
+                <h3>Full Stack Burger</h3>
+                <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
+                <p class="price">R$ 25,00</p>
+            </div>
+            <div class="menu-item" onclick="addToCart(32.00)">
+                <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
+                <h3>Looping Duplo</h3>
+                <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+                <p class="price">R$ 32,00</p>
+            </div>
+            <div class="menu-item" onclick="addToCart(21.00)">
+                <img src="https://cdn.pixabay.com/photo/2017/09/26/18/39/burger-2783093_1280.jpg" alt="Hello World Veggie">
+                <h3>Hello World Veggie</h3>
+                <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+                <p class="price">R$ 21,00</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer com Carrinho -->
+    <div class="footer">
+        <div>Itens no carrinho: <span id="cart-count">0</span></div>
+        <div>Preço Total: R$ <span id="total-price">0.00</span></div>
+        <button onclick="checkout()">Finalizar Pedido</button>
+    </div>
+
+    <script>
+        let cartCount = 0;
+        let totalPrice = 0;
+
+        function addToCart(price) {
+            cartCount++;
+            totalPrice += price;
+            document.getElementById("cart-count").innerText = cartCount;
+            document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+        }
+
+        function checkout() {
+            alert("Pedido finalizado! Total: R$ " + totalPrice.toFixed(2));
+            cartCount = 0;
+            totalPrice = 0;
+            document.getElementById("cart-count").innerText = cartCount;
+            document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+        }
+    </script>
