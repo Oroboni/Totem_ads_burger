@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "c:\\xampp\\htdocs\\Totem_ads_burger\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\TotemPWA.bundle.scp.css",
-      "PackagePath": "staticwebassets\\TotemPWA.i6yagiro6r.bundle.scp.css"
-    },
-    {
       "Id": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
