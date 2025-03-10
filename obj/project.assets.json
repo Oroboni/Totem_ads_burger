@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\xampp\\htdocs\\Totem_ads_burger\\TotemPWA.csproj",
+      "projectUniqueName": "C:\\Users\\0031432512018\\Documents\\Totem_ads_burger\\TotemPWA.csproj",
       "projectName": "TotemPWA",
-      "projectPath": "C:\\xampp\\htdocs\\Totem_ads_burger\\TotemPWA.csproj",
+      "projectPath": "C:\\Users\\0031432512018\\Documents\\Totem_ads_burger\\TotemPWA.csproj",
       "packagesPath": "C:\\Users\\0031432512018\\.nuget\\packages\\",
-      "outputPath": "C:\\xampp\\htdocs\\Totem_ads_burger\\obj\\",
+      "outputPath": "C:\\Users\\0031432512018\\Documents\\Totem_ads_burger\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

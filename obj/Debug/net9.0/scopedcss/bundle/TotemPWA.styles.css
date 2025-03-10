@@ -9,7 +9,8 @@ a.navbar-brand[b-8xtumb19yc] {
 }
 
 a[b-8xtumb19yc] {
-  color: #0077cc;
+  position: relative; color: #990000; font-size: 57px; font-family: Poppins; font-weight: 700;
+    line-height: 57px; word-wrap: break-word;
 }
 
 .btn-primary[b-8xtumb19yc] {
@@ -19,9 +20,8 @@ a[b-8xtumb19yc] {
 }
 
 .nav-pills .nav-link.active[b-8xtumb19yc], .nav-pills .show > .nav-link[b-8xtumb19yc] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  position: relative; color: #990000; font-size: 57px; font-family: Poppins; font-weight: 700;
+    line-height: 57px; word-wrap: break-word;
 }
 
 .border-top[b-8xtumb19yc] {

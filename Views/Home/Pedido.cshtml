@@ -2,4 +2,449 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
+<<<<<<< Updated upstream
 <img src="~/img/banner.jpeg" alt="">
+=======
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .banner {
+        width: 100%;
+        height: 140px;
+        background: url("https://as1.ftcdn.net/v2/jpg/11/83/61/00/1000_F_1183610030_iUhROCUzBuwVs6SkAk9um8cTY43gNUh8.jpg") center/cover;
+        text-align: center;
+        color: white;
+        font-size: 1.8rem;
+        font-weight: bold;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    .sidebar {
+        width: 250px;
+        background: #F7F7F7;
+        color: #000;
+        padding: 20px;
+        position: fixed;
+        top: 140px;
+        left: 0;
+        height: calc(100vh - 140px);
+        overflow-y: auto;
+        box-shadow: 1px 7px 58.3px -2px rgba(0, 0, 0, 0.25);
+    }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+            .sidebar ul li {
+                width: 199px;
+                height: 175px;
+                padding: 10px;
+                margin: 10px 0;
+                background: #FFF;
+                text-align: center;
+                box-shadow: 0px 4px 23.3px -5px rgba(0, 0, 0, 0.25);
+                cursor: pointer;
+                border-radius: 30px;
+                transition: background 0.3s;
+            }
+
+                .sidebar ul li:hover {
+                    background: #C1D343;
+                }
+
+        .sidebar img {
+            width: 180px;
+            height: 130px;
+            object-fit: contain;
+        }
+
+    .content {
+        margin-left: 270px;
+        margin-top: 160px;
+        padding: 20px;
+        width: calc(100% - 270px);
+        flex: 1;
+    }
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        width: 100%;
+    }
+
+    .menu-item {
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+        width: 77%;
+        margin-left: 12%;
+    }
+
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-item p {
+            font-size: 20px;
+        }
+
+        .menu-item h1 {
+            font-size: 30px;
+        }
+
+
+        .menu-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Espaçamento extra após cada dois itens */
+        .menu-item:nth-child(2n)::after {
+            content: "";
+            display: block;
+            height: 20px; /* Espaço extra */
+        }
+
+    .footer {
+        width: 100%;
+        background: white;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        font-size: 40px;
+    }
+
+
+</style>
+
+<div class="banner">
+</div>
+
+<!-- Barra Lateral -->
+<div class="sidebar">
+    <ul>
+        <li onclick="showCategory('burguers')">
+            <img src="https://png.pngtree.com/png-clipart/20231017/original/pngtree-burger-food-png-free-download-png-image_13329455.png" alt="">
+            <h2>Burgers</h2>
+        </li>
+        <li onclick="showCategory('combos')"><img src="https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-and-fries-delicious-fast-food-combo-transparent-background-png-image_13279170.png" alt=" combos"> <h2>Combos</h2></li>
+        <li onclick="showCategory('sobremesa')"><img src="https://th.bing.com/th/id/R.c2c401c37bba64285ca1aa4b067f0fce?rik=H4bSqMkhpHT%2fSg&pid=ImgRaw&r=0" alt="sobremesa"><h2>Sobremesas</h2></li>
+        <li onclick="showCategory('drinks')"><img src="https://png.pngtree.com/png-clipart/20230417/original/pngtree-cola-soda-drink-glass-png-image_9059477.png" alt="bebida"><h2>Bebidas</h2></li>
+        <li onclick="showCategory('extras')"><img src="https://static.vecteezy.com/system/resources/previews/013/442/144/original/crispy-and-delicious-french-fries-free-png.png" alt="extra"><h2>Extras</h2></li>
+        <li onclick="showCategory('molhos')"><img src="https://th.bing.com/th/id/R.5dd1a7dbc57631f822418410eea10e3e?rik=dWJF2WCRtUDhPA&pid=ImgRaw&r=0" alt="molho"><h2>Molhos</h2></li>
+    </ul>
+</div>
+
+<!-- Conteúdo Principal -->
+<div class="content" id="content">
+    <div class="menu-grid">
+        <div class="menu-item" onclick="addToCart(24.00)">
+            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Burger 404">
+            <h3>Burger 404</h3>
+            <p>Hambúrguer clássico com queijo derretido e molho especial.</p>
+            <p class="price">R$ 24,00</p>
+        </div>
+        <div class="menu-item" onclick="addToCart(25.00)">
+            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Full Stack Burger">
+            <h3>Full Stack Burger</h3>
+            <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
+            <p class="price">R$ 25,00</p>
+        </div>
+        <div class="menu-item" onclick="addToCart(32.00)">
+            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
+            <h3>Looping Duplo</h3>
+            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+            <p class="price">R$ 32,00</p>
+        </div>
+        <div class="menu-item" onclick="addToCart(21.00)">
+            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Hello World Veggie">
+            <h3>Hello World Veggie</h3>
+            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+            <p class="price">R$ 21,00</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer com Carrinho -->
+<div class="footer">
+    <div>Itens no carrinho: <span id="cart-count">0</span></div>
+    <div>Preço Total: R$ <span id="total-price">0.00</span></div>
+    <button onclick="checkout()">Finalizar Pedido</button>
+</div>
+
+<script>
+    let cartCount = 0;
+    let totalPrice = 0;
+
+    function addToCart(price) {
+        cartCount++;
+        totalPrice += price;
+        document.getElementById("cart-count").innerText = cartCount;
+        document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+    }
+
+    function checkout() {
+        alert("Pedido finalizado! Total: R$ " + totalPrice.toFixed(2));
+        cartCount = 0;
+        totalPrice = 0;
+        document.getElementById("cart-count").innerText = cartCount;
+        document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+    }
+</script>
+
+<script>
+    function showCategory(category) {
+        const content = document.getElementById("content");
+        let html = "";
+
+        // Mudar o conteúdo com base na categoria clicada
+        switch (category) {
+            case "burgers":
+                html = `
+                    <div class="menu-grid">
+                        <div class="menu-item" onclick="addToCart(24.00)">
+                            <img src="https://cdn.pixabay.com/photo/2021/10/11/07/07/burger-6699427_1280.jpg" alt="Burger 404">
+                            <h3>Burger 404</h3>
+                            <p>Hambúrguer clássico com queijo derretido e molho especial.</p>
+                            <p class="price">R$ 24,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(25.00)">
+                            <img src="https://cdn.pixabay.com/photo/2020/02/20/16/13/burger-4867074_1280.jpg" alt="Full Stack Burger">
+                            <h3>Full Stack Burger</h3>
+                            <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
+                            <p class="price">R$ 25,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(32.00)">
+                            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
+                            <h3>Looping Duplo</h3>
+                            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+                            <p class="price">R$ 32,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(21.00)">
+                            <img src="https://cdn.pixabay.com/photo/2017/09/26/18/39/burger-2783093_1280.jpg" alt="Hello World Veggie">
+                            <h3>Hello World Veggie</h3>
+                            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+                            <p class="price">R$ 21,00</p>
+                        </div>
+                    </div>
+                `;
+                break;
+            case "combos":
+                html = `
+                    <div class="menu-grid">
+                        <div class="menu-item" onclick="addToCart(24.00)">
+                            <img src="https://cdn.pixabay.com/photo/2021/10/11/07/07/burger-6699427_1280.jpg" alt="Burger 404">
+                            <h3>Combo Fullstack</h3>
+                            <p>Combo completo para quem trabalha com front e back-end, inclui Dois hamburgueres Hello World.</p>
+                            <p class="price">R$ 48,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(25.00)">
+                            <img src="https://cdn.pixabay.com/photo/2020/02/20/16/13/burger-4867074_1280.jpg" alt="Full Stack Burger">
+                            <h3>Combo Front-End</h3>
+                            <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
+                            <p class="price">R$ 25,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(32.00)">
+                            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
+                            <h3>Combo Back-End</h3>
+                            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+                            <p class="price">R$ 32,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(21.00)">
+                            <img src="https://cdn.pixabay.com/photo/2017/09/26/18/39/burger-2783093_1280.jpg" alt="Hello World Veggie">
+                            <h3>Combo Banco de Dados</h3>
+                            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+                            <p class="price">R$ 21,00</p>
+                        </div>
+                    </div>
+                `;
+                break;
+            case "sobremesa":
+                html = `
+                    <div class="menu-grid">
+                        <div class="menu-item" onclick="addToCart(24.00)">
+                            <img src="https://cdn.pixabay.com/photo/2021/10/11/07/07/burger-6699427_1280.jpg" alt="Burger 404">
+                            <h3>Burger 404</h3>
+                            <p>Hambúrguer clássico com queijo derretido e molho especial.</p>
+                            <p class="price">R$ 24,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(25.00)">
+                            <img src="https://cdn.pixabay.com/photo/2020/02/20/16/13/burger-4867074_1280.jpg" alt="Full Stack Burger">
+                            <h3>Full Stack Burger</h3>
+                            <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
+                            <p class="price">R$ 25,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(32.00)">
+                            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
+                            <h3>Looping Duplo</h3>
+                            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+                            <p class="price">R$ 32,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(21.00)">
+                            <img src="https://cdn.pixabay.com/photo/2017/09/26/18/39/burger-2783093_1280.jpg" alt="Hello World Veggie">
+                            <h3>Hello World Veggie</h3>
+                            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+                            <p class="price">R$ 21,00</p>
+                        </div>
+                    </div>
+                `;
+                break;
+            case "drinks":
+                html = `
+                   <div class="menu-grid">
+                        <div class="menu-item" onclick="addToCart(24.00)">
+                            <img src="https://cdn.pixabay.com/photo/2021/10/11/07/07/burger-6699427_1280.jpg" alt="Burger 404">
+                            <h3>Burger 404</h3>
+                            <p>Hambúrguer clássico com queijo derretido e molho especial.</p>
+                            <p class="price">R$ 24,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(25.00)">
+                            <img src="https://cdn.pixabay.com/photo/2020/02/20/16/13/burger-4867074_1280.jpg" alt="Full Stack Burger">
+                            <h3>Full Stack Burger</h3>
+                            <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
+                            <p class="price">R$ 25,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(32.00)">
+                            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
+                            <h3>Looping Duplo</h3>
+                            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+                            <p class="price">R$ 32,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(21.00)">
+                            <img src="https://cdn.pixabay.com/photo/2017/09/26/18/39/burger-2783093_1280.jpg" alt="Hello World Veggie">
+                            <h3>Hello World Veggie</h3>
+                            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+                            <p class="price">R$ 21,00</p>
+                        </div>
+                    </div>
+                `;
+                break;
+            case "extras":
+                html = `
+                    <<div class="menu-grid">
+                        <div class="menu-item" onclick="addToCart(24.00)">
+                            <img src="https://cdn.pixabay.com/photo/2021/10/11/07/07/burger-6699427_1280.jpg" alt="Burger 404">
+                            <h3>Burger 404</h3>
+                            <p>Hambúrguer clássico com queijo derretido e molho especial.</p>
+                            <p class="price">R$ 24,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(25.00)">
+                            <img src="https://cdn.pixabay.com/photo/2020/02/20/16/13/burger-4867074_1280.jpg" alt="Full Stack Burger">
+                            <h3>Full Stack Burger</h3>
+                            <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
+                            <p class="price">R$ 25,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(32.00)">
+                            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
+                            <h3>Looping Duplo</h3>
+                            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+                            <p class="price">R$ 32,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(21.00)">
+                            <img src="https://cdn.pixabay.com/photo/2017/09/26/18/39/burger-2783093_1280.jpg" alt="Hello World Veggie">
+                            <h3>Hello World Veggie</h3>
+                            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+                            <p class="price">R$ 21,00</p>
+                        </div>
+                    </div>
+                `;
+                break;
+
+            case "molhos":
+                html = `
+                    <div class="menu-grid">
+                        <div class="menu-item" onclick="addToCart(24.00)">
+                            <img src="https://cdn.pixabay.com/photo/2021/10/11/07/07/burger-6699427_1280.jpg" alt="Burger 404">
+                            <h3>Burger 404</h3>
+                            <p>Hambúrguer clássico com queijo derretido e molho especial.</p>
+                            <p class="price">R$ 24,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(25.00)">
+                            <img src="https://cdn.pixabay.com/photo/2020/02/20/16/13/burger-4867074_1280.jpg" alt="Full Stack Burger">
+                            <h3>Full Stack Burger</h3>
+                            <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
+                            <p class="price">R$ 25,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(32.00)">
+                            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
+                            <h3>Looping Duplo</h3>
+                            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+                            <p class="price">R$ 32,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(21.00)">
+                            <img src="https://cdn.pixabay.com/photo/2017/09/26/18/39/burger-2783093_1280.jpg" alt="Hello World Veggie">
+                            <h3>Hello World Veggie</h3>
+                            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+                            <p class="price">R$ 21,00</p>
+                        </div>
+                    </div>
+                `;
+                break;
+            default:
+                html = `<div class="menu-grid">
+                        <div class="menu-item" onclick="addToCart(24.00)">
+                            <img src="https://cdn.pixabay.com/photo/2021/10/11/07/07/burger-6699427_1280.jpg" alt="Burger 404">
+                            <h3>Burger 404</h3>
+                            <p>Hambúrguer clássico com queijo derretido e molho especial.</p>
+                            <p class="price">R$ 24,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(25.00)">
+                            <img src="https://cdn.pixabay.com/photo/2020/02/20/16/13/burger-4867074_1280.jpg" alt="Full Stack Burger">
+                            <h3>Full Stack Burger</h3>
+                            <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
+                            <p class="price">R$ 25,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(32.00)">
+                            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
+                            <h3>Looping Duplo</h3>
+                            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+                            <p class="price">R$ 32,00</p>
+                        </div>
+                        <div class="menu-item" onclick="addToCart(21.00)">
+                            <img src="https://cdn.pixabay.com/photo/2017/09/26/18/39/burger-2783093_1280.jpg" alt="Hello World Veggie">
+                            <h3>Hello World Veggie</h3>
+                            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+                            <p class="price">R$ 21,00</p>
+                        </div>
+                    </div>`;
+        }
+
+        content.innerHTML = html;
+
+        const sidebarItems = document.querySelectorAll(".sidebar li");
+        sidebarItems.forEach((item) => item.classList.remove("active"));
+        event.target.classList.add("active");
+    }
+</script>
+>>>>>>> Stashed changes
