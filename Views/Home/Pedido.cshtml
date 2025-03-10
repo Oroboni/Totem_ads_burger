@@ -6,99 +6,84 @@
     body {
         font-family: Arial, sans-serif;
         margin: 0;
-        max-height: 1920px;
         padding: 0;
         background-color: #f5f5f5;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
     }
 
     .banner {
-        width: 1080px;
+        width: 100%;
         height: 140px;
         background: url("https://as1.ftcdn.net/v2/jpg/11/83/61/00/1000_F_1183610030_iUhROCUzBuwVs6SkAk9um8cTY43gNUh8.jpg") center/cover;
         text-align: center;
-        padding: 120px 20px;
         color: white;
         font-size: 1.8rem;
         font-weight: bold;
-        margin: 0;
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
-        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
     }
 
-    /* Barra Lateral */
     .sidebar {
         width: 250px;
         background: #F7F7F7;
-        color: #000000;
+        color: #000;
         padding: 20px;
         position: fixed;
-        margin-top: 380px;
-        height: 1367px;
+        top: 140px;
+        left: 0;
+        height: calc(100vh - 140px);
         overflow-y: auto;
         box-shadow: 1px 7px 58.3px -2px rgba(0, 0, 0, 0.25);
     }
 
-    .sidebar h2 {
-        color: var(--Cinzas-e-Pretos, #463B3B);
-        text-align: center;
-        font-family: Inter;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-    }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    .sidebar ul {
-        list-style: none;
-        justify-content: center;
-        padding: 10px;
-    }
+            .sidebar ul li {
+                width: 199px;
+                height: 175px;
+                padding: 10px;
+                margin: 10px 0;
+                background: #FFF;
+                text-align: center;
+                box-shadow: 0px 4px 23.3px -5px rgba(0, 0, 0, 0.25);
+                cursor: pointer;
+                border-radius: 30px;
+                transition: background 0.3s;
+            }
 
-    .sidebar ul li {
-        width: 199px;
-        height: 175px;
-        padding: 10px;
-        margin: 10px 0;
-        margin-bottom: 42px;
-        background: #FFF;
-        text-align: center;
-        box-shadow: 0px 4px 23.3px -5px rgba(0, 0, 0, 0.25);
-        cursor: pointer;
-        border-radius: 30px;
-    }
+                .sidebar ul li:hover {
+                    background: #C1D343;
+                }
 
-    .sidebar ul li:hover {
-        background: #C1D343;
-    }
+        .sidebar img {
+            width: 180px;
+            height: 130px;
+            object-fit: contain;
+        }
 
-    .sidebar img{
-        width: 180px;
-        height: 130px;
-        object-fit: contain;
-    }
-
-    /* Conteúdo Principal */
     .content {
-        margin-left: 300px;
-        margin-top: 400px;
-        width: calc(100% - 250px);
+        margin-left: 270px;
+        margin-top: 160px;
         padding: 20px;
-    }
-
-    .menu-header {
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
+        width: calc(100% - 270px);
+        flex: 1;
     }
 
     .menu-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
         gap: 20px;
     }
 
@@ -109,61 +94,41 @@
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
         text-align: center;
         cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+        width: calc(50% - 10px);
     }
 
-    .menu-item img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
 
-    .menu-item h3 {
-        font-size: 18px;
-        margin: 10px 0;
-    }
+        .menu-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
-    .menu-item p {
-        font-size: 14px;
-        color: #666;
-    }
+        /* Espaçamento extra após cada dois itens */
+        .menu-item:nth-child(2n)::after {
+            content: "";
+            display: block;
+            height: 20px; /* Espaço extra */
+        }
 
-    .menu-item .price {
-        font-size: 16px;
-        font-weight: bold;
-        color: #e44d26;
-    }
-
-    /* Footer */
     .footer {
-        position: fixed;
-        bottom: 0;
-        width: 1080px;
-        height: 195px;
+        width: 100%;
         background: white;
         padding: 20px;
-        justify-content: space-between;
-        align-items: center;
+        text-align: center;
         box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 
-    .footer div {
-        font-size: 18px;
-    }
 
-    .footer button {
-        background-color: #e44d26;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-    .footer button:hover {
-        background: #d14022;
-    }
 </style>
 
 <div class="banner">
@@ -197,6 +162,7 @@
             <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
             <p class="price">R$ 25,00</p>
         </div>
+        <br>
         <div class="menu-item" onclick="addToCart(32.00)">
             <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
             <h3>Looping Duplo</h3>
@@ -456,10 +422,8 @@
                     </div>`;
         }
 
-        // Atualizar o conteúdo da div
         content.innerHTML = html;
 
-        // Atualizar a classe ativa na sidebar
         const sidebarItems = document.querySelectorAll(".sidebar li");
         sidebarItems.forEach((item) => item.classList.remove("active"));
         event.target.classList.add("active");
