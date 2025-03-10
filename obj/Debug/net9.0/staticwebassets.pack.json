@@ -1,11 +1,7 @@
 {
   "Files": [
     {
-<<<<<<< Updated upstream
-      "Id": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\css\\site.css",
-=======
       "Id": "C:\\Users\\0031432512018\\Documents\\Totem_ads_burger\\wwwroot\\css\\site.css",
->>>>>>> Stashed changes
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
@@ -17,13 +13,6 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-<<<<<<< Updated upstream
-      "Id": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
-      "PackagePath": "staticwebassets\\img\\banner.jpg"
-    },
-    {
-      "Id": "c:\\xampp\\htdocs\\Totem_ads_burger\\wwwroot\\js\\site.js",
-=======
       "Id": "C:\\Users\\0031432512018\\Documents\\Totem_ads_burger\\wwwroot\\img\\ComboCapa.png",
       "PackagePath": "staticwebassets\\img\\ComboCapa.png"
     },
@@ -49,7 +38,6 @@
     },
     {
       "Id": "C:\\Users\\0031432512018\\Documents\\Totem_ads_burger\\wwwroot\\js\\site.js",
->>>>>>> Stashed changes
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {

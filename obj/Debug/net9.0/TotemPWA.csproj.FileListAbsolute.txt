@@ -92,8 +92,6 @@ c:\xampp\htdocs\Totem_ads_burger\obj\Debug\net9.0\compressed\fmwf22pe7t-m9qm4taz
 c:\xampp\htdocs\Totem_ads_burger\obj\Debug\net9.0\compressed\hmbs8qm6sd-jjsuc0puko.gz
 c:\xampp\htdocs\Totem_ads_burger\obj\Debug\net9.0\compressed\w6vs14lepb-9vr69e8ynj.gz
 c:\xampp\htdocs\Totem_ads_burger\obj\Debug\net9.0\compressed\5x7mdqe4nv-g3iv9uu2gm.gz
-<<<<<<< Updated upstream
-=======
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem ADS Burguer\Totem_ads_burger\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem ADS Burguer\Totem_ads_burger\bin\Debug\net9.0\appsettings.json
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem ADS Burguer\Totem_ads_burger\bin\Debug\net9.0\TotemPWA.staticwebassets.runtime.json
@@ -375,10 +373,8 @@ C:\Users\0031432512018\Documents\Totem_ads_burger\obj\Debug\net9.0\staticwebasse
 C:\Users\0031432512018\Documents\Totem_ads_burger\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.TotemPWA.props
 C:\Users\0031432512018\Documents\Totem_ads_burger\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.TotemPWA.props
 C:\Users\0031432512018\Documents\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.pack.json
-C:\Users\0031432512018\Documents\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\0031432512018\Documents\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.dll
 C:\Users\0031432512018\Documents\Totem_ads_burger\obj\Debug\net9.0\refint\TotemPWA.dll
 C:\Users\0031432512018\Documents\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.pdb
 C:\Users\0031432512018\Documents\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\0031432512018\Documents\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
->>>>>>> Stashed changes

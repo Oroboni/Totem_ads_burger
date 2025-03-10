@@ -12,13 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-<<<<<<< Updated upstream
-      <Fingerprint>g3iv9uu2gm</Fingerprint>
-      <Integrity>pFHrLYVPeGygtxkrYx3C04wno4tD8TYjWEWep7lhOcg=</Integrity>
-=======
       <Fingerprint>ezxem7qjop</Fingerprint>
       <Integrity>dqp0Qb7BFeLlucJTnRfeNiN7u2egEvZERrXzCL7I8p0=</Integrity>
->>>>>>> Stashed changes
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -77,8 +72,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\banner.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-<<<<<<< Updated upstream
-=======
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\ComboCapa.png'))">
       <SourceType>Package</SourceType>
       <SourceId>TotemPWA</SourceId>
@@ -169,7 +162,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\sombra.png'))</OriginalItemSpec>
     </StaticWebAsset>
->>>>>>> Stashed changes
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))">
       <SourceType>Package</SourceType>
       <SourceId>TotemPWA</SourceId>
