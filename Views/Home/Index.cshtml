@@ -2,6 +2,27 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
-<div class="center">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Pedido">Iniciar</a>
+
+<div class="svg-background">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none">
+        <path d="M-2.81334e-05 0V1920H1079L-2.81334e-05 0Z" fill="#880202"/>
+    </svg>
+</div>
+
+
+<a asp-area="" asp-controller="Home" asp-action="Pedido"></a>
+<div class="content">
+    <img id="logo" class="Image" src="img\LogoADSBurguer.png"
+        alt="LogoADSBurguer"/>
+        
+    <div>
+        <h1 id="text-center">O MELHOR LANCHE DE SOROCABA</h1>
+        <img id="combo" class="Image"  src="\img\CombosTransparente.png" />
+        <img id="sombra" alt="" src="img\sombra 1.png">
+    </div>
+
+   <div class="Image botao">
+        <a class="nav-link text-dark a" asp-area="" asp-controller="Home" asp-action="Pedido">Toque para iniciar</a>
+   </div>
+
 </div>
