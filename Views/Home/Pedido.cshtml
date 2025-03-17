@@ -45,33 +45,33 @@
         box-shadow: 1px 7px 58.3px -2px rgba(0, 0, 0, 0.25);
     }
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
 
-            .sidebar ul li {
-                width: 199px;
-                height: 175px;
-                padding: 10px;
-                margin: 10px 0;
-                background: #FFF;
-                text-align: center;
-                box-shadow: 0px 4px 23.3px -5px rgba(0, 0, 0, 0.25);
-                cursor: pointer;
-                border-radius: 30px;
-                transition: background 0.3s;
-            }
+    .sidebar ul li {
+        width: 199px;
+        height: 175px;
+        padding: 10px;
+        margin: 10px 0;
+        background: #FFF;
+        text-align: center;
+        box-shadow: 0px 4px 23.3px -5px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: background 0.3s;
+    }
 
-                .sidebar ul li:hover {
-                    background: #C1D343;
-                }
+    .sidebar ul li:hover {
+        background: #C1D343;
+    }
 
-        .sidebar img {
-            width: 180px;
-            height: 130px;
-            object-fit: contain;
-        }
+    .sidebar img {
+        width: 180px;
+        height: 130px;
+        object-fit: contain;
+    }
 
     .content {
         margin-left: 270px;
@@ -84,9 +84,32 @@
     .menu-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
+        /* 2 colunas por padrão */
+        gap: 10px;
         width: 100%;
     }
+
+    /* Ajusta para 1 coluna em telas muito pequenas */
+    @@media(max - width: 480px) {
+            .menu-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        /* Ajusta para 3 colunas em telas médias */
+        @@media(min - width: 768px) {
+                .menu-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            /* Ajusta para 4 colunas em telas grandes */
+            @@media(min - width: 1024px) {
+        .menu-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
 
     .menu-item {
         background: #fff;
@@ -101,47 +124,66 @@
     }
 
 
-        .menu-item:hover {
-            transform: scale(1.05);
-        }
-
-        .menu-item p {
-            font-size: 20px;
-        }
-
-        .menu-item h1 {
-            font-size: 30px;
-        }
-
-
-        .menu-item img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        /* Espaçamento extra após cada dois itens */
-        .menu-item:nth-child(2n)::after {
-            content: "";
-            display: block;
-            height: 20px; /* Espaço extra */
-        }
-
-    .footer {
-        width: 100%;
-        background: white;
-        padding: 30px;
-        text-align: center;
-        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 2;
-        font-size: 40px;
+    .menu-item:hover {
+        transform: scale(1.05);
     }
 
+    .menu-item p {
+        font-size: 20px;
+    }
+
+    .menu-item h1 {
+        font-size: 30px;
+    }
+
+
+    .menu-item img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .menu-item:nth-child(2n)::after {
+        content: "";
+        display: block;
+        height: 20px;
+    }
+
+    .footer {
+    width: 100%;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    font-size: 24px;
+}
+
+@@media (max-width: 480px) {
+    .footer {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@@media (min-width: 768px) {
+    .footer {
+        padding: 25px;
+        font-size: 26px;
+    }
+}
+
+@@media (min-width: 1024px) {
+    .footer {
+        padding: 30px;
+        font-size: 40px;
+    }
+}
 
 </style>
 
@@ -152,14 +194,35 @@
 <div class="sidebar">
     <ul>
         <li onclick="showCategory('burguers')">
-            <img src="https://png.pngtree.com/png-clipart/20231017/original/pngtree-burger-food-png-free-download-png-image_13329455.png" alt="">
+            <img src="https://png.pngtree.com/png-clipart/20231017/original/pngtree-burger-food-png-free-download-png-image_13329455.png"
+                alt="">
             <h2>Burgers</h2>
         </li>
-        <li onclick="showCategory('combos')"><img src="https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-and-fries-delicious-fast-food-combo-transparent-background-png-image_13279170.png" alt=" combos"> <h2>Combos</h2></li>
-        <li onclick="showCategory('sobremesa')"><img src="https://th.bing.com/th/id/R.c2c401c37bba64285ca1aa4b067f0fce?rik=H4bSqMkhpHT%2fSg&pid=ImgRaw&r=0" alt="sobremesa"><h2>Sobremesas</h2></li>
-        <li onclick="showCategory('drinks')"><img src="https://png.pngtree.com/png-clipart/20230417/original/pngtree-cola-soda-drink-glass-png-image_9059477.png" alt="bebida"><h2>Bebidas</h2></li>
-        <li onclick="showCategory('extras')"><img src="https://static.vecteezy.com/system/resources/previews/013/442/144/original/crispy-and-delicious-french-fries-free-png.png" alt="extra"><h2>Extras</h2></li>
-        <li onclick="showCategory('molhos')"><img src="https://th.bing.com/th/id/R.5dd1a7dbc57631f822418410eea10e3e?rik=dWJF2WCRtUDhPA&pid=ImgRaw&r=0" alt="molho"><h2>Molhos</h2></li>
+        <li onclick="showCategory('combos')"><img
+                src="https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-and-fries-delicious-fast-food-combo-transparent-background-png-image_13279170.png"
+                alt=" combos">
+            <h2>Combos</h2>
+        </li>
+        <li onclick="showCategory('sobremesa')"><img
+                src="https://th.bing.com/th/id/R.c2c401c37bba64285ca1aa4b067f0fce?rik=H4bSqMkhpHT%2fSg&pid=ImgRaw&r=0"
+                alt="sobremesa">
+            <h2>Sobremesas</h2>
+        </li>
+        <li onclick="showCategory('drinks')"><img
+                src="https://png.pngtree.com/png-clipart/20230417/original/pngtree-cola-soda-drink-glass-png-image_9059477.png"
+                alt="bebida">
+            <h2>Bebidas</h2>
+        </li>
+        <li onclick="showCategory('extras')"><img
+                src="https://static.vecteezy.com/system/resources/previews/013/442/144/original/crispy-and-delicious-french-fries-free-png.png"
+                alt="extra">
+            <h2>Extras</h2>
+        </li>
+        <li onclick="showCategory('molhos')"><img
+                src="https://th.bing.com/th/id/R.5dd1a7dbc57631f822418410eea10e3e?rik=dWJF2WCRtUDhPA&pid=ImgRaw&r=0"
+                alt="molho">
+            <h2>Molhos</h2>
+        </li>
     </ul>
 </div>
 
@@ -185,7 +248,8 @@
             <p class="price">R$ 32,00</p>
         </div>
         <div class="menu-item" onclick="addToCart(21.00)">
-            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Hello World Veggie">
+            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg"
+                alt="Hello World Veggie">
             <h3>Hello World Veggie</h3>
             <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
             <p class="price">R$ 21,00</p>
