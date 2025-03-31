@@ -1,0 +1,45 @@
+@{
+    ViewBag.Title = "Carrinho";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">Carrinho</h1>
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantidade</th>
+                <th>Preço Unitário</th>
+                <th>Total</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Exemplo de item no carrinho -->
+            <tr>
+                <td>Hambúrguer Clássico</td>
+                <td>
+                    <input type="number" class="form-control" value="1" min="1" />
+                </td>
+                <td>R$ 15,00</td>
+                <td>R$ 15,00</td>
+                <td>
+                    <button class="btn btn-danger btn-sm">Remover</button>
+                </td>
+            </tr>
+            <!-- Fim do exemplo -->
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <h4>Total: R$ 15,00</h4>
+        <button class="btn btn-success btn-lg">Finalizar Pedido</button>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 800px;
+    }
+</style></div>
