@@ -24,20 +24,21 @@
         transform: scale(1.05);
     }
 
-    button {
+    .button {
         background: #ff6600;
         color: white;
-        padding: 12px 20px;
+        font-size: 18px;
+        padding: 12px 24px;
         border: none;
-        border-radius: 5px;
-        font-size: 16px;
+        border-radius: 6px;
         cursor: pointer;
-        transition: background 0.3s ease-in-out;
+        transition: background 0.3s ease;
     }
 
-    button:hover {
-        background: #e65c00;
+    .button:hover {
+        background: #cc4400;
     }
+
 
 
     .banner {
@@ -181,8 +182,11 @@
         border-radius: 5px;
         cursor: pointer;
         transition: background 0.3s;
-        right: 20% !important;
+        margin-right: 20px;
+        position: relative;
+        z-index: 1;
     }
+
 
     .footer button:hover {
         background: #cc4400;
@@ -336,7 +340,8 @@
 <div class="footer">
     <div>Itens no carrinho: <span id="cart-count">0</span></div>
     <div>Preço Total: R$ <span id="total-price">0.00</span></div>
-    <a class="nav-link text-dark a" asp-area="" asp-controller="Home" asp-action="Carrinho" onclick="checkout()">Finalizar Pedido</a>
+    <button class="button" onclick="checkout(); location.href='@Url.Action("Carrinho", "Home")'">Visualizar
+        Pedido</button>
 </div>
 
 <script>
