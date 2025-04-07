@@ -192,7 +192,6 @@
         background: #cc4400;
     }
 
-    /* Responsividade */
     @@media (max-width: 1024px) {
         .menu-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -221,7 +220,6 @@
 
     .modal {
         display: none;
-        /* Inicialmente oculto */
         position: fixed;
         z-index: 1000;
         left: 0;
@@ -247,6 +245,10 @@
         right: 15px;
         font-size: 20px;
         cursor: pointer;
+    }
+
+    .end{
+        margin-bottom: 10vh;
     }
 </style>
 
@@ -324,6 +326,8 @@
             <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
             <p class="price">R$ 21,00</p>
         </div>
+
+        <div class="end"></div>
     </div>
 </div>
 
