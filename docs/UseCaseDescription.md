@@ -57,11 +57,42 @@
 
 ### Fluxo de Exceção:
 •	Se o pedido não for possível (por falta de estoque, por exemplo), o cliente é informado e pode reeditar o item.
+## Caso de Uso 5 – Adicionar Cupom
 
-## Caso de Uso 5 – Processar Pagamento
-//
+**Ator Principal**: Cliente  
+**Objetivo**: Permitir ao cliente utilizar cupons de desconto no pedido.  
+**Descrição**: O cliente pode inserir um cupom válido para aplicar desconto no total do pedido.
 
-## Caso de Uso 6 – Fazer Login
+### Fluxo de Eventos Principal:
+1. O cliente confirma o pedido.  
+2. O cliente acessa a área de cupons.  
+3. O cliente insere o código do cupom.  
+4. O sistema verifica a validade.  
+5. Se válido, o desconto é aplicado no total da compra.
+
+### Fluxo de Exceção:
+- Cupom inválido ou expirado: O sistema informa e permite tentar outro cupom.  
+- Erro de digitação: O sistema sugere revisar o código digitado.
+
+
+## Caso de Uso 6 – Processar Pagamento
+
+**Ator Principal**: Cliente  
+**Objetivo**: Finalizar o pedido com o pagamento, de forma segura.  
+**Descrição**: Após revisar o carrinho, o cliente escolhe a forma de pagamento (cartão, pix, ou dinheiro) e conclui a transação.
+
+### Fluxo de Eventos Principal:
+1. O cliente confirma o pedido.  
+2. O sistema exibe as opções de pagamento.  
+3. O cliente escolhe a forma de pagamento.  
+4. O sistema processa a transação.  
+5. Se aprovado, o pedido é finalizado.  
+6. O sistema oferece a opção de imprimir nota fiscal.
+
+### Fluxo de Exceção:
+- Pagamento recusado: O sistema informa o erro e permite tentar novamente ou mudar o método.  
+
+## Caso de Uso 7 – Fazer Login
 **Ator Principal**: Cliente
 
 **Objetivo**: Permitir que o cliente acesse sua conta no totem.
@@ -79,11 +110,21 @@
 •	Credenciais inválidas: O sistema informa ao cliente que os dados inseridos estão incorretos e permite tentar novamente.
 •	Falha de conexão: O sistema exibe uma mensagem de erro e sugere tentar novamente mais tarde.
 
-## Caso de Uso 7 – Adicionar Cupom
-//
-
 ## Caso de Uso 8 – Imprimir Nota Fiscal
-//
+
+**Ator Principal**: Cliente  
+**Objetivo**: Emitir e entregar ao cliente a nota fiscal do pedido.  
+**Descrição**: Após o pagamento, o sistema gera uma nota fiscal que pode ser impressa para comprovação da compra.
+
+### Fluxo de Eventos Principal:
+1. O cliente conclui o pagamento.  
+2. O sistema gera a nota fiscal eletrônica.  
+3. O sistema envia comando para a impressora.  
+4. A nota fiscal é impressa e entregue ao cliente.
+
+### Fluxo de Exceção:
+- Falha na impressora: O sistema exibe mensagem de erro e oferece a opção de reimpressão ou envio por e-mail (se disponível).
+
 ## Caso de Uso 9 – Cadastrar Produto
 **Ator Principal**: Administrador
 
@@ -124,5 +165,3 @@
 ### Fluxo de Eventos Principal:
 1.	O Administrador remove o produto desejado.
 2.	Sistema remove o produto do totem
-
-
