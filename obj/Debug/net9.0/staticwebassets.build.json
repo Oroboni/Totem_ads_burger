@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1TTpeBsgHrLjX3iehf7vm7LqBLg0jWtik1nba9ju82I=",
+  "Hash": "ra2vGGOx5azYvhXm7iD3chFGafg0Xb9hf+MHyk3p5m8=",
   "Source": "TotemPWA",
   "BasePath": "_content/TotemPWA",
   "Mode": "Default",
@@ -78,6 +78,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1nvw2ig7mg-f8enlu49pv.gz",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/minus-cirlce#[.{fingerprint=f8enlu49pv}]?.svg.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\minus-cirlce.svg",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "7mnpnse2ds",
+      "Integrity": "MfV5pOD5UhCq6qNCoDb/1vdV0JdZw6LlXVVnB9TFpJ0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\minus-cirlce.svg"
     },
     {
       "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\2hz7fms779-tmc1g35s3z.gz",
@@ -626,12 +647,12 @@
       "OriginalItemSpec": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\fk5cfcji0l-nfrq5da7ut.gz",
+      "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\fk5cfcji0l-9e69z4to2r.gz",
       "SourceId": "TotemPWA",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TotemPWA",
-      "RelativePath": "css/Editar#[.{fingerprint=nfrq5da7ut}]?.css.gz",
+      "RelativePath": "css/Editar#[.{fingerprint=9e69z4to2r}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -640,8 +661,8 @@
       "RelatedAsset": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\css\\Editar.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "1roqgtxp2c",
-      "Integrity": "MwwHNHhIzx7B4iANRbJYfaT6nCgzIn9o+woYBQ/v9og=",
+      "Fingerprint": "uvx03lw085",
+      "Integrity": "igJ7eOGK+cRIDZS/NBJQXW8EHK4T8nBcyO9Sk7EhoeY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\css\\Editar.css"
@@ -687,6 +708,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\gkpdw1s7lk-2ts38pziu4.gz",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/add-circle#[.{fingerprint=2ts38pziu4}]?.svg.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\add-circle.svg",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "xqw82dopxn",
+      "Integrity": "N1KBP/YkJI/DZXztmTSfvyNegelA7hevR7DtAMbFnVw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\add-circle.svg"
     },
     {
       "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\gz7b979dgd-u9q1upor1n.gz",
@@ -1396,8 +1438,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "nfrq5da7ut",
-      "Integrity": "Y+ZZD8aDOBE3Gxz94Y91Olg/g0NqOoBwPEfqgF5OcYc=",
+      "Fingerprint": "9e69z4to2r",
+      "Integrity": "XxTV5rM7Fi64c/TuGnBQwft0BLDpp3v774/iy84q8wM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Editar.css"
@@ -1464,6 +1506,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\add-circle.png",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/add-circle#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "eg9m8z6w2f",
+      "Integrity": "olJuG3B2uxziHS+6hhkzciTky58P+SdAdemZALDQMX4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\add-circle.png"
+    },
+    {
+      "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\add-circle.svg",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/add-circle#[.{fingerprint}]?.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2ts38pziu4",
+      "Integrity": "lnAnLdmlr28XIAKtCnwCvu5DaqCaPlZSefo+2tUPWh4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\add-circle.svg"
     },
     {
       "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
@@ -1548,6 +1632,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\LogoADSBurguer.png"
+    },
+    {
+      "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\minus-cirlce.svg",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/minus-cirlce#[.{fingerprint}]?.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f8enlu49pv",
+      "Integrity": "z5TLr1G6DERCxkAFXU5HlhZQ2BZFfoLVmanLkShTJEQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\minus-cirlce.svg"
     },
     {
       "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\sombra 1.png",
@@ -2896,13 +3001,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/Editar.css",
-      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\fk5cfcji0l-nfrq5da7ut.gz",
+      "Route": "css/Editar.9e69z4to2r.css",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\fk5cfcji0l-9e69z4to2r.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001153402537"
+          "Quality": "0.000946969697"
         }
       ],
       "ResponseHeaders": [
@@ -2912,19 +3017,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "866"
+          "Value": "1055"
         },
         {
           "Name": "ETag",
-          "Value": "\"MwwHNHhIzx7B4iANRbJYfaT6nCgzIn9o+woYBQ/v9og=\""
+          "Value": "\"igJ7eOGK+cRIDZS/NBJQXW8EHK4T8nBcyO9Sk7EhoeY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 01:56:15 GMT"
+          "Value": "Sun, 13 Apr 2025 20:27:54 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -2940,18 +3045,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Y+ZZD8aDOBE3Gxz94Y91Olg/g0NqOoBwPEfqgF5OcYc=\""
+          "Value": "W/\"XxTV5rM7Fi64c/TuGnBQwft0BLDpp3v774/iy84q8wM=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "9e69z4to2r"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Editar.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-Y+ZZD8aDOBE3Gxz94Y91Olg/g0NqOoBwPEfqgF5OcYc="
+          "Value": "sha256-XxTV5rM7Fi64c/TuGnBQwft0BLDpp3v774/iy84q8wM="
         }
       ]
     },
     {
-      "Route": "css/Editar.css",
+      "Route": "css/Editar.9e69z4to2r.css",
       "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\css\\Editar.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2961,7 +3074,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2591"
+          "Value": "3073"
         },
         {
           "Name": "Content-Type",
@@ -2969,121 +3082,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Y+ZZD8aDOBE3Gxz94Y91Olg/g0NqOoBwPEfqgF5OcYc=\""
+          "Value": "\"XxTV5rM7Fi64c/TuGnBQwft0BLDpp3v774/iy84q8wM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 01:56:15 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-Y+ZZD8aDOBE3Gxz94Y91Olg/g0NqOoBwPEfqgF5OcYc="
-        }
-      ]
-    },
-    {
-      "Route": "css/Editar.css.gz",
-      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\fk5cfcji0l-nfrq5da7ut.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "866"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"MwwHNHhIzx7B4iANRbJYfaT6nCgzIn9o+woYBQ/v9og=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 01:56:15 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-MwwHNHhIzx7B4iANRbJYfaT6nCgzIn9o+woYBQ/v9og="
-        }
-      ]
-    },
-    {
-      "Route": "css/Editar.nfrq5da7ut.css",
-      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\fk5cfcji0l-nfrq5da7ut.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001153402537"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "866"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"MwwHNHhIzx7B4iANRbJYfaT6nCgzIn9o+woYBQ/v9og=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 01:56:15 GMT"
+          "Value": "Sun, 13 Apr 2025 20:27:54 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"Y+ZZD8aDOBE3Gxz94Y91Olg/g0NqOoBwPEfqgF5OcYc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "nfrq5da7ut"
+          "Value": "9e69z4to2r"
         },
         {
           "Name": "label",
@@ -3091,13 +3104,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Y+ZZD8aDOBE3Gxz94Y91Olg/g0NqOoBwPEfqgF5OcYc="
+          "Value": "sha256-XxTV5rM7Fi64c/TuGnBQwft0BLDpp3v774/iy84q8wM="
         }
       ]
     },
     {
-      "Route": "css/Editar.nfrq5da7ut.css",
-      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\css\\Editar.css",
+      "Route": "css/Editar.9e69z4to2r.css.gz",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\fk5cfcji0l-9e69z4to2r.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3106,7 +3119,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2591"
+          "Value": "1055"
         },
         {
           "Name": "Content-Type",
@@ -3114,56 +3127,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Y+ZZD8aDOBE3Gxz94Y91Olg/g0NqOoBwPEfqgF5OcYc=\""
+          "Value": "\"igJ7eOGK+cRIDZS/NBJQXW8EHK4T8nBcyO9Sk7EhoeY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 01:56:15 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "nfrq5da7ut"
-        },
-        {
-          "Name": "label",
-          "Value": "css/Editar.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-Y+ZZD8aDOBE3Gxz94Y91Olg/g0NqOoBwPEfqgF5OcYc="
-        }
-      ]
-    },
-    {
-      "Route": "css/Editar.nfrq5da7ut.css.gz",
-      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\fk5cfcji0l-nfrq5da7ut.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "866"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"MwwHNHhIzx7B4iANRbJYfaT6nCgzIn9o+woYBQ/v9og=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 01:56:15 GMT"
+          "Value": "Sun, 13 Apr 2025 20:27:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3181,7 +3149,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "nfrq5da7ut"
+          "Value": "9e69z4to2r"
         },
         {
           "Name": "label",
@@ -3189,7 +3157,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MwwHNHhIzx7B4iANRbJYfaT6nCgzIn9o+woYBQ/v9og="
+          "Value": "sha256-igJ7eOGK+cRIDZS/NBJQXW8EHK4T8nBcyO9Sk7EhoeY="
+        }
+      ]
+    },
+    {
+      "Route": "css/Editar.css",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\fk5cfcji0l-9e69z4to2r.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000946969697"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1055"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"igJ7eOGK+cRIDZS/NBJQXW8EHK4T8nBcyO9Sk7EhoeY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 20:27:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"XxTV5rM7Fi64c/TuGnBQwft0BLDpp3v774/iy84q8wM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XxTV5rM7Fi64c/TuGnBQwft0BLDpp3v774/iy84q8wM="
+        }
+      ]
+    },
+    {
+      "Route": "css/Editar.css",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\css\\Editar.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3073"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XxTV5rM7Fi64c/TuGnBQwft0BLDpp3v774/iy84q8wM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 20:27:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XxTV5rM7Fi64c/TuGnBQwft0BLDpp3v774/iy84q8wM="
+        }
+      ]
+    },
+    {
+      "Route": "css/Editar.css.gz",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\fk5cfcji0l-9e69z4to2r.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1055"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"igJ7eOGK+cRIDZS/NBJQXW8EHK4T8nBcyO9Sk7EhoeY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 20:27:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-igJ7eOGK+cRIDZS/NBJQXW8EHK4T8nBcyO9Sk7EhoeY="
         }
       ]
     },
@@ -4088,6 +4193,386 @@
       ]
     },
     {
+      "Route": "img/add-circle.2ts38pziu4.svg",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\gkpdw1s7lk-2ts38pziu4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002531645570"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "394"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N1KBP/YkJI/DZXztmTSfvyNegelA7hevR7DtAMbFnVw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:39:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"lnAnLdmlr28XIAKtCnwCvu5DaqCaPlZSefo+2tUPWh4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2ts38pziu4"
+        },
+        {
+          "Name": "label",
+          "Value": "img/add-circle.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lnAnLdmlr28XIAKtCnwCvu5DaqCaPlZSefo+2tUPWh4="
+        }
+      ]
+    },
+    {
+      "Route": "img/add-circle.2ts38pziu4.svg",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\add-circle.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "869"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lnAnLdmlr28XIAKtCnwCvu5DaqCaPlZSefo+2tUPWh4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:39:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2ts38pziu4"
+        },
+        {
+          "Name": "label",
+          "Value": "img/add-circle.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lnAnLdmlr28XIAKtCnwCvu5DaqCaPlZSefo+2tUPWh4="
+        }
+      ]
+    },
+    {
+      "Route": "img/add-circle.2ts38pziu4.svg.gz",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\gkpdw1s7lk-2ts38pziu4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "394"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N1KBP/YkJI/DZXztmTSfvyNegelA7hevR7DtAMbFnVw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:39:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2ts38pziu4"
+        },
+        {
+          "Name": "label",
+          "Value": "img/add-circle.svg.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-N1KBP/YkJI/DZXztmTSfvyNegelA7hevR7DtAMbFnVw="
+        }
+      ]
+    },
+    {
+      "Route": "img/add-circle.eg9m8z6w2f.png",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\add-circle.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1405"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"olJuG3B2uxziHS+6hhkzciTky58P+SdAdemZALDQMX4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 17:02:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "eg9m8z6w2f"
+        },
+        {
+          "Name": "label",
+          "Value": "img/add-circle.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-olJuG3B2uxziHS+6hhkzciTky58P+SdAdemZALDQMX4="
+        }
+      ]
+    },
+    {
+      "Route": "img/add-circle.png",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\add-circle.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1405"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"olJuG3B2uxziHS+6hhkzciTky58P+SdAdemZALDQMX4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 17:02:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-olJuG3B2uxziHS+6hhkzciTky58P+SdAdemZALDQMX4="
+        }
+      ]
+    },
+    {
+      "Route": "img/add-circle.svg",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\gkpdw1s7lk-2ts38pziu4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002531645570"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "394"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N1KBP/YkJI/DZXztmTSfvyNegelA7hevR7DtAMbFnVw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:39:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"lnAnLdmlr28XIAKtCnwCvu5DaqCaPlZSefo+2tUPWh4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lnAnLdmlr28XIAKtCnwCvu5DaqCaPlZSefo+2tUPWh4="
+        }
+      ]
+    },
+    {
+      "Route": "img/add-circle.svg",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\add-circle.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "869"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lnAnLdmlr28XIAKtCnwCvu5DaqCaPlZSefo+2tUPWh4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:39:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lnAnLdmlr28XIAKtCnwCvu5DaqCaPlZSefo+2tUPWh4="
+        }
+      ]
+    },
+    {
+      "Route": "img/add-circle.svg.gz",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\gkpdw1s7lk-2ts38pziu4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "394"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N1KBP/YkJI/DZXztmTSfvyNegelA7hevR7DtAMbFnVw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:39:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-N1KBP/YkJI/DZXztmTSfvyNegelA7hevR7DtAMbFnVw="
+        }
+      ]
+    },
+    {
       "Route": "img/banner.hlwbjief07.jpg",
       "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
       "Selectors": [],
@@ -4412,6 +4897,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-pJJJ5mRdXSCZj6jqz9jQR0cJl7EAxH2deKcyLkNS/0s="
+        }
+      ]
+    },
+    {
+      "Route": "img/minus-cirlce.f8enlu49pv.svg",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1nvw2ig7mg-f8enlu49pv.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003021148036"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "330"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MfV5pOD5UhCq6qNCoDb/1vdV0JdZw6LlXVVnB9TFpJ0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:36:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"z5TLr1G6DERCxkAFXU5HlhZQ2BZFfoLVmanLkShTJEQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f8enlu49pv"
+        },
+        {
+          "Name": "label",
+          "Value": "img/minus-cirlce.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z5TLr1G6DERCxkAFXU5HlhZQ2BZFfoLVmanLkShTJEQ="
+        }
+      ]
+    },
+    {
+      "Route": "img/minus-cirlce.f8enlu49pv.svg",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\minus-cirlce.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "631"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z5TLr1G6DERCxkAFXU5HlhZQ2BZFfoLVmanLkShTJEQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:36:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f8enlu49pv"
+        },
+        {
+          "Name": "label",
+          "Value": "img/minus-cirlce.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z5TLr1G6DERCxkAFXU5HlhZQ2BZFfoLVmanLkShTJEQ="
+        }
+      ]
+    },
+    {
+      "Route": "img/minus-cirlce.f8enlu49pv.svg.gz",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1nvw2ig7mg-f8enlu49pv.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "330"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MfV5pOD5UhCq6qNCoDb/1vdV0JdZw6LlXVVnB9TFpJ0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:36:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f8enlu49pv"
+        },
+        {
+          "Name": "label",
+          "Value": "img/minus-cirlce.svg.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MfV5pOD5UhCq6qNCoDb/1vdV0JdZw6LlXVVnB9TFpJ0="
+        }
+      ]
+    },
+    {
+      "Route": "img/minus-cirlce.svg",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1nvw2ig7mg-f8enlu49pv.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.003021148036"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "330"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MfV5pOD5UhCq6qNCoDb/1vdV0JdZw6LlXVVnB9TFpJ0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:36:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"z5TLr1G6DERCxkAFXU5HlhZQ2BZFfoLVmanLkShTJEQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z5TLr1G6DERCxkAFXU5HlhZQ2BZFfoLVmanLkShTJEQ="
+        }
+      ]
+    },
+    {
+      "Route": "img/minus-cirlce.svg",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\minus-cirlce.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "631"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z5TLr1G6DERCxkAFXU5HlhZQ2BZFfoLVmanLkShTJEQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:36:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z5TLr1G6DERCxkAFXU5HlhZQ2BZFfoLVmanLkShTJEQ="
+        }
+      ]
+    },
+    {
+      "Route": "img/minus-cirlce.svg.gz",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1nvw2ig7mg-f8enlu49pv.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "330"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MfV5pOD5UhCq6qNCoDb/1vdV0JdZw6LlXVVnB9TFpJ0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 16:36:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MfV5pOD5UhCq6qNCoDb/1vdV0JdZw6LlXVVnB9TFpJ0="
         }
       ]
     },

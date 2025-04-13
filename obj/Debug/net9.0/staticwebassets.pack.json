@@ -29,8 +29,20 @@
       "PackagePath": "staticwebassets\\img\\LogoADSBurguer.png"
     },
     {
+      "Id": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\add-circle.png",
+      "PackagePath": "staticwebassets\\img\\add-circle.png"
+    },
+    {
+      "Id": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\add-circle.svg",
+      "PackagePath": "staticwebassets\\img\\add-circle.svg"
+    },
+    {
       "Id": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
       "PackagePath": "staticwebassets\\img\\banner.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\minus-cirlce.svg",
+      "PackagePath": "staticwebassets\\img\\minus-cirlce.svg"
     },
     {
       "Id": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\wwwroot\\img\\sombra 1.png",

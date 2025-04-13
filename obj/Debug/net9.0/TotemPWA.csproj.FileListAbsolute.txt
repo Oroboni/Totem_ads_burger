@@ -567,4 +567,6 @@ C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\T
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem PWA\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem PWA\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem PWA\Totem_ads_burger\obj\Debug\net9.0\compressed\2vzvvzn0f9-6g93dhb333.gz
-C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem PWA\Totem_ads_burger\obj\Debug\net9.0\compressed\fk5cfcji0l-nfrq5da7ut.gz
+C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem PWA\Totem_ads_burger\obj\Debug\net9.0\compressed\gkpdw1s7lk-2ts38pziu4.gz
+C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem PWA\Totem_ads_burger\obj\Debug\net9.0\compressed\1nvw2ig7mg-f8enlu49pv.gz
+C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem PWA\Totem_ads_burger\obj\Debug\net9.0\compressed\fk5cfcji0l-9e69z4to2r.gz
