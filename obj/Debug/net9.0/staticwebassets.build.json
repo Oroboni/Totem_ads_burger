@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Cc+LWUdKDQyCWqC8DuhzAv9CHWHhp/QUiOUpsujsXv8=",
+  "Hash": "BmiW59u9D0jEtlbgy0UCsGCI/0XIckd0xguRzbu51Oo=",
   "Source": "TotemPWA",
   "BasePath": "_content/TotemPWA",
   "Mode": "Default",
@@ -80,12 +80,12 @@
       "OriginalItemSpec": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-6eu4hu158z.gz",
+      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-fz21acq73t.gz",
       "SourceId": "TotemPWA",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TotemPWA",
-      "RelativePath": "css/carrinho#[.{fingerprint=6eu4hu158z}]?.css.gz",
+      "RelativePath": "css/carrinho#[.{fingerprint=fz21acq73t}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -94,8 +94,8 @@
       "RelatedAsset": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\css\\carrinho.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "861bdsjtny",
-      "Integrity": "UJgWr9jiUYiiVxTBcP9QzY15D+lKLc7aUTBbNfKBR+U=",
+      "Fingerprint": "3yfa8chj4p",
+      "Integrity": "xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\css\\carrinho.css"
@@ -708,6 +708,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\hxm0i14msq-o6ndkmgvyi.gz",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/arrow-left#[.{fingerprint=o6ndkmgvyi}]?.svg.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\arrow-left.svg",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "9lcnyerini",
+      "Integrity": "g9ZM6Z1dgx67b2Kju8OYIT5dlOwFTG0Izz4bKhIbg6M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\arrow-left.svg"
     },
     {
       "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\j9utbkgb03-worgj0nhwm.gz",
@@ -1361,6 +1382,27 @@
       "OriginalItemSpec": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-o6w6067urt.gz",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/icons/trash-can#[.{fingerprint=o6w6067urt}]?.svg.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\icons\\trash-can.svg",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "nxg9bnvv1p",
+      "Integrity": "BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\icons\\trash-can.svg"
+    },
+    {
       "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\css\\carrinho.css",
       "SourceId": "TotemPWA",
       "SourceType": "Discovered",
@@ -1375,8 +1417,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "6eu4hu158z",
-      "Integrity": "IlTfIbwVW/2R7TWYIXkJ/z914CleOd4WH00BmJGOhaU=",
+      "Fingerprint": "fz21acq73t",
+      "Integrity": "peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\carrinho.css"
@@ -1445,6 +1487,27 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\arrow-left.svg",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/arrow-left#[.{fingerprint}]?.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "o6ndkmgvyi",
+      "Integrity": "YN0mN87N/GG+QvqVyHGClT8jq5bJqJKjsY/RZ0P4D7E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\arrow-left.svg"
+    },
+    {
       "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
       "SourceId": "TotemPWA",
       "SourceType": "Discovered",
@@ -1464,6 +1527,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\banner.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\buguer404.png",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/buguer404#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gol0qws8bs",
+      "Integrity": "QPjtLtaucOeZkl5POOiKrkyKhAvTkfgkl+ny/igJ26Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\buguer404.png"
     },
     {
       "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\burguerI.jpg",
@@ -1592,6 +1676,27 @@
       "OriginalItemSpec": "wwwroot\\img\\headerBanner.png"
     },
     {
+      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\icons\\trash-can.svg",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/icons/trash-can#[.{fingerprint}]?.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "o6w6067urt",
+      "Integrity": "kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\icons\\trash-can.svg"
+    },
+    {
       "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\LogoADSBurguer.png",
       "SourceId": "TotemPWA",
       "SourceType": "Discovered",
@@ -1611,6 +1716,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\LogoADSBurguer.png"
+    },
+    {
+      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\milkshake.png",
+      "SourceId": "TotemPWA",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\",
+      "BasePath": "_content/TotemPWA",
+      "RelativePath": "img/milkshake#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "spn8q5ux7l",
+      "Integrity": "8CdV8QHAa7fB4pYXjqiPJBmfkoAOpjWUBtUmT0zTLOo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\milkshake.png"
     },
     {
       "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\sombra 1.png",
@@ -2938,13 +3064,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/carrinho.6eu4hu158z.css",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-6eu4hu158z.gz",
+      "Route": "css/carrinho.css",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-fz21acq73t.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001189060642"
+          "Quality": "0.000688705234"
         }
       ],
       "ResponseHeaders": [
@@ -2954,19 +3080,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "840"
+          "Value": "1451"
         },
         {
           "Name": "ETag",
-          "Value": "\"UJgWr9jiUYiiVxTBcP9QzY15D+lKLc7aUTBbNfKBR+U=\""
+          "Value": "\"xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 06:21:30 GMT"
+          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -2982,26 +3108,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"IlTfIbwVW/2R7TWYIXkJ/z914CleOd4WH00BmJGOhaU=\""
+          "Value": "W/\"peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "6eu4hu158z"
-        },
-        {
-          "Name": "label",
-          "Value": "css/carrinho.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-IlTfIbwVW/2R7TWYIXkJ/z914CleOd4WH00BmJGOhaU="
+          "Value": "sha256-peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk="
         }
       ]
     },
     {
-      "Route": "css/carrinho.6eu4hu158z.css",
+      "Route": "css/carrinho.css",
       "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\css\\carrinho.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3011,7 +3129,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2492"
+          "Value": "4708"
         },
         {
           "Name": "Content-Type",
@@ -3019,11 +3137,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IlTfIbwVW/2R7TWYIXkJ/z914CleOd4WH00BmJGOhaU=\""
+          "Value": "\"peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 06:21:30 GMT"
+          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk="
+        }
+      ]
+    },
+    {
+      "Route": "css/carrinho.css.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-fz21acq73t.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1451"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU="
+        }
+      ]
+    },
+    {
+      "Route": "css/carrinho.fz21acq73t.css",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-fz21acq73t.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000688705234"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1451"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fz21acq73t"
+        },
+        {
+          "Name": "label",
+          "Value": "css/carrinho.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk="
+        }
+      ]
+    },
+    {
+      "Route": "css/carrinho.fz21acq73t.css",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\css\\carrinho.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4708"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3033,7 +3296,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "6eu4hu158z"
+          "Value": "fz21acq73t"
         },
         {
           "Name": "label",
@@ -3041,13 +3304,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-IlTfIbwVW/2R7TWYIXkJ/z914CleOd4WH00BmJGOhaU="
+          "Value": "sha256-peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk="
         }
       ]
     },
     {
-      "Route": "css/carrinho.6eu4hu158z.css.gz",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-6eu4hu158z.gz",
+      "Route": "css/carrinho.fz21acq73t.css.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-fz21acq73t.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3056,7 +3319,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "840"
+          "Value": "1451"
         },
         {
           "Name": "Content-Type",
@@ -3064,11 +3327,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"UJgWr9jiUYiiVxTBcP9QzY15D+lKLc7aUTBbNfKBR+U=\""
+          "Value": "\"xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 06:21:30 GMT"
+          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3086,7 +3349,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "6eu4hu158z"
+          "Value": "fz21acq73t"
         },
         {
           "Name": "label",
@@ -3094,144 +3357,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-UJgWr9jiUYiiVxTBcP9QzY15D+lKLc7aUTBbNfKBR+U="
-        }
-      ]
-    },
-    {
-      "Route": "css/carrinho.css",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-6eu4hu158z.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001189060642"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "840"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"UJgWr9jiUYiiVxTBcP9QzY15D+lKLc7aUTBbNfKBR+U=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 06:21:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"IlTfIbwVW/2R7TWYIXkJ/z914CleOd4WH00BmJGOhaU=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-IlTfIbwVW/2R7TWYIXkJ/z914CleOd4WH00BmJGOhaU="
-        }
-      ]
-    },
-    {
-      "Route": "css/carrinho.css",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\css\\carrinho.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2492"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"IlTfIbwVW/2R7TWYIXkJ/z914CleOd4WH00BmJGOhaU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 06:21:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-IlTfIbwVW/2R7TWYIXkJ/z914CleOd4WH00BmJGOhaU="
-        }
-      ]
-    },
-    {
-      "Route": "css/carrinho.css.gz",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-6eu4hu158z.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "840"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"UJgWr9jiUYiiVxTBcP9QzY15D+lKLc7aUTBbNfKBR+U=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 06:21:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-UJgWr9jiUYiiVxTBcP9QzY15D+lKLc7aUTBbNfKBR+U="
+          "Value": "sha256-xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU="
         }
       ]
     },
@@ -4130,6 +4256,304 @@
       ]
     },
     {
+      "Route": "img/arrow-left.o6ndkmgvyi.svg",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\hxm0i14msq-o6ndkmgvyi.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001253132832"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "797"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g9ZM6Z1dgx67b2Kju8OYIT5dlOwFTG0Izz4bKhIbg6M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 06:07:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"YN0mN87N/GG+QvqVyHGClT8jq5bJqJKjsY/RZ0P4D7E=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o6ndkmgvyi"
+        },
+        {
+          "Name": "label",
+          "Value": "img/arrow-left.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YN0mN87N/GG+QvqVyHGClT8jq5bJqJKjsY/RZ0P4D7E="
+        }
+      ]
+    },
+    {
+      "Route": "img/arrow-left.o6ndkmgvyi.svg",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\arrow-left.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1878"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YN0mN87N/GG+QvqVyHGClT8jq5bJqJKjsY/RZ0P4D7E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 06:07:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o6ndkmgvyi"
+        },
+        {
+          "Name": "label",
+          "Value": "img/arrow-left.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YN0mN87N/GG+QvqVyHGClT8jq5bJqJKjsY/RZ0P4D7E="
+        }
+      ]
+    },
+    {
+      "Route": "img/arrow-left.o6ndkmgvyi.svg.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\hxm0i14msq-o6ndkmgvyi.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "797"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g9ZM6Z1dgx67b2Kju8OYIT5dlOwFTG0Izz4bKhIbg6M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 06:07:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o6ndkmgvyi"
+        },
+        {
+          "Name": "label",
+          "Value": "img/arrow-left.svg.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-g9ZM6Z1dgx67b2Kju8OYIT5dlOwFTG0Izz4bKhIbg6M="
+        }
+      ]
+    },
+    {
+      "Route": "img/arrow-left.svg",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\hxm0i14msq-o6ndkmgvyi.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001253132832"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "797"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g9ZM6Z1dgx67b2Kju8OYIT5dlOwFTG0Izz4bKhIbg6M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 06:07:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"YN0mN87N/GG+QvqVyHGClT8jq5bJqJKjsY/RZ0P4D7E=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YN0mN87N/GG+QvqVyHGClT8jq5bJqJKjsY/RZ0P4D7E="
+        }
+      ]
+    },
+    {
+      "Route": "img/arrow-left.svg",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\arrow-left.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1878"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YN0mN87N/GG+QvqVyHGClT8jq5bJqJKjsY/RZ0P4D7E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 06:07:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YN0mN87N/GG+QvqVyHGClT8jq5bJqJKjsY/RZ0P4D7E="
+        }
+      ]
+    },
+    {
+      "Route": "img/arrow-left.svg.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\hxm0i14msq-o6ndkmgvyi.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "797"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g9ZM6Z1dgx67b2Kju8OYIT5dlOwFTG0Izz4bKhIbg6M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 06:07:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-g9ZM6Z1dgx67b2Kju8OYIT5dlOwFTG0Izz4bKhIbg6M="
+        }
+      ]
+    },
+    {
       "Route": "img/banner.hlwbjief07.jpg",
       "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
       "Selectors": [],
@@ -4208,6 +4632,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-O2vMvq118UvSweHQJIZs+O0J+BMXJfnXf6oygn3SCtk="
+        }
+      ]
+    },
+    {
+      "Route": "img/buguer404.gol0qws8bs.png",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\buguer404.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "37391"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QPjtLtaucOeZkl5POOiKrkyKhAvTkfgkl+ny/igJ26Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 07:53:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gol0qws8bs"
+        },
+        {
+          "Name": "label",
+          "Value": "img/buguer404.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QPjtLtaucOeZkl5POOiKrkyKhAvTkfgkl+ny/igJ26Q="
+        }
+      ]
+    },
+    {
+      "Route": "img/buguer404.png",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\buguer404.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "37391"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QPjtLtaucOeZkl5POOiKrkyKhAvTkfgkl+ny/igJ26Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 07:53:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QPjtLtaucOeZkl5POOiKrkyKhAvTkfgkl+ny/igJ26Q="
         }
       ]
     },
@@ -4704,6 +5210,304 @@
       ]
     },
     {
+      "Route": "img/icons/trash-can.o6w6067urt.svg",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-o6w6067urt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001059322034"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "943"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o6w6067urt"
+        },
+        {
+          "Name": "label",
+          "Value": "img/icons/trash-can.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA="
+        }
+      ]
+    },
+    {
+      "Route": "img/icons/trash-can.o6w6067urt.svg",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\icons\\trash-can.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2102"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o6w6067urt"
+        },
+        {
+          "Name": "label",
+          "Value": "img/icons/trash-can.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA="
+        }
+      ]
+    },
+    {
+      "Route": "img/icons/trash-can.o6w6067urt.svg.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-o6w6067urt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "943"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o6w6067urt"
+        },
+        {
+          "Name": "label",
+          "Value": "img/icons/trash-can.svg.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k="
+        }
+      ]
+    },
+    {
+      "Route": "img/icons/trash-can.svg",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-o6w6067urt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001059322034"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "943"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA="
+        }
+      ]
+    },
+    {
+      "Route": "img/icons/trash-can.svg",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\icons\\trash-can.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2102"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA="
+        }
+      ]
+    },
+    {
+      "Route": "img/icons/trash-can.svg.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-o6w6067urt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "943"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k="
+        }
+      ]
+    },
+    {
       "Route": "img/LogoADSBurguer.c8buhezgx9.png",
       "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\LogoADSBurguer.png",
       "Selectors": [],
@@ -4782,6 +5586,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-pJJJ5mRdXSCZj6jqz9jQR0cJl7EAxH2deKcyLkNS/0s="
+        }
+      ]
+    },
+    {
+      "Route": "img/milkshake.png",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\milkshake.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298766"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8CdV8QHAa7fB4pYXjqiPJBmfkoAOpjWUBtUmT0zTLOo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 06:59:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8CdV8QHAa7fB4pYXjqiPJBmfkoAOpjWUBtUmT0zTLOo="
+        }
+      ]
+    },
+    {
+      "Route": "img/milkshake.spn8q5ux7l.png",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\milkshake.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "298766"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8CdV8QHAa7fB4pYXjqiPJBmfkoAOpjWUBtUmT0zTLOo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 06:59:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "spn8q5ux7l"
+        },
+        {
+          "Name": "label",
+          "Value": "img/milkshake.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8CdV8QHAa7fB4pYXjqiPJBmfkoAOpjWUBtUmT0zTLOo="
         }
       ]
     },

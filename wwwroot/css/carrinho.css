@@ -44,6 +44,17 @@ i{
     padding: 0em 0.3em 0em 0.3em;
     cursor: pointer;
 }
+.lixeira{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    width: 32px;
+    height: 37px;
+    left: 0px;
+    top: 0px;
+    background: #880202";
+}
 
 
 .price-quantity {

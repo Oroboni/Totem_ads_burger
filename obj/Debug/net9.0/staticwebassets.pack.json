@@ -29,8 +29,16 @@
       "PackagePath": "staticwebassets\\img\\LogoADSBurguer.png"
     },
     {
+      "Id": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\arrow-left.svg",
+      "PackagePath": "staticwebassets\\img\\arrow-left.svg"
+    },
+    {
       "Id": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\banner.jpg",
       "PackagePath": "staticwebassets\\img\\banner.jpg"
+    },
+    {
+      "Id": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\buguer404.png",
+      "PackagePath": "staticwebassets\\img\\buguer404.png"
     },
     {
       "Id": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\burguerI.jpg",
@@ -47,6 +55,14 @@
     {
       "Id": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\headerBanner.png",
       "PackagePath": "staticwebassets\\img\\headerBanner.png"
+    },
+    {
+      "Id": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\icons\\trash-can.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\trash-can.svg"
+    },
+    {
+      "Id": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\milkshake.png",
+      "PackagePath": "staticwebassets\\img\\milkshake.png"
     },
     {
       "Id": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\sombra 1.png",
