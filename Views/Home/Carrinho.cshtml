@@ -1,0 +1,102 @@
+@{
+    ViewBag.Title = "Carrinho";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<div class="banner">Carrinho</div>
+
+<div class="content">
+    <div class="container mt-5">
+        <h1 class="text-center">Carrinho de Compras</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered mt-4 text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unitário</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hambúrguer Clássico</td>
+                        <td>
+                            <input type="number" class="form-control text-center" value="1" min="1" />
+                        </td>
+                        <td>R$ 15,00</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Remover</button>
+                            <button class="btn btn-dark btn-sm" onclick="location.href='@Url.Action("Editar", "Home")'">Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <h4>Total: <strong>R$ 15,00</strong></h4>
+            <button class="btn btn-success btn-lg">Finalizar Pedido</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+
+    }
+
+    .banner {
+        width: 100%;
+        height: 160px;
+        background: url("https://as1.ftcdn.net/v2/jpg/11/83/61/00/1000_F_1183610030_iUhROCUzBuwVs6SkAk9um8cTY43gNUh8.jpg") center/cover;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .content {
+        margin-top: 180px;
+        padding: 20px;
+    }
+
+    .table thead {
+        background-color: #ff6600;
+        color: white;
+    }
+
+    .table tbody tr td {
+        vertical-align: middle;
+    }
+
+    button {
+        background: #ff6600;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+
+    button:hover {
+        background: #e65c00;
+    }
+</style>

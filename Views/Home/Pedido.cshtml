@@ -1,5 +1,5 @@
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Pedido";
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
 <style>
@@ -24,20 +24,21 @@
         transform: scale(1.05);
     }
 
-    button {
+    .button {
         background: #ff6600;
         color: white;
-        padding: 12px 20px;
+        font-size: 18px;
+        padding: 12px 24px;
         border: none;
-        border-radius: 5px;
-        font-size: 16px;
+        border-radius: 6px;
         cursor: pointer;
-        transition: background 0.3s ease-in-out;
+        transition: background 0.3s ease;
     }
 
-    button:hover {
-        background: #e65c00;
+    .button:hover {
+        background: #cc4400;
     }
+
 
 
     .banner {
@@ -111,7 +112,7 @@
 
     .menu-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
         width: 100%;
         max-width: 1200px;
@@ -181,14 +182,16 @@
         border-radius: 5px;
         cursor: pointer;
         transition: background 0.3s;
-        right: 20% !important;
+        margin-right: 20px;
+        position: relative;
+        z-index: 1;
     }
+
 
     .footer button:hover {
         background: #cc4400;
     }
 
-    /* Responsividade */
     @@media (max-width: 1024px) {
         .menu-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -213,6 +216,39 @@
             margin-left: 0;
             margin-top: 0;
         }
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%;
+        text-align: center;
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .end{
+        margin-bottom: 10vh;
     }
 </style>
 
@@ -258,50 +294,87 @@
 <!-- Conteúdo Principal -->
 <div class="content" id="content">
     <div class="menu-grid">
-        <div class="menu-item" onclick="addToCart(24.00)">
+        <div class="menu-item"
+            onclick="showModal('Burger 404','Clássico hambúrguer de carne com queijo derretido e molho especial', 'R$ 24,00')">
             <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Burger 404">
             <h3>Burger 404</h3>
-            <p>Hambúrguer clássico com queijo derretido e molho especial.</p>
+            <p>Clássico hambúrguer de carne com queijo derretido e molho especial.</p>
             <p class="price">R$ 24,00</p>
         </div>
-        <div class="menu-item" onclick="addToCart(25.00)">
+
+        <div class="menu-item"
+            onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante e molho barbecue', 'R$ 25,00')">
             <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Full Stack Burger">
             <h3>Full Stack Burger</h3>
-            <p>Duplo hambúrguer, bacon crocante e molho barbecue.</p>
+            <p>Duplo hambúrguer com bacon crocante e molho barbecue.</p>
             <p class="price">R$ 25,00</p>
         </div>
-        <div class="menu-item" onclick="addToCart(32.00)">
+
+        <div class="menu-item"
+            onclick="showModal('Looping Duplo','Dois hambúrgueres suculentos com queijo e cebola caramelizada', 'R$ 32,00')">
             <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Looping Duplo">
             <h3>Looping Duplo</h3>
             <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
             <p class="price">R$ 32,00</p>
         </div>
-        <div class="menu-item" onclick="addToCart(21.00)">
+
+        <div class="menu-item"
+            onclick="showModal('Hello World Veggie','Hambúrguer vegetariano com alface, tomate e molho especial', 'R$ 21,00')">
             <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg"
                 alt="Hello World Veggie">
             <h3>Hello World Veggie</h3>
             <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
             <p class="price">R$ 21,00</p>
         </div>
+        <div class="menu-item"
+            onclick="showModal('Hello World Veggie','Hambúrguer vegetariano com alface, tomate e molho especial', 'R$ 21,00')">
+            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg"
+                alt="Hello World Veggie">
+            <h3>Hello World Veggie</h3>
+            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+            <p class="price">R$ 21,00</p>
+        </div>
+        <div class="menu-item"
+            onclick="showModal('Hello World Veggie','Hambúrguer vegetariano com alface, tomate e molho especial', 'R$ 21,00')">
+            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg"
+                alt="Hello World Veggie">
+            <h3>Hello World Veggie</h3>
+            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+            <p class="price">R$ 21,00</p>
+        </div>
+
+        <div class="end"></div>
     </div>
 </div>
 
-<!-- Footer com Carrinho -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="titulo"></h2>
+        <p id="descricao"></p>
+        <p id="preco"></p>
+        <button id="buy-button" onclick="addToCart()">Comprar</button>
+    </div>
+</div>
+
 <div class="footer">
     <div>Itens no carrinho: <span id="cart-count">0</span></div>
     <div>Preço Total: R$ <span id="total-price">0.00</span></div>
-    <button onclick="checkout()">Finalizar Pedido</button>
+    <button class="button" onclick="checkout(); location.href='@Url.Action("Carrinho", "Home")'">Visualizar
+        Pedido</button>
 </div>
 
 <script>
     let cartCount = 0;
     let totalPrice = 0;
 
-    function addToCart(price) {
+    function addToCart() {
+        let price = parseFloat(document.getElementById("buy-button").getAttribute("data-price"));
         cartCount++;
         totalPrice += price;
         document.getElementById("cart-count").innerText = cartCount;
         document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+        closeModal();
     }
 
     function checkout() {
@@ -312,8 +385,22 @@
         document.getElementById("total-price").innerText = totalPrice.toFixed(2);
     }
 
-    function modal(){
-        
+    function showModal(title, description, preco) {
+        document.getElementById('titulo').innerText = title;
+        document.getElementById('descricao').innerText = description;
+        document.getElementById('preco').innerText = preco;
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+        var modal = document.getElementById('modal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
     }
 </script>
 
