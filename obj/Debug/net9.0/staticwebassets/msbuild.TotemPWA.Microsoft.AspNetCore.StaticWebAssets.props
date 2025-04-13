@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>fz21acq73t</Fingerprint>
-      <Integrity>peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=</Integrity>
+      <Fingerprint>t283o7yxmw</Fingerprint>
+      <Integrity>W8DfAm6Pow7bUDyN/YdepNEMrzZJW5O3Hw76bYYwHfw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\carrinho.css'))</OriginalItemSpec>
@@ -246,8 +246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>o6w6067urt</Fingerprint>
-      <Integrity>kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=</Integrity>
+      <Fingerprint>8n4c1kjeve</Fingerprint>
+      <Integrity>hMODBloHtDUAasE/dhAH91sthyXmNKdXT22nu2pSIXE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\icons\trash-can.svg'))</OriginalItemSpec>

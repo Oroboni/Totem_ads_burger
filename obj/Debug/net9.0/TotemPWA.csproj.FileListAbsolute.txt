@@ -567,5 +567,5 @@ C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.pd
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\compressed\hxm0i14msq-o6ndkmgvyi.gz
-C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\compressed\1xn8zmblva-fz21acq73t.gz
-C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\compressed\zvu6mp7yl8-o6w6067urt.gz
+C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\compressed\1xn8zmblva-t283o7yxmw.gz
+C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\compressed\zvu6mp7yl8-8n4c1kjeve.gz

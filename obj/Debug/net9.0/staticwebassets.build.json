@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BmiW59u9D0jEtlbgy0UCsGCI/0XIckd0xguRzbu51Oo=",
+  "Hash": "qoFjYgleZz4FqPnOpuYGsbxDhMVyRupxaQSvsoC4Hmw=",
   "Source": "TotemPWA",
   "BasePath": "_content/TotemPWA",
   "Mode": "Default",
@@ -80,12 +80,12 @@
       "OriginalItemSpec": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-fz21acq73t.gz",
+      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-t283o7yxmw.gz",
       "SourceId": "TotemPWA",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TotemPWA",
-      "RelativePath": "css/carrinho#[.{fingerprint=fz21acq73t}]?.css.gz",
+      "RelativePath": "css/carrinho#[.{fingerprint=t283o7yxmw}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -94,8 +94,8 @@
       "RelatedAsset": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\css\\carrinho.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "3yfa8chj4p",
-      "Integrity": "xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU=",
+      "Fingerprint": "n5ciknw5t2",
+      "Integrity": "C55gzqfnvBsT2e0VyWWMdwn/CJC2y8iMm1iQjXVrvXU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\css\\carrinho.css"
@@ -1382,12 +1382,12 @@
       "OriginalItemSpec": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-o6w6067urt.gz",
+      "Identity": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-8n4c1kjeve.gz",
       "SourceId": "TotemPWA",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TotemPWA",
-      "RelativePath": "img/icons/trash-can#[.{fingerprint=o6w6067urt}]?.svg.gz",
+      "RelativePath": "img/icons/trash-can#[.{fingerprint=8n4c1kjeve}]?.svg.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1396,8 +1396,8 @@
       "RelatedAsset": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\icons\\trash-can.svg",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "nxg9bnvv1p",
-      "Integrity": "BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k=",
+      "Fingerprint": "82vw6mnnhz",
+      "Integrity": "QHMaFElBOY9vBWtFDCWJogOolyGJIo38lzs4qfZ8Exw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\icons\\trash-can.svg"
@@ -1417,8 +1417,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "fz21acq73t",
-      "Integrity": "peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=",
+      "Fingerprint": "t283o7yxmw",
+      "Integrity": "W8DfAm6Pow7bUDyN/YdepNEMrzZJW5O3Hw76bYYwHfw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\carrinho.css"
@@ -1690,8 +1690,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "o6w6067urt",
-      "Integrity": "kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=",
+      "Fingerprint": "8n4c1kjeve",
+      "Integrity": "hMODBloHtDUAasE/dhAH91sthyXmNKdXT22nu2pSIXE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\icons\\trash-can.svg"
@@ -3065,12 +3065,12 @@
   "Endpoints": [
     {
       "Route": "css/carrinho.css",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-fz21acq73t.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-t283o7yxmw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000688705234"
+          "Quality": "0.000696864111"
         }
       ],
       "ResponseHeaders": [
@@ -3080,15 +3080,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1451"
+          "Value": "1434"
         },
         {
           "Name": "ETag",
-          "Value": "\"xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU=\""
+          "Value": "\"C55gzqfnvBsT2e0VyWWMdwn/CJC2y8iMm1iQjXVrvXU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
+          "Value": "Sun, 13 Apr 2025 13:10:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3108,13 +3108,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=\""
+          "Value": "W/\"W8DfAm6Pow7bUDyN/YdepNEMrzZJW5O3Hw76bYYwHfw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk="
+          "Value": "sha256-W8DfAm6Pow7bUDyN/YdepNEMrzZJW5O3Hw76bYYwHfw="
         }
       ]
     },
@@ -3129,7 +3129,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4708"
+          "Value": "4628"
         },
         {
           "Name": "Content-Type",
@@ -3137,11 +3137,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=\""
+          "Value": "\"W8DfAm6Pow7bUDyN/YdepNEMrzZJW5O3Hw76bYYwHfw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
+          "Value": "Sun, 13 Apr 2025 13:10:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3151,13 +3151,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk="
+          "Value": "sha256-W8DfAm6Pow7bUDyN/YdepNEMrzZJW5O3Hw76bYYwHfw="
         }
       ]
     },
     {
       "Route": "css/carrinho.css.gz",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-fz21acq73t.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-t283o7yxmw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3166,7 +3166,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1451"
+          "Value": "1434"
         },
         {
           "Name": "Content-Type",
@@ -3174,11 +3174,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU=\""
+          "Value": "\"C55gzqfnvBsT2e0VyWWMdwn/CJC2y8iMm1iQjXVrvXU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
+          "Value": "Sun, 13 Apr 2025 13:10:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3196,18 +3196,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU="
+          "Value": "sha256-C55gzqfnvBsT2e0VyWWMdwn/CJC2y8iMm1iQjXVrvXU="
         }
       ]
     },
     {
-      "Route": "css/carrinho.fz21acq73t.css",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-fz21acq73t.gz",
+      "Route": "css/carrinho.t283o7yxmw.css",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-t283o7yxmw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000688705234"
+          "Quality": "0.000696864111"
         }
       ],
       "ResponseHeaders": [
@@ -3217,15 +3217,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1451"
+          "Value": "1434"
         },
         {
           "Name": "ETag",
-          "Value": "\"xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU=\""
+          "Value": "\"C55gzqfnvBsT2e0VyWWMdwn/CJC2y8iMm1iQjXVrvXU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
+          "Value": "Sun, 13 Apr 2025 13:10:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3245,13 +3245,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=\""
+          "Value": "W/\"W8DfAm6Pow7bUDyN/YdepNEMrzZJW5O3Hw76bYYwHfw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fz21acq73t"
+          "Value": "t283o7yxmw"
         },
         {
           "Name": "label",
@@ -3259,12 +3259,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk="
+          "Value": "sha256-W8DfAm6Pow7bUDyN/YdepNEMrzZJW5O3Hw76bYYwHfw="
         }
       ]
     },
     {
-      "Route": "css/carrinho.fz21acq73t.css",
+      "Route": "css/carrinho.t283o7yxmw.css",
       "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\css\\carrinho.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3274,7 +3274,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4708"
+          "Value": "4628"
         },
         {
           "Name": "Content-Type",
@@ -3282,11 +3282,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk=\""
+          "Value": "\"W8DfAm6Pow7bUDyN/YdepNEMrzZJW5O3Hw76bYYwHfw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
+          "Value": "Sun, 13 Apr 2025 13:10:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3296,7 +3296,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fz21acq73t"
+          "Value": "t283o7yxmw"
         },
         {
           "Name": "label",
@@ -3304,13 +3304,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-peD8RgR648Gm8E3eaZALPQi+w/EOAAoNAwTw3t0jPtk="
+          "Value": "sha256-W8DfAm6Pow7bUDyN/YdepNEMrzZJW5O3Hw76bYYwHfw="
         }
       ]
     },
     {
-      "Route": "css/carrinho.fz21acq73t.css.gz",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-fz21acq73t.gz",
+      "Route": "css/carrinho.t283o7yxmw.css.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\1xn8zmblva-t283o7yxmw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3319,7 +3319,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1451"
+          "Value": "1434"
         },
         {
           "Name": "Content-Type",
@@ -3327,11 +3327,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU=\""
+          "Value": "\"C55gzqfnvBsT2e0VyWWMdwn/CJC2y8iMm1iQjXVrvXU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:55:12 GMT"
+          "Value": "Sun, 13 Apr 2025 13:10:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3349,7 +3349,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fz21acq73t"
+          "Value": "t283o7yxmw"
         },
         {
           "Name": "label",
@@ -3357,7 +3357,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xQgV8yzh3AaugSBdt9PVgJjOcd0bhrHVkbeDTdVAyqU="
+          "Value": "sha256-C55gzqfnvBsT2e0VyWWMdwn/CJC2y8iMm1iQjXVrvXU="
         }
       ]
     },
@@ -5210,13 +5210,13 @@
       ]
     },
     {
-      "Route": "img/icons/trash-can.o6w6067urt.svg",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-o6w6067urt.gz",
+      "Route": "img/icons/trash-can.8n4c1kjeve.svg",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-8n4c1kjeve.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001059322034"
+          "Quality": "0.001061571125"
         }
       ],
       "ResponseHeaders": [
@@ -5226,15 +5226,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "943"
+          "Value": "941"
         },
         {
           "Name": "ETag",
-          "Value": "\"BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k=\""
+          "Value": "\"QHMaFElBOY9vBWtFDCWJogOolyGJIo38lzs4qfZ8Exw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+          "Value": "Sun, 13 Apr 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5254,13 +5254,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=\""
+          "Value": "W/\"hMODBloHtDUAasE/dhAH91sthyXmNKdXT22nu2pSIXE=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "o6w6067urt"
+          "Value": "8n4c1kjeve"
         },
         {
           "Name": "label",
@@ -5268,12 +5268,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA="
+          "Value": "sha256-hMODBloHtDUAasE/dhAH91sthyXmNKdXT22nu2pSIXE="
         }
       ]
     },
     {
-      "Route": "img/icons/trash-can.o6w6067urt.svg",
+      "Route": "img/icons/trash-can.8n4c1kjeve.svg",
       "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\wwwroot\\img\\icons\\trash-can.svg",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5291,11 +5291,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=\""
+          "Value": "\"hMODBloHtDUAasE/dhAH91sthyXmNKdXT22nu2pSIXE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+          "Value": "Sun, 13 Apr 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5305,7 +5305,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "o6w6067urt"
+          "Value": "8n4c1kjeve"
         },
         {
           "Name": "label",
@@ -5313,13 +5313,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA="
+          "Value": "sha256-hMODBloHtDUAasE/dhAH91sthyXmNKdXT22nu2pSIXE="
         }
       ]
     },
     {
-      "Route": "img/icons/trash-can.o6w6067urt.svg.gz",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-o6w6067urt.gz",
+      "Route": "img/icons/trash-can.8n4c1kjeve.svg.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-8n4c1kjeve.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5328,7 +5328,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "943"
+          "Value": "941"
         },
         {
           "Name": "Content-Type",
@@ -5336,11 +5336,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k=\""
+          "Value": "\"QHMaFElBOY9vBWtFDCWJogOolyGJIo38lzs4qfZ8Exw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+          "Value": "Sun, 13 Apr 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5358,7 +5358,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "o6w6067urt"
+          "Value": "8n4c1kjeve"
         },
         {
           "Name": "label",
@@ -5366,18 +5366,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k="
+          "Value": "sha256-QHMaFElBOY9vBWtFDCWJogOolyGJIo38lzs4qfZ8Exw="
         }
       ]
     },
     {
       "Route": "img/icons/trash-can.svg",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-o6w6067urt.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-8n4c1kjeve.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001059322034"
+          "Quality": "0.001061571125"
         }
       ],
       "ResponseHeaders": [
@@ -5387,15 +5387,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "943"
+          "Value": "941"
         },
         {
           "Name": "ETag",
-          "Value": "\"BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k=\""
+          "Value": "\"QHMaFElBOY9vBWtFDCWJogOolyGJIo38lzs4qfZ8Exw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+          "Value": "Sun, 13 Apr 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5415,13 +5415,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=\""
+          "Value": "W/\"hMODBloHtDUAasE/dhAH91sthyXmNKdXT22nu2pSIXE=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA="
+          "Value": "sha256-hMODBloHtDUAasE/dhAH91sthyXmNKdXT22nu2pSIXE="
         }
       ]
     },
@@ -5444,11 +5444,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA=\""
+          "Value": "\"hMODBloHtDUAasE/dhAH91sthyXmNKdXT22nu2pSIXE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+          "Value": "Sun, 13 Apr 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5458,13 +5458,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-kE+H+zlM7mGpEs/ekSqKxyYYCN5XadgWKQPwSraoJfA="
+          "Value": "sha256-hMODBloHtDUAasE/dhAH91sthyXmNKdXT22nu2pSIXE="
         }
       ]
     },
     {
       "Route": "img/icons/trash-can.svg.gz",
-      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-o6w6067urt.gz",
+      "AssetFile": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\zvu6mp7yl8-8n4c1kjeve.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5473,7 +5473,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "943"
+          "Value": "941"
         },
         {
           "Name": "Content-Type",
@@ -5481,11 +5481,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k=\""
+          "Value": "\"QHMaFElBOY9vBWtFDCWJogOolyGJIo38lzs4qfZ8Exw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 13 Apr 2025 12:49:56 GMT"
+          "Value": "Sun, 13 Apr 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5503,7 +5503,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-BesotLBlN1PDMnnMrQdzQqA0qZTL1TrmHaxm428fG1k="
+          "Value": "sha256-QHMaFElBOY9vBWtFDCWJogOolyGJIo38lzs4qfZ8Exw="
         }
       ]
     },
