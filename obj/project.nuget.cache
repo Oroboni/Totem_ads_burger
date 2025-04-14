@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "jBM6sD3OsHY=",
+  "dgSpecHash": "lpTA6b4XKiE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem PWA\\Totem_ads_burger\\TotemPWA.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\melio\\Downloads\\Totem_ads_burger\\TotemPWA.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\melio\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.3\\microsoft.netcore.app.ref.9.0.3.nupkg.sha512",
+    "C:\\Users\\melio\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.3\\microsoft.windowsdesktop.app.ref.9.0.3.nupkg.sha512",
+    "C:\\Users\\melio\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.3\\microsoft.aspnetcore.app.ref.9.0.3.nupkg.sha512",
+    "C:\\Users\\melio\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.3\\microsoft.netcore.app.host.win-x64.9.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
