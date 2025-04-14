@@ -2,507 +2,33 @@
     ViewBag.Title = "Pedido";
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
-<style>
-    html,
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
-    font-size: 16px;
-}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Totem_ads_burger</title>
+    <link rel="stylesheet" href="~/css/pedido.css" /> 
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
 
-.card {
-    background: white;
-    border-radius: 0.8vw;
-    box-shadow: 0px 0.3vw 0.8vw rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.button {
-    background: #ff6600;
-    color: white;
-    font-size: 1.2vw;
-    padding: 0.8vw 1.6vw;
-    border: none;
-    border-radius: 0.5vw;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.button:hover {
-    background: #cc4400;
-}
-
-.banner {
-    width: 100%;
-    height: 12vw;
-    background: url("https://as1.ftcdn.net/v2/jpg/11/83/61/00/1000_F_1183610030_iUhROCUzBuwVs6SkAk9um8cTY43gNUh8.jpg") center/cover;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    box-shadow: 0px 0.3vw 0.8vw rgba(0, 0, 0, 0.3);
-}
-
-.sidebar {
-    width: 20%;
-    min-width: 150px;
-    background: white;
-    padding: 1.5vw;
-    position: fixed;
-    top: 12vw;
-    left: 0;
-    height: calc(100vh - 12vw);
-    overflow-y: auto;
-    box-shadow: 0.2vw 0px 0.8vw rgba(0, 0, 0, 0.1);
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    width: 100%;
-    padding: 1vw;
-    margin: 0.8vw 0;
-    background: #fff;
-    text-align: center;
-    border-radius: 1vw;
-    transition: transform 0.3s ease-in-out, background 0.3s;
-    box-shadow: 0px 0.3vw 0.8vw rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.sidebar ul li:hover {
-    background: #ff9900;
-    color: white;
-    transform: scale(1.05);
-}
-
-.sidebar img {
-    width: 70%;
-    height: auto;
-    max-height: 8vw;
-    object-fit: contain;
-}
-
-.content {
-    margin-left: 22%;
-    margin-top: 14vw;
-    padding: 1.5vw;
-    width: 75%;
-    flex: 1;
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5vw;
-    width: 100%;
-    max-width: 90vw;
-    margin: 0 auto;
-}
-
-.menu-item {
-    background: white;
-    border-radius: 1vw;
-    padding: 1.5vw;
-    box-shadow: 0px 0.3vw 0.8vw rgba(0, 0, 0, 0.1);
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-.menu-item:hover {
-    transform: scale(1.05);
-}
-
-.menu-item img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 0.8vw;
-    margin-bottom: 0.8vw;
-}
-
-.menu-item h3 {
-    margin: 1vw 0 0.8vw;
-    font-size: 1.3vw;
-    color: #333;
-}
-
-.menu-item p {
-    font-size: 1vw;
-    color: #666;
-}
-
-.price {
-    font-size: 1.1vw;
-    font-weight: bold;
-    color: #ff3300;
-}
-
-.footer {
-    width: 100%;
-    background: white;
-    padding: 1vw;
-    text-align: center;
-    box-shadow: 0px -0.2vw 0.5vw rgba(0, 0, 0, 0.1);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    font-size: 1.1vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer button {
-    background: #ff6600;
-    color: white;
-    font-size: 1.1vw;
-    padding: 0.8vw 1.5vw;
-    border: none;
-    border-radius: 0.4vw;
-    cursor: pointer;
-    transition: background 0.3s;
-    margin-right: 1.5vw;
-    position: relative;
-    z-index: 1;
-}
-
-.footer button:hover {
-    background: #cc4400;
-}
-
-@@media (max-width: 1024px) {
-    .menu-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    }
-
-    .sidebar {
-        width: 30%;
-        top: 12vw;
-        height: calc(100vh - 12vw);
-    }
-
-    .content {
-        margin-left: 32%;
-        margin-top: 14vw;
-        width: 65%;
-    }
-
-    .banner {
-        font-size: 1.8rem;
-        height: 15vw;
-    }
-
-    .sidebar {
-        top: 15vw;
-        height: calc(100vh - 15vw);
-    }
-
-    .content {
-        margin-top: 17vw;
-        margin-left: 32%;
-        width: 65%;
-        padding: 2vw;
-    }
-
-    .menu-item h3 {
-        font-size: 1.6vw;
-    }
-
-    .menu-item p {
-        font-size: 1.2vw;
-    }
-
-    .price {
-        font-size: 1.4vw;
-    }
-
-    .button,
-    .footer {
-        font-size: 1.3vw;
-    }
-}
-
-@@media (max-width: 768px) {
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        width: 100%;
-        position: relative;
-        height: auto;
-        box-shadow: none;
-        top: auto;
-        left: auto;
-        padding: 2vw;
-    }
-
-    .content {
-        margin-left: 0;
-        margin-top: 0;
-        padding: 2vw;
-    }
-
-    .banner {
-        font-size: 1.5rem;
-        height: auto;
-        padding: 2vw 0;
-        position: static;
-        flex-direction: column;
-    }
-
-    .sidebar {
-        padding: 1vw;
-    }
-
-    .sidebar ul li {
-        padding: 1.5vw;
-        margin: 1.5vw 0;
-        border-radius: 2vw;
-    }
-
-    .sidebar img {
-        max-height: 12vw;
-    }
-
-    .content {
-        padding-top: 2vw;
-    }
-
-    .menu-item h3 {
-        font-size: 3vw;
-    }
-
-    .menu-item p {
-        font-size: 2.5vw;
-    }
-
-    .price {
-        font-size: 3.5vw;
-    }
-
-    .button,
-    .footer {
-        font-size: 2.8vw;
-        padding: 2vw 4vw;
-        border-radius: 1vw;
-    }
-
-    .footer div {
-        margin: 1vw 0;
-    }
-
-    .footer button {
-        margin-right: 0;
-    }
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow: auto;
-}
-
-.modal-content {
-    background-color: white;
-    margin: 5% auto;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 80%;
-    text-align: center;
-    position: relative;
-}
-
-.modal-content img {
-    max-height: 150px;
-    max-width: 100%;
-    height: auto;
-    width: 100%;
-    object-fit: cover;
-}
-
-.modal-content h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.modal-content p {
-    color: #333;
-    font-size: 1rem;
-    margin-bottom: 15px;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #a00;
-    cursor: pointer;
-}
-
-.quantity-control {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: 15px 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.quantity-control button {
-    font-size: 1.3rem;
-    padding: 5px 10px;
-    border: none;
-    background-color: #a00;
-    color: white;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#add-button {
-    background-color: #bada55;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-#add-button:hover {
-    background-color: #a8c93f;
-}
-
-.close {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-.end {
-    margin-bottom: 8vh;
-}
-
-@@media (max-width: 768px) {
-    .modal-content {
-        margin: 15% auto;
-        padding: 15px;
-        max-width: 95%;
-    }
-
-    .modal-content h2 {
-        font-size: 1.3rem;
-    }
-
-    .modal-content p {
-        font-size: 0.9rem;
-    }
-
-    .quantity-control {
-        font-size: 1rem;
-        gap: 5px;
-        margin: 10px 0;
-    }
-
-    .quantity-control button {
-        font-size: 1.1rem;
-        padding: 3px 8px;
-    }
-
-    #add-button {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-
-    .close {
-        font-size: 1.1rem;
-        top: 5px;
-        right: 10px;
-    }
-}
-
-@@media (max-width: 480px) {
-    .modal-content {
-        margin: 20% auto;
-        padding: 10px;
-    }
-
-    .modal-content h2 {
-        font-size: 1.1rem;
-    }
-
-    .modal-content p {
-        font-size: 0.8rem;
-    }
-
-    .quantity-control {
-        font-size: 0.9rem;
-        gap: 3px;
-        margin: 8px 0;
-    }
-
-    .quantity-control button {
-        font-size: 1rem;
-        padding: 2px 6px;
-    }
-
-    #add-button {
-        padding: 6px 12px;
-        font-size: 0.8rem;
-    }
-
-    .close {
-        font-size: 1rem;
-        top: 3px;
-        right: 5px;
-    }
-}
-</style>
 
 <div class="banner">
+</div>
+
+<div class="category-scrollbar">
+    <div class="category-tab" onclick="showCategory('burgers')">🍔 Burgers</div>
+    <div class="category-tab" onclick="showCategory('combos')">🍟 Combos</div>
+    <div class="category-tab" onclick="showCategory('sobremesa')">🍰 Sobremesas</div>
+    <div class="category-tab" onclick="showCategory('drinks')">🥤 Bebidas</div>
+    <div class="category-tab" onclick="showCategory('extras')">🍟 Extras</div>
+    <div class="category-tab" onclick="showCategory('molhos')">🧂 Molhos</div>
 </div>
 
 <div class="sidebar">
     <ul>
         <li onclick="showCategory('burgers')">
             <img src="https://png.pngtree.com/png-clipart/20231017/original/pngtree-burger-food-png-free-download-png-image_13329455.png"
-                alt="">
+                 alt="">
             <h2>Burgers</h2>
         </li>
         <li onclick="showCategory('combos')"><img
@@ -530,7 +56,6 @@ body {
                 alt="molho">
             <h2>Molhos</h2>
         </li>
-        <div class="end"></div>
     </ul>
 </div>
 
@@ -548,7 +73,7 @@ body {
 
         <div class="menu-item"
             onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante, queijo e molho barbecue.', 'R$ 25,00', 'http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg')">
-            <img src="http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg"
+            <img src="/img/lanche.png"
                 alt="Full Stack Burger">
             <h3>Full Stack Burger</h3>
             <p>Duplo hambúrguer com bacon crocante, queijo e molho barbecue.</p>
@@ -628,21 +153,29 @@ body {
     let cartCount = 0;
     let totalPrice = 0;
 
+    function changeQuantity(amount) {
+        const quantityElement = document.getElementById("quantity");
+        let currentQuantity = parseInt(quantityElement.innerText);
+        currentQuantity = Math.max(1, currentQuantity + amount);
+        quantityElement.innerText = currentQuantity;
+    }
+
     function addToCart() {
-        let price = parseFloat(document.getElementById("buy-button").getAttribute("data-price"));
+        let price = parseFloat(document.getElementById("preco").innerText.replace('R$', '').replace(',', '.'));
         cartCount++;
-        totalPrice += price;
+        const quantity = parseInt(document.getElementById("quantity").innerText);
+        totalPrice += price * quantity;
         document.getElementById("cart-count").innerText = cartCount;
         document.getElementById("total-price").innerText = totalPrice.toFixed(2);
         closeModal();
     }
 
     function checkout() {
-        alert("Pedido finalizado! Total: R$ " + totalPrice.toFixed(2));
+        @* alert("Pedido finalizado! Total: R$ " + totalPrice.toFixed(2));
         cartCount = 0;
         totalPrice = 0;
         document.getElementById("cart-count").innerText = cartCount;
-        document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+        document.getElementById("total-price").innerText = totalPrice.toFixed(2); *@
     }
 
     function showModal(title, description, preco, imageUrl) {
@@ -675,60 +208,60 @@ body {
             case "burgers":
                 html = `
                      <div class="menu-grid">
-        <div class="menu-item"
-            onclick="showModal('Burger 404','Clássico hambúrguer de carne, queijo derretido e molho especial.', 'R$ 24,00', 'https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png')">
-            <img src="https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png"
-                alt="Burger 404">
-            <h3>Burger 404</h3>
-            <p>Clássico hambúrguer de carne, queijo derretido e molho especial.</p>
-            <p class="price">R$ 24,00</p>
-        </div>
+                    <div class="menu-item"
+                        onclick="showModal('Burger 404','Clássico hambúrguer de carne, queijo derretido e molho especial.', 'R$ 24,00', 'https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png')">
+                        <img src="https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png"
+                            alt="Burger 404">
+                        <h3>Burger 404</h3>
+                        <p>Clássico hambúrguer de carne, queijo derretido e molho especial.</p>
+                        <p class="price">R$ 24,00</p>
+                    </div>
 
-        <div class="menu-item"
-            onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante, queijo e molho barbecue.', 'R$ 25,00', 'http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg')">
-            <img src="http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg"
-                alt="Full Stack Burger">
-            <h3>Full Stack Burger</h3>
-            <p>Duplo hambúrguer com bacon crocante, queijo e molho barbecue.</p>
-            <p class="price">R$ 25,00</p>
-        </div>
+                    <div class="menu-item"
+                        onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante, queijo e molho barbecue.', 'R$ 25,00', 'https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kMX5kx4H/200/200/original?country=br')">
+                        <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kMX5kx4H/200/200/original?country=br"
+                            alt="Full Stack Burger">
+                        <h3>Full Stack Burger</h3>
+                        <p>Duplo hambúrguer com bacon crocante, queijo e molho barbecue.</p>
+                        <p class="price">R$ 25,00</p>
+                    </div>
 
-        <div class="menu-item"
-            onclick="showModal('Looping Duplo','Dois hambúrgueres suculentos com queijo e cebola caramelizada.', 'R$ 32,00', 'https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp')">
-            <img src="https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp"
-                alt="Looping Duplo">
-            <h3>Looping Duplo</h3>
-            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
-            <p class="price">R$ 32,00</p>
-        </div>
+                    <div class="menu-item"
+                        onclick="showModal('Looping Duplo','Dois hambúrgueres suculentos com queijo e cebola caramelizada.', 'R$ 32,00', 'https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp')">
+                        <img src="https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp"
+                            alt="Looping Duplo">
+                        <h3>Looping Duplo</h3>
+                        <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+                        <p class="price">R$ 32,00</p>
+                    </div>
 
-        <div class="menu-item"
-            onclick="showModal('Hello World Veggie','Hambúrguer vegetariano com alface, tomate e molho especial.', 'R$ 21,00', 'https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg')">
-            <img src="https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg"
-                alt="Hello World Veggie">
-            <h3>Hello World Veggie</h3>
-            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
-            <p class="price">R$ 21,00</p>
-        </div>
+                    <div class="menu-item"
+                        onclick="showModal('Hello World Veggie','Hambúrguer vegetariano com alface, tomate e molho especial.', 'R$ 21,00', 'https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg')">
+                        <img src="https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg"
+                            alt="Hello World Veggie">
+                        <h3>Hello World Veggie</h3>
+                        <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+                        <p class="price">R$ 21,00</p>
+                    </div>
 
-        <div class="menu-item"
-            onclick="showModal('Java Vegano','Hambúrguer vegano com alface, tomate e molho especial.', 'R$ 21,00', 'https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg')">
-            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Java Vegano">
-            <h3>Java Vegano</h3>
-            <p>Hambúrguer vegano com alface, tomate e molho especial.</p>
-            <p class="price">R$ 21,00</p>
-        </div>
+                    <div class="menu-item"
+                        onclick="showModal('Java Vegano','Hambúrguer vegano com alface, tomate e molho especial.', 'R$ 21,00', 'https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg')">
+                        <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Java Vegano">
+                        <h3>Java Vegano</h3>
+                        <p>Hambúrguer vegano com alface, tomate e molho especial.</p>
+                        <p class="price">R$ 21,00</p>
+                    </div>
 
-        <div class="menu-item"
-            onclick="showModal('Olá Mundo Max','Quatro hambúrgueres suculentos com queijo, cebola e bacon.', 'R$ 29,00', 'https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg')">
-            <img src="https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg"
-                alt="Olá Mundo Max">
-            <h3>Olá Mundo Max</h3>
-            <p>Quatro hambúrgueres suculentos com queijo, cebola e bacon.</p>
-            <p class="price">R$ 29,00</p>
-        </div>
-        <div class="end"></div>
-    </div>
+                    <div class="menu-item"
+                        onclick="showModal('Olá Mundo Max','Quatro hambúrgueres suculentos com queijo, cebola e bacon.', 'R$ 29,00', 'https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg')">
+                        <img src="https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg"
+                            alt="Olá Mundo Max">
+                        <h3>Olá Mundo Max</h3>
+                        <p>Quatro hambúrgueres suculentos com queijo, cebola e bacon.</p>
+                        <p class="price">R$ 29,00</p>
+                    </div>
+                    <div class="end"></div>
+                </div>
                 `;
                 break;
             case "combos":
@@ -820,7 +353,7 @@ body {
                     </div>
                 </div>
             `;
-                break;
+                break; 
             case "extras":
                 html = `
                 <div class="menu-grid">

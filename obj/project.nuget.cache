@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lpTA6b4XKiE=",
+  "dgSpecHash": "jFXchr+ZECw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\melio\\Downloads\\Totem_ads_burger\\TotemPWA.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\melio\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.3\\microsoft.netcore.app.ref.9.0.3.nupkg.sha512",
-    "C:\\Users\\melio\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.3\\microsoft.windowsdesktop.app.ref.9.0.3.nupkg.sha512",
-    "C:\\Users\\melio\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.3\\microsoft.aspnetcore.app.ref.9.0.3.nupkg.sha512",
-    "C:\\Users\\melio\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.3\\microsoft.netcore.app.host.win-x64.9.0.3.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\0031432512001\\Documents\\GitHub\\Totem_ads_burger\\TotemPWA.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
