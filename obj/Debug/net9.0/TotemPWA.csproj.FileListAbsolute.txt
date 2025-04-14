@@ -560,10 +560,8 @@ C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\refint\TotemPWA.dll
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.pdb
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets\msbuild.TotemPWA.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets\msbuild.TotemPWA.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets\msbuild.build.TotemPWA.props
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.TotemPWA.props
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.TotemPWA.props
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.pack.json
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\fk5cfcji0l-8p4iailn4j.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\gkpdw1s7lk-ofdi9poc5b.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\1nvw2ig7mg-o4yisuq7bh.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\2vzvvzn0f9-gvm4rzwikc.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.build.json.cache
