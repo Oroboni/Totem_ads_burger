@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\0031432512018\\Downloads\\Totem_ads_burger\\",
+  "WorkspaceRootPath": "C:\\Users\\melio\\Downloads\\Totem_ads_burger\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AFDA75ED-8AA7-74ED-18D9-3F3E9D7DC413}|TotemPWA.csproj|c:\\users\\0031432512018\\downloads\\totem_ads_burger\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AFDA75ED-8AA7-74ED-18D9-3F3E9D7DC413}|TotemPWA.csproj|c:\\users\\melio\\downloads\\totem_ads_burger\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AFDA75ED-8AA7-74ED-18D9-3F3E9D7DC413}|TotemPWA.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\0031432512018\\Downloads\\Totem_ads_burger\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\melio\\Downloads\\Totem_ads_burger\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\0031432512018\\Downloads\\Totem_ads_burger\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAABUAAAAAAAAAAAAUwB0AAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\melio\\Downloads\\Totem_ads_burger\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T16:18:59.629Z",
               "EditorCaption": ""
