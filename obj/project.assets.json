@@ -8,19 +8,24 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\FoxB4\\.nuget\\packages\\": {}
+    "C:\\Users\\0031432512018\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\TotemPWA.csproj",
+      "projectUniqueName": "C:\\Users\\0031432512018\\Documents\\GitHub\\Totem_ads_burger\\TotemPWA.csproj",
       "projectName": "TotemPWA",
-      "projectPath": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\TotemPWA.csproj",
-      "packagesPath": "C:\\Users\\FoxB4\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\",
+      "projectPath": "C:\\Users\\0031432512018\\Documents\\GitHub\\Totem_ads_burger\\TotemPWA.csproj",
+      "packagesPath": "C:\\Users\\0031432512018\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\0031432512018\\Documents\\GitHub\\Totem_ads_burger\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\FoxB4\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\0031432512018\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -46,7 +51,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -70,7 +75,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
