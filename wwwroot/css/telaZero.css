@@ -3,6 +3,9 @@
 *{
     text-align: center;
 }
+body{
+    background-color: #900;
+}
 
 .svg-background {
     position: fixed;

@@ -2,17 +2,14 @@
     ViewBag.Title = "Pedido";
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
-<style>
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-        font-family: 'Poppins', sans-serif;
-        background-color: #f1f1f1;
-    }
-
-
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Totem_ads_burger</title>
+    <link rel="stylesheet" href="~/css/pedido.css" /> 
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
 
 
 <div class="banner">
@@ -76,7 +73,7 @@
 
         <div class="menu-item"
             onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante, queijo e molho barbecue.', 'R$ 25,00', 'http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg')">
-            <img src="http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg"
+            <img src="/img/lanche.png"
                 alt="Full Stack Burger">
             <h3>Full Stack Burger</h3>
             <p>Duplo hambúrguer com bacon crocante, queijo e molho barbecue.</p>
@@ -156,21 +153,29 @@
     let cartCount = 0;
     let totalPrice = 0;
 
+    function changeQuantity(amount) {
+        const quantityElement = document.getElementById("quantity");
+        let currentQuantity = parseInt(quantityElement.innerText);
+        currentQuantity = Math.max(1, currentQuantity + amount);
+        quantityElement.innerText = currentQuantity;
+    }
+
     function addToCart() {
-        let price = parseFloat(document.getElementById("buy-button").getAttribute("data-price"));
+        let price = parseFloat(document.getElementById("preco").innerText.replace('R$', '').replace(',', '.'));
         cartCount++;
-        totalPrice += price;
+        const quantity = parseInt(document.getElementById("quantity").innerText);
+        totalPrice += price * quantity;
         document.getElementById("cart-count").innerText = cartCount;
         document.getElementById("total-price").innerText = totalPrice.toFixed(2);
         closeModal();
     }
 
     function checkout() {
-        alert("Pedido finalizado! Total: R$ " + totalPrice.toFixed(2));
+        @* alert("Pedido finalizado! Total: R$ " + totalPrice.toFixed(2));
         cartCount = 0;
         totalPrice = 0;
         document.getElementById("cart-count").innerText = cartCount;
-        document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+        document.getElementById("total-price").innerText = totalPrice.toFixed(2); *@
     }
 
     function showModal(title, description, preco, imageUrl) {
@@ -203,60 +208,60 @@
             case "burgers":
                 html = `
                      <div class="menu-grid">
-        <div class="menu-item"
-            onclick="showModal('Burger 404','Clássico hambúrguer de carne, queijo derretido e molho especial.', 'R$ 24,00', 'https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png')">
-            <img src="https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png"
-                alt="Burger 404">
-            <h3>Burger 404</h3>
-            <p>Clássico hambúrguer de carne, queijo derretido e molho especial.</p>
-            <p class="price">R$ 24,00</p>
-        </div>
+                    <div class="menu-item"
+                        onclick="showModal('Burger 404','Clássico hambúrguer de carne, queijo derretido e molho especial.', 'R$ 24,00', 'https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png')">
+                        <img src="https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png"
+                            alt="Burger 404">
+                        <h3>Burger 404</h3>
+                        <p>Clássico hambúrguer de carne, queijo derretido e molho especial.</p>
+                        <p class="price">R$ 24,00</p>
+                    </div>
 
-        <div class="menu-item"
-            onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante, queijo e molho barbecue.', 'R$ 25,00', 'http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg')">
-            <img src="http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg"
-                alt="Full Stack Burger">
-            <h3>Full Stack Burger</h3>
-            <p>Duplo hambúrguer com bacon crocante, queijo e molho barbecue.</p>
-            <p class="price">R$ 25,00</p>
-        </div>
+                    <div class="menu-item"
+                        onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante, queijo e molho barbecue.', 'R$ 25,00', 'https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kMX5kx4H/200/200/original?country=br')">
+                        <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kMX5kx4H/200/200/original?country=br"
+                            alt="Full Stack Burger">
+                        <h3>Full Stack Burger</h3>
+                        <p>Duplo hambúrguer com bacon crocante, queijo e molho barbecue.</p>
+                        <p class="price">R$ 25,00</p>
+                    </div>
 
-        <div class="menu-item"
-            onclick="showModal('Looping Duplo','Dois hambúrgueres suculentos com queijo e cebola caramelizada.', 'R$ 32,00', 'https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp')">
-            <img src="https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp"
-                alt="Looping Duplo">
-            <h3>Looping Duplo</h3>
-            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
-            <p class="price">R$ 32,00</p>
-        </div>
+                    <div class="menu-item"
+                        onclick="showModal('Looping Duplo','Dois hambúrgueres suculentos com queijo e cebola caramelizada.', 'R$ 32,00', 'https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp')">
+                        <img src="https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp"
+                            alt="Looping Duplo">
+                        <h3>Looping Duplo</h3>
+                        <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
+                        <p class="price">R$ 32,00</p>
+                    </div>
 
-        <div class="menu-item"
-            onclick="showModal('Hello World Veggie','Hambúrguer vegetariano com alface, tomate e molho especial.', 'R$ 21,00', 'https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg')">
-            <img src="https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg"
-                alt="Hello World Veggie">
-            <h3>Hello World Veggie</h3>
-            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
-            <p class="price">R$ 21,00</p>
-        </div>
+                    <div class="menu-item"
+                        onclick="showModal('Hello World Veggie','Hambúrguer vegetariano com alface, tomate e molho especial.', 'R$ 21,00', 'https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg')">
+                        <img src="https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg"
+                            alt="Hello World Veggie">
+                        <h3>Hello World Veggie</h3>
+                        <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
+                        <p class="price">R$ 21,00</p>
+                    </div>
 
-        <div class="menu-item"
-            onclick="showModal('Java Vegano','Hambúrguer vegano com alface, tomate e molho especial.', 'R$ 21,00', 'https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg')">
-            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Java Vegano">
-            <h3>Java Vegano</h3>
-            <p>Hambúrguer vegano com alface, tomate e molho especial.</p>
-            <p class="price">R$ 21,00</p>
-        </div>
+                    <div class="menu-item"
+                        onclick="showModal('Java Vegano','Hambúrguer vegano com alface, tomate e molho especial.', 'R$ 21,00', 'https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg')">
+                        <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Java Vegano">
+                        <h3>Java Vegano</h3>
+                        <p>Hambúrguer vegano com alface, tomate e molho especial.</p>
+                        <p class="price">R$ 21,00</p>
+                    </div>
 
-        <div class="menu-item"
-            onclick="showModal('Olá Mundo Max','Quatro hambúrgueres suculentos com queijo, cebola e bacon.', 'R$ 29,00', 'https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg')">
-            <img src="https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg"
-                alt="Olá Mundo Max">
-            <h3>Olá Mundo Max</h3>
-            <p>Quatro hambúrgueres suculentos com queijo, cebola e bacon.</p>
-            <p class="price">R$ 29,00</p>
-        </div>
-        <div class="end"></div>
-    </div>
+                    <div class="menu-item"
+                        onclick="showModal('Olá Mundo Max','Quatro hambúrgueres suculentos com queijo, cebola e bacon.', 'R$ 29,00', 'https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg')">
+                        <img src="https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg"
+                            alt="Olá Mundo Max">
+                        <h3>Olá Mundo Max</h3>
+                        <p>Quatro hambúrgueres suculentos com queijo, cebola e bacon.</p>
+                        <p class="price">R$ 29,00</p>
+                    </div>
+                    <div class="end"></div>
+                </div>
                 `;
                 break;
             case "combos":
@@ -348,7 +353,7 @@
                     </div>
                 </div>
             `;
-                break;
+                break; 
             case "extras":
                 html = `
                 <div class="menu-grid">
