@@ -1,4 +1,5 @@
 /* Estilos gerais */
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f1f1f1;
@@ -9,7 +10,70 @@ body {
 .content {
     padding: 15px;
     max-width: 90%; /* Largura máxima para o conteúdo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+    
 }
+
+/* Burguer Bar */
+.burguer-bar{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+.burguer-bar-footer{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.burguer-bar-buttonQtde{
+    display: flex;
+    align-items: center;
+    
+}
+
+.burguer-bar-buttonQtde button{
+    background: transparent;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.burguer-bar-footer-button{
+    width: 150px;
+    height: 50px;
+    flex-shrink: 0;
+    
+    border-radius: 30px;
+    border: 4px solid #426B1F;
+    background: #F7F7CF;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.labelNmr {
+    color: #426B1F;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    align-self: center;
+}
+
+/* Burguer Bar - Fim*/
+
+
 
 .section {
     background-color: #fff;
@@ -148,14 +212,17 @@ i{
 
 .card {
     margin: 2rem 10px 0px 0px;
-    height: 254px;
+    width: 90%;
+    height: auto;
     border-radius: 20px;
     background: #f5f5f5;
+    display: flex;
     position: relative;
     padding: 1.8rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
     transition: 0.5s ease-out;
     overflow: visible;
+    justify-self: center;
    }
    
    .card-details {
@@ -163,6 +230,7 @@ i{
     height: 100%;
     gap: .5em;
     display: grid;
+    justify-content: center;
     place-content: center;
    }
    
@@ -183,6 +251,7 @@ i{
    }
    
    .text-body {
+    text-align: justify;
     color: rgb(134, 134, 134);
    }
    
