@@ -38,12 +38,16 @@ namespace TotemPWA.Data
                 .HasForeignKey(v => v.ProductId);
             modelBuilder.Entity<Product>()
                 .Property(p => p.Price)
-                .HasPrecision(18,2);
+                .HasPrecision(18, 2);
 
             modelBuilder.Entity<Variation>()
                 .Property(v => v.AdditionalPrice)
-                .HasPrecision(18,2);
+                .HasPrecision(18, 2);
 
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id = 1, Name = "Burgers", ParentCategoryId = null },
+                new Category { Id = 2, Name = "Combos", ParentCategoryId = null }
+            );
         }
     }
 }

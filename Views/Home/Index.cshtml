@@ -2,11 +2,12 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title - Totem_ads_burger</title>
-    <link rel="stylesheet" href="~/css/pedido.css" /> 
+    <link rel="stylesheet" href="~/css/pedido.css" />
     <link rel="stylesheet" href="~/css/pedido.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -27,35 +28,18 @@
 
 <div class="sidebar">
     <ul>
-        <li onclick="showCategory('burgers')">
-            <img src="https://png.pngtree.com/png-clipart/20231017/original/pngtree-burger-food-png-free-download-png-image_13329455.png"alt="">
-            <h2>Burgers</h2>
-        </li>
-        <li onclick="showCategory('combos')"><img
-                src="https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-and-fries-delicious-fast-food-combo-transparent-background-png-image_13279170.png"
-                alt=" combos">
-            <h2>Combos</h2>
-        </li>
-        <li onclick="showCategory('sobremesa')"><img
-                src="https://th.bing.com/th/id/R.c2c401c37bba64285ca1aa4b067f0fce?rik=H4bSqMkhpHT%2fSg&pid=ImgRaw&r=0"
-                alt="sobremesa">
-            <h2>Sobremesas</h2>
-        </li>
-        <li onclick="showCategory('drinks')"><img
-                src="https://png.pngtree.com/png-clipart/20230417/original/pngtree-cola-soda-drink-glass-png-image_9059477.png"
-                alt="bebida">
-            <h2>Bebidas</h2>
-        </li>
-        <li onclick="showCategory('extras')"><img
-                src="https://static.vecteezy.com/system/resources/previews/013/442/144/original/crispy-and-delicious-french-fries-free-png.png"
-                alt="extra">
-            <h2>Extras</h2>
-        </li>
-        <li onclick="showCategory('molhos')"><img
-                src="https://th.bing.com/th/id/R.5dd1a7dbc57631f822418410eea10e3e?rik=dWJF2WCRtUDhPA&pid=ImgRaw&r=0"
-                alt="molho">
-            <h2>Molhos</h2>
-        </li>
+        @if (ViewBag.Categories != null)
+        {
+            @foreach (var category in ViewBag.Categories) // Itera sobre as categorias
+            {
+                string activeClass = category.active ? "active" : ""; // Define a classe "active" se a categoria estiver ativa
+                                                                      <a href="/Menu/@category.id" class="category-btn @activeClass">
+                                                                          <!-- Gera o link da categoria com a classe condicional -->
+                                                                          <span class="icon">🍕</span>
+                                                                          <span class="label">@category.name</span> <!-- Nome da categoria -->
+                                                                      </a>
+            }
+        }
     </ul>
 </div>
 
@@ -352,7 +336,7 @@
                     </div>
                 </div>
             `;
-                break; 
+                break;
                 break;
             case "extras":
                 html = `
