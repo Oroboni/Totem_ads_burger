@@ -2,11 +2,12 @@
     ViewBag.Title = "Pedido";
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title - Totem_ads_burger</title>
-    <link rel="stylesheet" href="~/css/pedido.css" /> 
+    <link rel="stylesheet" href="~/css/pedido.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
@@ -16,19 +17,21 @@
 </div>
 
 <div class="category-scrollbar">
-    <div class="category-tab" onclick="showCategory('burgers')">🍔 Burgers</div>
-    <div class="category-tab" onclick="showCategory('combos')">🍟 Combos</div>
-    <div class="category-tab" onclick="showCategory('sobremesa')">🍰 Sobremesas</div>
-    <div class="category-tab" onclick="showCategory('drinks')">🥤 Bebidas</div>
-    <div class="category-tab" onclick="showCategory('extras')">🍟 Extras</div>
-    <div class="category-tab" onclick="showCategory('molhos')">🧂 Molhos</div>
+    @foreach (var subcategory in ViewBag.SubCategories) // Itera sobre as subcategorias
+    {
+        string activeClass = subcategory.active ? "active" : ""; // Classe "active" se a subcategoria estiver ativa
+                                                                 <a href="/Menu/@ViewBag.Category/@subcategory.id" class="subcategory-btn @activeClass">
+                                                                     <!-- Link com categoria e subcategoria -->
+                                                                     <span class="label">@subcategory.name</span> <!-- Nome da subcategoria -->
+                                                                 </a>
+    }   
 </div>
 
 <div class="sidebar">
     <ul>
         <li onclick="showCategory('burgers')">
             <img src="https://png.pngtree.com/png-clipart/20231017/original/pngtree-burger-food-png-free-download-png-image_13329455.png"
-                 alt="">
+                alt="">
             <h2>Burgers</h2>
         </li>
         <li onclick="showCategory('combos')"><img
@@ -73,8 +76,7 @@
 
         <div class="menu-item"
             onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante, queijo e molho barbecue.', 'R$ 25,00', 'http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg')">
-            <img src="/img/lanche.png"
-                alt="Full Stack Burger">
+            <img src="/img/lanche.png" alt="Full Stack Burger">
             <h3>Full Stack Burger</h3>
             <p>Duplo hambúrguer com bacon crocante, queijo e molho barbecue.</p>
             <p class="price">R$ 25,00</p>
@@ -353,7 +355,7 @@
                     </div>
                 </div>
             `;
-                break; 
+                break;
             case "extras":
                 html = `
                 <div class="menu-grid">
