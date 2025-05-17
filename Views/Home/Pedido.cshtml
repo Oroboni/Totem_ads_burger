@@ -17,106 +17,50 @@
 </div>
 
 <div class="category-scrollbar">
-    @foreach (var subcategory in ViewBag.SubCategories) // Itera sobre as subcategorias
+    @if (ViewBag.Category != null)
     {
-        string activeClass = subcategory.active ? "active" : ""; // Classe "active" se a subcategoria estiver ativa
-                                                                 <a href="/Menu/@ViewBag.Category/@subcategory.id" class="subcategory-btn @activeClass">
-                                                                     <!-- Link com categoria e subcategoria -->
-                                                                     <span class="label">@subcategory.name</span> <!-- Nome da subcategoria -->
-                                                                 </a>
-    }   
+        @foreach (var subcategory in ViewBag.SubCategories)
+        {
+            string activeClass = subcategory.active ? "active" : ""; // Classe "active" se a subcategoria estiver ativa
+                                                                     <a href="/Menu/@ViewBag.Category/@subcategory.id" class="subcategory-btn @activeClass">
+                                                                         <!-- Link com categoria e subcategoria -->
+                                                                         <span class="label">@subcategory.name</span> <!-- Nome da subcategoria -->
+                                                                     </a>
+        }
+    }
 </div>
 
 <div class="sidebar">
-    <ul>
-        <li onclick="showCategory('burgers')">
-            <img src="https://png.pngtree.com/png-clipart/20231017/original/pngtree-burger-food-png-free-download-png-image_13329455.png"
-                alt="">
-            <h2>Burgers</h2>
-        </li>
-        <li onclick="showCategory('combos')"><img
-                src="https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-and-fries-delicious-fast-food-combo-transparent-background-png-image_13279170.png"
-                alt=" combos">
-            <h2>Combos</h2>
-        </li>
-        <li onclick="showCategory('sobremesa')"><img
-                src="https://th.bing.com/th/id/R.c2c401c37bba64285ca1aa4b067f0fce?rik=H4bSqMkhpHT%2fSg&pid=ImgRaw&r=0"
-                alt="sobremesa">
-            <h2>Sobremesas</h2>
-        </li>
-        <li onclick="showCategory('drinks')"><img
-                src="https://png.pngtree.com/png-clipart/20230417/original/pngtree-cola-soda-drink-glass-png-image_9059477.png"
-                alt="bebida">
-            <h2>Bebidas</h2>
-        </li>
-        <li onclick="showCategory('extras')"><img
-                src="https://static.vecteezy.com/system/resources/previews/013/442/144/original/crispy-and-delicious-french-fries-free-png.png"
-                alt="extra">
-            <h2>Extras</h2>
-        </li>
-        <li onclick="showCategory('molhos')"><img
-                src="https://th.bing.com/th/id/R.5dd1a7dbc57631f822418410eea10e3e?rik=dWJF2WCRtUDhPA&pid=ImgRaw&r=0"
-                alt="molho">
-            <h2>Molhos</h2>
-        </li>
-    </ul>
+    @foreach (var category in ViewBag.Categories) // Itera sobre as categorias
+    {
+        string activeClass = category.active ? "active" : ""; // Define a classe "active" se a categoria estiver ativa
+        <a href="/Menu/@category.id" class="category-btn @activeClass">
+            <!-- Gera o link da categoria com a classe condicional -->
+            <span class="icon">🍕</span>
+            <span class="label">@category.name</span> <!-- Nome da categoria -->
+        </a>
+    }
 </div>
 
 <!-- Conteúdo Principal -->
 <div class="content" id="content">
     <div class="menu-grid">
-        <div class="menu-item"
-            onclick="showModal('Burger 404','Clássico hambúrguer de carne, queijo derretido e molho especial.', 'R$ 24,00', 'https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png')">
-            <img src="https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png"
-                alt="Burger 404">
-            <h3>Burger 404</h3>
-            <p>Clássico hambúrguer de carne, queijo derretido e molho especial.</p>
-            <p class="price">R$ 24,00</p>
+        @foreach (var product in ViewBag.Products)
+        {
+            <div class="menu-item"
+                onclick="showModal('Burger 404','Clássico hambúrguer de carne, queijo derretido e molho especial.', 'R$ 24,00', 'https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png')">
+                <img src="https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png"
+                    alt="Burger 404">
+                <div class="options">
+                    <h3>@product.name</h3>
+                    <p>Descrição</p>
+                    <strong
+                        class="price">@product.price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))</strong>
+                </div>
+            </div>
+        }
+        <div class="end">
         </div>
-
-        <div class="menu-item"
-            onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante, queijo e molho barbecue.', 'R$ 25,00', 'http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg')">
-            <img src="/img/lanche.png" alt="Full Stack Burger">
-            <h3>Full Stack Burger</h3>
-            <p>Duplo hambúrguer com bacon crocante, queijo e molho barbecue.</p>
-            <p class="price">R$ 25,00</p>
-        </div>
-
-        <div class="menu-item"
-            onclick="showModal('Looping Duplo','Dois hambúrgueres suculentos com queijo e cebola caramelizada.', 'R$ 32,00', 'https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp')">
-            <img src="https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp"
-                alt="Looping Duplo">
-            <h3>Looping Duplo</h3>
-            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
-            <p class="price">R$ 32,00</p>
-        </div>
-
-        <div class="menu-item"
-            onclick="showModal('Hello World Veggie','Hambúrguer vegetariano com alface, tomate e molho especial.', 'R$ 21,00', 'https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg')">
-            <img src="https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg"
-                alt="Hello World Veggie">
-            <h3>Hello World Veggie</h3>
-            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
-            <p class="price">R$ 21,00</p>
-        </div>
-
-        <div class="menu-item"
-            onclick="showModal('Java Vegano','Hambúrguer vegano com alface, tomate e molho especial.', 'R$ 21,00', 'https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg')">
-            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Java Vegano">
-            <h3>Java Vegano</h3>
-            <p>Hambúrguer vegano com alface, tomate e molho especial.</p>
-            <p class="price">R$ 21,00</p>
-        </div>
-
-        <div class="menu-item"
-            onclick="showModal('Olá Mundo Max','Quatro hambúrgueres suculentos com queijo, cebola e bacon.', 'R$ 29,00', 'https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg')">
-            <img src="https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg"
-                alt="Olá Mundo Max">
-            <h3>Olá Mundo Max</h3>
-            <p>Quatro hambúrgueres suculentos com queijo, cebola e bacon.</p>
-            <p class="price">R$ 29,00</p>
-        </div>
-        <div class="end"></div>
     </div>
 </div>
 

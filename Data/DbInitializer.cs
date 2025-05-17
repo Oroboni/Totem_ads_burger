@@ -44,6 +44,7 @@ namespace TotemPWA.Data
                 var product = new Product
                 {
                     Name = productSeed.Name,
+                    Description = productSeed.description,
                     Price = productSeed.Price,
                     CategoryId = category.Id
                 };
