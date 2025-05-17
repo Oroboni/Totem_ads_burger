@@ -70,6 +70,7 @@ public class HomeController : Controller
             {
                 id = p.Id,
                 name = p.Name,
+                description = p.Description,
                 price = p.Price
             })
             .ToListAsync();

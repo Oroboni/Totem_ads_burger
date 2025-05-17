@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TotemPWA.Data;
 
@@ -10,9 +11,11 @@ using TotemPWA.Data;
 namespace TotemPWA.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250517133537_SeedProducts")]
+    partial class SeedProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,42 +70,6 @@ namespace TotemPWA.Migrations
                         {
                             Id = 5,
                             Name = "Molhos"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Artesanais",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Tradicionais",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Refrigerantes",
-                            ParentCategoryId = 3
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Sucos",
-                            ParentCategoryId = 3
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Batatas",
-                            ParentCategoryId = 4
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Name = "Onion Rings",
-                            ParentCategoryId = 4
                         });
                 });
 
@@ -139,7 +106,7 @@ namespace TotemPWA.Migrations
                         new
                         {
                             Id = 1,
-                            CategoryId = 6,
+                            CategoryId = 1,
                             Description = "Pão, carne, queijo e molho especial",
                             Name = "Cheeseburger",
                             Price = 15.99m
@@ -155,7 +122,7 @@ namespace TotemPWA.Migrations
                         new
                         {
                             Id = 3,
-                            CategoryId = 8,
+                            CategoryId = 3,
                             Description = "350ml",
                             Name = "Refrigerante Lata",
                             Price = 6.00m
@@ -163,7 +130,7 @@ namespace TotemPWA.Migrations
                         new
                         {
                             Id = 4,
-                            CategoryId = 10,
+                            CategoryId = 4,
                             Description = "Porção média",
                             Name = "Batata Frita",
                             Price = 8.00m

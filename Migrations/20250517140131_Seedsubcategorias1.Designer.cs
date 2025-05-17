@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TotemPWA.Data;
 
@@ -10,9 +11,11 @@ using TotemPWA.Data;
 namespace TotemPWA.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250517140131_Seedsubcategorias1")]
+    partial class Seedsubcategorias1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -138,8 +141,8 @@ namespace TotemPWA.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            CategoryId = 6,
+                            Id = 6,
+                            CategoryId = 1,
                             Description = "Pão, carne, queijo e molho especial",
                             Name = "Cheeseburger",
                             Price = 15.99m
@@ -154,16 +157,16 @@ namespace TotemPWA.Migrations
                         },
                         new
                         {
-                            Id = 3,
-                            CategoryId = 8,
+                            Id = 8,
+                            CategoryId = 3,
                             Description = "350ml",
                             Name = "Refrigerante Lata",
                             Price = 6.00m
                         },
                         new
                         {
-                            Id = 4,
-                            CategoryId = 10,
+                            Id = 10,
+                            CategoryId = 4,
                             Description = "Porção média",
                             Name = "Batata Frita",
                             Price = 8.00m
