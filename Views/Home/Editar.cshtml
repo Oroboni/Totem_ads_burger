@@ -9,13 +9,18 @@
 <div class="content">
     
     <div class="container mt-5">
+        
         <div class="content" style="display: flex; align-items: center; justify-content: center;">
+            <a onclick="voltar()" class="buttonVoltar btn-left" >
+                <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i> 
+                Voltar
+            </a>
             <div style="display: flex; align-items: center; justify-content: center;">
                 <h1 class="fotoHamburger">Looping Duplo <img src="https://th.bing.com/th/id/R.5e96bba755c92182ece075f98e39079b?rik=XQq%2flOY5cGy%2fzg&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f05%2fBurger-PNG-File.png&ehk=EiGzaI4WN13PkIhEfAOCTlorUseua74IEqruBNEMXpI%3d&risl=&pid=ImgRaw&r=0" alt="Queijo"></h1>
             </div>
         </div>
         <div style="align-content: flex-start; justify-content: flex-start;">
-            <h1 style="font-size: 30px; text-align: left;">Ingredientes: </h1>
+            <h1 style="margin-left: 30px; font-size: 30px; text-align: left;">Ingredientes: </h1>
         </div>
 
         <div class="contentIngredient">
@@ -118,7 +123,7 @@
                 </div>
             </div>
         </div>
-        <div class="contentIngredient">
+        <div class="contentIngredient" style="margin-bottom: 117px;">
             <div>
                 <div style="display: flex; align-items: center;"> 
                     <button class="editarPao">Mudar Pão</button>
@@ -129,12 +134,30 @@
         </div>
     </div>
 </div>
-<h1></h1>
+//soluçãoi provisoria
+
 <div class="footer">
-    <div>Quantidade: <span id="cart-count">1.</span></div>
+    <div >
+        <div class="editarButtonFooter" style="display: flex; align-items: center;">
+            <button class="editarButtonFooter" id="decreaseButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 70 70" object-fit="contain">
+                    <path d="M34.9997 5.8335C18.9288 5.8335 5.83301 18.9293 5.83301 35.0002C5.83301 51.071 18.9288 64.1668 34.9997 64.1668C51.0705 64.1668 64.1663 51.071 64.1663 35.0002C64.1663 18.9293 51.0705 5.8335 34.9997 5.8335ZM46.433 37.1877H23.0997C21.9038 37.1877 20.9122 36.196 20.9122 35.0002C20.9122 33.8043 21.9038 32.8127 23.0997 32.8127H46.433C47.6288 32.8127 48.6205 33.8043 48.6205 35.0002C48.6205 36.196 47.658 37.1877 46.433 37.1877Z" fill="#463B3B"/>
+                </svg>
+            </button>
+            <span class="labelNmrFooter" id="counter">1</span>
+            <button class="editarButtonFooter" id="increaseButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 70 70" object-fit="contain">
+                    <path d="M35.0002 5.83325C18.9293 5.83325 5.8335 18.9291 5.8335 34.9999C5.8335 51.0708 18.9293 64.1666 35.0002 64.1666C51.071 64.1666 64.1668 51.0708 64.1668 34.9999C64.1668 18.9291 51.071 5.83325 35.0002 5.83325ZM46.6668 37.1874H37.1877V46.6666C37.1877 47.8624 36.196 48.8541 35.0002 48.8541C33.8043 48.8541 32.8127 47.8624 32.8127 46.6666V37.1874H23.3335C22.1377 37.1874 21.146 36.1958 21.146 34.9999C21.146 33.8041 22.1377 32.8124 23.3335 32.8124H32.8127V23.3333C32.8127 22.1374 33.8043 21.1458 35.0002 21.1458C36.196 21.1458 37.1877 22.1374 37.1877 23.3333V32.8124H46.6668C47.8627 32.8124 48.8543 33.8041 48.8543 34.9999C48.8543 36.1958 47.8627 37.1874 46.6668 37.1874Z" fill="#463B3B"/>
+                </svg>
+            </button>
+        </div>
+        <span>Quantidade</span>
+    </div>
     <div>Preço Total: R$ <span id="total-price">0.00</span></div>
-    <div class="ftr2"><button class="ftr2" onclick="voltar();"">Cancelar</button></div>
-    <button class="button" onclick="location.href='@Url.Action("Carrinho", "Home")'">Confirmar</button>
+    <div style="align-items: center; padding-bottom: 5px;">
+        <div class="ftr2"><button class="ftr2" onclick="voltar();"">Cancelar</button></div>
+        <button class="button" onclick="location.href='@Url.Action("Carrinho", "Home")'">Confirmar</button>
+    </div>
 </div>
 
 <script src="/js/Editar.js"></script>

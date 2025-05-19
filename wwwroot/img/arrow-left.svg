@@ -1,0 +1,36 @@
+<svg width="47" height="40" viewBox="0 0 47 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="47" height="40" fill="#1E1E1E"/>
+<g id="Tela Revisar Pedido" clip-path="url(#clip0_0_1)">
+<rect width="1080" height="1920" transform="translate(-51 -418)" fill="#F1F1F1"/>
+<rect id="Rectangle 4" x="-51" y="-418" width="1080" height="1920" fill="#F1F1F1"/>
+<g id="Bot&#195;&#163;o-Voltar">
+<g id="Bot&#195;&#163;o-Voltar_2" filter="url(#filter0_d_0_1)">
+<rect x="-33" y="-9" width="227" height="57" rx="28.5" fill="#1E1E1E"/>
+</g>
+</g>
+<g id="Line arrow-left">
+<g id="vuesax/linear/arrow-left">
+<g id="arrow-left">
+<path id="Vector" d="M18.7411 9.88333L6.854 20L18.7411 30.1167" stroke="#F1F1F1" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M40.1458 20H7.18701" stroke="#F1F1F1" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_0_1" x="-51.3" y="-23.3" width="263.6" height="93.6" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="5" operator="erode" in="SourceAlpha" result="effect1_dropShadow_0_1"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="11.65"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+</filter>
+<clipPath id="clip0_0_1">
+<rect width="1080" height="1920" fill="white" transform="translate(-51 -418)"/>
+</clipPath>
+</defs>
+</svg>
