@@ -39,6 +39,7 @@
                                                                   <span class="label">@category.name</span> <!-- Nome da categoria -->
                                                               </a>
     }
+    <div class="end"></div>
 </div>
 
 <!-- Conteúdo Principal -->
@@ -46,17 +47,21 @@
     <div class="menu-grid">
         @foreach (var product in ViewBag.Products)
         {
+            var priceStr = product.price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"));
+            var imageUrl =
+            "https://static.itdg.com.br/images/640-440/49687a8a7a7110c7f560b9c7e96a9d0e/254679-shutterstock-364110890-1-.jpg";
+
             <div class="menu-item"
-                onclick="showModal('@product.name', 'Descrição do produto @product.name', '@product.price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))', "https://static.itdg.com.br/images/640-440/49687a8a7a7110c7f560b9c7e96a9d0e/254679-shutterstock-364110890-1-.jpg")')">
-                <img src=""https://static.itdg.com.br/images/640-440/49687a8a7a7110c7f560b9c7e96a9d0e/254679-shutterstock-364110890-1-.jpg")" alt="@product.name">
+                onclick="showModal('@product.name', '@(product.description ?? "Descrição não disponível")', '@priceStr', '@imageUrl')">
+                <img src="@imageUrl" alt="@product.name" />
                 <div class="options">
                     <h3>@product.name</h3>
                     <p>@(product.description ?? "Descrição não disponível")</p>
-                    <strong class="price">@product.price.ToString("C",
-                                            System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))</strong>
+                    <strong class="price">@priceStr</strong>
+                </div>
             </div>
-        </div>
-                }
+        }
+
         <div class="end">
         </div>
     </div>
