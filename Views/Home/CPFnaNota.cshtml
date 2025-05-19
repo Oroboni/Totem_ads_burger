@@ -1,0 +1,198 @@
+@{
+    ViewData["Title"] = "Escolha a Consumação";
+    Layout = null; // Ignora o layout padrão
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPF na Nota</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <LINK rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></LINK>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    
+        body {
+            font-family: 'Inter', sans-serif; 
+        }
+        
+        .custom-checkbox:checked {
+            background-color: #C1D343;
+            border-color: #C1D343; 
+        }
+        .custom-checkbox:checked::before {
+            content: '✓';
+            display: block;
+            color: white;
+            text-align: center;
+            line-height: 1.25rem; 
+            font-size: 0.875rem; 
+        }
+        .cpf-input-placeholder::placeholder {
+            color: #9ca3af; 
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <div class="flex-grow flex flex-col items-center justify-center p-4 space-y-8 w-full max-w-sm mx-auto">
+        <h1 class="text-3xl font-bold text-gray-800 text-center">DESEJA CPF NA NOTA?</h1>
+
+        <div class="flex items-center space-x-3">
+            <input type="checkbox" id="incluirCpfCheckbox" class="custom-checkbox appearance-none w-6 h-6 border-2 border-gray-400 rounded-md cursor-pointer focus:ring-2 focus:ring-lime-300">
+            <label for="incluirCpfCheckbox" class="text-lg text-gray-700 cursor-pointer">Sim, Desejo incluir o CPF</label>
+        </div>
+
+        <!-- checkbox para CPF -->
+        <div id="cpfSection" class="hidden w-full space-y-6">
+            <input type="text" id="cpfInput"
+                   class="w-full p-3 text-xl text-center border border-gray-300 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-lime-400 focus:border-lime-400 cpf-input-placeholder"
+                   placeholder="___.___.___-__"
+                   readonly>
+
+        
+            <div id="numericKeypad" class="grid grid-cols-3 gap-2 w-full max-w-xs mx-auto bg-gray-800 p-3 rounded-lg shadow-md">
+                <!-- Row 1 -->
+                <button data-key="7" class="keypad-btn">7</button>
+                <button data-key="8" class="keypad-btn">8</button>
+                <button data-key="9" class="keypad-btn">9</button>
+                <!-- Row 2 -->
+                <button data-key="4" class="keypad-btn">4</button>
+                <button data-key="5" class="keypad-btn">5</button>
+                <button data-key="6" class="keypad-btn">6</button>
+                <!-- Row 3 -->
+                <button data-key="1" class="keypad-btn">1</button>
+                <button data-key="2" class="keypad-btn">2</button>
+                <button data-key="3" class="keypad-btn">3</button>
+                <!-- Row 4 -->
+                <button data-key="clear" class="keypad-btn text-sm col-span-1">Limpar</button>
+                <button data-key="0" class="keypad-btn">0</button>
+                <button data-key="backspace" class="keypad-btn text-2xl"><i class="fa-solid fa-delete-left"></i></button>
+            </div>
+        </div>
+
+        <button id="continueButton"
+                class="bg-lime-400 hover:bg-lime-500 text-gray-800 font-semibold py-3 px-10 rounded-lg text-lg shadow-md transition duration-150">
+            Continuar
+        </button>
+    </div>
+
+    <footer class="bg-red-700 text-white p-4 w-full mt-auto">
+        <div class="max-w-sm mx-auto flex justify-between items-center">
+            <button id="backButton"
+                    class="bg-white hover:bg-gray-100 text-red-700 font-semibold py-2 px-6 rounded-lg shadow transition duration-150">
+                Voltar
+            </button>
+            <span class="font-semibold text-lg">Valor : R$173,30</span>
+        </div>
+    </footer>
+
+    <script>
+        const incluirCpfCheckbox = document.getElementById('incluirCpfCheckbox');
+        const cpfSection = document.getElementById('cpfSection');
+        const cpfInput = document.getElementById('cpfInput');
+        const numericKeypad = document.getElementById('numericKeypad');
+        const continueButton = document.getElementById('continueButton'); // Not strictly needed for logic but good to have
+        const backButton = document.getElementById('backButton');
+        let cpfValue = "";
+
+        function formatCPF(value) {
+            const digits = value.replace(/\D/g, ""); 
+            let formatted = "";
+
+            if (digits.length <= 3) {
+                formatted = digits;
+            } else if (digits.length <= 6) {
+                formatted = `${digits.slice(0, 3)}.${digits.slice(3)}`;
+            } else if (digits.length <= 9) {
+                formatted = `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(6)}`;
+            } else {
+                formatted = `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(6, 9)}-${digits.slice(9, 11)}`;
+            }
+            return formatted;
+        }
+
+        // Update CPF input with mask and placeholder handling
+        function updateCpfInput() {
+            const maskedValue = formatCPF(cpfValue);
+            cpfInput.value = maskedValue;
+
+            // If empty, show full placeholder, otherwise, show partial or full value
+            if (cpfValue.length === 0) {
+                cpfInput.placeholder = "___.___.___-__";
+            } else {
+                // Create a dynamic placeholder effect for remaining characters
+                const placeholderMask = "___.___.___-__";
+                // Show entered digits, then placeholder for the rest
+                let displayValue = "";
+                let rawIdx = 0;
+                for (let i = 0; i < placeholderMask.length; i++) {
+                    if (placeholderMask[i] === '_' && rawIdx < cpfValue.length) {
+                        // This logic is tricky with the mask already applied.
+                        // Simpler: just show the masked value. If you want precise char-by-char placeholder fill,
+                        // it's more complex. For now, formatCPF handles the display.
+                    }
+                }
+            }
+             // The default placeholder will show if cpfInput.value is empty.
+            // If you want dynamic placeholder filling, that's more complex.
+            // For simplicity, the input value will just show the formatted CPF.
+        }
+
+
+        // Event listener for the checkbox
+        incluirCpfCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                cpfSection.classList.remove('hidden');
+                cpfSection.classList.add('flex', 'flex-col', 'items-center'); // Use flex for centering keypad if needed
+            } else {
+                cpfSection.classList.add('hidden');
+                cpfSection.classList.remove('flex', 'flex-col', 'items-center');
+                cpfValue = ""; // Clear CPF when hiding
+                updateCpfInput();
+            }
+        });
+
+        // Event listener for keypad buttons
+        numericKeypad.addEventListener('click', function(event) {
+            const target = event.target;
+            if (target.classList.contains('keypad-btn')) {
+                const key = target.dataset.key;
+
+                if (key >= '0' && key <= '9') {
+                    if (cpfValue.length < 11) {
+                        cpfValue += key;
+                    }
+                } else if (key === 'backspace') {
+                    cpfValue = cpfValue.slice(0, -1);
+                } else if (key === 'clear') {
+                    cpfValue = "";
+                }
+                updateCpfInput();
+            }
+        });
+
+        // Style keypad buttons (could also do this with more Tailwind classes in HTML)
+        document.querySelectorAll('.keypad-btn').forEach(btn => {
+            btn.classList.add(
+                'bg-gray-700', 'text-white', 'p-4', 'rounded-lg', 'text-2xl', 'font-semibold',
+                'hover:bg-gray-600', 'focus:outline-none', 'focus:ring-2', 'focus:ring-lime-400',
+                'transition', 'duration-150', 'ease-in-out', 'flex', 'items-center', 'justify-center'
+            );
+            if (btn.dataset.key === 'clear' || btn.dataset.key === 'backspace') {
+                 btn.classList.add('text-lime-400');
+            }
+        });
+
+        // Initial update in case the page loads with checkbox checked (e.g., browser cache)
+        if (incluirCpfCheckbox.checked) {
+            cpfSection.classList.remove('hidden');
+            cpfSection.classList.add('flex', 'flex-col', 'items-center');
+        }
+        updateCpfInput(); // To set initial placeholder correctly
+
+    </script>
+</body>
+</html>
