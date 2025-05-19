@@ -112,25 +112,25 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\ComerNoLocal.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-mBC03g\u002BTtV4vJTcEo4vb7sIZfJbnX62QEq8cVQ6oXAM="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5067782"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022mBC03g\u002BTtV4vJTcEo4vb7sIZfJbnX62QEq8cVQ6oXAM=\u0022"},{"Name":"Last-Modified","Value":"Fri, 25 Apr 2025 04:53:16 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5067782"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022mBC03g\u002BTtV4vJTcEo4vb7sIZfJbnX62QEq8cVQ6oXAM=\u0022"},{"Name":"Last-Modified","Value":"Mon, 19 May 2025 18:51:39 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/TotemPWA/img/ComerNoLocal.sj1rggkpbw.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\ComerNoLocal.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"sj1rggkpbw"},{"Name":"integrity","Value":"sha256-mBC03g\u002BTtV4vJTcEo4vb7sIZfJbnX62QEq8cVQ6oXAM="},{"Name":"label","Value":"_content/TotemPWA/img/ComerNoLocal.png"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5067782"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022mBC03g\u002BTtV4vJTcEo4vb7sIZfJbnX62QEq8cVQ6oXAM=\u0022"},{"Name":"Last-Modified","Value":"Fri, 25 Apr 2025 04:53:16 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5067782"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022mBC03g\u002BTtV4vJTcEo4vb7sIZfJbnX62QEq8cVQ6oXAM=\u0022"},{"Name":"Last-Modified","Value":"Mon, 19 May 2025 18:51:39 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/TotemPWA/img/LevarParaViagem.ltzxeitl9f.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\LevarParaViagem.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ltzxeitl9f"},{"Name":"integrity","Value":"sha256-Z2Y8vOIt\u002B1z7pmXeApW8SfRONIIG/WtiUfr7afOqP98="},{"Name":"label","Value":"_content/TotemPWA/img/LevarParaViagem.png"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3878769"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022Z2Y8vOIt\u002B1z7pmXeApW8SfRONIIG/WtiUfr7afOqP98=\u0022"},{"Name":"Last-Modified","Value":"Fri, 25 Apr 2025 04:44:48 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3878769"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022Z2Y8vOIt\u002B1z7pmXeApW8SfRONIIG/WtiUfr7afOqP98=\u0022"},{"Name":"Last-Modified","Value":"Mon, 19 May 2025 18:51:39 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/TotemPWA/img/LevarParaViagem.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\LevarParaViagem.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Z2Y8vOIt\u002B1z7pmXeApW8SfRONIIG/WtiUfr7afOqP98="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"3878769"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022Z2Y8vOIt\u002B1z7pmXeApW8SfRONIIG/WtiUfr7afOqP98=\u0022"},{"Name":"Last-Modified","Value":"Fri, 25 Apr 2025 04:44:48 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"3878769"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022Z2Y8vOIt\u002B1z7pmXeApW8SfRONIIG/WtiUfr7afOqP98=\u0022"},{"Name":"Last-Modified","Value":"Mon, 19 May 2025 18:51:39 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/TotemPWA/img/LogoADSBurguer.c8buhezgx9.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\LogoADSBurguer.png'))</AssetFile>
