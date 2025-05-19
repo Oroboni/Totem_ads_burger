@@ -47,8 +47,8 @@
         @foreach (var product in ViewBag.Products)
         {
             <div class="menu-item"
-                onclick="showModal('@product.name', 'Descrição do produto @product.name', '@product.price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))', "https://via.placeholder.com/150")')">
-                <img src=""https://via.placeholder.com/150")" alt="@product.name">
+                onclick="showModal('@product.name', 'Descrição do produto @product.name', '@product.price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))', "https://static.itdg.com.br/images/640-440/49687a8a7a7110c7f560b9c7e96a9d0e/254679-shutterstock-364110890-1-.jpg")')">
+                <img src=""https://static.itdg.com.br/images/640-440/49687a8a7a7110c7f560b9c7e96a9d0e/254679-shutterstock-364110890-1-.jpg")" alt="@product.name">
                 <div class="options">
                     <h3>@product.name</h3>
                     <p>@(product.description ?? "Descrição não disponível")</p>
@@ -92,3 +92,54 @@
     <button class="button" onclick="checkout(); location.href='@Url.Action("Carrinho", "Home")'">Visualizar
         Pedido</button>
 </div>
+
+<script>
+    let cartCount = 0;
+    let totalPrice = 0;
+
+    function changeQuantity(amount) {
+        const quantityElement = document.getElementById("quantity");
+        let currentQuantity = parseInt(quantityElement.innerText);
+        currentQuantity = Math.max(1, currentQuantity + amount);
+        quantityElement.innerText = currentQuantity;
+    }
+
+    function addToCart() {
+        let price = parseFloat(document.getElementById("preco").innerText.replace('R$', '').replace(',', '.'));
+        cartCount++;
+        const quantity = parseInt(document.getElementById("quantity").innerText);
+        totalPrice += price * quantity;
+        document.getElementById("cart-count").innerText = cartCount;
+        document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+        closeModal();
+    }
+
+    function checkout() {
+        @* alert("Pedido finalizado! Total: R$ " + totalPrice.toFixed(2));
+        cartCount = 0;
+        totalPrice = 0;
+        document.getElementById("cart-count").innerText = cartCount;
+        document.getElementById("total-price").innerText = totalPrice.toFixed(2); *@
+    }
+
+    function showModal(title, description, preco, imageUrl) {
+        document.getElementById('titulo').innerText = title;
+        document.getElementById('descricao').innerText = description;
+        document.getElementById('preco').innerText = preco;
+        document.getElementById('modal-img').src = imageUrl;
+        document.getElementById('quantity').innerText = 1;
+        document.getElementById('modal').style.display = 'block';
+    }
+
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+        var modal = document.getElementById('modal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>

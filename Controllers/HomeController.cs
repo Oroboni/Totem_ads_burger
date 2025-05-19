@@ -21,7 +21,7 @@ public class HomeController : Controller
     {
         return View();
     }
-    
+
     [HttpGet("Pedido/{categoryId:int?}/{subcategoryId:int?}")]
     public async Task<IActionResult> Pedido(int? categoryId, int? subcategoryId)
     {
@@ -31,7 +31,11 @@ public class HomeController : Controller
             .ToListAsync();
 
         // Se não houver categoryId fornecido, usa o primeiro como ativo
-        var activeCategoryId = categoryId ?? rootCategoriesRaw.FirstOrDefault()?.Id;
+        if (!categoryId.HasValue && rootCategoriesRaw.Count == 0)
+            return NotFound(); // ou algum fallback
+
+        var activeCategoryId = categoryId ?? rootCategoriesRaw.First().Id;
+
 
         // Mapeia as categorias raiz para um formato com indicação de qual está ativa
         var rootCategories = rootCategoriesRaw
@@ -64,19 +68,62 @@ public class HomeController : Controller
             .ToList();
 
         // Busca produtos da subcategoria ativa
-        var products = await _context.Products
-            .Where(p => p.CategoryId == activeSubcategoryId)
-            .Select(p => new
+        List<object> products;
+
+        bool hasSubcategories = subcategoriesRaw.Any();
+
+        if (hasSubcategories)
+        {
+            if (subcategoryId.HasValue)
             {
-                id = p.Id,
-                name = p.Name,
-                description = p.Description,
-                price = p.Price
-            })
-            .ToListAsync();
+                // Se subcategoria ativa foi especificada e é válida
+                products = await _context.Products
+                    .Where(p => p.CategoryId == subcategoryId)
+                    .Select(p => new
+                    {
+                        id = p.Id,
+                        name = p.Name,
+                        description = p.Description,
+                        price = p.Price
+                    })
+                    .ToListAsync<object>();
+            }
+            else
+            {
+                // Nenhuma subcategoria selecionada → mostra produtos de todas as subcategorias
+                var subcategoryIds = subcategoriesRaw.Select(s => s.Id).ToList();
+
+                products = await _context.Products
+                    .Where(p => subcategoryIds.Contains(p.CategoryId))
+                    .Select(p => new
+                    {
+                        id = p.Id,
+                        name = p.Name,
+                        description = p.Description,
+                        price = p.Price
+                    })
+                    .ToListAsync<object>();
+            }
+        }
+        else
+        {
+            // Categoria raiz sem subcategorias → mostra produtos diretos dela
+            products = await _context.Products
+                .Where(p => p.CategoryId == activeCategoryId)
+                .Select(p => new
+                {
+                    id = p.Id,
+                    name = p.Name,
+                    description = p.Description,
+                    price = p.Price
+                })
+                .ToListAsync<object>();
+        }
+
+
 
         // Envia dados para a View via ViewBag (dinâmico)
-        ViewBag.Category = categoryId;
+        ViewBag.Category = activeCategoryId;
         ViewBag.Categories = rootCategories;
         ViewBag.SubCategories = subcategories;
         ViewBag.Products = products;
