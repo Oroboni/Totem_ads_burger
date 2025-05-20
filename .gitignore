@@ -1,0 +1,29 @@
+# Ignore arquivos de build e cache
+bin/
+obj/
+
+# Ignora arquivos gerados pelo VS Code
+.vscode/
+
+# Ignora arquivos de log do Rider
+.idea/
+
+# Ignora arquivos de configuração de usuário do Visual Studio
+*.user
+*.suo
+
+# Ignora arquivos de cache do ASP.NET
+*.dbmdl
+*.bak
+*.log
+
+# Ignora arquivos de dependências locais
+packages/
+*.nupkg
+
+# Ignora o arquivo do Static Web Assets Manifest
+**/staticwebassets.build.json
+
+# Ignora diretórios de publicação
+publish/
+out/

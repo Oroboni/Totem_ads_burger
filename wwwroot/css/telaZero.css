@@ -4,7 +4,7 @@
     text-align: center;
 }
 body{
-    background-color: #900;
+    background: linear-gradient(to bottom left, #810101 0%, #990000 50%, #880202 50%, rgb(122, 0, 0) 100%);
 }
 
 .svg-background {
