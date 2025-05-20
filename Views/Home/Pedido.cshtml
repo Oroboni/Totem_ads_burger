@@ -2,11 +2,12 @@
     ViewBag.Title = "Pedido";
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title - Totem_ads_burger</title>
-    <link rel="stylesheet" href="~/css/pedido.css" /> 
+    <link rel="stylesheet" href="~/css/pedido.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
@@ -16,105 +17,53 @@
 </div>
 
 <div class="category-scrollbar">
-    <div class="category-tab" onclick="showCategory('burgers')">🍔 Burgers</div>
-    <div class="category-tab" onclick="showCategory('combos')">🍟 Combos</div>
-    <div class="category-tab" onclick="showCategory('sobremesa')">🍰 Sobremesas</div>
-    <div class="category-tab" onclick="showCategory('drinks')">🥤 Bebidas</div>
-    <div class="category-tab" onclick="showCategory('extras')">🍟 Extras</div>
-    <div class="category-tab" onclick="showCategory('molhos')">🧂 Molhos</div>
+    @if (ViewBag.Category != null)
+    {
+        @foreach (var subcategory in ViewBag.SubCategories)
+        {
+            string activeClass = subcategory.active ? "active" : "";
+            <a href="/Pedido/@ViewBag.Category/@subcategory.id" class="subcategory-btn @activeClass">
+                <span class="label">@subcategory.name</span>
+            </a>
+        }
+    }
 </div>
 
 <div class="sidebar">
-    <ul>
-        <li onclick="showCategory('burgers')">
-            <img src="https://png.pngtree.com/png-clipart/20231017/original/pngtree-burger-food-png-free-download-png-image_13329455.png"
-                 alt="">
-            <h2>Burgers</h2>
-        </li>
-        <li onclick="showCategory('combos')"><img
-                src="https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-and-fries-delicious-fast-food-combo-transparent-background-png-image_13279170.png"
-                alt=" combos">
-            <h2>Combos</h2>
-        </li>
-        <li onclick="showCategory('sobremesa')"><img
-                src="https://th.bing.com/th/id/R.c2c401c37bba64285ca1aa4b067f0fce?rik=H4bSqMkhpHT%2fSg&pid=ImgRaw&r=0"
-                alt="sobremesa">
-            <h2>Sobremesas</h2>
-        </li>
-        <li onclick="showCategory('drinks')"><img
-                src="https://png.pngtree.com/png-clipart/20230417/original/pngtree-cola-soda-drink-glass-png-image_9059477.png"
-                alt="bebida">
-            <h2>Bebidas</h2>
-        </li>
-        <li onclick="showCategory('extras')"><img
-                src="https://static.vecteezy.com/system/resources/previews/013/442/144/original/crispy-and-delicious-french-fries-free-png.png"
-                alt="extra">
-            <h2>Extras</h2>
-        </li>
-        <li onclick="showCategory('molhos')"><img
-                src="https://th.bing.com/th/id/R.5dd1a7dbc57631f822418410eea10e3e?rik=dWJF2WCRtUDhPA&pid=ImgRaw&r=0"
-                alt="molho">
-            <h2>Molhos</h2>
-        </li>
-    </ul>
+    @foreach (var category in ViewBag.Categories) // Itera sobre as categorias
+    {
+        string activeClass = category.active ? "active" : ""; // Define a classe "active" se a categoria estiver ativa
+                                                              <a href="/Pedido/@category.id" class="category-btn @activeClass">
+                                                                  <!-- Gera o link da categoria com a classe condicional -->
+                                                                  <span class="icon">🍕</span>
+                                                                  <span class="label">@category.name</span> <!-- Nome da categoria -->
+                                                              </a>
+    }
+    <div class="end"></div>
 </div>
 
 <!-- Conteúdo Principal -->
 <div class="content" id="content">
     <div class="menu-grid">
-        <div class="menu-item"
-            onclick="showModal('Burger 404','Clássico hambúrguer de carne, queijo derretido e molho especial.', 'R$ 24,00', 'https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png')">
-            <img src="https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png"
-                alt="Burger 404">
-            <h3>Burger 404</h3>
-            <p>Clássico hambúrguer de carne, queijo derretido e molho especial.</p>
-            <p class="price">R$ 24,00</p>
-        </div>
+        @foreach (var product in ViewBag.Products)
+        {
+            var priceStr = product.price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"));
+            var imageUrl =
+            "https://static.itdg.com.br/images/640-440/49687a8a7a7110c7f560b9c7e96a9d0e/254679-shutterstock-364110890-1-.jpg";
 
-        <div class="menu-item"
-            onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante, queijo e molho barbecue.', 'R$ 25,00', 'http://www.lepingue.com.br/admin/uploads/images/galeria/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg')">
-            <img src="/img/lanche.png"
-                alt="Full Stack Burger">
-            <h3>Full Stack Burger</h3>
-            <p>Duplo hambúrguer com bacon crocante, queijo e molho barbecue.</p>
-            <p class="price">R$ 25,00</p>
-        </div>
+            <div class="menu-item"
+                onclick="showModal('@product.name', '@(product.description ?? "Descrição não disponível")', '@priceStr', '@imageUrl')">
+                <img src="@imageUrl" alt="@product.name" />
+                <div class="options">
+                    <h3>@product.name</h3>
+                    <p>@(product.description ?? "Descrição não disponível")</p>
+                    <strong class="price">@priceStr</strong>
+                </div>
+            </div>
+        }
 
-        <div class="menu-item"
-            onclick="showModal('Looping Duplo','Dois hambúrgueres suculentos com queijo e cebola caramelizada.', 'R$ 32,00', 'https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp')">
-            <img src="https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp"
-                alt="Looping Duplo">
-            <h3>Looping Duplo</h3>
-            <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
-            <p class="price">R$ 32,00</p>
+        <div class="end">
         </div>
-
-        <div class="menu-item"
-            onclick="showModal('Hello World Veggie','Hambúrguer vegetariano com alface, tomate e molho especial.', 'R$ 21,00', 'https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg')">
-            <img src="https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg"
-                alt="Hello World Veggie">
-            <h3>Hello World Veggie</h3>
-            <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
-            <p class="price">R$ 21,00</p>
-        </div>
-
-        <div class="menu-item"
-            onclick="showModal('Java Vegano','Hambúrguer vegano com alface, tomate e molho especial.', 'R$ 21,00', 'https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg')">
-            <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Java Vegano">
-            <h3>Java Vegano</h3>
-            <p>Hambúrguer vegano com alface, tomate e molho especial.</p>
-            <p class="price">R$ 21,00</p>
-        </div>
-
-        <div class="menu-item"
-            onclick="showModal('Olá Mundo Max','Quatro hambúrgueres suculentos com queijo, cebola e bacon.', 'R$ 29,00', 'https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg')">
-            <img src="https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg"
-                alt="Olá Mundo Max">
-            <h3>Olá Mundo Max</h3>
-            <p>Quatro hambúrgueres suculentos com queijo, cebola e bacon.</p>
-            <p class="price">R$ 29,00</p>
-        </div>
-        <div class="end"></div>
     </div>
 </div>
 
@@ -197,219 +146,5 @@
         if (event.target === modal) {
             modal.style.display = 'none';
         }
-    }
-</script>
-
-<script>
-    function showCategory(category) {
-        const content = document.getElementById("content");
-        let html = "";
-        switch (category) {
-            case "burgers":
-                html = `
-                     <div class="menu-grid">
-                    <div class="menu-item"
-                        onclick="showModal('Burger 404','Clássico hambúrguer de carne, queijo derretido e molho especial.', 'R$ 24,00', 'https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png')">
-                        <img src="https://funburgers.com.br/painel/imagensLanches/temp_017c3bb2-8151-43a9-bf2a-0488993d72fe.png"
-                            alt="Burger 404">
-                        <h3>Burger 404</h3>
-                        <p>Clássico hambúrguer de carne, queijo derretido e molho especial.</p>
-                        <p class="price">R$ 24,00</p>
-                    </div>
-
-                    <div class="menu-item"
-                        onclick="showModal('Full Stack Burger','Duplo hambúrguer com bacon crocante, queijo e molho barbecue.', 'R$ 25,00', 'https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kMX5kx4H/200/200/original?country=br')">
-                        <img src="https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kMX5kx4H/200/200/original?country=br"
-                            alt="Full Stack Burger">
-                        <h3>Full Stack Burger</h3>
-                        <p>Duplo hambúrguer com bacon crocante, queijo e molho barbecue.</p>
-                        <p class="price">R$ 25,00</p>
-                    </div>
-
-                    <div class="menu-item"
-                        onclick="showModal('Looping Duplo','Dois hambúrgueres suculentos com queijo e cebola caramelizada.', 'R$ 32,00', 'https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp')">
-                        <img src="https://www.minhareceita.com.br/app/uploads/2021/02/hamburguer-com-cebola-caramelizada-portal-minha-receita-1.webp"
-                            alt="Looping Duplo">
-                        <h3>Looping Duplo</h3>
-                        <p>Dois hambúrgueres suculentos com queijo e cebola caramelizada.</p>
-                        <p class="price">R$ 32,00</p>
-                    </div>
-
-                    <div class="menu-item"
-                        onclick="showModal('Hello World Veggie','Hambúrguer vegetariano com alface, tomate e molho especial.', 'R$ 21,00', 'https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg')">
-                        <img src="https://s2.glbimg.com/jqfaCA6V4Yb2xgU1JzPD200Kaxk=/smart/e.glbimg.com/og/ed/f/original/2018/07/20/matilda_vegano_wellington_nemeth_1.jpg"
-                            alt="Hello World Veggie">
-                        <h3>Hello World Veggie</h3>
-                        <p>Hambúrguer vegetariano com alface, tomate e molho especial.</p>
-                        <p class="price">R$ 21,00</p>
-                    </div>
-
-                    <div class="menu-item"
-                        onclick="showModal('Java Vegano','Hambúrguer vegano com alface, tomate e molho especial.', 'R$ 21,00', 'https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg')">
-                        <img src="https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg" alt="Java Vegano">
-                        <h3>Java Vegano</h3>
-                        <p>Hambúrguer vegano com alface, tomate e molho especial.</p>
-                        <p class="price">R$ 21,00</p>
-                    </div>
-
-                    <div class="menu-item"
-                        onclick="showModal('Olá Mundo Max','Quatro hambúrgueres suculentos com queijo, cebola e bacon.', 'R$ 29,00', 'https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg')">
-                        <img src="https://www.mulher.com.br/wp-content/uploads/migration/big-fire-0419-1400x1400.jpg"
-                            alt="Olá Mundo Max">
-                        <h3>Olá Mundo Max</h3>
-                        <p>Quatro hambúrgueres suculentos com queijo, cebola e bacon.</p>
-                        <p class="price">R$ 29,00</p>
-                    </div>
-                    <div class="end"></div>
-                </div>
-                `;
-                break;
-            case "combos":
-                html = `
-                <div class="menu-grid">
-                    <div class="menu-item" onclick="showModal('Combo Fullstack','Combo completo para quem trabalha com front e back-end. Inclui dois Hello World e batata frita.', 'R$ 48,00', 'https://mastercombolanches.wordpress.com/wp-content/uploads/2020/07/combo-2-png.png')">
-                        <img src="https://mastercombolanches.wordpress.com/wp-content/uploads/2020/07/combo-2-png.png" alt="Combo Fullstack">
-                        <h3>Combo Fullstack</h3>
-                        <p>Combo completo para quem trabalha com front e back-end. Inclui dois Hello World e batata frita.</p>
-                        <p class="price">R$ 48,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Combo Front-End','Duplo hambúrguer com refrigerante e fritas fininhas.', 'R$ 40,00', 'https://www.cidadeoferta.com.br/storage/offers/9276-oferta2_imagem7.jpg')">
-                        <img src="https://www.cidadeoferta.com.br/storage/offers/9276-oferta2_imagem7.jpg" alt="Combo Front-End">
-                        <h3>Combo Front-End</h3>
-                        <p>Duplo hambúrguer com refrigerante e fritas fininhas.</p>
-                        <p class="price">R$ 40,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Combo Back-End','Burger parrudo com onion rings e refrigerante 500ml.', 'R$ 45,00', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeYXnKaT56LJa9X9Skc5mUcbsmTnk04dVXfQ&s')">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeYXnKaT56LJa9X9Skc5mUcbsmTnk04dVXfQ&s" alt="Combo Back-End">
-                        <h3>Combo Back-End</h3>
-                        <p>Burger parrudo com onion rings e refrigerante 500ml.</p>
-                        <p class="price">R$ 45,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Combo Banco de Dados','Burger veggie + suco natural + batata rústica.', 'R$ 39,00', 'https://cdn.pixabay.com/photo/2016/11/18/15/03/burger-1835192_1280.jpg')">
-                        <img src="https://cdn.pixabay.com/photo/2016/11/18/15/03/burger-1835192_1280.jpg" alt="Combo Banco de Dados">
-                        <h3>Combo Banco de Dados</h3>
-                        <p>Burger veggie + suco natural + batata rústica.</p>
-                        <p class="price">R$ 39,00</p>
-                    </div>
-                </div>
-            `;
-                break;
-            case "sobremesa":
-                html = `
-                <div class="menu-grid">
-                    <div class="menu-item" onclick="showModal('Cookie Overflow','Cookie gigante recheado com chocolate derretido.', 'R$ 12,00', 'https://cdn0.tudoreceitas.com/pt/posts/0/8/2/cookie_gigante_de_chocolate_6280_600.webp')">
-                        <img src="https://cdn0.tudoreceitas.com/pt/posts/0/8/2/cookie_gigante_de_chocolate_6280_600.webp" alt="Cookie Overflow">
-                        <h3>Cookie Overflow</h3>
-                        <p>Cookie gigante recheado com chocolate derretido.</p>
-                        <p class="price">R$ 12,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Array de Donuts','Seleção de mini donuts sortidos, 6 unidades.', 'R$ 14,00', 'https://bemquererdonuts.com.br/wp-content/webp-express/webp-images/uploads/2022/08/Design-sem-nome-2022-08-12T112417.818.jpg.webp')">
-                        <img src="https://bemquererdonuts.com.br/wp-content/webp-express/webp-images/uploads/2022/08/Design-sem-nome-2022-08-12T112417.818.jpg.webp" alt="Array de Donuts">
-                        <h3>Array de Donuts</h3>
-                        <p>Seleção de mini donuts sortidos, 6 unidades.</p>
-                        <p class="price">R$ 14,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Sorvete JSON','Taça com três bolas de sabores variados e cobertura à escolha.', 'R$ 10,00', 'https://ogimg.infoglobo.com.br/in/25209024-9b2-303/FT1086A/de-Lamare-Banana-split-foto-Rodrigo-Azevedo.jpg')">
-                        <img src="https://ogimg.infoglobo.com.br/in/25209024-9b2-303/FT1086A/de-Lamare-Banana-split-foto-Rodrigo-Azevedo.jpg" alt="Sorvete JSON">
-                        <h3>Sorvete JSON</h3>
-                        <p>Taça com três bolas de sabores variados e cobertura à escolha.</p>
-                        <p class="price">R$ 10,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Stack de Brownies','Mini brownies empilhados com calda quente.', 'R$ 8,00', 'https://static.barato.com.br/2019/1029/oferta_15723746442787_destaque1.jpg')">
-                        <img src="https://static.barato.com.br/2019/1029/oferta_15723746442787_destaque1.jpg" alt="Stack de Brownies">
-                        <h3>Stack de Brownies</h3>
-                        <p>Mini brownies empilhados com calda quente.</p>
-                        <p class="price">R$ 8,00</p>
-                    </div>
-                </div>
-            `;
-                break;
-            case "drinks":
-                html = `
-                <div class="menu-grid">
-                    <div class="menu-item" onclick="showModal('Refrigerante Root','Lata de 350ml, vários sabores disponíveis.', 'R$ 6,00', 'https://andinacocacola.vtexassets.com/arquivos/ids/158593-1600-auto?v=638703085487330000&width=1600&height=auto&aspect=true')">
-                        <img src="https://andinacocacola.vtexassets.com/arquivos/ids/158593-1600-auto?v=638703085487330000&width=1600&height=auto&aspect=true" alt="Refrigerante Root">
-                        <h3>Refrigerante Root</h3>
-                        <p>Lata de 350ml, vários sabores disponíveis.</p>
-                        <p class="price">R$ 6,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Suco Compiler','Suco natural de laranja ou limão.', 'R$ 9,00', 'https://cantinagoodlanche.com.br/wp-content/uploads/2020/07/beneficios-dos-sucos-naturais-1-alfa-hotel.jpg')">
-                        <img src="https://cantinagoodlanche.com.br/wp-content/uploads/2020/07/beneficios-dos-sucos-naturais-1-alfa-hotel.jpg" alt="Suco Compiler">
-                        <h3>Suco Compiler</h3>
-                        <p>Suco natural de laranja ou limão.</p>
-                        <p class="price">R$ 9,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Chá Git','Chá gelado com limão e hortelã, servido em copo de 500ml.', 'R$ 12,00', 'https://catracalivre.com.br/cdn-cgi/image/f=auto,q=60,width=1080,height=99999,fit=scale-down/wp-content/uploads/2023/09/istock-1250502618.jpg')">
-                        <img src="https://catracalivre.com.br/cdn-cgi/image/f=auto,q=60,width=1080,height=99999,fit=scale-down/wp-content/uploads/2023/09/istock-1250502618.jpg" alt="Chá Git">
-                        <h3>Chá Git</h3>
-                        <p>Chá gelado com limão e hortelã, servido em copo de 500ml.</p>
-                        <p class="price">R$ 12,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Refactor Smoothie','Smoothie de frutas vermelhas com banana.', 'R$ 11,00', 'https://s2.glbimg.com/rMoEFhEKjpsyoBYx5Z8cnohEiSk=/620x550/e.glbimg.com/og/ed/f/original/2019/09/24/arno_feed_smoothie_sem_mixer.jpg')">
-                        <img src="https://s2.glbimg.com/rMoEFhEKjpsyoBYx5Z8cnohEiSk=/620x550/e.glbimg.com/og/ed/f/original/2019/09/24/arno_feed_smoothie_sem_mixer.jpg" alt="Refactor Smoothie">
-                        <h3>Refactor Smoothie</h3>
-                        <p>Smoothie de frutas vermelhas com banana.</p>
-                        <p class="price">R$ 11,00</p>
-                    </div>
-                </div>
-            `;
-                break; 
-            case "extras":
-                html = `
-                <div class="menu-grid">
-                    <div class="menu-item" onclick="showModal('Batatas Debug','Batatas fritas crocantes com sal de alho.', 'R$ 6,00', 'https://www.sitiovojoao.com.br/wp-content/uploads/2020/11/ketchup-752x440_Easy-Resize.com_-1200x675.jpg')">
-                        <img src="https://www.sitiovojoao.com.br/wp-content/uploads/2020/11/ketchup-752x440_Easy-Resize.com_-1200x675.jpg" alt="Batatas Debug">
-                        <h3>Batatas Debug</h3>
-                        <p>Batatas fritas crocantes com sal de alho.</p>
-                        <p class="price">R$ 6,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Onion Rings Script','Argolas de cebola empanadas, crocantes e douradas.', 'R$ 7,00', 'https://static01.nyt.com/images/2020/04/22/dining/ejm-sourdough-03/ejm-sourdough-03-master768.jpg?quality=75&auto=webp')">
-                        <img src="https://static01.nyt.com/images/2020/04/22/dining/ejm-sourdough-03/ejm-sourdough-03-master768.jpg?quality=75&auto=webp" alt="Onion Rings Script">
-                        <h3>Onion Rings Script</h3>
-                        <p>Argolas de cebola empanadas, crocantes e douradas.</p>
-                        <p class="price">R$ 7,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Nuggets Async','Porção de 6 nuggets de frango.', 'R$ 5,00', 'https://img.cybercook.com.br/receitas/819/nuggets-de-frango-caseiro-1-840x480.jpeg?q=75')">
-                        <img src="https://img.cybercook.com.br/receitas/819/nuggets-de-frango-caseiro-1-840x480.jpeg?q=75" alt="Nuggets Async">
-                        <h3>Nuggets Async</h3>
-                        <p>Porção de 6 nuggets de frango.</p>
-                        <p class="price">R$ 5,00</p>
-                    </div>
-                </div>
-            `;
-                break;
-            case "molhos":
-                html = `
-                <div class="menu-grid">
-                    <div class="menu-item" onclick="showModal('Ketchup Commit','Molho clássico de tomate.', 'R$ 2,00', 'https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/ketchup-molho-versatil-para-suas-receitas.jpg?itok=r3WbYf2T')">
-                        <img src="https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/ketchup-molho-versatil-para-suas-receitas.jpg?itok=r3WbYf2T" alt="Ketchup Commit">
-                        <h3>Ketchup Commit</h3>
-                        <p>Molho clássico de tomate.</p>
-                        <p class="price">R$ 2,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Barbecue Merge','Molho barbecue defumado.', 'R$ 2,00', 'https://conteudo.imguol.com.br/0c/2019/11/22/molho-barbecue-1574434196857_v2_900x506.jpg')">
-                        <img src="https://conteudo.imguol.com.br/0c/2019/11/22/molho-barbecue-1574434196857_v2_900x506.jpg" alt="Barbecue Merge">
-                        <h3>Barbecue Merge</h3>
-                        <p>Molho barbecue defumado.</p>
-                        <p class="price">R$ 2,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Aioli Fetch','Molho cremoso de alho artesanal.', 'R$ 2,00', 'https://www.receitadevovo.com.br/_next/image?url=https%3A%2F%2Fd2qcpt1idvpipw.cloudfront.net%2Frecipes%2F2020%2F11%2FAioli.jpg&w=828&q=75')">
-                        <img src="https://www.receitadevovo.com.br/_next/image?url=https%3A%2F%2Fd2qcpt1idvpipw.cloudfront.net%2Frecipes%2F2020%2F11%2FAioli.jpg&w=828&q=75" alt="Aioli Fetch">
-                        <h3>Aioli Fetch</h3>
-                        <p>Molho cremoso de alho artesanal.</p>
-                        <p class="price">R$ 2,00</p>
-                    </div>
-                    <div class="menu-item" onclick="showModal('Mostarda Version','Molho mostarda tradicional.', 'R$ 2,00', 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/09/04/421858780-folha-de-mostarda.jpg')">
-                        <img src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/09/04/421858780-folha-de-mostarda.jpg" alt="Mostarda Version">
-                        <h3>Mostarda Version</h3>
-                        <p>Molho mostarda tradicional.</p>
-                        <p class="price">R$ 2,00</p>
-                    </div>
-                </div>
-            `;
-                break;
-        }
-
-        content.innerHTML = html;
     }
 </script>
