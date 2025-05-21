@@ -1,12 +1,5 @@
 /* Estilos gerais */
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f1f1f1;
-    margin: 0;
-    padding-bottom: 100px; 
-}
-
 .content {
     padding: 15px;
     max-width: 90%; /* Largura máxima para o conteúdo */
@@ -224,31 +217,7 @@ i{
     overflow: visible;
     justify-self: center;
    }
-   
-   .card-details {
-    color: black;
-    height: 100%;
-    gap: .5em;
-    display: grid;
-    justify-content: center;
-    place-content: center;
-   }
-   
-   .card-button {
-    transform: translate(-50%, 125%);
-    width: 60%;
-    border-radius: 1rem;
-    border: none;
-    background-color: #008bf8;
-    color: #fff;
-    font-size: 1rem;
-    padding: .5rem 1rem;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    opacity: 0;
-    transition: 0.3s ease-out;
-   }
+
    
    .text-body {
     text-align: justify;

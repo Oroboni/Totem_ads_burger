@@ -144,10 +144,10 @@ public class HomeController : Controller
     {
         return View();
     }
-   public IActionResult CPFnaNota()
+    public IActionResult CPFnaNota()
     {
-        // You might pass some data to the view if needed
-        return View(); // This will look for a CPFnaNota.cshtml view
+        
+        return View(); 
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
