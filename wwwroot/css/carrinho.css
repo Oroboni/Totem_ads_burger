@@ -17,6 +17,13 @@
     align-items: center;
     justify-content: space-between;
 }
+.burguer-bar .text-title {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 600;
+    color: #463B3B;
+    font-size: clamp(2.5rem, 3.2vw, 4.5rem);
+}
 
 .burguer-bar-footer {
     display: flex;
@@ -41,8 +48,8 @@
 }
 
 .burguer-bar-footer-button {
-    width: 16vw;
-    height: 8vh;
+    width: clamp(4rem, 30vw, 50rem);
+    height: clamp(3rem, 4vh, 5rem);
     flex-shrink: 0;
     border-radius: 30px;
     border: 4px solid #426b1f;
@@ -53,6 +60,7 @@
     color: #880202;
     overflow: hidden;
     overflow-wrap: break-word;
+    
 }
 
 .labelNmr {
@@ -86,9 +94,10 @@
 
 .title {
     color: #426b1f;
-    font-size: clamp(1.5rem, 6vw, 6rem);
+    font-size: clamp(1.5rem, 5vw, 5rem);
     text-align: left;
-    margin: 5rem 0px 1em 5%;
+    align-self: flex-start;
+    margin: 5rem 0px 0vh 5%;
 }
 
 .img-card {
@@ -133,8 +142,8 @@ i {
 }
 
 .total-info span {
-    font-size: 0.9rem; /* Reduzi um pouco a fonte */
-    margin-bottom: 3px; /* Reduzi a margem */
+    font-size: 0.9rem;
+    margin-bottom: 3px; 
 }
 
 .total-info strong {
@@ -143,16 +152,15 @@ i {
 }
 
 .bottom-buttons button {
-    padding: 8px 15px; /* Reduzi o padding dos botões */
+    padding: 8px 15px;
     border: none;
     border-radius: 8px;
-    font-size: 0.9rem; /* Reduzi a fonte dos botões */
+    font-size: 0.9rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-left: 5px; /* Reduzi a margem */
+    margin-left: 5px; 
 }
 
-/* Estilos do banner e botões superiores */
 :root {
     --banner-height: 15rem;
 }
@@ -180,7 +188,7 @@ i {
     display: flex;
     justify-content: space-between;
     padding: 5px 15px;
-    margin-bottom: -4rem;
+    margin-bottom: -5rem;
     overflow: hidden;
 }
 
@@ -198,7 +206,13 @@ i {
     padding: 0.6rem 1rem;
     text-decoration: none;
     margin-top: 0;
-    padding: 0.6rem 1rem;
+    /* template  de padding pra botão*/
+    height: auto; 
+
+    padding-top: clamp(0.8rem, 1vh, 1.2rem);
+    padding-bottom: clamp(0.8rem, 1vh, 1.2rem); 
+    padding-left: clamp(1rem, 3vw, 2.5rem);
+    padding-right: clamp(1rem, 3vw, 2.5rem);
 }
 
 .card {
@@ -209,11 +223,15 @@ i {
     background: #f5f5f5;
     display: flex;
     position: relative;
-    padding: 1.8rem;
+    padding: 2rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
     transition: 0.5s ease-out;
     overflow-y: auto;
     justify-self: center;
+}
+.text-title {
+    font-size: 1.5em;
+    font-size: clamp(2.5rem, 3.2vw, 4.5rem);
 }
 
 .text-body {
@@ -222,12 +240,6 @@ i {
     font-size: clamp(1.4rem, 2vw, 4rem);
 }
 
-/*Text*/
-.text-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    font-size: clamp(2.5rem, 3.2vw, 4.5rem);
-}
 
 .card:hover .card-button {
     transform: translate(-50%, 50%);
@@ -259,7 +271,14 @@ i {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 1rem 5rem;
+
+        /* template  de padding pra botão*/
+        height: auto; 
+
+        padding-top: clamp(0.8rem, 1.5vh, 1.2rem);
+        padding-bottom: clamp(0.8rem, 1.5vh, 1.2rem); 
+        padding-left: clamp(1rem, 3vw, 2.5rem);
+        padding-right: clamp(1rem, 3vw, 2.5rem);
     }
     i {
         font-size: clamp(1rem, 2.5vw, 4rem);
@@ -281,7 +300,12 @@ i {
         border-radius: 20px 0px 0px 20px;
         background-color: #990000;
     }
-    .burguer-bar-footer-button{
-        font-size: clamp(1rem, 2vw, 3rem);
+    .burguer-bar-footer-button {
+        height: auto; /* Garante que a altura é determinada pelo conteúdo e padding */
+
+        padding-top: clamp(0.8rem, 1.5vh, 1.2rem);
+        padding-bottom: clamp(0.8rem, 1.5vh, 1.2rem);
+        padding-left: clamp(1rem, 3vw, 2.5rem);
+        padding-right: clamp(1rem, 3vw, 2.5rem);
     }
 }
