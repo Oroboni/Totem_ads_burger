@@ -11,7 +11,7 @@ body {
     background: white;
     width: calc(100% / 3 - 60px);
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
     transition: transform 0.3s ease-in-out;
 }
 
