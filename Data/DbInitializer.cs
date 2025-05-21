@@ -33,6 +33,7 @@ namespace TotemPWA.Data
             var category = new Category
             {
                 Name = seed.Name,
+                Slug = seed.Slug,
                 ParentCategoryId = parentId
             };
 
