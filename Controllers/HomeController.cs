@@ -22,63 +22,83 @@ public class HomeController : Controller
         return View();
     }
 
-    [HttpGet("Pedido/{categoryId:int?}/{subcategoryId:int?}")]
-    public async Task<IActionResult> Pedido(int? categoryId, int? subcategoryId)
+    [HttpGet("Pedido")]
+    [HttpGet("Pedido/{categorySlug}")]
+    [HttpGet("Pedido/{categorySlug}/{subcategorySlug?}")]
+    public async Task<IActionResult> Pedido(string? categorySlug, string? subcategorySlug)
     {
-        // Busca categorias raiz (sem categoria pai)
         var rootCategoriesRaw = await _context.Categories
             .Where(c => c.ParentCategoryId == null)
             .ToListAsync();
 
-        // Se não houver categoryId fornecido, usa o primeiro como ativo
-        if (!categoryId.HasValue && rootCategoriesRaw.Count == 0)
-            return NotFound(); // ou algum fallback
+        string? activeCategorySlug = null;
+        int? activeCategoryId = null;
 
-        var activeCategoryId = categoryId ?? rootCategoriesRaw.First().Id;
+        if (!string.IsNullOrEmpty(categorySlug))
+        {
+            var activeCategory = rootCategoriesRaw.FirstOrDefault(c => c.Slug == categorySlug);
+            if (activeCategory != null)
+            {
+                activeCategorySlug = activeCategory.Slug;
+                activeCategoryId = activeCategory.Id;
+            }
+        }
 
+        if (activeCategoryId == null && rootCategoriesRaw.Count > 0)
+        {
+            var first = rootCategoriesRaw.First();
+            activeCategorySlug = first.Slug;
+            activeCategoryId = first.Id;
+        }
 
-        // Mapeia as categorias raiz para um formato com indicação de qual está ativa
+        if (activeCategoryId == null)
+            return NotFound();
+
         var rootCategories = rootCategoriesRaw
             .Select(c => new
             {
                 id = c.Id,
                 name = c.Name,
+                Slug = c.Slug,
                 active = c.Id == activeCategoryId
             })
             .ToList();
 
-        // Busca subcategorias da categoria ativa
         var subcategoriesRaw = await _context.Categories
             .Where(c => c.ParentCategoryId == activeCategoryId)
             .ToListAsync();
 
-        // Determina subcategoria ativa, se existir
-        var activeSubcategoryId = subcategoriesRaw.Any(c => c.Id == subcategoryId)
-            ? subcategoryId
-            : subcategoriesRaw.FirstOrDefault()?.Id;
+        int? activeSubcategoryId = null;
+        if (!string.IsNullOrEmpty(subcategorySlug)) // Se tiver slug de subcategoria, ele procurará a subcategoria correspondente e deixa seu ID como "active"
+        {
+            var activeSubcategory = subcategoriesRaw.FirstOrDefault(s => s.Slug == subcategorySlug);
+            if (activeSubcategory != null)
+                activeSubcategoryId = activeSubcategory.Id;
+        }
+        else if (subcategoriesRaw.Any())
+        {
+            activeSubcategoryId = subcategoriesRaw.First().Id;
+        }
 
-        // Mapeia subcategorias com marcação de qual está ativa
         var subcategories = subcategoriesRaw
             .Select(c => new
             {
                 id = c.Id,
                 name = c.Name,
+                Slug = c.Slug,
                 active = c.Id == activeSubcategoryId
             })
             .ToList();
 
-        // Busca produtos da subcategoria ativa
         List<object> products;
-
         bool hasSubcategories = subcategoriesRaw.Any();
 
         if (hasSubcategories)
         {
-            if (subcategoryId.HasValue)
+            if (activeSubcategoryId.HasValue)
             {
-                // Se subcategoria ativa foi especificada e é válida
                 products = await _context.Products
-                    .Where(p => p.CategoryId == subcategoryId)
+                    .Where(p => p.CategoryId == activeSubcategoryId)
                     .Select(p => new
                     {
                         id = p.Id,
@@ -90,9 +110,7 @@ public class HomeController : Controller
             }
             else
             {
-                // Nenhuma subcategoria selecionada → mostra produtos de todas as subcategorias
                 var subcategoryIds = subcategoriesRaw.Select(s => s.Id).ToList();
-
                 products = await _context.Products
                     .Where(p => subcategoryIds.Contains(p.CategoryId))
                     .Select(p => new
@@ -107,7 +125,6 @@ public class HomeController : Controller
         }
         else
         {
-            // Categoria raiz sem subcategorias → mostra produtos diretos dela
             products = await _context.Products
                 .Where(p => p.CategoryId == activeCategoryId)
                 .Select(p => new
@@ -120,17 +137,14 @@ public class HomeController : Controller
                 .ToListAsync<object>();
         }
 
-
-
-        // Envia dados para a View via ViewBag (dinâmico)
-        ViewBag.Category = activeCategoryId;
+        ViewBag.CategorySlug = activeCategorySlug;
         ViewBag.Categories = rootCategories;
         ViewBag.SubCategories = subcategories;
         ViewBag.Products = products;
 
-        // Retorna a view associada ao método Menu
         return View();
     }
+
 
     public IActionResult Carrinho()
     {

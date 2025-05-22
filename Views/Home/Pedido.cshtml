@@ -17,28 +17,24 @@
 </div>
 
 <div class="category-scrollbar">
-    @if (ViewBag.Category != null)
+    @foreach (var subcategory in ViewBag.SubCategories)
     {
-        @foreach (var subcategory in ViewBag.SubCategories)
-        {
-            string activeClass = subcategory.active ? "active" : "";
-            <a href="/Pedido/@ViewBag.Category/@subcategory.id" class="subcategory-btn @activeClass">
-                <span class="label">@subcategory.name</span>
-            </a>
-        }
+        string activeClass = subcategory.active ? "active" : "";
+        <a href="/Pedido/@ViewBag.CategorySlug/@subcategory.Slug" class="subcategory-btn @activeClass">
+            <span class="label">@subcategory.name</span>
+        </a>
     }
 </div>
 
 <div class="sidebar">
-    @foreach (var category in ViewBag.Categories) // Itera sobre as categorias
+    @foreach (var category in ViewBag.Categories) 
     {
-        string activeClass = category.active ? "active" : ""; // Define a classe "active" se a categoria estiver ativa
-                                                              <a href="/Pedido/@category.id" class="category-btn @activeClass">
-                                                                  <!-- Gera o link da categoria com a classe condicional -->
-                                                                  <span class="icon">🍕</span>
-                                                                  <span class="label">@category.name</span> <!-- Nome da categoria -->
-                                                              </a>
-    }
+        string activeClass = category.active ? "active" : ""; 
+        <a href="/Pedido/@category.Slug" class="category-btn @activeClass">
+            <span class="icon">🍕</span>
+            <span class="label">@category.name</span> <!-- Nome da categoria -->
+        </a>
+}
     <div class="end"></div>
 </div>
 

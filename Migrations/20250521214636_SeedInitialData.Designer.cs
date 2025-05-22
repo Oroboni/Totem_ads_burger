@@ -10,7 +10,7 @@ using TotemPWA.Data;
 namespace TotemPWA.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250521214439_SeedInitialData")]
+    [Migration("20250521214636_SeedInitialData")]
     partial class SeedInitialData
     {
         /// <inheritdoc />
