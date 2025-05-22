@@ -1,6 +1,6 @@
 @{
     ViewBag.Title = "Pedido";
-    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+    Layout = "~/Views/Shared/_PedidoLayout.cshtml";
 }
 
 <head>
@@ -33,11 +33,11 @@
     @foreach (var category in ViewBag.Categories) // Itera sobre as categorias
     {
         string activeClass = category.active ? "active" : ""; // Define a classe "active" se a categoria estiver ativa
-            <a href="/Pedido/@category.id" class="category-btn @activeClass">
-                <!-- Gera o link da categoria com a classe condicional -->
-                <span class="icon">🍕</span>
-                <span class="label">@category.name</span> <!-- Nome da categoria -->
-            </a>
+                                                              <a href="/Pedido/@category.id" class="category-btn @activeClass">
+                                                                  <!-- Gera o link da categoria com a classe condicional -->
+                                                                  <span class="icon">🍕</span>
+                                                                  <span class="label">@category.name</span> <!-- Nome da categoria -->
+                                                              </a>
     }
     <div class="end"></div>
 </div>
@@ -53,11 +53,14 @@
 
             <div class="menu-item"
                 onclick="showModal('@product.name', '@(product.description ?? "Descrição não disponível")', '@priceStr', '@imageUrl')">
-                <img src="@imageUrl" alt="@product.name" />
+                @* <div class="image-background"> *@
+                    <img class="image-background" src="@imageUrl" alt="@product.name" />
+                @* </div> *@
                 <div class="options">
-                    <h3>@product.name</h3>
-                    <p>@(product.description ?? "Descrição não disponível")</p>
+                    <h3 class="product-name">@product.name</h3>
+
                     <strong class="price">@priceStr</strong>
+                    <p>@(product.description ?? "Descrição não disponível")</p>
                 </div>
             </div>
         }
@@ -73,8 +76,8 @@
         <img id="modal-img" src="" alt="Imagem do Produto"
             style="width:100%; border-radius:10px; margin-bottom:15px;" />
         <h2 id="titulo">Título</h2>
-        <p id="descricao">Descrição</p>
         <p><strong id="preco">R$ 0,00</strong></p>
+        <p id="descricao">Descrição</p>
 
         <div class="quantity-control">
             <button onclick="changeQuantity(-1)">−</button>
@@ -82,8 +85,7 @@
             <button onclick="changeQuantity(1)">+</button>
         </div>
 
-        <p><strong>Ingredientes:</strong> pão brioche, queijo cheddar derretido, hambúrguer de carne 100% bovina, bacon
-            crocante, molho da casa.</p>
+
 
         <button id="add-button" onclick="addToCart()">Adicionar</button>
     </div>
