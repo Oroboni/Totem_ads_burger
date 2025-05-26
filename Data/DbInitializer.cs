@@ -46,6 +46,7 @@ namespace TotemPWA.Data
                 {
                     Name = productSeed.Name,
                     Description = productSeed.description,
+                    Foto = productSeed.Foto,
                     Price = productSeed.Price,
                     CategoryId = category.Id
                 };

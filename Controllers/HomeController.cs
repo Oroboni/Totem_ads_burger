@@ -104,6 +104,7 @@ public class HomeController : Controller
                         id = p.Id,
                         name = p.Name,
                         description = p.Description,
+                        Foto = p.Foto,
                         price = p.Price
                     })
                     .ToListAsync<object>();
