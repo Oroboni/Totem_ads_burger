@@ -31,24 +31,33 @@ public class HomeController : Controller
             .Where(c => c.ParentCategoryId == null)
             .ToListAsync();
 
-        string? activeCategorySlug = null;
-        int? activeCategoryId = null;
-
-        if (!string.IsNullOrEmpty(categorySlug))
+        if (string.IsNullOrEmpty(categorySlug))
         {
-            var activeCategory = rootCategoriesRaw.FirstOrDefault(c => c.Slug == categorySlug);
-            if (activeCategory != null)
+            var firstCategory = rootCategoriesRaw.FirstOrDefault();
+            if (firstCategory != null)
             {
-                activeCategorySlug = activeCategory.Slug;
-                activeCategoryId = activeCategory.Id;
+                var firstSubcategory = await _context.Categories
+                    .Where(c => c.ParentCategoryId == firstCategory.Id)
+                    .OrderBy(c => c.Id)
+                    .FirstOrDefaultAsync();
+
+                if (firstSubcategory != null)
+                {
+                    return RedirectToAction("Pedido", new { categorySlug = firstCategory.Slug, subcategorySlug = firstSubcategory.Slug });
+                }
+
+                return RedirectToAction("Pedido", new { categorySlug = firstCategory.Slug });
             }
+
+            return NotFound();
         }
 
-        if (activeCategoryId == null && rootCategoriesRaw.Count > 0)
+        // A partir daqui, segue sua lógica anterior normalmente
+        int? activeCategoryId = null;
+        var activeCategory = rootCategoriesRaw.FirstOrDefault(c => c.Slug == categorySlug);
+        if (activeCategory != null)
         {
-            var first = rootCategoriesRaw.First();
-            activeCategorySlug = first.Slug;
-            activeCategoryId = first.Id;
+            activeCategoryId = activeCategory.Id;
         }
 
         if (activeCategoryId == null)
@@ -69,15 +78,11 @@ public class HomeController : Controller
             .ToListAsync();
 
         int? activeSubcategoryId = null;
-        if (!string.IsNullOrEmpty(subcategorySlug)) // Se tiver slug de subcategoria, ele procurará a subcategoria correspondente e deixa seu ID como "active"
+        if (!string.IsNullOrEmpty(subcategorySlug))
         {
             var activeSubcategory = subcategoriesRaw.FirstOrDefault(s => s.Slug == subcategorySlug);
             if (activeSubcategory != null)
                 activeSubcategoryId = activeSubcategory.Id;
-        }
-        else if (subcategoriesRaw.Any())
-        {
-            activeSubcategoryId = subcategoriesRaw.First().Id;
         }
 
         var subcategories = subcategoriesRaw
@@ -119,6 +124,7 @@ public class HomeController : Controller
                         id = p.Id,
                         name = p.Name,
                         description = p.Description,
+                        Foto = p.Foto,
                         price = p.Price
                     })
                     .ToListAsync<object>();
@@ -133,18 +139,20 @@ public class HomeController : Controller
                     id = p.Id,
                     name = p.Name,
                     description = p.Description,
+                    Foto = p.Foto,
                     price = p.Price
                 })
                 .ToListAsync<object>();
         }
 
-        ViewBag.CategorySlug = activeCategorySlug;
+        ViewBag.CategorySlug = categorySlug;
         ViewBag.Categories = rootCategories;
         ViewBag.SubCategories = subcategories;
         ViewBag.Products = products;
 
         return View();
     }
+
 
 
     public IActionResult Carrinho()

@@ -215,7 +215,7 @@ namespace TotemPWA.Migrations
                             Id = 5,
                             CategoryId = 6,
                             Description = "Pão integral, hambúrguer de grão-de-bico",
-                            Foto = "hamburger",
+                            Foto = "veggie.jpg",
                             Name = "Veggie Artesanal",
                             Price = 19.99m
                         },
@@ -224,7 +224,7 @@ namespace TotemPWA.Migrations
                             Id = 6,
                             CategoryId = 7,
                             Description = "Pão, carne, queijo e molho especial",
-                            Foto = "hamburger",
+                            Foto = "veggie.jpg",
                             Name = "Cheeseburger Clássico",
                             Price = 15.99m
                         },
@@ -233,7 +233,7 @@ namespace TotemPWA.Migrations
                             Id = 7,
                             CategoryId = 7,
                             Description = "Pão, carne, queijo, presunto e salada",
-                            Foto = "hamburger",
+                            Foto = "veggie.jpg",
                             Name = "X-Burger",
                             Price = 16.50m
                         },
@@ -242,7 +242,7 @@ namespace TotemPWA.Migrations
                             Id = 8,
                             CategoryId = 7,
                             Description = "Pão, carne, queijo, bacon e salada",
-                            Foto = "hamburger",
+                            Foto = "veggie.jpg",
                             Name = "X-Bacon",
                             Price = 18.50m
                         },
@@ -251,7 +251,7 @@ namespace TotemPWA.Migrations
                             Id = 9,
                             CategoryId = 7,
                             Description = "Pão, carne, queijo, ovo e salada",
-                            Foto = "hamburger",
+                            Foto = "veggie.jpg",
                             Name = "X-Egg",
                             Price = 17.50m
                         },
@@ -260,7 +260,7 @@ namespace TotemPWA.Migrations
                             Id = 10,
                             CategoryId = 7,
                             Description = "Pão, 2 carnes, queijo, bacon, ovo e salada",
-                            Foto = "hamburger",
+                            Foto = "veggie.jpg",
                             Name = "X-Tudo",
                             Price = 20.99m
                         },
@@ -539,7 +539,7 @@ namespace TotemPWA.Migrations
                             Id = 41,
                             CategoryId = 14,
                             Description = "50ml - Picância média",
-                            Foto = "pimenta1.png",
+                            Foto = "pimenta1.jpg",
                             Name = "Molho de Pimenta Jalapeño",
                             Price = 3.50m
                         },
@@ -548,7 +548,7 @@ namespace TotemPWA.Migrations
                             Id = 42,
                             CategoryId = 14,
                             Description = "50ml - Picância forte",
-                            Foto = "pimenta2.png",
+                            Foto = "pimenta2.jpg",
                             Name = "Molho Habanero",
                             Price = 4.00m
                         },
@@ -566,7 +566,7 @@ namespace TotemPWA.Migrations
                             Id = 44,
                             CategoryId = 14,
                             Description = "50ml - Picância suave com sabor defumado",
-                            Foto = "pimenta4.webp",
+                            Foto = "pimenta4.jpg",
                             Name = "Molho Chipotle",
                             Price = 4.50m
                         },
@@ -575,7 +575,7 @@ namespace TotemPWA.Migrations
                             Id = 45,
                             CategoryId = 14,
                             Description = "50ml - Extremamente picante",
-                            Foto = "pimenta1.png",
+                            Foto = "pimenta1.jpg",
                             Name = "Molho Inferno",
                             Price = 5.00m
                         },
@@ -584,7 +584,7 @@ namespace TotemPWA.Migrations
                             Id = 46,
                             CategoryId = 15,
                             Description = "50ml - Sofisticado com toque de trufas",
-                            Foto = "pimenta2.png",
+                            Foto = "pimenta2.jpg",
                             Name = "Molho Trufado",
                             Price = 6.00m
                         },
@@ -602,7 +602,7 @@ namespace TotemPWA.Migrations
                             Id = 48,
                             CategoryId = 15,
                             Description = "50ml - Barbecue com whisky bourbon",
-                            Foto = "pimenta4.webp",
+                            Foto = "pimenta4.jpg",
                             Name = "Molho Barbecue Bourbon",
                             Price = 5.50m
                         },
@@ -611,7 +611,7 @@ namespace TotemPWA.Migrations
                             Id = 49,
                             CategoryId = 15,
                             Description = "50ml - Exclusivo alho fermentado",
-                            Foto = "pimenta2.png",
+                            Foto = "pimenta2.jpg",
                             Name = "Molho de Alho Negro",
                             Price = 6.50m
                         },
@@ -620,7 +620,7 @@ namespace TotemPWA.Migrations
                             Id = 50,
                             CategoryId = 15,
                             Description = "50ml - Clássico molho caesar",
-                            Foto = "pimenta1.png",
+                            Foto = "pimenta1.jpg",
                             Name = "Molho Caesar",
                             Price = 4.50m
                         });

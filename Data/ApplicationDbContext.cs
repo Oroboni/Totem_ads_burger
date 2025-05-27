@@ -77,13 +77,13 @@ namespace TotemPWA.Data
      new Product { Id = 2, Name = "Bacon Cheddar", CategoryId = 6, Price = 21.99m, Description = "Pão australiano, bacon crocante, cheddar derretido", Foto = "burguerII.jpg" },
      new Product { Id = 3, Name = "Blue Cheese Burger", CategoryId = 6, Price = 22.50m, Description = "Pão de parmesão, carne 180g, molho blue cheese", Foto = "burguerIII.jpg" },
      new Product { Id = 4, Name = "Truffle Burger", CategoryId = 6, Price = 24.99m, Description = "Pão pretzel, trufas, queijo gruyère", Foto = "buguer404.png" },
-     new Product { Id = 5, Name = "Veggie Artesanal", CategoryId = 6, Price = 19.99m, Description = "Pão integral, hambúrguer de grão-de-bico", Foto = "hamburger" },
+     new Product { Id = 5, Name = "Veggie Artesanal", CategoryId = 6, Price = 19.99m, Description = "Pão integral, hambúrguer de grão-de-bico", Foto = "veggie.jpg" },
 
-     new Product { Id = 6, Name = "Cheeseburger Clássico", CategoryId = 7, Price = 15.99m, Description = "Pão, carne, queijo e molho especial", Foto = "hamburger" },
-     new Product { Id = 7, Name = "X-Burger", CategoryId = 7, Price = 16.50m, Description = "Pão, carne, queijo, presunto e salada", Foto = "hamburger" },
-     new Product { Id = 8, Name = "X-Bacon", CategoryId = 7, Price = 18.50m, Description = "Pão, carne, queijo, bacon e salada", Foto = "hamburger" },
-     new Product { Id = 9, Name = "X-Egg", CategoryId = 7, Price = 17.50m, Description = "Pão, carne, queijo, ovo e salada", Foto = "hamburger" },
-     new Product { Id = 10, Name = "X-Tudo", CategoryId = 7, Price = 20.99m, Description = "Pão, 2 carnes, queijo, bacon, ovo e salada", Foto = "hamburger" },
+     new Product { Id = 6, Name = "Cheeseburger Clássico", CategoryId = 7, Price = 15.99m, Description = "Pão, carne, queijo e molho especial", Foto = "veggie.jpg" },
+     new Product { Id = 7, Name = "X-Burger", CategoryId = 7, Price = 16.50m, Description = "Pão, carne, queijo, presunto e salada", Foto = "veggie.jpg" },
+     new Product { Id = 8, Name = "X-Bacon", CategoryId = 7, Price = 18.50m, Description = "Pão, carne, queijo, bacon e salada", Foto = "veggie.jpg" },
+     new Product { Id = 9, Name = "X-Egg", CategoryId = 7, Price = 17.50m, Description = "Pão, carne, queijo, ovo e salada", Foto = "veggie.jpg" },
+     new Product { Id = 10, Name = "X-Tudo", CategoryId = 7, Price = 20.99m, Description = "Pão, 2 carnes, queijo, bacon, ovo e salada", Foto = "veggie.jpg" },
 
      new Product { Id = 11, Name = "Coca-Cola Lata", CategoryId = 8, Price = 6.00m, Description = "350ml", Foto = "coca.webp" },
      new Product { Id = 12, Name = "Guaraná Antarctica", CategoryId = 8, Price = 5.50m, Description = "350ml", Foto = "gurana.jpg" },
@@ -121,17 +121,17 @@ namespace TotemPWA.Data
      new Product { Id = 39, Name = "Combo Casal", CategoryId = 13, Price = 59.99m, Description = "2 Burgers + Batata Média + 2 Bebidas", Foto = "CombosTransparente.png" },
      new Product { Id = 40, Name = "Combo Economia", CategoryId = 13, Price = 75.50m, Description = "3 Burgers + 2 Batatas Médias + 3 Bebidas", Foto = "ComboCapa.png" },
 
-     new Product { Id = 41, Name = "Molho de Pimenta Jalapeño", CategoryId = 14, Price = 3.50m, Description = "50ml - Picância média", Foto = "pimenta1.png" },
-     new Product { Id = 42, Name = "Molho Habanero", CategoryId = 14, Price = 4.00m, Description = "50ml - Picância forte", Foto = "pimenta2.png" },
+     new Product { Id = 41, Name = "Molho de Pimenta Jalapeño", CategoryId = 14, Price = 3.50m, Description = "50ml - Picância média", Foto = "pimenta1.jpg" },
+     new Product { Id = 42, Name = "Molho Habanero", CategoryId = 14, Price = 4.00m, Description = "50ml - Picância forte", Foto = "pimenta2.jpg" },
      new Product { Id = 43, Name = "Molho de Pimenta Caiena", CategoryId = 14, Price = 3.50m, Description = "50ml - Picância média", Foto = "pimenta3.jpg" },
-     new Product { Id = 44, Name = "Molho Chipotle", CategoryId = 14, Price = 4.50m, Description = "50ml - Picância suave com sabor defumado", Foto = "pimenta4.webp" },
-     new Product { Id = 45, Name = "Molho Inferno", CategoryId = 14, Price = 5.00m, Description = "50ml - Extremamente picante", Foto = "pimenta1.png" },
+     new Product { Id = 44, Name = "Molho Chipotle", CategoryId = 14, Price = 4.50m, Description = "50ml - Picância suave com sabor defumado", Foto = "pimenta4.jpg" },
+     new Product { Id = 45, Name = "Molho Inferno", CategoryId = 14, Price = 5.00m, Description = "50ml - Extremamente picante", Foto = "pimenta1.jpg" },
 
-     new Product { Id = 46, Name = "Molho Trufado", CategoryId = 15, Price = 6.00m, Description = "50ml - Sofisticado com toque de trufas", Foto = "pimenta2.png" },
+     new Product { Id = 46, Name = "Molho Trufado", CategoryId = 15, Price = 6.00m, Description = "50ml - Sofisticado com toque de trufas", Foto = "pimenta2.jpg" },
      new Product { Id = 47, Name = "Molho de Queijos", CategoryId = 15, Price = 5.00m, Description = "50ml - Blend de 3 queijos", Foto = "pimenta3.jpg" },
-     new Product { Id = 48, Name = "Molho Barbecue Bourbon", CategoryId = 15, Price = 5.50m, Description = "50ml - Barbecue com whisky bourbon", Foto = "pimenta4.webp" },
-     new Product { Id = 49, Name = "Molho de Alho Negro", CategoryId = 15, Price = 6.50m, Description = "50ml - Exclusivo alho fermentado", Foto = "pimenta2.png" },
-     new Product { Id = 50, Name = "Molho Caesar", CategoryId = 15, Price = 4.50m, Description = "50ml - Clássico molho caesar", Foto = "pimenta1.png" }
+     new Product { Id = 48, Name = "Molho Barbecue Bourbon", CategoryId = 15, Price = 5.50m, Description = "50ml - Barbecue com whisky bourbon", Foto = "pimenta4.jpg" },
+     new Product { Id = 49, Name = "Molho de Alho Negro", CategoryId = 15, Price = 6.50m, Description = "50ml - Exclusivo alho fermentado", Foto = "pimenta2.jpg" },
+     new Product { Id = 50, Name = "Molho Caesar", CategoryId = 15, Price = 4.50m, Description = "50ml - Clássico molho caesar", Foto = "pimenta1.jpg" }
  );
 
             // dotnet ef migrations add SeedProducts
