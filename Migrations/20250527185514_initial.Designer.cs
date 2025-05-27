@@ -10,8 +10,8 @@ using TotemPWA.Data;
 namespace TotemPWA.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250521214636_SeedInitialData")]
-    partial class SeedInitialData
+    [Migration("20250527185514_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,6 +158,10 @@ namespace TotemPWA.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Foto")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -178,6 +182,7 @@ namespace TotemPWA.Migrations
                             Id = 1,
                             CategoryId = 6,
                             Description = "Pão brioche, blend artesanal, queijo cheddar",
+                            Foto = "burguerI.jpg",
                             Name = "Cheeseburger Artesanal",
                             Price = 18.99m
                         },
@@ -186,6 +191,7 @@ namespace TotemPWA.Migrations
                             Id = 2,
                             CategoryId = 6,
                             Description = "Pão australiano, bacon crocante, cheddar derretido",
+                            Foto = "burguerII.jpg",
                             Name = "Bacon Cheddar",
                             Price = 21.99m
                         },
@@ -194,6 +200,7 @@ namespace TotemPWA.Migrations
                             Id = 3,
                             CategoryId = 6,
                             Description = "Pão de parmesão, carne 180g, molho blue cheese",
+                            Foto = "burguerIII.jpg",
                             Name = "Blue Cheese Burger",
                             Price = 22.50m
                         },
@@ -202,6 +209,7 @@ namespace TotemPWA.Migrations
                             Id = 4,
                             CategoryId = 6,
                             Description = "Pão pretzel, trufas, queijo gruyère",
+                            Foto = "buguer404.png",
                             Name = "Truffle Burger",
                             Price = 24.99m
                         },
@@ -210,6 +218,7 @@ namespace TotemPWA.Migrations
                             Id = 5,
                             CategoryId = 6,
                             Description = "Pão integral, hambúrguer de grão-de-bico",
+                            Foto = "veggie.jpg",
                             Name = "Veggie Artesanal",
                             Price = 19.99m
                         },
@@ -218,6 +227,7 @@ namespace TotemPWA.Migrations
                             Id = 6,
                             CategoryId = 7,
                             Description = "Pão, carne, queijo e molho especial",
+                            Foto = "veggie.jpg",
                             Name = "Cheeseburger Clássico",
                             Price = 15.99m
                         },
@@ -226,6 +236,7 @@ namespace TotemPWA.Migrations
                             Id = 7,
                             CategoryId = 7,
                             Description = "Pão, carne, queijo, presunto e salada",
+                            Foto = "veggie.jpg",
                             Name = "X-Burger",
                             Price = 16.50m
                         },
@@ -234,6 +245,7 @@ namespace TotemPWA.Migrations
                             Id = 8,
                             CategoryId = 7,
                             Description = "Pão, carne, queijo, bacon e salada",
+                            Foto = "veggie.jpg",
                             Name = "X-Bacon",
                             Price = 18.50m
                         },
@@ -242,6 +254,7 @@ namespace TotemPWA.Migrations
                             Id = 9,
                             CategoryId = 7,
                             Description = "Pão, carne, queijo, ovo e salada",
+                            Foto = "veggie.jpg",
                             Name = "X-Egg",
                             Price = 17.50m
                         },
@@ -250,6 +263,7 @@ namespace TotemPWA.Migrations
                             Id = 10,
                             CategoryId = 7,
                             Description = "Pão, 2 carnes, queijo, bacon, ovo e salada",
+                            Foto = "veggie.jpg",
                             Name = "X-Tudo",
                             Price = 20.99m
                         },
@@ -258,6 +272,7 @@ namespace TotemPWA.Migrations
                             Id = 11,
                             CategoryId = 8,
                             Description = "350ml",
+                            Foto = "coca.webp",
                             Name = "Coca-Cola Lata",
                             Price = 6.00m
                         },
@@ -266,6 +281,7 @@ namespace TotemPWA.Migrations
                             Id = 12,
                             CategoryId = 8,
                             Description = "350ml",
+                            Foto = "gurana.jpg",
                             Name = "Guaraná Antarctica",
                             Price = 5.50m
                         },
@@ -274,6 +290,7 @@ namespace TotemPWA.Migrations
                             Id = 13,
                             CategoryId = 8,
                             Description = "350ml",
+                            Foto = "Fanta-Laranja.webp",
                             Name = "Fanta Laranja",
                             Price = 5.50m
                         },
@@ -282,6 +299,7 @@ namespace TotemPWA.Migrations
                             Id = 14,
                             CategoryId = 8,
                             Description = "350ml",
+                            Foto = "sprite.webp",
                             Name = "Sprite",
                             Price = 5.50m
                         },
@@ -290,6 +308,7 @@ namespace TotemPWA.Migrations
                             Id = 15,
                             CategoryId = 8,
                             Description = "Garrafa 600ml",
+                            Foto = "coca600.webp",
                             Name = "Coca-Cola 600ml",
                             Price = 8.00m
                         },
@@ -298,6 +317,7 @@ namespace TotemPWA.Migrations
                             Id = 16,
                             CategoryId = 9,
                             Description = "Natural 500ml",
+                            Foto = "coca.webp",
                             Name = "Suco de Laranja",
                             Price = 10.00m
                         },
@@ -306,6 +326,7 @@ namespace TotemPWA.Migrations
                             Id = 17,
                             CategoryId = 9,
                             Description = "Natural 500ml",
+                            Foto = "coca.webp",
                             Name = "Suco de Abacaxi",
                             Price = 10.00m
                         },
@@ -314,6 +335,7 @@ namespace TotemPWA.Migrations
                             Id = 18,
                             CategoryId = 9,
                             Description = "Natural 500ml",
+                            Foto = "coca.webp",
                             Name = "Suco de Morango",
                             Price = 12.00m
                         },
@@ -322,6 +344,7 @@ namespace TotemPWA.Migrations
                             Id = 19,
                             CategoryId = 9,
                             Description = "Natural 500ml",
+                            Foto = "coca.webp",
                             Name = "Suco de Maracujá",
                             Price = 12.00m
                         },
@@ -330,6 +353,7 @@ namespace TotemPWA.Migrations
                             Id = 20,
                             CategoryId = 9,
                             Description = "Couve, abacaxi e gengibre 500ml",
+                            Foto = "coca.webp",
                             Name = "Suco Verde",
                             Price = 12.50m
                         },
@@ -338,6 +362,7 @@ namespace TotemPWA.Migrations
                             Id = 21,
                             CategoryId = 10,
                             Description = "Porção pequena",
+                            Foto = "batata frita.jpg",
                             Name = "Batata Frita Pequena",
                             Price = 8.00m
                         },
@@ -346,6 +371,7 @@ namespace TotemPWA.Migrations
                             Id = 22,
                             CategoryId = 10,
                             Description = "Porção média",
+                            Foto = "batata frita.jpg",
                             Name = "Batata Frita Média",
                             Price = 12.00m
                         },
@@ -354,6 +380,7 @@ namespace TotemPWA.Migrations
                             Id = 23,
                             CategoryId = 10,
                             Description = "Porção grande",
+                            Foto = "batata frita.jpg",
                             Name = "Batata Frita Grande",
                             Price = 16.00m
                         },
@@ -362,6 +389,7 @@ namespace TotemPWA.Migrations
                             Id = 24,
                             CategoryId = 10,
                             Description = "Porção média com cheddar e bacon",
+                            Foto = "batata frita.jpg",
                             Name = "Batata Cheddar e Bacon",
                             Price = 18.00m
                         },
@@ -370,6 +398,7 @@ namespace TotemPWA.Migrations
                             Id = 25,
                             CategoryId = 10,
                             Description = "Porção média de batata doce",
+                            Foto = "batatadoce.webp",
                             Name = "Batata Doce",
                             Price = 14.00m
                         },
@@ -378,6 +407,7 @@ namespace TotemPWA.Migrations
                             Id = 26,
                             CategoryId = 11,
                             Description = "Porção pequena",
+                            Foto = "batata frita.jpg",
                             Name = "Onion Rings Pequena",
                             Price = 10.00m
                         },
@@ -386,6 +416,7 @@ namespace TotemPWA.Migrations
                             Id = 27,
                             CategoryId = 11,
                             Description = "Porção média",
+                            Foto = "batata frita.jpg",
                             Name = "Onion Rings Média",
                             Price = 14.00m
                         },
@@ -394,6 +425,7 @@ namespace TotemPWA.Migrations
                             Id = 28,
                             CategoryId = 11,
                             Description = "Porção grande",
+                            Foto = "batata frita.jpg",
                             Name = "Onion Rings Grande",
                             Price = 18.00m
                         },
@@ -402,6 +434,7 @@ namespace TotemPWA.Migrations
                             Id = 29,
                             CategoryId = 11,
                             Description = "Porção média com cheddar",
+                            Foto = "batata frita.jpg",
                             Name = "Onion Rings Cheddar",
                             Price = 16.00m
                         },
@@ -410,6 +443,7 @@ namespace TotemPWA.Migrations
                             Id = 30,
                             CategoryId = 11,
                             Description = "Porção média com molho picante",
+                            Foto = "batata frita.jpg",
                             Name = "Onion Rings Picante",
                             Price = 15.00m
                         },
@@ -418,6 +452,7 @@ namespace TotemPWA.Migrations
                             Id = 31,
                             CategoryId = 12,
                             Description = "Truffle Burger + Batata Grande + Bebida Premium",
+                            Foto = "ComboCapa.png",
                             Name = "Combo Truffle",
                             Price = 45.99m
                         },
@@ -426,6 +461,7 @@ namespace TotemPWA.Migrations
                             Id = 32,
                             CategoryId = 12,
                             Description = "Bacon Cheddar + Onion Rings Grande + Suco Natural",
+                            Foto = "CombosTransparente.png",
                             Name = "Combo Gourmet",
                             Price = 42.50m
                         },
@@ -434,6 +470,7 @@ namespace TotemPWA.Migrations
                             Id = 33,
                             CategoryId = 12,
                             Description = "Veggie Artesanal + Batata Doce + Suco Verde",
+                            Foto = "ComboCapa.png",
                             Name = "Combo Veggie",
                             Price = 38.99m
                         },
@@ -442,6 +479,7 @@ namespace TotemPWA.Migrations
                             Id = 34,
                             CategoryId = 12,
                             Description = "Blue Cheese Burger + Batata Cheddar + Vinho",
+                            Foto = "CombosTransparente.png",
                             Name = "Combo Blue Cheese",
                             Price = 43.50m
                         },
@@ -450,6 +488,7 @@ namespace TotemPWA.Migrations
                             Id = 35,
                             CategoryId = 12,
                             Description = "Artesanal + Batata Média + Refri 600ml",
+                            Foto = "ComboCapa.png",
                             Name = "Combo Executivo",
                             Price = 39.99m
                         },
@@ -458,6 +497,7 @@ namespace TotemPWA.Migrations
                             Id = 36,
                             CategoryId = 13,
                             Description = "4 Burgers + 2 Batatas Grandes + 4 Bebidas",
+                            Foto = "CombosTransparente.png",
                             Name = "Combo Família 4 Pessoas",
                             Price = 89.99m
                         },
@@ -466,6 +506,7 @@ namespace TotemPWA.Migrations
                             Id = 37,
                             CategoryId = 13,
                             Description = "6 Burgers + 3 Batatas Grandes + 6 Bebidas + Molhos",
+                            Foto = "ComboCapa.png",
                             Name = "Combo Festa",
                             Price = 120.00m
                         },
@@ -474,6 +515,7 @@ namespace TotemPWA.Migrations
                             Id = 38,
                             CategoryId = 13,
                             Description = "2 Burgers Kids + Batata Pequena + 2 Sucos",
+                            Foto = "ComboCapa.png",
                             Name = "Combo Kids",
                             Price = 65.00m
                         },
@@ -482,6 +524,7 @@ namespace TotemPWA.Migrations
                             Id = 39,
                             CategoryId = 13,
                             Description = "2 Burgers + Batata Média + 2 Bebidas",
+                            Foto = "CombosTransparente.png",
                             Name = "Combo Casal",
                             Price = 59.99m
                         },
@@ -490,6 +533,7 @@ namespace TotemPWA.Migrations
                             Id = 40,
                             CategoryId = 13,
                             Description = "3 Burgers + 2 Batatas Médias + 3 Bebidas",
+                            Foto = "ComboCapa.png",
                             Name = "Combo Economia",
                             Price = 75.50m
                         },
@@ -498,6 +542,7 @@ namespace TotemPWA.Migrations
                             Id = 41,
                             CategoryId = 14,
                             Description = "50ml - Picância média",
+                            Foto = "pimenta1.jpg",
                             Name = "Molho de Pimenta Jalapeño",
                             Price = 3.50m
                         },
@@ -506,6 +551,7 @@ namespace TotemPWA.Migrations
                             Id = 42,
                             CategoryId = 14,
                             Description = "50ml - Picância forte",
+                            Foto = "pimenta2.jpg",
                             Name = "Molho Habanero",
                             Price = 4.00m
                         },
@@ -514,6 +560,7 @@ namespace TotemPWA.Migrations
                             Id = 43,
                             CategoryId = 14,
                             Description = "50ml - Picância média",
+                            Foto = "pimenta3.jpg",
                             Name = "Molho de Pimenta Caiena",
                             Price = 3.50m
                         },
@@ -522,6 +569,7 @@ namespace TotemPWA.Migrations
                             Id = 44,
                             CategoryId = 14,
                             Description = "50ml - Picância suave com sabor defumado",
+                            Foto = "pimenta4.jpg",
                             Name = "Molho Chipotle",
                             Price = 4.50m
                         },
@@ -530,6 +578,7 @@ namespace TotemPWA.Migrations
                             Id = 45,
                             CategoryId = 14,
                             Description = "50ml - Extremamente picante",
+                            Foto = "pimenta1.jpg",
                             Name = "Molho Inferno",
                             Price = 5.00m
                         },
@@ -538,6 +587,7 @@ namespace TotemPWA.Migrations
                             Id = 46,
                             CategoryId = 15,
                             Description = "50ml - Sofisticado com toque de trufas",
+                            Foto = "pimenta2.jpg",
                             Name = "Molho Trufado",
                             Price = 6.00m
                         },
@@ -546,6 +596,7 @@ namespace TotemPWA.Migrations
                             Id = 47,
                             CategoryId = 15,
                             Description = "50ml - Blend de 3 queijos",
+                            Foto = "pimenta3.jpg",
                             Name = "Molho de Queijos",
                             Price = 5.00m
                         },
@@ -554,6 +605,7 @@ namespace TotemPWA.Migrations
                             Id = 48,
                             CategoryId = 15,
                             Description = "50ml - Barbecue com whisky bourbon",
+                            Foto = "pimenta4.jpg",
                             Name = "Molho Barbecue Bourbon",
                             Price = 5.50m
                         },
@@ -562,6 +614,7 @@ namespace TotemPWA.Migrations
                             Id = 49,
                             CategoryId = 15,
                             Description = "50ml - Exclusivo alho fermentado",
+                            Foto = "pimenta2.jpg",
                             Name = "Molho de Alho Negro",
                             Price = 6.50m
                         },
@@ -570,6 +623,7 @@ namespace TotemPWA.Migrations
                             Id = 50,
                             CategoryId = 15,
                             Description = "50ml - Clássico molho caesar",
+                            Foto = "pimenta1.jpg",
                             Name = "Molho Caesar",
                             Price = 4.50m
                         });

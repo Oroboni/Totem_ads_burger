@@ -44,12 +44,11 @@
         @foreach (var product in ViewBag.Products)
         {
             var priceStr = product.price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"));
-            var imageUrl =
-            "https://static.itdg.com.br/images/640-440/49687a8a7a7110c7f560b9c7e96a9d0e/254679-shutterstock-364110890-1-.jpg";
+            var imageUrl = product.Foto ?? "/images/default-product.png";
 
             <div class="menu-item"
                 onclick="showModal('@product.name', '@(product.description ?? "Descrição não disponível")', '@priceStr', '@imageUrl')">
-                <img src="@imageUrl" alt="@product.name" />
+                <img src="/img/@imageUrl" alt="@product.name" />
                 <div class="options">
                     <h3>@product.name</h3>
                     <p>@(product.description ?? "Descrição não disponível")</p>
@@ -105,29 +104,11 @@
         quantityElement.innerText = currentQuantity;
     }
 
-    function addToCart() {
-        let price = parseFloat(document.getElementById("preco").innerText.replace('R$', '').replace(',', '.'));
-        cartCount++;
-        const quantity = parseInt(document.getElementById("quantity").innerText);
-        totalPrice += price * quantity;
-        document.getElementById("cart-count").innerText = cartCount;
-        document.getElementById("total-price").innerText = totalPrice.toFixed(2);
-        closeModal();
-    }
-
-    function checkout() {
-        @* alert("Pedido finalizado! Total: R$ " + totalPrice.toFixed(2));
-        cartCount = 0;
-        totalPrice = 0;
-        document.getElementById("cart-count").innerText = cartCount;
-        document.getElementById("total-price").innerText = totalPrice.toFixed(2); *@
-    }
-
     function showModal(title, description, preco, imageUrl) {
         document.getElementById('titulo').innerText = title;
         document.getElementById('descricao').innerText = description;
         document.getElementById('preco').innerText = preco;
-        document.getElementById('modal-img').src = imageUrl;
+        document.getElementById('modal-img').src = "/img/"+imageUrl;
         document.getElementById('quantity').innerText = 1;
         document.getElementById('modal').style.display = 'block';
     }

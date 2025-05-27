@@ -11,6 +11,7 @@ public class ProductSeed
 {
     public string Name { get; set; } = string.Empty;
     public string description { get; set; } = string.Empty;
+    public string Foto { get; set; } = string.Empty;
     public decimal Price { get; set; } 
     public List<VariationSeed>? Variations { get; set; }
 }
