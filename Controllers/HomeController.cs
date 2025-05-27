@@ -52,7 +52,6 @@ public class HomeController : Controller
             return NotFound();
         }
 
-        // A partir daqui, segue sua lógica anterior normalmente
         int? activeCategoryId = null;
         var activeCategory = rootCategoriesRaw.FirstOrDefault(c => c.Slug == categorySlug);
         if (activeCategory != null)
