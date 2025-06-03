@@ -152,12 +152,6 @@ public class HomeController : Controller
         return View();
     }
 
-
-
-    public IActionResult Carrinho()
-    {
-        return View();
-    }
     public IActionResult Editar()
     {
         return View();

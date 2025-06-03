@@ -2,7 +2,6 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
-
 <div class="svg-background">
     <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" fill="none">
         <path d="M-2.81334e-05 0V1920H1079L-2.81334e-05 0Z" fill="#880202"/>
@@ -26,3 +25,13 @@
    </div>
 
 </div>
+<script>
+    function apagar(){
+        localStorage.removeItem("cart");
+    }
+    window.onload = function() {
+        if (localStorage.getItem("cart")) {
+            apagar();
+        }
+    };
+</script>
