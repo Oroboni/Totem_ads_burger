@@ -142,7 +142,7 @@ namespace TotemPWA.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Composition", b =>
+            modelBuilder.Entity("TotemPWA.Models.Composition", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -162,7 +162,7 @@ namespace TotemPWA.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("PrecoAdicional")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("INTEGER");
@@ -176,16 +176,63 @@ namespace TotemPWA.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Compositions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IngredientId = 1,
+                            MaxQuantity = 1,
+                            Nome = "",
+                            PrecoAdicional = 0m,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IngredientId = 2,
+                            MaxQuantity = 1,
+                            Nome = "",
+                            PrecoAdicional = 0m,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            IngredientId = 3,
+                            MaxQuantity = 1,
+                            Nome = "",
+                            PrecoAdicional = 0m,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            IngredientId = 4,
+                            MaxQuantity = 1,
+                            Nome = "",
+                            PrecoAdicional = 0m,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            IngredientId = 5,
+                            MaxQuantity = 1,
+                            Nome = "",
+                            PrecoAdicional = 0m,
+                            ProductId = 3
+                        });
                 });
 
-            modelBuilder.Entity("Ingredient", b =>
+            modelBuilder.Entity("TotemPWA.Models.Ingredient", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("AdditionalPrice")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -194,32 +241,38 @@ namespace TotemPWA.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Ingredients");
-                });
 
-            modelBuilder.Entity("ProductSeed", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Foto")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductSeed");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdditionalPrice = 2.00m,
+                            Name = "Bacon"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdditionalPrice = 1.50m,
+                            Name = "Queijo Extra"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdditionalPrice = 1.00m,
+                            Name = "Ovo"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AdditionalPrice = 1.20m,
+                            Name = "Cebola Caramelizada"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AdditionalPrice = 0.80m,
+                            Name = "Pimenta Jalapeño"
+                        });
                 });
 
             modelBuilder.Entity("TotemPWA.Models.Product", b =>
@@ -244,7 +297,7 @@ namespace TotemPWA.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(10,2)");
 
                     b.HasKey("Id");
 
@@ -738,20 +791,20 @@ namespace TotemPWA.Migrations
                     b.Navigation("ParentCategory");
                 });
 
-            modelBuilder.Entity("Composition", b =>
+            modelBuilder.Entity("TotemPWA.Models.Composition", b =>
                 {
-                    b.HasOne("Ingredient", "Ingredient")
+                    b.HasOne("TotemPWA.Models.Ingredient", "Ingredient")
                         .WithMany()
                         .HasForeignKey("IngredientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Ingredient", null)
-                        .WithMany("Composition")
+                    b.HasOne("TotemPWA.Models.Ingredient", null)
+                        .WithMany("Compositions")
                         .HasForeignKey("IngredientId1");
 
-                    b.HasOne("ProductSeed", "Product")
-                        .WithMany()
+                    b.HasOne("TotemPWA.Models.Product", "Product")
+                        .WithMany("Compositions")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -790,13 +843,15 @@ namespace TotemPWA.Migrations
                     b.Navigation("Subcategories");
                 });
 
-            modelBuilder.Entity("Ingredient", b =>
+            modelBuilder.Entity("TotemPWA.Models.Ingredient", b =>
                 {
-                    b.Navigation("Composition");
+                    b.Navigation("Compositions");
                 });
 
             modelBuilder.Entity("TotemPWA.Models.Product", b =>
                 {
+                    b.Navigation("Compositions");
+
                     b.Navigation("Variations");
                 });
 #pragma warning restore 612, 618

@@ -7,7 +7,7 @@
 namespace TotemPWA.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,6 +33,20 @@ namespace TotemPWA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Ingredients",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    AdditionalPrice = table.Column<decimal>(type: "decimal(10,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ingredients", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -41,7 +55,7 @@ namespace TotemPWA.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
                     Foto = table.Column<string>(type: "TEXT", nullable: false),
-                    Price = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -51,6 +65,41 @@ namespace TotemPWA.Migrations
                         name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Compositions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nome = table.Column<string>(type: "TEXT", nullable: false),
+                    PrecoAdicional = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    MaxQuantity = table.Column<int>(type: "INTEGER", nullable: false),
+                    ProductId = table.Column<int>(type: "INTEGER", nullable: false),
+                    IngredientId = table.Column<int>(type: "INTEGER", nullable: false),
+                    IngredientId1 = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Compositions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Compositions_Ingredients_IngredientId",
+                        column: x => x.IngredientId,
+                        principalTable: "Ingredients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Compositions_Ingredients_IngredientId1",
+                        column: x => x.IngredientId1,
+                        principalTable: "Ingredients",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Compositions_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -85,7 +134,26 @@ namespace TotemPWA.Migrations
                     { 2, "Combos", null, "combos" },
                     { 3, "Bebidas", null, "bebidas" },
                     { 4, "Acompanhamentos", null, "acompanhamentos" },
-                    { 5, "Molhos", null, "molhos" },
+                    { 5, "Molhos", null, "molhos" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Ingredients",
+                columns: new[] { "Id", "AdditionalPrice", "Name" },
+                values: new object[,]
+                {
+                    { 1, 2.00m, "Bacon" },
+                    { 2, 1.50m, "Queijo Extra" },
+                    { 3, 1.00m, "Ovo" },
+                    { 4, 1.20m, "Cebola Caramelizada" },
+                    { 5, 0.80m, "Pimenta Jalapeño" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Name", "ParentCategoryId", "Slug" },
+                values: new object[,]
+                {
                     { 6, "Artesanais", 1, "artesanais" },
                     { 7, "Tradicionais", 1, "tradicionais" },
                     { 8, "Refrigerantes", 3, "refrigerantes" },
@@ -155,10 +223,37 @@ namespace TotemPWA.Migrations
                     { 50, 15, "50ml - Clássico molho caesar", "pimenta1.jpg", "Molho Caesar", 4.50m }
                 });
 
+            migrationBuilder.InsertData(
+                table: "Compositions",
+                columns: new[] { "Id", "IngredientId", "IngredientId1", "MaxQuantity", "Nome", "PrecoAdicional", "ProductId" },
+                values: new object[,]
+                {
+                    { 1, 1, null, 1, "", 0m, 1 },
+                    { 2, 2, null, 1, "", 0m, 1 },
+                    { 3, 3, null, 1, "", 0m, 2 },
+                    { 4, 4, null, 1, "", 0m, 2 },
+                    { 5, 5, null, 1, "", 0m, 3 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Categories_ParentCategoryId",
                 table: "Categories",
                 column: "ParentCategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Compositions_IngredientId",
+                table: "Compositions",
+                column: "IngredientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Compositions_IngredientId1",
+                table: "Compositions",
+                column: "IngredientId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Compositions_ProductId",
+                table: "Compositions",
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
@@ -175,7 +270,13 @@ namespace TotemPWA.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Compositions");
+
+            migrationBuilder.DropTable(
                 name: "Variation");
+
+            migrationBuilder.DropTable(
+                name: "Ingredients");
 
             migrationBuilder.DropTable(
                 name: "Products");
