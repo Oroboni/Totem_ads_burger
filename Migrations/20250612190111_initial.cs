@@ -41,7 +41,7 @@ namespace TotemPWA.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
                     Foto = table.Column<string>(type: "TEXT", nullable: false),
-                    Price = table.Column<decimal>(type: "TEXT", precision: 18, scale: 2, nullable: false),
+                    Price = table.Column<decimal>(type: "TEXT", nullable: false),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -56,20 +56,20 @@ namespace TotemPWA.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Variations",
+                name: "Variation",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
-                    AdditionalPrice = table.Column<decimal>(type: "TEXT", precision: 18, scale: 2, nullable: false),
+                    AdditionalPrice = table.Column<decimal>(type: "TEXT", nullable: false),
                     ProductId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Variations", x => x.Id);
+                    table.PrimaryKey("PK_Variation", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Variations_Products_ProductId",
+                        name: "FK_Variation_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
@@ -166,8 +166,8 @@ namespace TotemPWA.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Variations_ProductId",
-                table: "Variations",
+                name: "IX_Variation_ProductId",
+                table: "Variation",
                 column: "ProductId");
         }
 
@@ -175,7 +175,7 @@ namespace TotemPWA.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Variations");
+                name: "Variation");
 
             migrationBuilder.DropTable(
                 name: "Products");

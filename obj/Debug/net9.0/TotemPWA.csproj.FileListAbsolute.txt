@@ -270,7 +270,6 @@ C:\Users\0031432512011\Documents\TAP\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.
 C:\Users\0031432512011\Documents\TAP\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
 C:\Users\melio\Downloads\Totem_ads_burger\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\melio\Downloads\Totem_ads_burger\bin\Debug\net9.0\appsettings.json
-C:\Users\melio\Downloads\Totem_ads_burger\bin\Debug\net9.0\Data\SeedData.json
 C:\Users\melio\Downloads\Totem_ads_burger\bin\Debug\net9.0\TotemPWA.staticwebassets.runtime.json
 C:\Users\melio\Downloads\Totem_ads_burger\bin\Debug\net9.0\TotemPWA.staticwebassets.endpoints.json
 C:\Users\melio\Downloads\Totem_ads_burger\bin\Debug\net9.0\TotemPWA.exe
@@ -462,7 +461,6 @@ C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\hxm0i14msq
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\0igx8htofq-y1tf2kror9.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\zvu6mp7yl8-htzjwuqdcn.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\1nvw2ig7mg-o4yisuq7bh.gz
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\2vzvvzn0f9-gvm4rzwikc.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\9y97fnyyhx-xtxxf3hu2r.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\no2xol4q6l-t1cqhe9u97.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\ocf304k2dd-c2jlpeoesf.gz
@@ -1336,3 +1334,4 @@ C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\TotemP
 C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
 C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\compressed\2vzvvzn0f9-5tqsblnszx.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\2vzvvzn0f9-5tqsblnszx.gz

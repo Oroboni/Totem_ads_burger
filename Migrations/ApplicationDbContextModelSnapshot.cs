@@ -164,7 +164,6 @@ namespace TotemPWA.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
-                        .HasPrecision(18, 2)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -633,7 +632,6 @@ namespace TotemPWA.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("AdditionalPrice")
-                        .HasPrecision(18, 2)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -647,7 +645,7 @@ namespace TotemPWA.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Variations");
+                    b.ToTable("Variation");
                 });
 
             modelBuilder.Entity("Category", b =>
