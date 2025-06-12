@@ -11,6 +11,8 @@ namespace TotemPWA.Data
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
+        public DbSet<Composition> Compositions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,6 +31,12 @@ namespace TotemPWA.Data
                 .WithMany(c => c.Products)
                 .HasForeignKey(p => p.CategoryId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Composition>()
+                .HasOne(c => c.Ingredient)
+                .WithMany()
+                .HasForeignKey(c => c.IngredientId);
+
 
             modelBuilder.Entity<Category>().HasData(
      // Categorias principais (existentes)
