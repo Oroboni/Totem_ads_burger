@@ -14,11 +14,25 @@
 
 
 <div class="coupon-bar">
-    <a onclick="location.href='@Url.Action("Pedido", "Home")'" class="button btn-left">
+    <a onclick="cupomModal()" class="button btn-left">
         <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i> Voltar</a>
-    <a href="/Home/Pedido" class="button btn-right"><i class="fa-solid fa-ticket" style="color: #ffffff;"></i> INSIRA
-        AQUI SEU CUPOM!</a>
+    <button type="button" onclick="cupomModal()" class="button btn-right">
+        <i class="fa-solid fa-ticket" style="color: #ffffff;"></i> INSIRA AQUI SEU CUPOM!
+    </button>
 </div>
+
+<!-- Modal do Cupom -->
+<div id="cupomModal" class="modal-cupom" style="display:none;">
+    <div class="modal-content-cupom">
+        <span class="close-cupom" onclick="fecharCupomModal()">&times;</span>
+        <h2>Insira seu cupom</h2>
+
+        <input type="text" class="use-keyboard-input" style="width: 100%; margin-bottom: 10px;"></input>
+
+        <button class="confirm-cupom-btn" onclick="confirmarCupom()">Aplicar Cupom</button>
+    </div>
+</div>
+
 
 <div class="content">
     @* <section class="section"> *@
@@ -40,6 +54,7 @@
     </div>
 </div>
 
+<script src="~/js/Cupom.js"></script>
 <script src="~/js/editar.js"></script>
 <script>
     const produtosComIngredientes = @Html.Raw(Json.Serialize(ViewBag.IdsComIngredientes));
@@ -116,7 +131,7 @@
     function salvarEPersonalizar(id, idpedido) {
         localStorage.setItem("idpedidoSelecionado", idpedido);
         location.href = `/Cart/Editar?id=${id}`;
-    }
+    } 
 
     function adjustQty(idpedido, amount) {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
