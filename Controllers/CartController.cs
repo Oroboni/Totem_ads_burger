@@ -20,6 +20,19 @@ public class CartController : Controller
         return View();
     }
 
+    public async Task<IActionResult> Editar(int id)
+    {
+        var product = await _context.Products
+            .Include(p => p.Compositions)
+                .ThenInclude(c => c.Ingredient)
+            .FirstOrDefaultAsync(p => p.Id == id);
+
+        if (product == null) return NotFound();
+
+        return View(product);
+    }
+
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

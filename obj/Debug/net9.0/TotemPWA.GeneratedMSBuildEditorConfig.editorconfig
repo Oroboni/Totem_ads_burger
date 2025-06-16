@@ -32,6 +32,7 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDYXJyaW5oby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+<<<<<<< HEAD
 [C:/Users/FoxB4/Documents/totemAdsBanco/Totem_ads_burger/Views/Home/CarrinhoMerge.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXJyaW5ob01lcmdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,6 +43,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/FoxB4/Documents/totemAdsBanco/Totem_ads_burger/Views/Home/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0YXIuY3NodG1s
+=======
+[C:/Users/melio/Downloads/Totem_ads_burger/Views/Cart/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxFZGl0YXIuY3NodG1s
+>>>>>>> 3f52a6af266508529ed166e972e1fc3b5504df34
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/FoxB4/Documents/totemAdsBanco/Totem_ads_burger/Views/Home/EscolherLocal.cshtml]

@@ -1,0 +1,225 @@
+@{
+    ViewBag.Title = "Carrinho";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+    @model TotemPWA.Models.Product
+}
+
+<link rel="stylesheet" href="~/css/Editar.css">
+<div class="banner"></div>
+
+<div class="content">
+
+    <div class="container mt-5">
+
+        <div class="content" style="display: flex; align-items: center; justify-content: center;">
+            <a onclick="voltar()" class="buttonVoltar btn-left">
+                <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+                Voltar
+            </a>
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <h1 class="fotoHamburger" id="nome">Looping Duplo</h1>
+            </div>
+            <div style="align-content: flex-start; justify-content: flex-start;">
+                <h1 style="margin-left: 30px; font-size: 30px; text-align: left;">Ingredientes: </h1>
+            </div>
+
+            @foreach (var comp in Model.Compositions)
+            {
+                var name = comp.Ingredient.Name.ToLower();
+                var imageUrl = name switch
+                {
+                    var n when n.Contains("queijo") => "https://www.pngmart.com/files/16/Cheese-Piece-Slice-PNG-Clipart.png",
+                    var n when n.Contains("bacon") =>
+                    "https://purepng.com/public/uploads/large/purepng.com-baconfood-meat-fried-pork-cooked-941524619205lmptp.png",
+                    var n when n.Contains("alface") =>
+                    "https://th.bing.com/th/id/R.e8b9516fa28fb9bd627f165702a56d6e?rik=hLa5GIL15ybojw&pid=ImgRaw&r=0",
+                    var n when n.Contains("tomate") =>
+                    "https://th.bing.com/th/id/R.0e88ac13dc38fd380591cf4dc357f709?rik=bigMcONgbIcfTA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fTomato-Free-PNG-Image.png&ehk=TnfBtAyfzAetFPKm1B71hlBLCWT%2fIOfh961OOEmsejg%3d&risl=&pid=ImgRaw&r=0",
+                    var n when n.Contains("hamburger") =>
+                    "https://laretofood.hr/wp-content/uploads/2024/04/ROUNDEES-deciso-industria-min-600x600.png",
+                    _ => "https://via.placeholder.com/100"
+                };
+                <div class="contentIngredient ingrediente-@comp.Ingredient.Id">
+                    <button class="editarButton decreseButton" id="decreaseButton" data-ingredient-id="@comp.Ingredient.Id"
+                        onclick="salvarIngredientes(@comp.Ingredient.Id)" data-pedido-id="@Model.Id">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 70 70"
+                            object-fit="contain">
+                            <path
+                                d="M34.9997 5.8335C18.9288 5.8335 5.83301 18.9293 5.83301 35.0002C5.83301 51.071 18.9288 64.1668 34.9997 64.1668C51.0705 64.1668 64.1663 51.071 64.1663 35.0002C64.1663 18.9293 51.0705 5.8335 34.9997 5.8335ZM46.433 37.1877H23.0997C21.9038 37.1877 20.9122 36.196 20.9122 35.0002C20.9122 33.8043 21.9038 32.8127 23.0997 32.8127H46.433C47.6288 32.8127 48.6205 33.8043 48.6205 35.0002C48.6205 36.196 47.658 37.1877 46.433 37.1877Z"
+                                fill="#463B3B" />
+                        </svg>
+                    </button>
+                    <span class="labelNmr" id="fiz" data-ingredient-id="@comp.Ingredient.Id" data-pedido-id="@Model.Id">
+                        @comp.quantity
+                    </span>
+
+                    <button class="editarButton increaseButton" id="increaseButton" data-ingredient-id="@comp.Ingredient.Id"
+                        data-pedido-id="@Model.Id">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 70 70"
+                            object-fit="contain">
+                            <path
+                                d="M35.0002 5.83325C18.9293 5.83325 5.8335 18.9291 5.8335 34.9999C5.8335 51.0708 18.9293 64.1666 35.0002 64.1666C51.071 64.1666 64.1668 51.0708 64.1668 34.9999C64.1668 18.9291 51.071 5.83325 35.0002 5.83325ZM46.6668 37.1874H37.1877V46.6666C37.1877 47.8624 36.196 48.8541 35.0002 48.8541C33.8043 48.8541 32.8127 47.8624 32.8127 46.6666V37.1874H23.3335C22.1377 37.1874 21.146 36.1958 21.146 34.9999C21.146 33.8041 22.1377 32.8124 23.3335 32.8124H32.8127V23.3333C32.8127 22.1374 33.8043 21.1458 35.0002 21.1458C36.196 21.1458 37.1877 22.1374 37.1877 23.3333V32.8124H46.6668C47.8627 32.8124 48.8543 33.8041 48.8543 34.9999C48.8543 36.1958 47.8627 37.1874 46.6668 37.1874Z"
+                                fill="#463B3B" />
+                        </svg>
+                    </button>
+                    <img class="fotoIngrediente" src="@imageUrl" alt="@comp.Ingredient.Name" />
+                    <h2>@comp.Ingredient.Name</h2>
+
+                    @* <span>+R$ @comp.Ingredient.AdditionalPrice.ToString("0.00")</span> *@
+                </div>
+            }
+
+
+            <div style="margin-bottom: 117px;"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <div class="editarButtonFooter" style="display: flex; align-items: center;">
+                <button class="editarButtonFooter" id="decreaseButton" onclick="adjustQty(-1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 70 70"
+                        object-fit="contain">
+                        <path
+                            d="M34.9997 5.8335C18.9288 5.8335 5.83301 18.9293 5.83301 35.0002C5.83301 51.071 18.9288 64.1668 34.9997 64.1668C51.0705 64.1668 64.1663 51.071 64.1663 35.0002C64.1663 18.9293 51.0705 5.8335 34.9997 5.8335ZM46.433 37.1877H23.0997C21.9038 37.1877 20.9122 36.196 20.9122 35.0002C20.9122 33.8043 21.9038 32.8127 23.0997 32.8127H46.433C47.6288 32.8127 48.6205 33.8043 48.6205 35.0002C48.6205 36.196 47.658 37.1877 46.433 37.1877Z"
+                            fill="#463B3B" />
+                    </svg>
+                </button>
+                <span class="labelNmrFooter" id="counter" name="counter">1</span>
+                <button class="editarButtonFooter" id="increaseButton" onclick="adjustQty(+1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 70 70"
+                        object-fit="contain">
+                        <path
+                            d="M35.0002 5.83325C18.9293 5.83325 5.8335 18.9291 5.8335 34.9999C5.8335 51.0708 18.9293 64.1666 35.0002 64.1666C51.071 64.1666 64.1668 51.0708 64.1668 34.9999C64.1668 18.9291 51.071 5.83325 35.0002 5.83325ZM46.6668 37.1874H37.1877V46.6666C37.1877 47.8624 36.196 48.8541 35.0002 48.8541C33.8043 48.8541 32.8127 47.8624 32.8127 46.6666V37.1874H23.3335C22.1377 37.1874 21.146 36.1958 21.146 34.9999C21.146 33.8041 22.1377 32.8124 23.3335 32.8124H32.8127V23.3333C32.8127 22.1374 33.8043 21.1458 35.0002 21.1458C36.196 21.1458 37.1877 22.1374 37.1877 23.3333V32.8124H46.6668C47.8627 32.8124 48.8543 33.8041 48.8543 34.9999C48.8543 36.1958 47.8627 37.1874 46.6668 37.1874Z"
+                            fill="#463B3B" />
+                    </svg>
+                </button>
+            </div>
+            <span>Quantidade</span>
+        </div>
+        <div>Preço Total: R$ <span id="total-price">0.00</span></div>
+        <div style="align-items: center; padding-bottom: 5px;">
+            <div class="ftr2"><button class="ftr2" onclick="voltar();"">Cancelar</button></div>
+                <button class=" button"
+                    onclick="salvarIngredientes('@Model.Id');location.href='@Url.Action("Carrinho", "Cart")'">Confirmar</button>
+
+
+            </div>
+        </div>
+
+        <script src="/js/Editar.js"></script>
+        <script>
+            function load() {
+                const savedCart = localStorage.getItem("cart");
+                const selectedPedidoId = localStorage.getItem("idpedidoSelecionado");
+                if (!savedCart || !selectedPedidoId) return;
+
+                const cart = JSON.parse(savedCart);
+                console.log(cart)
+                const pedido = cart.find(p => p.idpedido == selectedPedidoId); // comparação flexível
+
+                let total = 0;
+
+                if (Array.isArray(pedido.ingredients)) {
+                    pedido.ingredients.forEach(ing => {
+                        const span = document.querySelector(`.labelNmr[data-ingredient-id="${ing.id}"]`);
+                        if (span) {
+                            span.innerText = ing.quantity;
+                        } else {
+                            console.warn(`Elemento não encontrado para ingrediente ${ing.id} no pedido ${selectedPedidoId}`);
+                        }
+                    });
+                }
+                document.getElementById("counter").innerText = pedido.quantity;
+                document.getElementById("nome").innerText = pedido.name;
+                document.getElementById("total-price").innerText = pedido.totalItemPrice;
+            }
+
+            function adjustQty(amount) {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const idpedido = localStorage.getItem("idpedidoSelecionado");
+                const item = cart.find(item => item.idpedido === idpedido);
+
+                if (item) {
+                    const unitPrice = parseFloat(item.totalItemPrice) / item.quantity;
+
+                    item.quantity = Math.max(1, item.quantity + amount);
+
+                    item.totalItemPrice = (unitPrice * item.quantity).toFixed(2);
+
+                    localStorage.setItem("cart", JSON.stringify(cart));
+
+                    if (item.quantity === 1 && amount < 0) {
+                        removerItem(id);
+                        voltar();
+                        return;
+                    }
+                }
+
+                load();
+            }
+
+            function removerItem(id) {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const updatedCart = cart.filter(item => item.id !== id);
+                localStorage.setItem("cart", JSON.stringify(updatedCart));
+                load();
+                alert("Item removido com sucesso!");
+            }
+
+            function salvarIngredientes(id) {
+                const pedidoId = localStorage.getItem("idpedidoSelecionado");
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const pedido = cart.find(p => p.idpedido === pedidoId);
+
+                const spans = document.querySelectorAll(`.labelNmr[data-ingredient-id][data-pedido-id="${id}"]`);
+                const ingredientesAtualizados = [];
+                spans.forEach(span => {
+                    const id = parseInt(span.dataset.ingredientId);
+                    const qtd = parseInt(span.innerText);
+                    if (!isNaN(id) && !isNaN(qtd)) {
+                        ingredientesAtualizados.push({ id, quantity: qtd });
+                    }
+                });
+
+                pedido.ingredients = ingredientesAtualizados;
+                localStorage.setItem("cart", JSON.stringify(cart));
+            }
+
+
+            function adjustIngredientQty(pedidoId, ingredientId, amount) {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const pedido = cart.find(p => p.idpedido === pedidoId);
+                if (!pedido) return;
+
+                const ingredient = pedido.ingredients.find(i => i.id === ingredientId);
+                if (!ingredient) return;
+
+                ingredient.quantity = Math.max(0, ingredient.quantity + amount);
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                const span =
+                    document.querySelector(`.labelNmr[data-ingredient-id="${ingredientId}"][data-pedido-id="${pedidoId}"]`);
+                if (span) span.innerText = ingredient.quantity;
+            }
+
+
+            document.addEventListener("DOMContentLoaded", () => {
+                load();
+                document.querySelectorAll(".increaseButton").forEach(button => {
+                    button.addEventListener("click", () => {
+                        const pid = button.dataset.pedidoId;
+                        const iid = parseInt(button.dataset.ingredientId);
+                        adjustIngredientQty(pid, iid, 1);
+                    });
+                });
+                document.querySelectorAll(".decreaseButton").forEach(button => {
+                    button.addEventListener("click", () => {
+                        const pid = button.dataset.pedidoId;
+                        const iid = parseInt(button.dataset.ingredientId);
+                        adjustIngredientQty(pid, iid, -1);
+                    });
+                });
+
+            });
+        </script>

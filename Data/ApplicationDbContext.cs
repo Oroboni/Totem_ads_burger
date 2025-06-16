@@ -137,18 +137,18 @@ namespace TotemPWA.Data
 
             modelBuilder.Entity<Ingredient>().HasData(
                 new Ingredient { Id = 1, Name = "Bacon", AdditionalPrice = 2.00m },
-                new Ingredient { Id = 2, Name = "Queijo Extra", AdditionalPrice = 1.50m },
-                new Ingredient { Id = 3, Name = "Ovo", AdditionalPrice = 1.00m },
-                new Ingredient { Id = 4, Name = "Cebola Caramelizada", AdditionalPrice = 1.20m },
-                new Ingredient { Id = 5, Name = "Pimenta Jalapeño", AdditionalPrice = 0.80m }
+                new Ingredient { Id = 2, Name = "Queijo", AdditionalPrice = 1.50m },
+                new Ingredient { Id = 3, Name = "alface", AdditionalPrice = 1.00m },
+                new Ingredient { Id = 4, Name = "tomate", AdditionalPrice = 1.20m },
+                new Ingredient { Id = 5, Name = "Hamburger", AdditionalPrice = 0.80m }
             );
 
             modelBuilder.Entity<Composition>().HasData(
-                new Composition { Id = 1, MaxQuantity = 1, IngredientId = 1, ProductId = 1 },
-                new Composition { Id = 2, MaxQuantity = 1, IngredientId = 2, ProductId = 1 },
-                new Composition { Id = 3, MaxQuantity = 1, IngredientId = 3, ProductId = 2 },
-                new Composition { Id = 4, MaxQuantity = 1, IngredientId = 4, ProductId = 2 },
-                new Composition { Id = 5, MaxQuantity = 1, IngredientId = 5, ProductId = 3 }
+                new Composition { Id = 1, MaxQuantity = 1, IngredientId = 1, ProductId = 1, quantity = 0 },
+                new Composition { Id = 2, MaxQuantity = 1, IngredientId = 2, ProductId = 1, quantity = 0 },
+                new Composition { Id = 3, MaxQuantity = 1, IngredientId = 3, ProductId = 2, quantity = 0 },
+                new Composition { Id = 4, MaxQuantity = 1, IngredientId = 4, ProductId = 2, quantity = 0 },
+                new Composition { Id = 5, MaxQuantity = 1, IngredientId = 5, ProductId = 3, quantity = 0 }
             );
             // dotnet ef migrations add SeedProducts
             // dotnet ef database update
