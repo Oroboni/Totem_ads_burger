@@ -108,26 +108,35 @@
         <script src="/js/Editar.js"></script>
         <script>
             window.addEventListener("DOMContentLoaded", load);
+            window.addEventListener("DOMContentLoaded", amount);
 
+            function amount(){
+                const savedCart = localStorage.getItem("cart");
+                const selectedPedidoId = localStorage.getItem("idpedidoSelecionado");
+
+                const cart = JSON.parse(savedCart);
+                const pedido = cart.find(p => p.idpedido == selectedPedidoId);
+                if (Array.isArray(pedido.ingredients)) {
+                    pedido.ingredients.forEach(ing => {
+                        const span = document.querySelector(`.labelNmr[data-ingredient-id="${ing.id.toString()}"]`);
+                        if (span) {
+                            span.innerText = ing.quantity;
+                        } else {
+                            console.warn(`Elemento não encontrado para ingrediente ${ing.id} no pedido ${selectedPedidoId}`);
+                        }
+                    });
+                }
+            }
             function load() {
                 const savedCart = localStorage.getItem("cart");
                 const selectedPedidoId = localStorage.getItem("idpedidoSelecionado");
-                if (!savedCart || !selectedPedidoId) return;
 
                 const cart = JSON.parse(savedCart);
                 const pedido = cart.find(p => p.idpedido == selectedPedidoId);
 
-                if (!pedido) {
-                    console.warn("Pedido não encontrado para ID:", selectedPedidoId);
-                    return;
-                }
-
-                // Initialize ingredients array if it doesn't exist or is invalid
                 if (!Array.isArray(pedido.ingredients)) {
-                    console.log("Inicializando pedido.ingredients como array vazio");
                     pedido.ingredients = [];
                     
-                    // Get all ingredient elements from DOM and initialize them
                     const spans = document.querySelectorAll('.labelNmr[data-ingredient-id]');
                     spans.forEach(span => {
                         const ingredientId = parseInt(span.dataset.ingredientId);
@@ -137,21 +146,6 @@
                             id: ingredientId,
                             quantity: currentQuantity
                         });
-                    });
-                    
-                    // Save the initialized data back to localStorage
-                    localStorage.setItem("cart", JSON.stringify(cart));
-                }
-
-                // Update UI with saved ingredient quantities
-                if (Array.isArray(pedido.ingredients)) {
-                    pedido.ingredients.forEach(ing => {
-                        const span = document.querySelector(`.labelNmr[data-ingredient-id="${ing.id.toString()}"]`);
-                        if (span) {
-                            span.innerText = ing.quantity;
-                        } else {
-                            console.warn(`Elemento não encontrado para ingrediente ${ing.id} no pedido ${selectedPedidoId}`);
-                        }
                     });
                 }
 
@@ -177,7 +171,7 @@
 
                     localStorage.setItem("cart", JSON.stringify(cart));
 
-                    if (item.quantity === 1 && amount < 0) {
+                    if (amount < 1) {
                         removerItem(idpedido);
                         voltar();
                         return;
@@ -192,6 +186,7 @@
                 const updatedCart = cart.filter(item => item.idpedido !== id);
                 localStorage.setItem("cart", JSON.stringify(updatedCart));
                 alert("Item removido com sucesso!");
+                history.back();
             }
 
             function salvarIngredientes(id) {
@@ -199,19 +194,9 @@
                 const cart = JSON.parse(localStorage.getItem("cart")) || [];
                 const pedido = cart.find(p => p.idpedido === pedidoId);
 
-                if (!pedido) {
-                    console.error("Pedido não encontrado para salvar ingredientes");
-                    return;
-                }
-
-                if (!Array.isArray(pedido.ingredients)) {
-                    console.warn("pedido.ingredients está indefinido ou inválido, inicializando como array vazio.");
-                    pedido.ingredients = [];
-                }
-
-                const spans = document.querySelectorAll(`.labelNmr[data-ingredient-id][data-pedido-id="${id}"]`);
+                const b = document.querySelectorAll(`.labelNmr[data-ingredient-id][data-pedido-id="${id}"]`);
                 const ingredientesAtualizados = [];
-                spans.forEach(span => {
+                b.forEach(span => {
                     const ingredientId = parseInt(span.dataset.ingredientId);
                     const qtd = parseInt(span.innerText);
                     if (!isNaN(ingredientId) && !isNaN(qtd)) {
@@ -221,7 +206,6 @@
 
                 pedido.ingredients = ingredientesAtualizados;
                 localStorage.setItem("cart", JSON.stringify(cart));
-                console.log("Ingredientes salvos:", ingredientesAtualizados);
             }
 
             function adjustIngredientQty(ingredientId, amount) {
@@ -229,44 +213,14 @@
                 const cart = JSON.parse(localStorage.getItem("cart")) || [];
                 const pedido = cart.find(p => p.idpedido.toString() === pedidoId);
 
-                if (!pedido) {
-                    console.error("Pedido não encontrado.");
-                    return;
-                }
-
-                if (!Array.isArray(pedido.ingredients)) {
-                    console.error("pedido.ingredients está ausente!", pedido);
-                    return;
-                }
-
-                // Find ingredient by ID (ensure both are same type)
                 let ingredient = pedido.ingredients.find(i => parseInt(i.id) === parseInt(ingredientId));
 
-                // If ingredient doesn't exist in the array, create it
-                if (!ingredient) {
-                    console.log(`Ingrediente ${ingredientId} não encontrado, criando novo...`);
-                    const span = document.querySelector(`.labelNmr[data-ingredient-id="${ingredientId}"]`);
-                    const currentQuantity = span ? parseInt(span.innerText) || 1 : 1;
-                    
-                    ingredient = {
-                        id: parseInt(ingredientId),
-                        quantity: currentQuantity
-                    };
-                    pedido.ingredients.push(ingredient);
-                }
-
-                // Adjust quantity
-                ingredient.quantity = Math.max(0, ingredient.quantity + amount);
-                localStorage.setItem("cart", JSON.stringify(cart));
-
-                // Update UI
-                const span = document.querySelector(`.labelNmr[data-ingredient-id="${ingredientId}"]`);
-                if (span) span.innerText = ingredient.quantity;
-
-                console.log(`Ingrediente ${ingredientId} atualizado para quantidade: ${ingredient.quantity}`);
+                const b = document.querySelector(`.labelNmr[data-ingredient-id="${ingredientId}"]`);
+                const currentQuantity = b ? parseInt(b.innerText) || 0 : 0;
+                ingredient.quantity = Math.max(0, currentQuantity + amount);
+                if (b) b.innerText = ingredient.quantity;
             }
 
-            // Event listeners for ingredient adjustment buttons
             document.querySelectorAll(".increaseButton").forEach(button => {
                 button.addEventListener("click", () => {
                     const iid = parseInt(button.dataset.ingredientId);

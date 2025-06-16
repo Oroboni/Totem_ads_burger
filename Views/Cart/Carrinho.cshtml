@@ -36,7 +36,7 @@
     </div>
     <div class="bottom-buttons">
         <button class="cancel-button" onclick="cancel()">Cancelar pedido</button>
-        <button class="confirm-button">Confirmar pedido</button>
+        <button class="confirm-button" onclick="location.href='@Url.Action("EscolherLocal", "Home")'">Confirmar pedido</button>
     </div>
 </div>
 
@@ -73,6 +73,7 @@
                         <img class="img-card" src="/img/${item.imageUrl || "default-product.png"}" alt="${item.name || "Produto"}">
                         <p class="text-body">${item.description || "Descrição não disponível"}</p>
                     </div>
+                    
                     <div class="burguer-bar-footer">
                         <span class="labelNmr">R$${parseFloat(item.totalItemPrice).toFixed(2)}</span>
                         ${produtosComIngredientes.includes(parseInt(item.id)) ? `
@@ -137,6 +138,10 @@
         }
 
         load(); // Recarrega o HTML dinamicamente
+        if (amount < 1) {
+            removerItem(idpedido);
+            return;
+        }
     }
 
 

@@ -67,7 +67,7 @@
         @foreach (var product in ViewBag.Products)
         {
             var priceStr = product.price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"));
-            var imageUrl = product.Foto ?? "/images/default-product.png"; //Usa a imagem padrão se não houver imagem
+            var imageUrl = product.Foto ?? "/images/default-product.png";
 
             <div class="menu-item"
                 onclick="showModal('@product.name', '@(product.description ?? "Descrição não disponível")', '@priceStr', '@imageUrl', '@product.id')">
