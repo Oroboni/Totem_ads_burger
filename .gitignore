@@ -1,4 +1,4 @@
-y# Ignore arquivos de build e cache
+# Ignore arquivos de build e cache
 bin/
 obj/
 
