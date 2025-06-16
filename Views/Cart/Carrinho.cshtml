@@ -43,10 +43,10 @@
 
 <script src="~/js/editar.js"></script>
 <script>
+    const produtosComIngredientes = @Html.Raw(Json.Serialize(ViewBag.IdsComIngredientes));
     function load() {
         const savedCart = localStorage.getItem("cart");
         if (!savedCart) return;
-
         const cart = JSON.parse(savedCart);
         let cartCount = cart.length;
         let totalPrice = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice), 0);
@@ -76,8 +76,11 @@
                     </div>
                     <div class="burguer-bar-footer">
                         <span class="labelNmr">R$${parseFloat(item.totalItemPrice).toFixed(2)}</span>
-                        <button class="burguer-bar-footer-button"
-                            onclick="salvarEPersonalizar('${item.id}', '${item.idpedido}')">Personalizar Pedido</button>
+                        ${produtosComIngredientes.includes(parseInt(item.id)) ? `
+    <button class="burguer-bar-footer-button"
+        onclick="salvarEPersonalizar('${item.id}', '${item.idpedido}')">Personalizar Pedido</button>
+` : ''}
+
                         <div class="burguer-bar-buttonQtde">
                             <button class="editarButton" onclick="adjustQty('${item.idpedido}', -1)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 70 70">

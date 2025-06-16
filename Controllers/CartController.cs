@@ -15,10 +15,17 @@ public class CartController : Controller
     {
         _context = context;
     }
-    public IActionResult Carrinho()
+    public async Task<IActionResult> Carrinho()
     {
+        var idsComIngredientes = await _context.Products
+            .Where(p => p.Compositions.Any())
+            .Select(p => p.Id)
+            .ToListAsync();
+
+        ViewBag.IdsComIngredientes = idsComIngredientes;
         return View();
     }
+
 
     public async Task<IActionResult> Editar(int id)
     {

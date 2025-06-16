@@ -40,8 +40,8 @@
                     _ => "https://via.placeholder.com/100"
                 };
                 <div class="contentIngredient ingrediente-@comp.Ingredient.Id">
-                    <button class="editarButton decreseButton" id="decreaseButton" data-ingredient-id="@comp.Ingredient.Id"
-                        onclick="salvarIngredientes(@comp.Ingredient.Id)" data-pedido-id="@Model.Id">
+                    <button class="editarButton decreseButton" data-ingredient-id="@comp.Ingredient.Id"
+                        data-pedido-id="@Model.Id">
                         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 70 70"
                             object-fit="contain">
                             <path
@@ -53,7 +53,7 @@
                         @comp.quantity
                     </span>
 
-                    <button class="editarButton increaseButton" id="increaseButton" data-ingredient-id="@comp.Ingredient.Id"
+                    <button class="editarButton increaseButton" data-ingredient-id="@comp.Ingredient.Id"
                         data-pedido-id="@Model.Id">
                         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 70 70"
                             object-fit="contain">
@@ -77,7 +77,7 @@
     <div class="footer">
         <div>
             <div class="editarButtonFooter" style="display: flex; align-items: center;">
-                <button class="editarButtonFooter" id="decreaseButton" onclick="adjustQty(-1)">
+                <button class="editarButtonFooter" onclick="adjustQty(-1)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 70 70"
                         object-fit="contain">
                         <path
@@ -86,7 +86,7 @@
                     </svg>
                 </button>
                 <span class="labelNmrFooter" id="counter" name="counter">1</span>
-                <button class="editarButtonFooter" id="increaseButton" onclick="adjustQty(+1)">
+                <button class="editarButtonFooter" onclick="adjustQty(+1)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 70 70"
                         object-fit="contain">
                         <path
@@ -109,31 +109,41 @@
 
         <script src="/js/Editar.js"></script>
         <script>
+            window.addEventListener("DOMContentLoaded", load);
+
             function load() {
                 const savedCart = localStorage.getItem("cart");
                 const selectedPedidoId = localStorage.getItem("idpedidoSelecionado");
                 if (!savedCart || !selectedPedidoId) return;
 
                 const cart = JSON.parse(savedCart);
-                console.log(cart)
-                const pedido = cart.find(p => p.idpedido == selectedPedidoId); // comparação flexível
+                const pedido = cart.find(p => p.idpedido == selectedPedidoId);
 
-                let total = 0;
+                if (!pedido) return;
 
+                // Reset all quantities to 0
+                document.querySelectorAll(".labelNmr").forEach(span => {
+                    span.innerText = "0";
+                });
+
+                // Set only those found in backend
                 if (Array.isArray(pedido.ingredients)) {
                     pedido.ingredients.forEach(ing => {
-                        const span = document.querySelector(`.labelNmr[data-ingredient-id="${ing.id}"]`);
+                        const span = document.querySelector(`.labelNmr[data-ingredient-id="${ing.id.toString()}"]`);
                         if (span) {
                             span.innerText = ing.quantity;
-                        } else {
-                            console.warn(`Elemento não encontrado para ingrediente ${ing.id} no pedido ${selectedPedidoId}`);
                         }
                     });
                 }
-                document.getElementById("counter").innerText = pedido.quantity;
+
+                const counter = document.getElementById("counter");
                 document.getElementById("nome").innerText = pedido.name;
-                document.getElementById("total-price").innerText = pedido.totalItemPrice;
+                const price = document.getElementById("total-price");
+
+                if (counter) counter.innerText = pedido.quantity;
+                if (price) price.innerText = pedido.totalItemPrice;
             }
+
 
             function adjustQty(amount) {
                 const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -187,39 +197,40 @@
             }
 
 
-            function adjustIngredientQty(pedidoId, ingredientId, amount) {
+            function adjustIngredientQty(ingredientId, amount) {
+                const pedidoId = localStorage.getItem("idpedidoSelecionado");
+                console.log("→ Ajustando ingrediente:");
+                console.log("Pedido ID:", pedidoId);
+                console.log("Ingrediente ID:", ingredientId);
                 const cart = JSON.parse(localStorage.getItem("cart")) || [];
                 const pedido = cart.find(p => p.idpedido === pedidoId);
                 if (!pedido) return;
 
+                console.log("Pedido encontrado:", pedido);
+
                 const ingredient = pedido.ingredients.find(i => i.id === ingredientId);
                 if (!ingredient) return;
+                console.log("Ingrediente encontrado:", ingredient);
 
                 ingredient.quantity = Math.max(0, ingredient.quantity + amount);
                 localStorage.setItem("cart", JSON.stringify(cart));
 
-                const span =
-                    document.querySelector(`.labelNmr[data-ingredient-id="${ingredientId}"][data-pedido-id="${pedidoId}"]`);
+                const span = document.querySelector(`.labelNmr[data-ingredient-id="${ingredientId}"]`);
                 if (span) span.innerText = ingredient.quantity;
             }
 
 
-            document.addEventListener("DOMContentLoaded", () => {
-                load();
-                document.querySelectorAll(".increaseButton").forEach(button => {
-                    button.addEventListener("click", () => {
-                        const pid = button.dataset.pedidoId;
-                        const iid = parseInt(button.dataset.ingredientId);
-                        adjustIngredientQty(pid, iid, 1);
-                    });
+            document.querySelectorAll(".increaseButton").forEach(button => {
+                button.addEventListener("click", () => {
+                    const iid = parseInt(button.dataset.ingredientId);
+                    adjustIngredientQty(iid, 1);
                 });
-                document.querySelectorAll(".decreaseButton").forEach(button => {
-                    button.addEventListener("click", () => {
-                        const pid = button.dataset.pedidoId;
-                        const iid = parseInt(button.dataset.ingredientId);
-                        adjustIngredientQty(pid, iid, -1);
-                    });
-                });
-
             });
+            document.querySelectorAll(".decreseButton").forEach(button => {
+                button.addEventListener("click", () => {
+                    const iid = parseInt(button.dataset.ingredientId);
+                    adjustIngredientQty(iid, -1);
+                });
+            });
+
         </script>
