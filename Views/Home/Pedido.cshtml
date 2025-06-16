@@ -1,6 +1,6 @@
 @{
     ViewBag.Title = "Pedido";
-    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+    Layout = "~/Views/Shared/_PedidoLayout.cshtml";
 }
 
 <head>
@@ -17,12 +17,30 @@
 </div>
 
 <div class="category-scrollbar">
-    @foreach (var subcategory in ViewBag.SubCategories)
+    @if (ViewBag.Category != null)
     {
-        string activeClass = subcategory.active ? "active" : "";
-        <a href="/Pedido/@ViewBag.CategorySlug/@subcategory.Slug" class="subcategory-btn @activeClass">
-            <span class="label">@subcategory.name</span>
-        </a>
+        <div class="filter-session">
+            <div class="filter-label-vertical">
+                <p>FILTROS</p>
+            </div>
+        </div>
+        <div class="category-scrollbar">
+        @foreach (var subcategory in ViewBag.SubCategories)
+        {
+            string activeClass = subcategory.active ? "active" : "";
+            
+                <div class="subcategory-item-card">
+                    <div class="">
+                        <img class="subcategory-image" src="/img/IcedCola.png"
+                            alt="">
+                    </div>
+                    <a class="subcategory-name-label" href="/Pedido/@ViewBag.CategorySlug/@subcategory.Slug"
+                        class="subcategory-item-card.active @activeClass">
+                        <span class="label">@subcategory.name</span>
+                    </a>
+                </div>
+        }
+        </div>
     }
 </div>
 
@@ -31,12 +49,17 @@
     {
         string activeClass = category.active ? "active" : "";
         <a href="/Pedido/@category.Slug" class="category-btn @activeClass">
-            <span class="icon">🍕</span>
-            <span class="label">@category.name</span> <!-- Nome da categoria -->
+
+            <span class="icon">
+                <img src="~/img/lanche.png"
+                    alt="Descrição da imagem" class="category-icon-img" width="100" height="100">
+            </span>
+            <span class="label">@category.name</span>
         </a>
     }
     <div class="end"></div>
 </div>
+
 
 <!-- Conteúdo Principal -->
 <div class="content" id="content">
@@ -44,15 +67,17 @@
         @foreach (var product in ViewBag.Products)
         {
             var priceStr = product.price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"));
-            var imageUrl = product.Foto ?? "/images/default-product.png";
+            var imageUrl = product.Foto ?? "/images/default-product.png"; //Usa a imagem padrão se não houver imagem
 
             <div class="menu-item"
-                onclick="showModal('@product.name', '@(product.description ?? "Descrição não disponível")', '@priceStr', '@imageUrl','@product.id')">
-                <img src="/img/@imageUrl" alt="@product.name" />
+                onclick="showModal('@product.name', '@(product.description ?? "Descrição não disponível")', '@priceStr', '@imageUrl', '@product.id')">
+                <div class="rectangle-background">
+                    <img class="image-background" src="/img/@imageUrl" alt="@product.name" />
+                </div>
                 <div class="options">
-                    <h3>@product.name</h3>
-                    <p>@(product.description ?? "Descrição não disponível")</p>
+                    <h3 class="product-name">@product.name</h3>
                     <strong class="price">@priceStr</strong>
+                    <p>@(product.description ?? "Descrição não disponível")</p>
                 </div>
             </div>
         }
@@ -64,34 +89,50 @@
 
 <div id="modal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img id="modal-img" src="" alt="Imagem do Produto"
-            style="width:100%; border-radius:10px; margin-bottom:15px;" />
-        <h2 id="titulo">Título</h2>
-        <p id="descricao">Descrição</p>
-        <p><strong id="preco">R$ 0,00</strong></p>
 
-        <div class="quantity-control">
-            <button onclick="changeQuantity(-1)">−</button>
-            <span id="quantity">1</span>
-            <button onclick="changeQuantity(1)">+</button>
+        <!-- Botão de fechar -->
+        <button type="button" class="modal-close-btn" onclick="closeModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Imagem do produto -->
+        <div class="modal-image-container">
+            <img id="modal-img" src="https://via.placeholder.com/150x100/CCCCCC/808080?text=Produto"
+                alt="Imagem do Produto" />
         </div>
 
-        <p><strong>Ingredientes:</strong> pão brioche, queijo cheddar derretido, hambúrguer de carne 100% bovina, bacon
-            crocante, molho da casa.</p>
+        <!-- Título do produto -->
+        <h2 id="titulo" class="modal-product-title">Título do Produto</h2>
 
-        <button id="add-button" onclick="carrinho(),closeModal(),checkout()">Adicionar</button>
+        <!-- Preço calculado -->
+        <p id="preco" class="modal-product-price">R$ 0,00</p>
+
+        <!-- Preço maior/menor no modal -->
+        <div class="quantity-control modal-quantity-selector">
+            <button type="button" class="quantity-btn minus-btn" onclick="changeQuantity(-1)">−</button>
+            <span id="quantity" class="quantity-display">1</span>
+            <button type="button" class="quantity-btn plus-btn" onclick="changeQuantity(1)">+</button>
+        </div>
+
+        <p><strong>Ingredientes:</strong></p>
+        <p id="descricao" class="modal-product-description"></p>
+
+        <button  class="modal-add-button" id="add-button" onclick="carrinho(),closeModal(),checkout()">Adicionar</button>
         <p style="display: none;" id="id"> asdasd</p>
     </div>
 </div>
 
-
-
 <div class="footer">
-    <div>Itens no carrinho: <span id="cart-count">0</span></div>
-    <div>Preço Total: R$ <span id="total-price">0.00</span></div>
+    <div class="footer-summary">
+        <div>Total de itens: <span id="cart-count">0</span></div>
+        <div>Total do pedido: <span class="currency-symbol">R$</span> <span id="total-price">0.00</span></div>
+    </div>
     <button class="button" onclick="checkout(); window.location='@Url.Action("Carrinho", "Cart")'">Visualizar
-        Pedido</button>
+        Pedido!</button>
 </div>
 
 <script>
