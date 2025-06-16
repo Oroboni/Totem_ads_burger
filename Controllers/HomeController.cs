@@ -152,7 +152,6 @@ public class HomeController : Controller
         return View();
     }
 
-<<<<<<< HEAD
     public IActionResult Editar()
     {
         return View();
@@ -167,8 +166,6 @@ public class HomeController : Controller
         return View(); 
     }
 
-=======
->>>>>>> 3f52a6af266508529ed166e972e1fc3b5504df34
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
