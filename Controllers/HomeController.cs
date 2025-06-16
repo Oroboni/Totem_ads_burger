@@ -152,6 +152,20 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Editar()
+    {
+        return View();
+    }
+    public IActionResult Escolherlocal()
+    {
+        return View();
+    }
+    public IActionResult CPFnaNota()
+    {
+        
+        return View(); 
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

@@ -14,7 +14,7 @@ namespace TotemPWA.Models
 
         [Column(TypeName = "decimal(10,2)")]
         public decimal AdditionalPrice { get; set; }
-
-        public ICollection<Composition>? Compositions { get; set; }
+    
+    public ICollection<Composition> Compositions { get; set; } = new List<Composition>();
     }
 }

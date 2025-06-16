@@ -1,6 +1,6 @@
 @{
     ViewBag.Title = "Carrinho";
-    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+    Layout = "~/Views/Shared/_CarrinhoLayout.cshtml";
 
 }
 
@@ -12,7 +12,6 @@
 
 </head>
 
-<div class="banner"></div>
 
 <div class="coupon-bar">
     <a onclick="history.back()" class="button btn-left">
@@ -55,7 +54,7 @@
         document.getElementById("total-price").innerText = totalPrice.toFixed(2);
 
         const contentDiv = document.querySelector(".content");
-        contentDiv.innerHTML = '<h2 id="title1">SEUS PEDIDOS</h2>';
+        contentDiv.innerHTML = '<h2 id="title1"></h2>';
 
         cart.forEach((item) => {
             const card = document.createElement("div");
@@ -135,12 +134,6 @@
 
             // Salvar o novo estado do carrinho
             localStorage.setItem("cart", JSON.stringify(cart));
-
-            // Se estiver em 1 e clicou pra diminuir, remove
-            if (item.quantity === 1 && amount < 0) {
-                removerItem(id);
-                return;
-            }
         }
 
         load(); // Recarrega o HTML dinamicamente
