@@ -14,7 +14,7 @@
 
 
 <div class="coupon-bar">
-    <a onclick="history.back()" class="button btn-left">
+    <a onclick="location.href='@Url.Action("Pedido", "Home")'" class="button btn-left">
         <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i> Voltar</a>
     <a href="/Home/Pedido" class="button btn-right"><i class="fa-solid fa-ticket" style="color: #ffffff;"></i> INSIRA
         AQUI SEU CUPOM!</a>
@@ -76,9 +76,9 @@
                     <div class="burguer-bar-footer">
                         <span class="labelNmr">R$${parseFloat(item.totalItemPrice).toFixed(2)}</span>
                         ${produtosComIngredientes.includes(parseInt(item.id)) ? `
-    <button class="burguer-bar-footer-button"
-        onclick="salvarEPersonalizar('${item.id}', '${item.idpedido}')">Personalizar Pedido</button>
-` : ''}
+                            <button class="burguer-bar-footer-button"
+                                onclick="salvarEPersonalizar('${item.id}', '${item.idpedido}')">Personalizar Pedido</button>
+                        ` : ''}
 
                         <div class="burguer-bar-buttonQtde">
                             <button class="editarButton" onclick="adjustQty('${item.idpedido}', -1)">
