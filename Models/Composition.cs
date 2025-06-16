@@ -14,14 +14,16 @@ namespace TotemPWA.Models
         [Column(TypeName = "decimal(10,2)")]
         public decimal PrecoAdicional { get; set; }
 
+        public int quantity { get; set; }
+
         public int MaxQuantity { get; set; }
 
         [ForeignKey("Product")]
         public int ProductId { get; set; }
-        public Product Product { get; set; }
+        public Product? Product { get; set; }
 
         [ForeignKey("Ingredient")]
         public int IngredientId { get; set; }
-        public Ingredient Ingredient { get; set; }
+        public Ingredient? Ingredient { get; set; }
     }
 }
