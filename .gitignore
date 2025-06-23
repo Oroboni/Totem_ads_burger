@@ -1,10 +1,3 @@
-
-# Remove a pasta 'obj' do rastreamento do Git
-git rm -r --cached obj
-
-# Remove a pasta 'bin' do rastreamento do Git
-git rm -r --cached bin
-
 # Ignore arquivos de build e cache
 bin/
 obj/
