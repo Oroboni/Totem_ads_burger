@@ -135,40 +135,53 @@
                 cart.push({ CPF });
                 localStorage.setItem("cart", JSON.stringify(cart));
             }
+            console.log(cart);
             @* window.location.href = "@Url.Action("CarrinhoMerge", "Home")"; *@
         }
 
         function TestaCPF() {
-            var Soma = 0;
-            var Resto;
-            const CPF = cpfValue;
-            if (CPF == "00000000000") {
-                alert("Insira um CPF valido") 
-                return false;
+            if (incluirCpfCheckbox.checked) {
+                var Soma = 0;
+                var Resto;
+                const CPF = cpfValue;
+                if ([
+                    '00000000000',
+                    '11111111111',
+                    '22222222222',
+                    '33333333333',
+                    '44444444444',
+                    '55555555555',
+                    '66666666666',
+                    '77777777777',
+                    '88888888888',
+                    '99999999999',
+                ].indexOf(CPF) !== -1) {
+                    alert("insira um cpf valido");
+                    return false
+                }
+                for (i = 1; i <= 9; i++) Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (11 - i);
+                Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11)) Resto = 0;
+                if (Resto != parseInt(CPF.substring(9, 10))) {
+                    alert("Insira um CPF valido");
+                    return false;
+                }
+
+                Soma = 0;
+                for (i = 1; i <= 10; i++) Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (12 - i);
+                Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11)) Resto = 0;
+                if (Resto != parseInt(CPF.substring(10, 11))) {
+                    alert("Insira um CPF valido");
+                    return false;
+                } else {
+                    carrinho();
+                    return true;
+                }
             }
-
-            for (i = 1; i <= 9; i++) Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (11 - i);
-            Resto = (Soma * 10) % 11;
-
-            if ((Resto == 10) || (Resto == 11)) Resto = 0;
-            if (Resto != parseInt(CPF.substring(9, 10))) {
-                alert("Insira um CPF valido") 
-                return false;
-            }
-
-            Soma = 0;
-            for (i = 1; i <= 10; i++) Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (12 - i);
-            Resto = (Soma * 10) % 11;
-
-            if ((Resto == 10) || (Resto == 11)) Resto = 0;
-            if (Resto != parseInt(CPF.substring(10, 11))) {
-                alert("Insira um CPF valido");
-                console.log("AAAAAAAAAAAA");
-                return false;
-            } else {
-                carrinho();
-                return true;
-            }
+            return false;
         }
 
         function formatCPF(value) {
