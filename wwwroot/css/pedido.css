@@ -46,9 +46,12 @@ body {
     text-transform: uppercase;
     margin-right: 20px;
     color: #114825;
-    font-size: 13px;
     flex-shrink: 0; /* Nao deixa que o label encolha */
     letter-spacing: 1px;
+}
+.filter{
+    font-size: 25px !important; 
+    font-weight: bold;
 }
 
 .category-scrollbar {
@@ -57,7 +60,7 @@ body {
     overflow-y: hidden; /* Esconde rolagem vertical */
     white-space: nowrap; /* Impede que os cards quebrem linha */
     flex-grow: 1; /* Permite que a scrollbar ocupe o espaço restante */
-    height: 100px; /* Ocupa a altura do .filter-section */
+    height: 8rem; /* Ocupa a altura do .filter-section */
     align-items: center;
     padding: 5px 0;
 }
@@ -88,13 +91,13 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #ffffff; /* Fundo do card */
-    border-radius: 8px; /* Bordas arredondadas */
+    border-radius: 24px; /* Bordas arredondadas */
     padding: 8px;
     margin-right: 12px; /* Espaço entre os cards */
-    height: 90px; /* Altura fixa do card */
+    height: 90%; /* Altura fixa do card */
     min-width: 80px; /* Largura mínima */
     width: auto; /* Largura se ajusta ao conteúdo */
-    max-width: 110px; /* Largura máxima */
+    max-width: 130px; /* Largura máxima */
     text-decoration: none;
     color: #555; /* Cor do texto padrão */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -137,10 +140,13 @@ body {
 }
 
 .subcategory-name-label {
+    text-decoration: none;
+    font-family: "Inter", 'Sans Serif';
+    font-weight: 500; /* Peso do texto */
     font-size: 1em;
     text-align: center;
     line-height: 1.2;
-    color: #555555; /* Cor padrão do texto */
+    color: #1E1E1E; /* Cor padrão do texto */
     
     white-space: normal;
     overflow: hidden;
@@ -161,9 +167,8 @@ body {
     background: #ffffff;
     padding: 15px;
     position: relative;
-    /* top: calc(160px + 90px); banner e seção de filtros */
     left: 0;
-    height: 100%; /* Altura restante (- footer) */
+    height: 100%;
     overflow-y: auto;
     box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.05);
 }
