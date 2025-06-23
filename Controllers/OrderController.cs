@@ -7,10 +7,18 @@ namespace TotemPWA.Controllers
     public class OrderController : Controller
     {
         private readonly ApplicationDbContext _context;
+        public OrderController(ApplicationDbContext context)
+        {
+            _context = context;
+        }   
         public IActionResult ApplyCupom(string code)
         {
-            
-            return View();
+           var desconto = _context.Cupons
+            .Where(c => c.Codigo == code)
+            .Select(c => c.Desconto)
+            .FirstOrDefault();
+
+            return Json(new { desconto });
         }
         public IActionResult SetDeliveryType(string type)
         {

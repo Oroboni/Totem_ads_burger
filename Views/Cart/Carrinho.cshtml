@@ -14,7 +14,7 @@
 
 
 <div class="coupon-bar">
-    <a onclick="cupomModal()" class="button btn-left">
+    <a onclick="location.href='@Url.Action("Pedido", "Home")'" class="button btn-left">
         <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i> Voltar</a>
     <button type="button" onclick="cupomModal()" class="button btn-right">
         <i class="fa-solid fa-ticket" style="color: #ffffff;"></i> INSIRA AQUI SEU CUPOM!
@@ -27,7 +27,7 @@
         <span class="close-cupom" onclick="fecharCupomModal()">&times;</span>
         <h2>Insira seu cupom</h2>
 
-        <input type="text" class="use-keyboard-input" style="width: 100%; margin-bottom: 10px;"></input>
+        <input id="cupomInput" type="text" maxlength="20" class="use-keyboard-input" style="width: 100%; margin-bottom: 10px;"></input>
 
         <button class="confirm-cupom-btn" onclick="confirmarCupom()">Aplicar Cupom</button>
     </div>
@@ -57,6 +57,7 @@
 <script src="~/js/Cupom.js"></script>
 <script src="~/js/editar.js"></script>
 <script>
+    let descontoCupom = 0;
     const produtosComIngredientes = @Html.Raw(Json.Serialize(ViewBag.IdsComIngredientes));
     function load() {
         const savedCart = localStorage.getItem("cart");
@@ -152,6 +153,41 @@
         }
 
         load(); // Recarrega o HTML dinamicamente
+    }
+
+    function cupomModal() {
+        if (descontoCupom > 0) {
+            alert('Cupom já aplicado! Desconto: R$ ' + (precoAtual * descontoCupom).toFixed(2));
+        } else {
+            document.getElementById('cupomModal').style.display = 'flex';
+            document.getElementById('cupomInput').value = '';
+        }
+    }
+    function fecharCupomModal() {
+        document.getElementById("cupomModal").style.display = "none";
+        Keyboard.close();
+    }
+    function confirmarCupom() {
+        const cupom = document.getElementById('cupomInput').value;
+        if (!cupom) {
+            alert('Digite um cupom!');
+            return;
+        }
+
+        fetch('/Order/ApplyCupom?code=' + encodeURIComponent(cupom))
+            .then(response => response.json())
+            .then(data => {
+                if (data.desconto && data.desconto !== 0) {
+                    descontoCupom = data.desconto;
+                    let precoAtual = document.getElementById("total-price").innerText;
+                    let novoPreco = parseFloat(precoAtual) - (parseFloat(precoAtual) * descontoCupom);
+                    alert('Cupom aplicado! Desconto: R$ ' + (precoAtual * descontoCupom).toFixed(2) + ' | Novo preço: R$ ' + novoPreco.toFixed(2));
+                    document.getElementById("total-price").innerText = novoPreco.toFixed(2);
+                    fecharCupomModal();
+                } else {
+                    alert('Cupom inválido!');
+                }
+            });
     }
 
 

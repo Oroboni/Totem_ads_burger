@@ -176,31 +176,4 @@ window.addEventListener("DOMContentLoaded", function () {
     Keyboard.init();
 });
 
-function cupomModal() {
-    document.getElementById('cupomModal').style.display = 'flex';
-    document.getElementById('cupomInput').value = '';
-}
-function fecharCupomModal() {
-    document.getElementById("cupomModal").style.display = "none";
-    Keyboard.close();
-}
-function addCupomChar(char) {
-    const input = document.getElementById('cupomInput');
-    if (input.value.length < input.maxLength) {
-        input.value += char;
-    }
-}
-function removeCupomChar() {
-    const input = document.getElementById('cupomInput');
-    input.value = input.value.slice(0, -1);
-}
-function confirmarCupom() {
-    const cupom = document.getElementById('cupomInput').value;
-    if (!cupom) {
-        alert('Digite um cupom!');
-        return;
-    }
-    // Aqui você pode validar/aplicar o cupom conforme sua lógica
-    alert('Cupom "' + cupom + '" aplicado!');
-    fecharCupomModal();
-}
+

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9mge9Ci8r6+XMJAIOCyRpmGlAwKuRoAlMAeyWdQid4U=",
+  "Hash": "60DZ1VJCm9b9PfmdHay5SsDxdfZup71Lgdo2/WC+wQU=",
   "Source": "TotemPWA",
   "BasePath": "_content/TotemPWA",
   "Mode": "Default",
@@ -1319,12 +1319,12 @@
       "OriginalItemSpec": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\wcr0pha0z0-q1ed6q86ge.gz",
+      "Identity": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\wcr0pha0z0-pw4uj0so9t.gz",
       "SourceId": "TotemPWA",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TotemPWA",
-      "RelativePath": "js/Cupom#[.{fingerprint=q1ed6q86ge}]?.js.gz",
+      "RelativePath": "js/Cupom#[.{fingerprint=pw4uj0so9t}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1333,8 +1333,8 @@
       "RelatedAsset": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\wwwroot\\js\\Cupom.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "wypep1s9of",
-      "Integrity": "+NcPlEpjV+snQHrezSRS6F9pKUmZb5w1eRyP+btrrQo=",
+      "Fingerprint": "k6jh58z9n7",
+      "Integrity": "pM9LLw3CTHL2qm44TCa6zH2owKe9zAcIlHk0WelV1oQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\wwwroot\\js\\Cupom.js"
@@ -2488,8 +2488,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q1ed6q86ge",
-      "Integrity": "ogki0MLBCequxGtFkSMh3Kw8Jllt2a+/EpJvOmoF15Y=",
+      "Fingerprint": "pw4uj0so9t",
+      "Integrity": "WScVAMl6kdZ2NLaL20uZk9LSl12P1hslTsLWQ+hJwhY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Cupom.js"
@@ -9918,12 +9918,12 @@
     },
     {
       "Route": "js/Cupom.js",
-      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\wcr0pha0z0-q1ed6q86ge.gz",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\wcr0pha0z0-pw4uj0so9t.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000609384522"
+          "Quality": "0.000730460190"
         }
       ],
       "ResponseHeaders": [
@@ -9933,15 +9933,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1640"
+          "Value": "1368"
         },
         {
           "Name": "ETag",
-          "Value": "\"+NcPlEpjV+snQHrezSRS6F9pKUmZb5w1eRyP+btrrQo=\""
+          "Value": "\"pM9LLw3CTHL2qm44TCa6zH2owKe9zAcIlHk0WelV1oQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 20:28:25 GMT"
+          "Value": "Sun, 22 Jun 2025 22:51:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9961,13 +9961,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ogki0MLBCequxGtFkSMh3Kw8Jllt2a+/EpJvOmoF15Y=\""
+          "Value": "W/\"WScVAMl6kdZ2NLaL20uZk9LSl12P1hslTsLWQ+hJwhY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ogki0MLBCequxGtFkSMh3Kw8Jllt2a+/EpJvOmoF15Y="
+          "Value": "sha256-WScVAMl6kdZ2NLaL20uZk9LSl12P1hslTsLWQ+hJwhY="
         }
       ]
     },
@@ -9982,7 +9982,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7157"
+          "Value": "6264"
         },
         {
           "Name": "Content-Type",
@@ -9990,11 +9990,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ogki0MLBCequxGtFkSMh3Kw8Jllt2a+/EpJvOmoF15Y=\""
+          "Value": "\"WScVAMl6kdZ2NLaL20uZk9LSl12P1hslTsLWQ+hJwhY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 20:28:25 GMT"
+          "Value": "Sun, 22 Jun 2025 22:51:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10004,13 +10004,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ogki0MLBCequxGtFkSMh3Kw8Jllt2a+/EpJvOmoF15Y="
+          "Value": "sha256-WScVAMl6kdZ2NLaL20uZk9LSl12P1hslTsLWQ+hJwhY="
         }
       ]
     },
     {
       "Route": "js/Cupom.js.gz",
-      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\wcr0pha0z0-q1ed6q86ge.gz",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\wcr0pha0z0-pw4uj0so9t.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -10019,7 +10019,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1640"
+          "Value": "1368"
         },
         {
           "Name": "Content-Type",
@@ -10027,11 +10027,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+NcPlEpjV+snQHrezSRS6F9pKUmZb5w1eRyP+btrrQo=\""
+          "Value": "\"pM9LLw3CTHL2qm44TCa6zH2owKe9zAcIlHk0WelV1oQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 20:28:25 GMT"
+          "Value": "Sun, 22 Jun 2025 22:51:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10049,18 +10049,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-+NcPlEpjV+snQHrezSRS6F9pKUmZb5w1eRyP+btrrQo="
+          "Value": "sha256-pM9LLw3CTHL2qm44TCa6zH2owKe9zAcIlHk0WelV1oQ="
         }
       ]
     },
     {
-      "Route": "js/Cupom.q1ed6q86ge.js",
-      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\wcr0pha0z0-q1ed6q86ge.gz",
+      "Route": "js/Cupom.pw4uj0so9t.js",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\wcr0pha0z0-pw4uj0so9t.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000609384522"
+          "Quality": "0.000730460190"
         }
       ],
       "ResponseHeaders": [
@@ -10070,15 +10070,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1640"
+          "Value": "1368"
         },
         {
           "Name": "ETag",
-          "Value": "\"+NcPlEpjV+snQHrezSRS6F9pKUmZb5w1eRyP+btrrQo=\""
+          "Value": "\"pM9LLw3CTHL2qm44TCa6zH2owKe9zAcIlHk0WelV1oQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 20:28:25 GMT"
+          "Value": "Sun, 22 Jun 2025 22:51:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10098,13 +10098,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ogki0MLBCequxGtFkSMh3Kw8Jllt2a+/EpJvOmoF15Y=\""
+          "Value": "W/\"WScVAMl6kdZ2NLaL20uZk9LSl12P1hslTsLWQ+hJwhY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q1ed6q86ge"
+          "Value": "pw4uj0so9t"
         },
         {
           "Name": "label",
@@ -10112,12 +10112,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ogki0MLBCequxGtFkSMh3Kw8Jllt2a+/EpJvOmoF15Y="
+          "Value": "sha256-WScVAMl6kdZ2NLaL20uZk9LSl12P1hslTsLWQ+hJwhY="
         }
       ]
     },
     {
-      "Route": "js/Cupom.q1ed6q86ge.js",
+      "Route": "js/Cupom.pw4uj0so9t.js",
       "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\wwwroot\\js\\Cupom.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -10127,7 +10127,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7157"
+          "Value": "6264"
         },
         {
           "Name": "Content-Type",
@@ -10135,11 +10135,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ogki0MLBCequxGtFkSMh3Kw8Jllt2a+/EpJvOmoF15Y=\""
+          "Value": "\"WScVAMl6kdZ2NLaL20uZk9LSl12P1hslTsLWQ+hJwhY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 20:28:25 GMT"
+          "Value": "Sun, 22 Jun 2025 22:51:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10149,7 +10149,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q1ed6q86ge"
+          "Value": "pw4uj0so9t"
         },
         {
           "Name": "label",
@@ -10157,13 +10157,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ogki0MLBCequxGtFkSMh3Kw8Jllt2a+/EpJvOmoF15Y="
+          "Value": "sha256-WScVAMl6kdZ2NLaL20uZk9LSl12P1hslTsLWQ+hJwhY="
         }
       ]
     },
     {
-      "Route": "js/Cupom.q1ed6q86ge.js.gz",
-      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\wcr0pha0z0-q1ed6q86ge.gz",
+      "Route": "js/Cupom.pw4uj0so9t.js.gz",
+      "AssetFile": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem\\Totem_ads_burger\\obj\\Debug\\net9.0\\compressed\\wcr0pha0z0-pw4uj0so9t.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -10172,7 +10172,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1640"
+          "Value": "1368"
         },
         {
           "Name": "Content-Type",
@@ -10180,11 +10180,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+NcPlEpjV+snQHrezSRS6F9pKUmZb5w1eRyP+btrrQo=\""
+          "Value": "\"pM9LLw3CTHL2qm44TCa6zH2owKe9zAcIlHk0WelV1oQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Jun 2025 20:28:25 GMT"
+          "Value": "Sun, 22 Jun 2025 22:51:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10202,7 +10202,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q1ed6q86ge"
+          "Value": "pw4uj0so9t"
         },
         {
           "Name": "label",
@@ -10210,7 +10210,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-+NcPlEpjV+snQHrezSRS6F9pKUmZb5w1eRyP+btrrQo="
+          "Value": "sha256-pM9LLw3CTHL2qm44TCa6zH2owKe9zAcIlHk0WelV1oQ="
         }
       ]
     },
