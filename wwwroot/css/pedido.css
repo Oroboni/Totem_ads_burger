@@ -1,151 +1,269 @@
-html, body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'); /* Usando Inter */
+
+* {
+    font-family: 'Inter', 'Sans Serif';
+    box-sizing: border-box;
+}
+
+html,
+body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f1f1f1;
-}
-
-.card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.button {
-    background: #ff6600;
-    color: white;
-    font-size: 18px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.button:hover {
-    background: #cc4400;
+    background-color: #E7E7E7 !important;
 }
 
 .banner {
     width: 100%;
     height: 160px;
-    background: linear-gradient(to right, #ff6600, #ff3300);
-    background: url("/img/burguerI.jpg") center/cover;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
+    background: url('/img/burguerI.jpg') center/cover no-repeat;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 0; /* Abaixo de modais, mas acima de muito conteúdo */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- SEÇÃO DE FILTRO --- */
+.filter-section {
+    display: flex;
+    align-items: center; /* Alinha "FILTROS" e a scrollbar verticalmente */
+    background: #ffffff; /* Fundo branco para a seção de filtros */
+    padding: 0 15px; /* Espaçamento horizontal */
+    position: fixed;
+    top: 160px; /* Logo abaixo do banner */
+    left: 0;
+    right: 0;
+    z-index: 997;
+    height: 4rem; /* Altura total da seção de filtros, ajuste conforme necessário */
+    border-bottom: 1px solid #e0e0e0; /* Linha divisória sutil */
+}
+
+.filter-label-vertical {
+    writing-mode: vertical-rl;
+    transform: rotate(
+        180deg
+    ); /* Para o texto ler de baixo para cima, esquerda para direita */
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-right: 20px;
+    color: #114825;
+    font-size: 13px;
+    flex-shrink: 0; /* Nao deixa que o label encolha */
+    letter-spacing: 1px;
 }
 
 .category-scrollbar {
     display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-    background: #fff;
-    padding: 12px 10px;
-    border-bottom: 1px solid #ddd;
-    position: fixed;
-    top: 160px;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    scroll-snap-type: x mandatory;
+    overflow-x: auto; /* Permite rolagem horizontal */
+    overflow-y: hidden; /* Esconde rolagem vertical */
+    white-space: nowrap; /* Impede que os cards quebrem linha */
+    flex-grow: 1; /* Permite que a scrollbar ocupe o espaço restante */
+    height: 100%; /* Ocupa a altura do .filter-section */
+    align-items: center;
+    padding: 5px 0;
 }
 
-.category-tab {
-    flex: 0 0 auto;
-    margin-right: 10px;
-    padding: 10px 18px;
-    background: #ff6600;
-    color: white;
-    border-radius: 20px;
+/* Estilizando a barra de rolagem (opcional, mas melhora a aparência) */
+.category-scrollbar::-webkit-scrollbar {
+    height: 6px; /* Altura da barra de rolagem */
+}
+
+.category-scrollbar::-webkit-scrollbar-track {
+    background: #f8f8f8; /* Cor da trilha */
+    border-radius: 10px;
+    margin: 0 5px;
+}
+
+.category-scrollbar::-webkit-scrollbar-thumb {
+    background: #cccccc; /* Cor do "polegar" da scrollbar */
+    border-radius: 10px;
+}
+
+.category-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #aaaaaa;
+}
+
+.subcategory-item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff; /* Fundo do card */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 8px;
+    margin-right: 12px; /* Espaço entre os cards */
+    height: 70px; /* Altura fixa do card */
+    min-width: 80px; /* Largura mínima */
+    width: auto; /* Largura se ajusta ao conteúdo */
+    max-width: 110px; /* Largura máxima */
+    text-decoration: none;
+    color: #555; /* Cor do texto padrão */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+        background-color 0.2s ease;
+    flex-shrink: 0; /* Impede que cards encolham */
+    border: 1px solid #e0e0e0; /* Borda sutil padrão */
     cursor: pointer;
-    font-size: 16px;
-    scroll-snap-align: start;
-    transition: background 0.3s ease;
 }
 
-.category-tab:hover {
-    background: #cc4400;
+.subcategory-item-card:last-child {
+    margin-right: 5px; /* Menor margem para o último item não ficar muito longe da borda da scrollbar */
 }
 
-.sidebar {
-    width: 250px;
-    background: white;
-    padding: 20px;
-    position: fixed;
-    top: 212px;
-    left: 0;
-    height: calc(100vh - 212px - 60px); /* Ajuste a altura */
-    overflow-y: auto;
-    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+.subcategory-item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12);
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+.subcategory-item-card.active {
+    background-color: #fff7ed; /* Laranja bem claro para o fundo do ativo */
+    border-color: #ffa726; /* Laranja para a borda do ativo */
+    color: #d97706; /* Laranja mais escuro para o texto do ativo */
+}
+.subcategory-item-card.active .subcategory-name-label {
+    color: #d97706; /* Garante que o texto do label também mude */
+    font-weight: 600;
 }
 
-.sidebar ul li {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    background: #fff;
+.subcategory-image {
+    width: 36px;
+    height: 36px;
+    object-fit: contain; /* 'contain' para não cortar a imagem, 'cover' se preferir preenchimento */
+    border-radius: 50%; /* Imagens redondas */
+    margin-bottom: 5px;
+    background-color: #f0f0f0; /* Fundo para placeholders ou imagens com transparência */
+}
+
+.subcategory-name-label {
+    font-size: 1em;
     text-align: center;
-    border-radius: 15px;
-    transition: transform 0.3s ease-in-out, background 0.3s;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.2;
+    color: #555555; /* Cor padrão do texto */
+    
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    
+    -webkit-box-orient: vertical;
+    max-height: calc(1em * 1.2 * 2); /* font-size * line-height * line-clamp */
+}
+
+.no-filters-message {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    padding-left: 5px;
+    color: #888;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* --- SIDEBAR E CONTENT --- */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px; /* Largura da sidebar */
+    background: #ffffff;
+    padding: 15px;
+    position: relative;
+    /* top: calc(160px + 90px); banner e seção de filtros */
+    left: 0;
+    height: 100%; /* Altura restante (- footer) */
+    overflow-y: auto;
+    box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.05);
+}
+
+/*--- SCROLL DA SIDEBAR --- */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar::-webkit-scrollbar-track {
+    background: #f8f8f8;
+    border-radius: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background: #d1d1d1;
+    border-radius: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #bbbbbb;
+}
+
+.category-btn {
+    display: flex;
+    flex-direction: column; /* Ícone em cima, texto embaixo */
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 12px 5px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out, background-color 0.2s;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
     cursor: pointer;
+    text-decoration: none;
+    border: 1px solid #eee;
+}
+.category-btn:hover {
+    background-color: #ffe0b2; /* Laranja claro no hover */
+    transform: scale(1.03);
+    /* border-color: #ffb74d; */
+}
+.category-btn.active {
+    background-color: #ff9800; /* Laranja mais forte para ativo */
+    color: #463B3B;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(255, 152, 0, 0.4);
+    border-color: #f57c00;
+}
+.category-btn.active .label {
+    color: #463B3B;
+    font-weight: 600;
 }
 
-.sidebar ul li:hover {
-    background: #ff9900;
-    color: white;
-    transform: scale(1.05);
+.category-icon-img {
+    /* Estilo para as imagens de ícone na sidebar */
+    width: 80%; 
+    height: 100%;
+    object-fit: contain; 
+    margin-bottom: 8px; /* Espaço entre imagem e texto */
+    border-radius: 4px;
+    margin: 0px;
 }
 
-.sidebar img {
-    width: 150px;
-    height: 100px;
-    object-fit: contain;
+.category-btn .label {
+    font-size: 1.2em;
+    color: #1E1E1E;
+    font-weight: 500;
+   word-break: break-all;
 }
 
 .content {
-    background-color: #f1f1f1;
-    margin-left: 250px;
-    margin-top: 212px;
+    margin-top: -72%;
+    background-color: #E7E7E7;
+    margin-left: 240px;
     padding: 20px;
-    width: calc(100% - 250px);
-    flex: 1;
+    width: calc(100% - 240px);
 }
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    width: 100%;
-    max-width: 1000px;
-    background-color: #f1f1f1
+    grid-template-columns: repeat(auto-fill, minmax(172px, 2fr));
+    gap: 30px;
 }
 
 .menu-item {
+    background-color: #FAFAF5;
     left: 1vw;
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
+    background: FAFAF5;
+    border-radius: 24px;
+    padding: 0px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     cursor: pointer;
@@ -153,239 +271,447 @@ html, body {
 }
 
 .menu-item:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.12);
+    border-radius: 24px;
+}
+.rectangle-background{
+background-color: #f1f1f1;
+    /* margin-inline: 1em; */
+    padding: 0.5em;
+    border-radius: 24px 24px 0px 0px;
+}
+.menu-item .image-background {
+    /* Classe da imagem do produto */
+    width: 80%;
+    height: 90%; /* Altura fixa para a imagem do produto */
+    object-fit: cover; /* Garante que a imagem preencha a área */
+    margin: 0; /* Remover margens */
+    border-radius: 24px;
 }
 
-.menu-item img {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-    border-radius: 10px;
+.menu-item .options {
+    /* Div que contém nome, preço, descrição */
+    text-align: left;
+    padding: 15px;
+    flex-grow: 1; /* Faz esta parte ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
 }
 
-.menu-item h3 {
-    margin: 15px 0 10px;
-    font-size: 22px;
+.menu-item h3.product-name {
+    /* Nome do produto */
+    margin: 0 0 8px 0;
+    font-size: 18px; /* Tamanho do nome do produto */
     color: #333;
+    font-weight: 600;
+    
+}
+
+.menu-item .price {
+    /* Preço do produto */
+    font-size: 17px;
+    font-weight: 700;
+    color: #426b1f;
+    margin-bottom: 10px;
 }
 
 .menu-item p {
-    font-size: 16px;
+    /* Descrição do produto */
+    font-size: 13px;
     color: #666;
+    line-height: 1.5;
+    flex-grow: 1;
+    margin: 1em 0 0 0;
 }
-
-.price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ff3300;
-}
-
 .footer {
     width: 100%;
     background: white;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    padding: 12px 25px;
+    text-align: left; /* Embora o flexbox controle o alinhamento principal, é bom manter */
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 2;
-    font-size: 18px;
+    z-index: 998;
+    font-size: 1rem; /* Tamanho base da fonte no footer */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Coloca .footer-summary à esquerda e .button à direita */
     align-items: center;
+    min-height: 70px;
+    color: #1E1E1E; /* Cor padrão do texto*/
 }
 
-.footer button {
-    background: #ff6600;
+.footer-summary > div {
+    /* Estilo para cada linha de texto: "Total de itens..." e "Total do pedido..." */
+    font-weight: 500; /* Rótulos com peso 500 */
+    line-height: 1.4; /* Espaçamento entre linhas se houver quebra, ou para melhor leitura */
+}
+
+.footer-summary > div:first-child {
+    margin-bottom: 0.5em; /* Pequeno espaço entre "Total de itens" e "Total do pedido" */
+}
+
+/* Estilos para os SPANs que contêm os valores numéricos e símbolos */
+.footer-summary span {
+    font-weight: 700; /* Todos os valores/símbolos em negrito */
+}
+
+.footer-summary span#cart-count {
+    color: #1E1E1E; /* Cor preta para a contagem de itens */
+}
+
+.footer-summary .currency-symbol,
+.footer-summary span#total-price {
+    color: #426B1F;
+}
+
+.footer .button {
+    background: #426B1F;
     color: white;
-    font-size: 18px;
-    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 28px;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background 0.3s;
-    margin-right: 20px;
+    transition: background-color 0.2s ease;
+    white-space: nowrap; /* Impede que o texto do botão quebre linha */
+}
+
+.footer .button:hover {
+    background: #365519; /* Um verde um pouco mais escuro para o hover */
+}
+
+/* --- Modal Styles --- */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilita o scroll se ele for mto longo */
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.24
+    ); /* Escuridão do fundo fora do modal */
+}
+
+.modal-content {
+    background-color: #E7E7E7;
+    margin: auto;
+    padding: 25px 30px;
+    border-radius: 50px !important;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
     position: relative;
-    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    animation: fadeInModal 0.3s ease-out;
 }
 
-.footer button:hover {
-    background: #cc4400;
-}
-
-@media (max-width: 650px){
-    .footer {
-        padding: 2rem;
-        font-size: 1rem;
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
     }
-    
-    .footer button {
-        font-size: 1.7rem;
-        padding: 10px 20px;
-    }
-    
-    
-}
-
-@media (max-width: 750px) {
-    .menu-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .footer {
-        font-size: 0.7rem;
-    }
-
-    .footer button {
-        margin: 0px 1.6em;
-        font-size: 1.7rem;
-        padding: 10px 10px;
-    }
-    
-}
-
-@media (min-width: 750px) and (max-width: 1024px) {
-    .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .footer {
-        font-size: 1.6rem;
-        padding: 1rem;
-    }
-    .footer button {
-        font-size: 1rem;
-        padding: 10px 10px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-    .menu-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .footer {
-        font-size: 1.5rem;
-        padding: 0.5rem;
-    }
-    .footer button {
-        font-size: 1.5rem;
-        padding: 10px 10px;
-    }
+.modal-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background-color: #c62828; /* botao vermelho de fechar */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s ease;
 }
 
+.modal-close-btn:hover {
+    background-color: #a91818; /* Vermelho soq mais escuro */
+}
 
-@media (min-width: 1281px) {
-    .menu-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+.modal-close-btn svg {
+    width: 20px; /*tamanho do X no modal */
+    height: 20px;
+    stroke: white;
+    stroke-width: 3; /* espessura do X*/
+}
 
-    .footer {
-        font-size: 2rem;
-        /* padding: 2rem; */
-    }
-    
-    .footer button {
-        font-size: 2.7rem;
-        padding: 10px 10px;
-    }  
-    }
-    
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
+.modal-image-container {
+    background-color: #f0f0f0; /* Light grey background for image */
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px auto 20px auto;
+    display: flex;
+    width: auto; /* O container vai se ajustar ao conteúdo até o max-width */
+    max-width: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-img {
+    /* Imagem do modal uou */
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+.modal-product-title {
+    /* This is #titulo */
+    font-size: 22px;
+    font-weight: 700; /* Bold */
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.modal-product-price {
+    /* #preco */
+    font-size: 20px;
+    font-weight: 600;
+    color: #558b2f;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.modal-quantity-selector {
+    /* .quantity-control */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; /* espaço entre os botões (+/-) e o n° do preço */
+    margin-bottom: 30px;
+}
+
+.modal-quantity-selector .quantity-btn {
+    background: none;
+    border: none;
+    color: #bf360c; /* Vermelho pro botão */
+    font-size: 38px;
+    font-weight: 300;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+.modal-quantity-selector .quantity-btn:hover {
+    color: #902406;
+}
+
+.modal-quantity-selector .quantity-display {
+    /* This is #quantity */
+    font-size: 28px;
+    font-weight: 700;
+    color: #212121;
+    min-width: 30px;
+    text-align: center;
+}
+
+.modal-ingredients-section {
+    text-align: left; /* Align ingredients to the left */
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.modal-ingredients-title {
+    font-size: 17px;
+    font-weight: 700; /* Bold */
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.modal-ingredients-list {
+    /* #descricao */
+    font-size: 14px;
+    color: #555; /* texto dos ingredientes */
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+.modal-add-button {
+    /* #add-button */
+    background-color: #558b2f; /*botão verde*/
+    color: white;
+    border: none;
+    padding: 14px 5px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    min-width: 180px;
+    display: inline-block;
+}
+
+.modal-add-button:hover {
+    background-color: #447026; /* verde soq mais escuro*/
+}
+
+#add-button {
+    background-color: #426b1f;
+    color: white;
+    border: none;
+    padding: 10px 0;
+    width: 60%;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    align-self: center;
+    margin-top: 10px; /* Espaço acima do botão */
+}
+
+#add-button:hover {
+    background-color: #264e05; /* Verde mais escuro */
+}
+
+.end {
+    /* Classe para adicionar espaçamento no final de listas roláveis */
+    margin-bottom: 20px;
+}
+
+/* Media Queries (adaptações do código original) */
+@media (max-width: 768px) {
+    /* Ajuste para tablets e celulares maiores */
+    .sidebar {
+        align-items:normal;
+        flex-direction: row;
         width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-content {
-        background-color: white;
-        margin: 10% auto;
-        padding: 20px;
-        border-radius: 10px;
-        width: 35%;
-        text-align: center;
-        position: relative;
-    }
-
-    .modal-content img {
-        max-height: 150px;
-        max-width: 100%;
         height: auto;
-        width: 100%;
-        object-fit: cover;
+        position: relative;
+        top: auto;
+        left: auto;
+        box-shadow: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 10px;
+        margin-bottom: 10px; /* Espaço antes do conteúdo */
     }
-
-    .modal-content h2 {
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .modal-content p {
-        color: #333;
-        font-size: 16px;
-        margin-bottom: 15px;
-    }
-
-    .close {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 28px;
-        font-weight: bold;
-        color: #a00;
-        cursor: pointer;
-    }
-
-    .quantity-control {
-        display: flex;
-        justify-content: center;
+    .sidebar .category-btn {
+        display: inline-block; /* Categorias em linha */
+        width: auto;
+        padding: 8px 15px;
+        margin-right: 8px;
+        flex-direction: row; /* Ícone e texto lado a lado */
         align-items: center;
-        gap: 20px;
-        margin: 20px 0;
-        font-size: 22px;
-        font-weight: bold;
+    }
+    .sidebar .category-icon-img {
+        width: 50px;
+        height: 50px;
+        margin-right: 8px;
+        margin-bottom: 0;
+    }
+    .category-btn .label {
+        white-space: nowrap;
+    }
+    
+    .sidebar .label {
+        font-size: 13px;
     }
 
-    .quantity-control button {
-        font-size: 24px;
-        padding: 5px 12px;
-        border: none;
-        background-color: #a00;
-        color: white;
-        border-radius: 50%;
-        cursor: pointer;
+    .content {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        padding: 15px;
+    }
+    .filter-section {
+        /* taçvez tenha que virar lista dropdown */
+        padding: 0 10px;
+    }
+    .filter-label-vertical {
+        display: none;
+    } /* Esconder "FILTROS" em telas pequenas para mais espaço */
+
+    .menu-grid {
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(160px, 3fr)
+        ); /* Cards menores em mobile */
     }
 
-    #add-button {
-        background-color: #bada55;
-        color: white;
-        border: none;
-        padding: 12px 30px;
-        font-size: 18px;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: background 0.3s;
+    .footer {
+        padding: 10px 15px;
+        font-size: 13px;
+        height: auto; /* Altura automática para acomodar conteúdo */
+        flex-direction: column; /* Empilhar itens do footer */
+        align-items: stretch; /* Esticar itens */
+        text-align: center;
+    }
+    .footer > div {
+        margin-bottom: 8px;
+    }
+    .footer .button {
+        font-size: 15px;
+        padding: 12px 20px;
+        width: 100%; /* Botão ocupa largura total */
+    }
+    .modal-content {
+        margin: 5% auto;
+        padding: 20px;
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Celulares menores */
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Uma coluna para cards de produto */
+    }
+    .menu-item .image-background {
+        height: 160px;
+    }
+    .filter-section {
+        height: 75px;
+    } /* Reduzir altura da barra de filtros */
+    .category-scrollbar {
+        padding: 3px 0;
+    }
+    .subcategory-item-card {
+        height: 60px;
+        min-width: 70px;
+        padding: 6px;
+        margin-right: 8px;
+    }
+    .subcategory-image {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 4px;
+    }
+    .subcategory-name-label {
+        font-size: 10px;
     }
 
-    #add-button:hover {
-        background-color: #a8c93f;
+    .content {
+        margin-top: calc(
+            160px + 75px
+        ); /* Ajustar de acordo com a nova altura do filter-section */
     }
-
-    .close {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 20px;
-        cursor: pointer;
+    .sidebar {
+        top: calc(160px + 75px); /* Ajustar se a sidebar voltar a ser fixa */
     }
-
-    .end {
-        margin-bottom: 10vh;
+    .category-btn .label {
+        white-space: nowrap;
     }
+}
