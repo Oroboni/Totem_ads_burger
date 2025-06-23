@@ -131,8 +131,7 @@
         <div>Total de itens: <span id="cart-count">0</span></div>
         <div>Total do pedido: <span class="currency-symbol">R$</span> <span id="total-price">0.00</span></div>
     </div>
-    <button class="button" onclick="checkout(); window.location='@Url.Action("Carrinho", "Cart")'">Visualizar
-        Pedido!</button>
+    <button class="button" onclick="checkout(); check();;">Visualizar Pedido!</button>
 </div>
 
 <script>
@@ -199,6 +198,14 @@
 
     function checkout() {
         localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function check(){
+        if(cart.length == 0){
+            alert("selecione um item primeiro")
+        }else{
+            location.href = `/Cart/Carrinho`;
+        }
     }
 
     function load() {

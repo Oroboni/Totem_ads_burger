@@ -100,139 +100,141 @@
         <div>Preço Total: R$ <span id="total-price">0.00</span></div>
         <div style="align-items: center; padding-bottom: 5px;">
             <div class="ftr2"><button class="ftr2" onclick="voltar();">Cancelar</button></div>
-                <button class=" button"
-                    onclick="salvarIngredientes('@Model.Id');location.href='@Url.Action("Carrinho", "Cart")'">Confirmar</button>
-            </div>
+            <button class=" button"
+                onclick="salvarIngredientes('@Model.Id');location.href='@Url.Action("Carrinho", "Cart")'">Confirmar</button>
         </div>
+    </div>
 
-        <script src="/js/Editar.js"></script>
-        <script>
-            window.addEventListener("DOMContentLoaded", load);
-            window.addEventListener("DOMContentLoaded", amount);
+    <script src="/js/Editar.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", load);
+        window.addEventListener("DOMContentLoaded", amount);
 
-            function amount(){
-                const savedCart = localStorage.getItem("cart");
-                const selectedPedidoId = localStorage.getItem("idpedidoSelecionado");
+        function amount() {
+            const savedCart = localStorage.getItem("cart");
+            const selectedPedidoId = localStorage.getItem("idpedidoSelecionado");
 
-                const cart = JSON.parse(savedCart);
-                const pedido = cart.find(p => p.idpedido == selectedPedidoId);
-                if (Array.isArray(pedido.ingredients)) {
-                    pedido.ingredients.forEach(ing => {
-                        const span = document.querySelector(`.labelNmr[data-ingredient-id="${ing.id.toString()}"]`);
-                        if (span) {
-                            span.innerText = ing.quantity;
-                        } else {
-                            console.warn(`Elemento não encontrado para ingrediente ${ing.id} no pedido ${selectedPedidoId}`);
-                        }
-                    });
-                }
-            }
-            function load() {
-                const savedCart = localStorage.getItem("cart");
-                const selectedPedidoId = localStorage.getItem("idpedidoSelecionado");
-
-                const cart = JSON.parse(savedCart);
-                const pedido = cart.find(p => p.idpedido == selectedPedidoId);
-
-                if (!Array.isArray(pedido.ingredients)) {
-                    pedido.ingredients = [];
-                    
-                    const spans = document.querySelectorAll('.labelNmr[data-ingredient-id]');
-                    spans.forEach(span => {
-                        const ingredientId = parseInt(span.dataset.ingredientId);
-                        const currentQuantity = parseInt(span.innerText) || 1;
-                        
-                        pedido.ingredients.push({
-                            id: ingredientId,
-                            quantity: currentQuantity
-                        });
-                    });
-                }
-
-                const counter = document.getElementById("counter");
-                const price = document.getElementById("total-price");
-
-                if (counter) counter.innerText = pedido.quantity || 1;
-                if (price) price.innerText = pedido.totalItemPrice || "0.00";
-                document.getElementById("nome").innerText = pedido.name || "Produto";
-            }
-
-            function adjustQty(amount) {
-                const cart = JSON.parse(localStorage.getItem("cart")) || [];
-                const idpedido = localStorage.getItem("idpedidoSelecionado");
-                const item = cart.find(item => item.idpedido === idpedido);
-
-                if (item) {
-                    const unitPrice = parseFloat(item.totalItemPrice) / item.quantity;
-
-                    item.quantity = Math.max(1, item.quantity + amount);
-
-                    item.totalItemPrice = (unitPrice * item.quantity).toFixed(2);
-
-                    localStorage.setItem("cart", JSON.stringify(cart));
-
-                    if (amount < 1) {
-                        removerItem(idpedido);
-                        voltar();
-                        return;
-                    }
-                }
-
-                load();
-            }
-
-            function removerItem(id) {
-                const cart = JSON.parse(localStorage.getItem("cart")) || [];
-                const updatedCart = cart.filter(item => item.idpedido !== id);
-                localStorage.setItem("cart", JSON.stringify(updatedCart));
-                alert("Item removido com sucesso!");
-                history.back();
-            }
-
-            function salvarIngredientes(id) {
-                const pedidoId = localStorage.getItem("idpedidoSelecionado");
-                const cart = JSON.parse(localStorage.getItem("cart")) || [];
-                const pedido = cart.find(p => p.idpedido === pedidoId);
-
-                const b = document.querySelectorAll(`.labelNmr[data-ingredient-id][data-pedido-id="${id}"]`);
-                const ingredientesAtualizados = [];
-                b.forEach(span => {
-                    const ingredientId = parseInt(span.dataset.ingredientId);
-                    const qtd = parseInt(span.innerText);
-                    if (!isNaN(ingredientId) && !isNaN(qtd)) {
-                        ingredientesAtualizados.push({ id: ingredientId, quantity: qtd });
+            const cart = JSON.parse(savedCart);
+            const pedido = cart.find(p => p.idpedido == selectedPedidoId);
+            if (Array.isArray(pedido.ingredients)) {
+                pedido.ingredients.forEach(ing => {
+                    const span = document.querySelector(`.labelNmr[data-ingredient-id="${ing.id.toString()}"]`);
+                    if (span) {
+                        span.innerText = ing.quantity;
+                    } else {
+                        console.warn(`Elemento não encontrado para ingrediente ${ing.id} no pedido ${selectedPedidoId}`);
                     }
                 });
+            }
+        }
+        function load() {
+            const savedCart = localStorage.getItem("cart");
+            const selectedPedidoId = localStorage.getItem("idpedidoSelecionado");
 
-                pedido.ingredients = ingredientesAtualizados;
+            const cart = JSON.parse(savedCart);
+            const pedido = cart.find(p => p.idpedido == selectedPedidoId);
+
+            if (!Array.isArray(pedido.ingredients)) {
+                pedido.ingredients = [];
+
+                const spans = document.querySelectorAll('.labelNmr[data-ingredient-id]');
+                spans.forEach(span => {
+                    const ingredientId = parseInt(span.dataset.ingredientId);
+                    const currentQuantity = parseInt(span.innerText) || 1;
+
+                    pedido.ingredients.push({
+                        id: ingredientId,
+                        quantity: currentQuantity
+                    });
+                });
+            }
+
+            console.log(cart);
+
+            const counter = document.getElementById("counter");
+            const price = document.getElementById("total-price");
+
+            if (counter) counter.innerText = pedido.quantity || 1;
+            if (price) price.innerText = pedido.totalItemPrice || "0.00";
+            document.getElementById("nome").innerText = pedido.name || "Produto";
+        }
+
+        function adjustQty(amount) {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const idpedido = localStorage.getItem("idpedidoSelecionado");
+            const item = cart.find(item => item.idpedido === idpedido);
+
+            if (item) {
+                const unitPrice = parseFloat(item.totalItemPrice) / item.quantity;
+
+                item.quantity = Math.max(1, item.quantity + amount);
+
+                item.totalItemPrice = (unitPrice * item.quantity).toFixed(2);
+
                 localStorage.setItem("cart", JSON.stringify(cart));
             }
 
-            function adjustIngredientQty(ingredientId, amount) {
-                const pedidoId = localStorage.getItem("idpedidoSelecionado");
-                const cart = JSON.parse(localStorage.getItem("cart")) || [];
-                const pedido = cart.find(p => p.idpedido.toString() === pedidoId);
+            load();
+        }
 
-                let ingredient = pedido.ingredients.find(i => parseInt(i.id) === parseInt(ingredientId));
+        function salvarIngredientes(id) {
+            const pedidoId = localStorage.getItem("idpedidoSelecionado");
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const pedido = cart.find(p => p.idpedido === pedidoId);
+            const b = document.querySelectorAll(`.labelNmr[data-ingredient-id][data-pedido-id="${id}"]`);
+            const ingredientesAtualizados = [];
+            b.forEach(span => {
+                const ingredientId = parseInt(span.dataset.ingredientId);
+                const qtd = parseInt(span.innerText);
+                if (!isNaN(ingredientId) && !isNaN(qtd)) {
+                    ingredientesAtualizados.push({ id: ingredientId, quantity: qtd });
+                }
+            });
 
-                const b = document.querySelector(`.labelNmr[data-ingredient-id="${ingredientId}"]`);
-                const currentQuantity = b ? parseInt(b.innerText) || 0 : 0;
-                ingredient.quantity = Math.max(0, currentQuantity + amount);
-                if (b) b.innerText = ingredient.quantity;
+            pedido.ingredients = ingredientesAtualizados;
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        function adjustIngredientQty(ingredientId, amount) {
+            const pedidoId = localStorage.getItem("idpedidoSelecionado");
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const pedido = cart.find(p => p.idpedido.toString() === pedidoId);
+
+            if (!pedido) return;
+
+            if (!Array.isArray(pedido.ingredients)) {
+                pedido.ingredients = [];
             }
 
-            document.querySelectorAll(".increaseButton").forEach(button => {
-                button.addEventListener("click", () => {
-                    const iid = parseInt(button.dataset.ingredientId);
-                    adjustIngredientQty(iid, 1);
-                });
-            });
-            
-            document.querySelectorAll(".decreseButton").forEach(button => {
-                button.addEventListener("click", () => {
-                    const iid = parseInt(button.dataset.ingredientId);
-                    adjustIngredientQty(iid, -1);
-                });
-            });
+            let ingredient = pedido.ingredients.find(i => parseInt(i.id) === parseInt(ingredientId));
 
-        </script>
+            const b = document.querySelector(`.labelNmr[data-ingredient-id="${ingredientId}"]`);
+            const currentQuantity = b ? parseInt(b.innerText) || 0 : 0;
+            const newQuantity = Math.max(0, currentQuantity + amount);
+
+            if (!ingredient) {
+                ingredient = { id: ingredientId, quantity: newQuantity };
+                pedido.ingredients.push(ingredient);
+            } else {
+                ingredient.quantity = newQuantity;
+            }
+
+            if (b) b.innerText = ingredient.quantity;
+        }
+
+
+        document.querySelectorAll(".increaseButton").forEach(button => {
+            button.addEventListener("click", () => {
+                const iid = parseInt(button.dataset.ingredientId);
+                adjustIngredientQty(iid, 1);
+            });
+        });
+
+        document.querySelectorAll(".decreseButton").forEach(button => {
+            button.addEventListener("click", () => {
+                const iid = parseInt(button.dataset.ingredientId);
+                adjustIngredientQty(iid, -1);
+            });
+        });
+
+    </script>

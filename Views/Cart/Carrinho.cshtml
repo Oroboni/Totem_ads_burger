@@ -36,13 +36,28 @@
     </div>
     <div class="bottom-buttons">
         <button class="cancel-button" onclick="cancel()">Cancelar pedido</button>
-        <button class="confirm-button" onclick="location.href='@Url.Action("EscolherLocal", "Home")'">Confirmar pedido</button>
+        <button class="confirm-button" onclick="Confirmar()">Confirmar
+            pedido</button>
     </div>
 </div>
 
 <script src="~/js/editar.js"></script>
 <script>
     const produtosComIngredientes = @Html.Raw(Json.Serialize(ViewBag.IdsComIngredientes));
+
+    function Confirmar() {
+        const savedCart = localStorage.getItem("cart");
+        const Initial = JSON.parse(savedCart) || [];
+        const cart = Initial.filter(item => item.totalItemPrice !== undefined);
+        let totalPrice = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice), 0);
+        cart.push({ totalPrice: totalPrice.toFixed(2) });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        console.log(cart);
+
+        window.location.href = "@Url.Action("EscolherLocal", "Home")";
+    }
+
+
     function load() {
         const savedCart = localStorage.getItem("cart");
         if (!savedCart) return;
@@ -103,7 +118,7 @@
 
     function cancel() {
         localStorage.removeItem("cart");
-        history.back();
+        location.href = '/Pedido'
     }
 
     function removerItem(idpedido) {
@@ -138,10 +153,6 @@
         }
 
         load(); // Recarrega o HTML dinamicamente
-        if (amount < 1) {
-            removerItem(idpedido);
-            return;
-        }
     }
 
 
