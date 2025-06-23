@@ -136,7 +136,6 @@ body {
     object-fit: contain; /* 'contain' para não cortar a imagem, 'cover' se preferir preenchimento */
     border-radius: 50%; /* Imagens redondas */
     margin-bottom: 5px;
-    background-color: #f0f0f0; /* Fundo para placeholders ou imagens com transparência */
 }
 
 .subcategory-name-label {
