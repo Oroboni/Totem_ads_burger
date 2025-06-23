@@ -131,11 +131,33 @@
         <div>Total de itens: <span id="cart-count">0</span></div>
         <div>Total do pedido: <span class="currency-symbol">R$</span> <span id="total-price">0.00</span></div>
     </div>
-    <button class="button" onclick="checkout(); window.location='@Url.Action("Carrinho", "Cart")'">Visualizar
+    <button class="button" onclick="checkout()">Visualizar
         Pedido!</button>
 </div>
 
+<div id="modalDeletar" class="modal-cupom" style="display:none;">
+    <div class="modal-content-cupom">
+        <span class="close-deletar" onclick="fecharModalDeletar()">&times;</span>
+        <h2>Coloque um item no carrinho</h2>
+
+        <button id="confirmarRemocao" class="confirm-deletar-btn" onclick="fecharModalDeletar()">Entendido</button>
+    </div>
+</div>
+
 <script>
+    // Modal para confirmação da remoção do item
+    function abrirModalDeletar(idpedido) {
+        document.getElementById('modalDeletar').style.display = 'flex';
+        document.getElementById('confirmarRemocao').onclick = function() {
+            removerItem(idpedido);
+            fecharModalDeletar();
+        };
+    }
+
+    function fecharModalDeletar() {
+        document.getElementById('modalDeletar').style.display = 'none';
+    }
+
     let cartCount = 0;
     let totalPrice = 0;
     let cart = [];
@@ -187,7 +209,7 @@
         }
 
         updateCartUI();
-    }
+    } 
 
     function updateCartUI() {
         cartCount = cart.reduce((sum, i) => sum + i.quantity, 0);
@@ -198,7 +220,12 @@
     }
 
     function checkout() {
+        if (!cart || cart.length === 0) {
+            abrirModalDeletar();
+            return;
+        }
         localStorage.setItem("cart", JSON.stringify(cart));
+        window.location='@Url.Action("Carrinho", "Cart")';
     }
 
     function load() {

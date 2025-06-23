@@ -50,7 +50,17 @@
     </div>
     <div class="bottom-buttons">
         <button class="cancel-button" onclick="cancel()">Cancelar pedido</button>
-        <button class="confirm-button">Confirmar pedido</button>
+        <button class="confirm-button" onclick="mostrarModalFinalizar()">Confirmar pedido</button>
+    </div>
+</div>
+
+<div id="modalDeletar" class="modal-cupom" style="display:none;">
+    <div class="modal-content-cupom">
+        <span class="close-deletar" onclick="fecharModalDeletar()">&times;</span>
+        <h2>Deseja remover o item?</h2>
+
+        <button class="cancel-deletar-btn" onclick="fecharModalDeletar()">Cancelar</button>
+        <button id="confirmarRemocao" class="confirm-deletar-btn" >Remover Item</button>
     </div>
 </div>
 
@@ -80,7 +90,7 @@
                     <div class="burguer-bar">
                         <p class="text-title">${item.name || "Produto"}</p>
                         <div class="burguer-barTrash">
-                            <button onclick="removerItem('${item.idpedido}')" style="background: none; border: none; cursor: pointer;">
+                            <button onclick="abrirModalDeletar('${item.idpedido}')" style="background: none; border: none; cursor: pointer;">
                                 <img src="/img/icons/trash-can.svg" alt="Remover">
                             </button>
                         </div>
@@ -154,7 +164,21 @@
 
         load(); // Recarrega o HTML dinamicamente
     }
+    // Modal para confirmação da remoção do item
+    function abrirModalDeletar(idpedido) {
+        document.getElementById('modalDeletar').style.display = 'flex';
+        document.getElementById('confirmarRemocao').onclick = function() {
+            removerItem(idpedido);
+            fecharModalDeletar();
+        };
+    }
 
+    function fecharModalDeletar() {
+        document.getElementById('modalDeletar').style.display = 'none';
+    }
+
+
+    // Modal para aplicação de cupom
     function cupomModal() {
         if (descontoCupom > 0) {
             alert('Cupom já aplicado! Desconto: R$ ' + (precoAtual * descontoCupom).toFixed(2));
