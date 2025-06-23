@@ -112,7 +112,7 @@ body {
 }
 
 .subcategory-item-card:first-child{
-    margin-left: 4rem; /* Remove margem esquerda do primeiro item */
+    margin-left: 0rem; /* Remove margem esquerda do primeiro item */
 }
 
 .subcategory-item-card:hover {
@@ -131,8 +131,8 @@ body {
 }
 
 .subcategory-image {
-    width: 36px;
-    height: 36px;
+    width: 65px;
+    height: 65px;
     object-fit: contain; /* 'contain' para não cortar a imagem, 'cover' se preferir preenchimento */
     border-radius: 50%; /* Imagens redondas */
     margin-bottom: 5px;
