@@ -95,7 +95,7 @@ body {
     padding: 8px;
     margin-right: 12px; /* Espaço entre os cards */
     height: 90%; /* Altura fixa do card */
-    min-width: 80px; /* Largura mínima */
+    min-width:120px; /* Largura mínima */
     width: auto; /* Largura se ajusta ao conteúdo */
     max-width: 130px; /* Largura máxima */
     text-decoration: none;
