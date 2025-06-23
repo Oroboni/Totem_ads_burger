@@ -17,11 +17,10 @@
 </div>
 
 <div class="category-scrollbar">
-    @if (ViewBag.Category != null)
-    {
+    
         <div class="filter-session">
             <div class="filter-label-vertical">
-                <p>FILTROS</p>
+                <h1 class="filter">FILTROS</h1>
             </div>
         </div>
         <div class="category-scrollbar">
@@ -41,7 +40,7 @@
                 </div>
         }
         </div>
-    }
+    
 </div>
 
 <div class="sidebar">
@@ -118,7 +117,7 @@
             <button type="button" class="quantity-btn plus-btn" onclick="changeQuantity(1)">+</button>
         </div>
 
-        <p><strong>Ingredientes:</strong></p>
+        <p><strong>Descrição:</strong></p>
         <p id="descricao" class="modal-product-description"></p>
 
         <button  class="modal-add-button" id="add-button" onclick="carrinho(),closeModal(),checkout()">Adicionar</button>

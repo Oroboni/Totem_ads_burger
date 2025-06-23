@@ -20,7 +20,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 0; /* Abaixo de modais, mas acima de muito conteúdo */
+    z-index: 0;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -34,9 +34,7 @@ body {
     top: 160px; /* Logo abaixo do banner */
     left: 0;
     right: 0;
-    z-index: 997;
-    height: 4rem; /* Altura total da seção de filtros, ajuste conforme necessário */
-    border-bottom: 1px solid #e0e0e0; /* Linha divisória sutil */
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .filter-label-vertical {
@@ -48,9 +46,12 @@ body {
     text-transform: uppercase;
     margin-right: 20px;
     color: #114825;
-    font-size: 13px;
     flex-shrink: 0; /* Nao deixa que o label encolha */
     letter-spacing: 1px;
+}
+.filter{
+    font-size: 25px !important; 
+    font-weight: bold;
 }
 
 .category-scrollbar {
@@ -59,7 +60,7 @@ body {
     overflow-y: hidden; /* Esconde rolagem vertical */
     white-space: nowrap; /* Impede que os cards quebrem linha */
     flex-grow: 1; /* Permite que a scrollbar ocupe o espaço restante */
-    height: 100%; /* Ocupa a altura do .filter-section */
+    height: 8rem; /* Ocupa a altura do .filter-section */
     align-items: center;
     padding: 5px 0;
 }
@@ -70,13 +71,13 @@ body {
 }
 
 .category-scrollbar::-webkit-scrollbar-track {
-    background: #f8f8f8; /* Cor da trilha */
+    background: #f8f8f8;
     border-radius: 10px;
     margin: 0 5px;
 }
 
 .category-scrollbar::-webkit-scrollbar-thumb {
-    background: #cccccc; /* Cor do "polegar" da scrollbar */
+    background: #cccccc;
     border-radius: 10px;
 }
 
@@ -90,25 +91,28 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #ffffff; /* Fundo do card */
-    border-radius: 8px; /* Bordas arredondadas */
+    border-radius: 24px; /* Bordas arredondadas */
     padding: 8px;
     margin-right: 12px; /* Espaço entre os cards */
-    height: 70px; /* Altura fixa do card */
+    height: 90%; /* Altura fixa do card */
     min-width: 80px; /* Largura mínima */
     width: auto; /* Largura se ajusta ao conteúdo */
-    max-width: 110px; /* Largura máxima */
+    max-width: 130px; /* Largura máxima */
     text-decoration: none;
     color: #555; /* Cor do texto padrão */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease,
         background-color 0.2s ease;
     flex-shrink: 0; /* Impede que cards encolham */
-    border: 1px solid #e0e0e0; /* Borda sutil padrão */
     cursor: pointer;
 }
 
 .subcategory-item-card:last-child {
     margin-right: 5px; /* Menor margem para o último item não ficar muito longe da borda da scrollbar */
+}
+
+.subcategory-item-card:first-child{
+    margin-left: 4rem; /* Remove margem esquerda do primeiro item */
 }
 
 .subcategory-item-card:hover {
@@ -136,10 +140,13 @@ body {
 }
 
 .subcategory-name-label {
+    text-decoration: none;
+    font-family: "Inter", 'Sans Serif';
+    font-weight: 500; /* Peso do texto */
     font-size: 1em;
     text-align: center;
     line-height: 1.2;
-    color: #555555; /* Cor padrão do texto */
+    color: #1E1E1E; /* Cor padrão do texto */
     
     white-space: normal;
     overflow: hidden;
@@ -150,16 +157,6 @@ body {
     max-height: calc(1em * 1.2 * 2); /* font-size * line-height * line-clamp */
 }
 
-.no-filters-message {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100%;
-    padding-left: 5px;
-    color: #888;
-    font-size: 12px;
-    font-style: italic;
-}
 
 /* --- SIDEBAR E CONTENT --- */
 .sidebar {
@@ -170,9 +167,8 @@ body {
     background: #ffffff;
     padding: 15px;
     position: relative;
-    /* top: calc(160px + 90px); banner e seção de filtros */
     left: 0;
-    height: 100%; /* Altura restante (- footer) */
+    height: 100%;
     overflow-y: auto;
     box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.05);
 }
@@ -245,7 +241,8 @@ body {
 }
 
 .content {
-    margin-top: -72%;
+    top: -55rem;
+    position: relative;
     background-color: #E7E7E7;
     margin-left: 240px;
     padding: 20px;
@@ -637,12 +634,11 @@ background-color: #f1f1f1;
         padding: 15px;
     }
     .filter-section {
-        /* taçvez tenha que virar lista dropdown */
         padding: 0 10px;
     }
     .filter-label-vertical {
         display: none;
-    } /* Esconder "FILTROS" em telas pequenas para mais espaço */
+    }
 
     .menu-grid {
         grid-template-columns: repeat(
@@ -684,7 +680,7 @@ background-color: #f1f1f1;
     }
     .filter-section {
         height: 75px;
-    } /* Reduzir altura da barra de filtros */
+    }
     .category-scrollbar {
         padding: 3px 0;
     }
