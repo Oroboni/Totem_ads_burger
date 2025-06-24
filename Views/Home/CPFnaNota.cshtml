@@ -136,7 +136,7 @@
                 localStorage.setItem("cart", JSON.stringify(cart));
             }
             console.log(cart);
-            @* window.location.href = "@Url.Action("CarrinhoMerge", "Home")"; *@
+            window.location.href = "@Url.Action("Editar", "Ingredient")";
         }
 
         function TestaCPF() {
@@ -180,6 +180,8 @@
                     carrinho();
                     return true;
                 }
+            }else{
+                window.location.href = "@Url.Action("Index", "Ingredient")";
             }
             return false;
         }

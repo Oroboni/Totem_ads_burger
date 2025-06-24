@@ -24,6 +24,7 @@ namespace TotemPWA.Models
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
+        public string Foto { get; set; } = string.Empty;
         public decimal AdditionalPrice { get; set; }
 
         public List<CompositionSeed>? Compositions { get; set; }

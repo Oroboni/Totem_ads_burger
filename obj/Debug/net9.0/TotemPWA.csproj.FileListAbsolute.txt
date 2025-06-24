@@ -181,9 +181,7 @@ C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.RazorAssembl
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.RazorAssemblyInfo.cs
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.sourcelink.json
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\scopedcss\bundle\TotemPWA.styles.css
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\1xn8zmblva-4oln5m2kb3.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\fk5cfcji0l-isttsymxo9.gz
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\dugc06p6qn-3g7c4n2flf.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\5x7mdqe4nv-b5yq64bu7m.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\njoxicxkd2-a1ivbhahsi.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\ade2i2q1em-61n19gt1b8.gz
@@ -526,3 +524,5 @@ C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\refint
 C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.pdb
 C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\1xn8zmblva-0dlsbw4sk6.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\dugc06p6qn-s8t9qn0rju.gz

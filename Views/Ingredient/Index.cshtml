@@ -1,0 +1,32 @@
+@model List<TotemPWA.Models.Ingredient>
+
+@{
+    ViewBag.Title = "Ingredientes";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Editar.css">
+
+<div class="content">
+    <div class="container mt-5">
+        <h1>Ingredientes Disponíveis</h1>
+
+        <button onclick="location.href = `/Ingredient/Create`;">Adicionar ingrediente</button>
+
+        @foreach (var ing in Model)
+        {
+            <div class="contentIngredient ingrediente-@ing.Id">
+                <img class="fotoIngrediente" src="@ing.Foto" alt="@ing.Name" />
+                <h2>@ing.Name</h2>
+
+                <form asp-action="Delete" method="post" >
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@ing.Id" />
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </form>
+
+                <button class="btn btn-primary" onclick="location.href = `/Ingredient/Editar?id=@ing.Id`;">Editar</button>
+            </div>
+        }
+    </div>
+</div>

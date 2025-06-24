@@ -11,6 +11,7 @@ namespace TotemPWA.Models
 
         [Required]
         public string Name { get; set; } = string.Empty;
+        public string Foto { get; set; } = string.Empty;
 
         [Column(TypeName = "decimal(10,2)")]
         public decimal AdditionalPrice { get; set; }

@@ -136,11 +136,11 @@ namespace TotemPWA.Data
 
 
             modelBuilder.Entity<Ingredient>().HasData(
-                new Ingredient { Id = 1, Name = "Bacon", AdditionalPrice = 2.00m },
-                new Ingredient { Id = 2, Name = "Queijo", AdditionalPrice = 1.50m },
-                new Ingredient { Id = 3, Name = "alface", AdditionalPrice = 1.00m },
-                new Ingredient { Id = 4, Name = "tomate", AdditionalPrice = 1.20m },
-                new Ingredient { Id = 5, Name = "Hamburger", AdditionalPrice = 0.80m }
+                new Ingredient { Id = 1, Name = "Bacon", AdditionalPrice = 2.00m, Foto= "https://purepng.com/public/uploads/large/purepng.com-baconfood-meat-fried-pork-cooked-941524619205lmptp.png" },
+                new Ingredient { Id = 2, Name = "Queijo", AdditionalPrice = 1.50m, Foto= "https://www.pngmart.com/files/16/Cheese-Piece-Slice-PNG-Clipart.png" },
+                new Ingredient { Id = 3, Name = "alface", AdditionalPrice = 1.00m, Foto= "https://th.bing.com/th/id/R.e8b9516fa28fb9bd627f165702a56d6e?rik=hLa5GIL15ybojw&pid=ImgRaw&r=0" },
+                new Ingredient { Id = 4, Name = "tomate", AdditionalPrice = 1.20m, Foto= "https://th.bing.com/th/id/R.0e88ac13dc38fd380591cf4dc357f709?rik=bigMcONgbIcfTA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fTomato-Free-PNG-Image.png&ehk=TnfBtAyfzAetFPKm1B71hlBLCWT%2fIOfh961OOEmsejg%3d&risl=&pid=ImgRaw&r=0" },
+                new Ingredient { Id = 5, Name = "Hamburger", AdditionalPrice = 0.80m, Foto= "https://laretofood.hr/wp-content/uploads/2024/04/ROUNDEES-deciso-industria-min-600x600.png" }
             );
 
             modelBuilder.Entity<Composition>().HasData(
