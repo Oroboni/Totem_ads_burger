@@ -15,8 +15,6 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.TargetFrameworkIdentifier = .NETCoreApp
-build_property.TargetFrameworkVersion = v9.0
 build_property.RootNamespace = TotemPWA
 build_property.RootNamespace = TotemPWA
 build_property.ProjectDir = C:\Users\melio\Downloads\Totem_ads_burger\
@@ -36,6 +34,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/melio/Downloads/Totem_ads_burger/Views/Cart/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melio/Downloads/Totem_ads_burger/Views/Category/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melio/Downloads/Totem_ads_burger/Views/Category/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melio/Downloads/Totem_ads_burger/Views/Category/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melio/Downloads/Totem_ads_burger/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/melio/Downloads/Totem_ads_burger/Views/Home/CarrinhoMerge.cshtml]

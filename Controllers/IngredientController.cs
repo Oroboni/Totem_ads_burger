@@ -82,6 +82,18 @@ public class IngredientController : Controller
         return RedirectToAction("Index");
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var ingredient = await _context.Ingredients.FindAsync(id);
+        if (ingredient == null) return NotFound();
+
+        _context.Ingredients.Remove(ingredient);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction("Index");
+    }
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,6 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.2.0
+VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotemPWA", "TotemPWA.csproj", "{AFDA75ED-8AA7-74ED-18D9-3F3E9D7DC413}"
 EndProject
@@ -19,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DC30E626-54F0-43D0-B24C-9C1121DE3F25}
+		SolutionGuid = {A8BCB8AC-5D51-417A-82CC-EDA9242D8B3B}
 	EndGlobalSection
 EndGlobal

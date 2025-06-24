@@ -252,7 +252,6 @@ C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\w6vs14lepb
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\nt172f528s-87fc7y1x7t.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\fl9u8jnypx-mlv21k5csn.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.build.json
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.build.endpoints.json
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.csproj.Up2Date
@@ -526,3 +525,4 @@ C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\TotemP
 C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\1xn8zmblva-0dlsbw4sk6.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\dugc06p6qn-s8t9qn0rju.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.build.json.cache

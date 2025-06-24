@@ -1,0 +1,33 @@
+@model Category
+@{
+    ViewBag.Title = "Nova Categoria";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+    var categoriasPai = ViewBag.ParentCategories as List<Category>;
+}
+
+<form asp-action="Create" method="post">
+    <div class="container mt-5">
+        <h1>Nova Categoria</h1>
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Nome</label>
+            <input asp-for="Name" class="form-control" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ParentCategoryId" class="form-label">Categoria Pai</label>
+            <select asp-for="ParentCategoryId" class="form-select">
+                <option value="">Nenhuma (Categoria Principal)</option>
+                @foreach (var cat in categoriasPai)
+                {
+                    <option value="@cat.Id">@cat.Name</option>
+                }
+            </select>
+            <span asp-validation-for="ParentCategoryId" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
