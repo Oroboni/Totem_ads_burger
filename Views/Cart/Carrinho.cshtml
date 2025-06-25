@@ -64,10 +64,20 @@
     </div>
 </div>
 
+<!-- Modal de Finalização -->
+<div id="modalFinalizar" class="modal-cupom" style="display:none;">
+    <div class="modal-content-cupom">
+        <span class="close-deletar" onclick="fecharModalFinalizar()">&times;</span>
+        <h2 id="finalizarTitulo"></h2>
+        <div id="finalizarResumo"></div>
+        <button class="confirm-deletar-btn" onclick="location.href='@Url.Action("EscolherLocal", "Home")'">Prosseguir para o pagamento</button>
+    </div>
+</div>
+
 <script src="~/js/Cupom.js"></script>
 <script src="~/js/editar.js"></script>
 <script>
-    let descontoCupom = 0;
+    var descontoCupom = 0;
     const produtosComIngredientes = @Html.Raw(Json.Serialize(ViewBag.IdsComIngredientes));
     function load() {
         const savedCart = localStorage.getItem("cart");
@@ -136,7 +146,6 @@
         const updatedCart = cart.filter(item => item.idpedido !== idpedido);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
         load();
-        alert("Item removido com sucesso!");
     }
 
     function salvarEPersonalizar(id, idpedido) {
@@ -177,6 +186,12 @@
         document.getElementById('modalDeletar').style.display = 'none';
     }
 
+    function mostrarModalFinalizar(){
+        if(!cart || cart.length === 0){
+            document.getElementById('modalFinalizar').style.display = 'flex';
+            return;
+        }
+    }
 
     // Modal para aplicação de cupom
     function cupomModal() {
@@ -213,7 +228,33 @@
                 }
             });
     }
+    function mostrarModalFinalizar() {
+        const savedCart = localStorage.getItem("cart");
+        const cart = savedCart ? JSON.parse(savedCart) : [];
+        const modal = document.getElementById('modalFinalizar');
+        const titulo = document.getElementById('finalizarTitulo');
+        const resumo = document.getElementById('finalizarResumo');
 
+        if (!cart || cart.length === 0) {
+            titulo.innerText = "Sem item no carrinho";
+            resumo.innerHTML = "<p>Adicione pelo menos um item para prosseguir.</p>";
+        } else {
+            // Monta o resumo do pedido
+            let total = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice), 0);
+            total = (total)-(total * descontoCupom);
+            let itens = cart.map(item => 
+                `<li>${item.quantity}x ${item.name} - R$${parseFloat(item.totalItemPrice).toFixed(2)}</li>`
+            ).join('');
+            titulo.innerText = "Resumo do Pedido";
+            resumo.innerHTML = `<ul style="text-align:left;">${itens}</ul>
+                                <p><strong>Total: R$${total.toFixed(2)}</strong></p>`;
+        }
+        modal.style.display = 'flex';
+    }
+
+    function fecharModalFinalizar() {
+        document.getElementById('modalFinalizar').style.display = 'none';
+    }
 
     window.onload = load;
 </script>

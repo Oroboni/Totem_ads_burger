@@ -121,7 +121,7 @@
         <p><strong>Ingredientes:</strong></p>
         <p id="descricao" class="modal-product-description"></p>
 
-        <button  class="modal-add-button" id="add-button" onclick="carrinho(),closeModal(),checkout()">Adicionar</button>
+        <button  class="modal-add-button" id="add-button" onclick="carrinho(),closeModal(),addItem()">Adicionar</button>
         <p style="display: none;" id="id"> asdasd</p>
     </div>
 </div>
@@ -136,11 +136,11 @@
 </div>
 
 <div id="modalDeletar" class="modal-cupom" style="display:none;">
-    <div class="modal-content-cupom">
+    <div class="modal-content-cupom2">
         <span class="close-deletar" onclick="fecharModalDeletar()">&times;</span>
-        <h2>Coloque um item no carrinho</h2>
+        <h2>Insira algum item no <br> carrinho para prosseguir</h2>
 
-        <button id="confirmarRemocao" class="confirm-deletar-btn" onclick="fecharModalDeletar()">Entendido</button>
+        <button id="confirm-entendido-btn" class="confirm-entendido-btn" onclick="fecharModalDeletar()">Entendido</button>
     </div>
 </div>
 
@@ -148,10 +148,6 @@
     // Modal para confirmação da remoção do item
     function abrirModalDeletar(idpedido) {
         document.getElementById('modalDeletar').style.display = 'flex';
-        document.getElementById('confirmarRemocao').onclick = function() {
-            removerItem(idpedido);
-            fecharModalDeletar();
-        };
     }
 
     function fecharModalDeletar() {
@@ -220,12 +216,18 @@
     }
 
     function checkout() {
+        if(cart.length > 0){
+            window.location='@Url.Action("Carrinho", "Cart")';
+        }
         if (!cart || cart.length === 0) {
             abrirModalDeletar();
             return;
-        }
+        } 
+
+        
+    }
+    function addItem(){
         localStorage.setItem("cart", JSON.stringify(cart));
-        window.location='@Url.Action("Carrinho", "Cart")';
     }
 
     function load() {
