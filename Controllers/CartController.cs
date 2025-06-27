@@ -18,7 +18,7 @@ public class CartController : Controller
     public async Task<IActionResult> Carrinho()
     {
         var idsComIngredientes = await _context.Products
-            .Where(p => p.Compositions.Any())
+            .Where(p => p.Compositions != null && p.Compositions.Any())
             .Select(p => p.Id)
             .ToListAsync();
 
@@ -30,7 +30,7 @@ public class CartController : Controller
     public async Task<IActionResult> Editar(int id)
     {
         var product = await _context.Products
-            .Include(p => p.Compositions)
+            .Include(p => (IEnumerable<Composition>)p.Compositions!)
                 .ThenInclude(c => c.Ingredient)
             .FirstOrDefaultAsync(p => p.Id == id);
 

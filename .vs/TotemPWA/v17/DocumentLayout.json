@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "Views\\Category\\Editar.cshtml",
               "ToolTip": "C:\\Users\\melio\\Downloads\\Totem_ads_burger\\Views\\Category\\Editar.cshtml",
               "RelativeToolTip": "Views\\Category\\Editar.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAIwCIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAIwCMAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-24T20:49:06.992Z",
               "EditorCaption": ""
@@ -47,8 +47,7 @@
               "RelativeToolTip": "Controllers\\CategoryController.cs",
               "ViewState": "AgIAAEAAAAAAAAAAAADwv2YAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T20:08:21.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T20:08:21.994Z"
             }
           ]
         }

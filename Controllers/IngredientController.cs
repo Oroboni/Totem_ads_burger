@@ -42,13 +42,9 @@ public class IngredientController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
+    
     public async Task<IActionResult> Editar(int id)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
         var ingredient = await _context.Ingredients.FindAsync(id);
         if (ingredient == null)
         {

@@ -23,39 +23,43 @@
                 <h1 style="margin-left: 30px; font-size: 30px; text-align: left;">Ingredientes: </h1>
             </div>
 
-            @foreach (var comp in Model.Compositions)
+            @if (Model.Compositions != null)
             {
-                var name = comp.Ingredient.Name.ToLower();
-                <div class="contentIngredient ingrediente-@comp.Ingredient.Id">
-                    <button class="editarButton decreseButton" data-ingredient-id="@comp.Ingredient.Id"
-                        data-pedido-id="@Model.Id">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 70 70"
-                            object-fit="contain">
-                            <path
-                                d="M34.9997 5.8335C18.9288 5.8335 5.83301 18.9293 5.83301 35.0002C5.83301 51.071 18.9288 64.1668 34.9997 64.1668C51.0705 64.1668 64.1663 51.071 64.1663 35.0002C64.1663 18.9293 51.0705 5.8335 34.9997 5.8335ZM46.433 37.1877H23.0997C21.9038 37.1877 20.9122 36.196 20.9122 35.0002C20.9122 33.8043 21.9038 32.8127 23.0997 32.8127H46.433C47.6288 32.8127 48.6205 33.8043 48.6205 35.0002C48.6205 36.196 47.658 37.1877 46.433 37.1877Z"
-                                fill="#463B3B" />
-                        </svg>
-                    </button>
-                    <span class="labelNmr" id="fiz" data-ingredient-id="@comp.Ingredient.Id" data-pedido-id="@Model.Id">
-                        @comp.quantity
-                    </span>
+                @foreach (var comp in Model.Compositions)
+                {
+                    if (comp.Ingredient == null)
+                    {
+                        continue;
+                    }
+                    <div class="contentIngredient ingrediente-@comp.Ingredient.Id">
+                        <button class="editarButton decreseButton" data-ingredient-id="@comp.Ingredient.Id"
+                            data-pedido-id="@Model.Id">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 70 70"
+                                object-fit="contain">
+                                <path
+                                    d="M34.9997 5.8335C18.9288 5.8335 5.83301 18.9293 5.83301 35.0002C5.83301 51.071 18.9288 64.1668 34.9997 64.1668C51.0705 64.1668 64.1663 51.071 64.1663 35.0002C64.1663 18.9293 51.0705 5.8335 34.9997 5.8335ZM46.433 37.1877H23.0997C21.9038 37.1877 20.9122 36.196 20.9122 35.0002C20.9122 33.8043 21.9038 32.8127 23.0997 32.8127H46.433C47.6288 32.8127 48.6205 33.8043 48.6205 35.0002C48.6205 36.196 47.658 37.1877 46.433 37.1877Z"
+                                    fill="#463B3B" />
+                            </svg>
+                        </button>
+                        <span class="labelNmr" id="fiz" data-ingredient-id="@comp.Ingredient.Id" data-pedido-id="@Model.Id">
+                            @comp.quantity
+                        </span>
 
-                    <button class="editarButton increaseButton" data-ingredient-id="@comp.Ingredient.Id"
-                        data-pedido-id="@Model.Id">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 70 70"
-                            object-fit="contain">
-                            <path
-                                d="M35.0002 5.83325C18.9293 5.83325 5.8335 18.9291 5.8335 34.9999C5.8335 51.0708 18.9293 64.1666 35.0002 64.1666C51.071 64.1666 64.1668 51.0708 64.1668 34.9999C64.1668 18.9291 51.071 5.83325 35.0002 5.83325ZM46.6668 37.1874H37.1877V46.6666C37.1877 47.8624 36.196 48.8541 35.0002 48.8541C33.8043 48.8541 32.8127 47.8624 32.8127 46.6666V37.1874H23.3335C22.1377 37.1874 21.146 36.1958 21.146 34.9999C21.146 33.8041 22.1377 32.8124 23.3335 32.8124H32.8127V23.3333C32.8127 22.1374 33.8043 21.1458 35.0002 21.1458C36.196 21.1458 37.1877 22.1374 37.1877 23.3333V32.8124H46.6668C47.8627 32.8124 48.8543 33.8041 48.8543 34.9999C48.8543 36.1958 47.8627 37.1874 46.6668 37.1874Z"
-                                fill="#463B3B" />
-                        </svg>
-                    </button>
-                    <img class="fotoIngrediente" src="@comp.Ingredient.Foto" alt="@comp.Ingredient.Name" />
-                    <h2>@comp.Ingredient.Name</h2>
-
-                    @* <span>+R$ @comp.Ingredient.AdditionalPrice.ToString("0.00")</span> *@
-                </div>
+                        <button class="editarButton increaseButton" data-ingredient-id="@comp.Ingredient.Id"
+                            data-pedido-id="@Model.Id">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 70 70"
+                                object-fit="contain">
+                                <path
+                                    d="M35.0002 5.83325C18.9293 5.83325 5.8335 18.9291 5.8335 34.9999C5.8335 51.0708 18.9293 64.1666 35.0002 64.1666C51.071 64.1666 64.1668 51.0708 64.1668 34.9999C64.1668 18.9291 51.071 5.83325 35.0002 5.83325ZM46.6668 37.1874H37.1877V46.6666C37.1877 47.8624 36.196 48.8541 35.0002 48.8541C33.8043 48.8541 32.8127 47.8624 32.8127 46.6666V37.1874H23.3335C22.1377 37.1874 21.146 36.1958 21.146 34.9999C21.146 33.8041 22.1377 32.8124 23.3335 32.8124H32.8127V23.3333C32.8127 22.1374 33.8043 21.1458 35.0002 21.1458C36.196 21.1458 37.1877 22.1374 37.1877 23.3333V32.8124H46.6668C47.8627 32.8124 48.8543 33.8041 48.8543 34.9999C48.8543 36.1958 47.8627 37.1874 46.6668 37.1874Z"
+                                    fill="#463B3B" />
+                            </svg>
+                        </button>
+                        <img class="fotoIngrediente" src="@comp.Ingredient.Foto" alt="@comp.Ingredient.Name" />
+                        <h2>@comp.Ingredient.Name</h2>
+                        <span class="price" style="display: none;">R$ @comp.Ingredient.AdditionalPrice.ToString("0.00")</span>
+                    </div>
+                }
             }
-
 
             <div style="margin-bottom: 117px;"></div>
         </div>
@@ -90,12 +94,15 @@
             <button class=" button"
                 onclick="salvarIngredientes('@Model.Id');location.href='@Url.Action("Carrinho", "Cart")'">Confirmar</button>
         </div>
+        <span style="display: none;" id="pedido-id">@Model.Id</span>
     </div>
 
     <script src="/js/Editar.js"></script>
     <script>
         window.addEventListener("DOMContentLoaded", load);
         window.addEventListener("DOMContentLoaded", amount);
+        let pedidoTemporario = null;
+
 
         function amount() {
             const savedCart = localStorage.getItem("cart");
@@ -143,7 +150,9 @@
 
             if (counter) counter.innerText = pedido.quantity || 1;
             if (price) price.innerText = pedido.totalItemPrice || "0.00";
-            document.getElementById("nome").innerText = pedido.name || "Produto";
+            document.getElementById("nome").innerText = pedido.name || "Produto"; pedido.unitBasePrice = parseFloat(pedido.totalItemPrice) / (pedido.quantity || 1);
+            pedidoTemporario = JSON.parse(JSON.stringify(pedido));
+
         }
 
         function adjustQty(amount) {
@@ -183,31 +192,82 @@
         }
 
         function adjustIngredientQty(ingredientId, amount) {
-            const pedidoId = localStorage.getItem("idpedidoSelecionado");
-            const cart = JSON.parse(localStorage.getItem("cart")) || [];
-            const pedido = cart.find(p => p.idpedido.toString() === pedidoId);
+            if (!pedidoTemporario) return;
 
-            if (!pedido) return;
-
-            if (!Array.isArray(pedido.ingredients)) {
-                pedido.ingredients = [];
-            }
-
-            let ingredient = pedido.ingredients.find(i => parseInt(i.id) === parseInt(ingredientId));
+            let ingredient = pedidoTemporario.ingredients.find(i => parseInt(i.id) === parseInt(ingredientId));
 
             const b = document.querySelector(`.labelNmr[data-ingredient-id="${ingredientId}"]`);
             const currentQuantity = b ? parseInt(b.innerText) || 0 : 0;
             const newQuantity = Math.max(0, currentQuantity + amount);
 
             if (!ingredient) {
-                ingredient = { id: ingredientId, quantity: newQuantity };
-                pedido.ingredients.push(ingredient);
+                ingredient = {
+                    id: ingredientId,
+                    quantity: newQuantity,
+                    additionalPrice: findIngredientPrice(ingredientId)
+                };
+                pedidoTemporario.ingredients.push(ingredient);
             } else {
                 ingredient.quantity = newQuantity;
+
+                if (typeof ingredient.additionalPrice === "undefined") {
+                    ingredient.additionalPrice = findIngredientPrice(ingredientId);
+                }
             }
 
             if (b) b.innerText = ingredient.quantity;
+
+            recalculateTotalPrice(pedidoTemporario);
         }
+
+
+        function recalculateTotalPrice(pedido) {
+            let baseTotal = 0;
+
+            if (Array.isArray(pedido.ingredients)) {
+                pedido.ingredients.forEach(ing => {
+                    baseTotal += ing.quantity * (ing.additionalPrice || 0);
+                });
+            }
+
+            const total = (parseFloat(pedido.precobase || 0) + baseTotal) * (pedido.quantity || 1);
+            document.getElementById("total-price").innerText = total.toFixed(2);
+        }
+
+
+        function salvarIngredientes(id) {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const index = cart.findIndex(p => p.idpedido === pedidoTemporario.idpedido);
+            if (index === -1) return;
+
+            let baseTotal = 0;
+            if (Array.isArray(pedidoTemporario.ingredients)) {
+                pedidoTemporario.ingredients.forEach(ing => {
+                    baseTotal += ing.quantity * (ing.additionalPrice || 0);
+                });
+            }
+
+            const unitBase = pedidoTemporario.precobase || 0;
+            const quantidade = pedidoTemporario.quantity || 1;
+            const total = ((parseFloat(unitBase) + baseTotal) * quantidade).toFixed(2);
+
+            pedidoTemporario.totalItemPrice = total;
+
+            cart[index] = pedidoTemporario;
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+
+
+
+        function findIngredientPrice(ingredientId) {
+            const el = document.querySelector(`.ingrediente-${ingredientId}`);
+            if (!el) return 0;
+            const priceText = el.querySelector("span.price")?.innerText;
+            return priceText ? parseFloat(priceText.replace("R$", "").replace(",", ".")) : 0;
+        }
+
 
 
         document.querySelectorAll(".increaseButton").forEach(button => {

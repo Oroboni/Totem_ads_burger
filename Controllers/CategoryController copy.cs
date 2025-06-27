@@ -24,9 +24,9 @@ namespace TotemPWA.Controllers
                 .Where(c => c.ParentCategoryId == null) 
                 .Include(c => c.Subcategories)
                     .ThenInclude(sc => sc.Products)
-                        .ThenInclude(p => p.Variations)
+                        .ThenInclude(p => p.Compositions)
                 .Include(c => c.Products)
-                    .ThenInclude(p => p.Variations)
+                    .ThenInclude(p => p.Compositions)
                 .ToListAsync();
         }
 

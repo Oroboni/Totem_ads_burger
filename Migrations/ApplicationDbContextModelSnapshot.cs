@@ -1135,29 +1135,6 @@ namespace TotemPWA.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TotemPWA.Models.Variation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("AdditionalPrice")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Variation");
-                });
-
             modelBuilder.Entity("Category", b =>
                 {
                     b.HasOne("Category", "ParentCategory")
@@ -1202,17 +1179,6 @@ namespace TotemPWA.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("TotemPWA.Models.Variation", b =>
-                {
-                    b.HasOne("TotemPWA.Models.Product", "Product")
-                        .WithMany("Variations")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("Category", b =>
                 {
                     b.Navigation("Products");
@@ -1228,8 +1194,6 @@ namespace TotemPWA.Migrations
             modelBuilder.Entity("TotemPWA.Models.Product", b =>
                 {
                     b.Navigation("Compositions");
-
-                    b.Navigation("Variations");
                 });
 #pragma warning restore 612, 618
         }

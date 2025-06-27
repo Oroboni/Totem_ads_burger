@@ -1,0 +1,73 @@
+@model TotemPWA.Models.Product
+@{
+    ViewBag.Title = "Novo Lanche";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+    var categoriasFilho = ViewBag.ChildCategories as List<Category>;
+    var ingredientes = ViewBag.Ingredients as List<Ingredient>;
+}
+
+<form asp-action="Create" method="post">
+    <div class="container mt-5">
+        <h1>Novo Ingrediente</h1>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Nome</label>
+            <input asp-for="Name" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Descrição</label>
+            <input asp-for="Description" class="form-control" required />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Preço</label>
+            <input asp-for="Price" class="form-control" required type="number" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CategoryId" class="form-label">Sub-Categoria</label>
+            <select asp-for="CategoryId" class="form-select">
+                @if (categoriasFilho != null)
+                {
+                    foreach (var cat in categoriasFilho)
+                    {
+                        <option value="@cat.Id">@cat.Name</option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Foto" class="form-label">URL da Imagem</label>
+            <input asp-for="Foto" class="form-control" />
+            <span asp-validation-for="Foto" class="text-danger"></span>
+        </div>
+
+        <h3>Composição do Lanche</h3>
+        <div class="mb-3">
+            @if (ingredientes != null)
+            {
+                @for (int i = 0; i < ingredientes.Count; i++)
+                {
+                    var ing = ingredientes[i];
+                    var comp = Model.Compositions?.FirstOrDefault(c => c.IngredientId == ing.Id);
+                    bool isIncluded = comp != null;
+                    int quantity = comp?.quantity ?? 1;
+
+                    <div class="form-check d-flex align-items-center gap-2 mb-2">
+                        <input type="checkbox" class="form-check-input" name="Compositions[@i].IsSelected" value="true"
+                            @(isIncluded ? "checked" : "") />
+                        <input type="hidden" name="Compositions[@i].IngredientId" value="@ing.Id" />
+                        <label class="form-check-label">@ing.Name</label>
+                        <input type="number" class="form-control ms-3" style="width:100px" name="Compositions[@i].Quantity"
+                            value="@quantity" min="1" />
+                    </div>
+                }
+            }
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>

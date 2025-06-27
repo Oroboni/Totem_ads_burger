@@ -18,24 +18,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Editar.cshtml",
               "DocumentMoniker": "C:\\Users\\melio\\Downloads\\Totem_ads_burger\\Views\\Category\\Editar.cshtml",
               "RelativeDocumentMoniker": "Views\\Category\\Editar.cshtml",
-              "ToolTip": "C:\\Users\\melio\\Downloads\\Totem_ads_burger\\Views\\Category\\Editar.cshtml*",
-              "RelativeToolTip": "Views\\Category\\Editar.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA2AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\melio\\Downloads\\Totem_ads_burger\\Views\\Category\\Editar.cshtml",
+              "RelativeToolTip": "Views\\Category\\Editar.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAIwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-24T20:49:06.992Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
@@ -45,7 +45,7 @@
               "RelativeDocumentMoniker": "Controllers\\CategoryController.cs",
               "ToolTip": "C:\\Users\\melio\\Downloads\\Totem_ads_burger\\Controllers\\CategoryController.cs",
               "RelativeToolTip": "Controllers\\CategoryController.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAADwvzEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAEAAAAAAAAAAAADwv2YAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T20:08:21.994Z",
               "EditorCaption": ""

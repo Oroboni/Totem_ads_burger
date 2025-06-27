@@ -10,8 +10,8 @@ using TotemPWA.Data;
 namespace TotemPWA.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250616142107_initial")]
-    partial class initial
+    [Migration("20250627232831_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -605,6 +605,10 @@ namespace TotemPWA.Migrations
                     b.Property<decimal>("AdditionalPrice")
                         .HasColumnType("decimal(10,2)");
 
+                    b.Property<string>("Foto")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -618,30 +622,35 @@ namespace TotemPWA.Migrations
                         {
                             Id = 1,
                             AdditionalPrice = 2.00m,
+                            Foto = "https://purepng.com/public/uploads/large/purepng.com-baconfood-meat-fried-pork-cooked-941524619205lmptp.png",
                             Name = "Bacon"
                         },
                         new
                         {
                             Id = 2,
                             AdditionalPrice = 1.50m,
+                            Foto = "https://www.pngmart.com/files/16/Cheese-Piece-Slice-PNG-Clipart.png",
                             Name = "Queijo"
                         },
                         new
                         {
                             Id = 3,
                             AdditionalPrice = 1.00m,
+                            Foto = "https://th.bing.com/th/id/R.e8b9516fa28fb9bd627f165702a56d6e?rik=hLa5GIL15ybojw&pid=ImgRaw&r=0",
                             Name = "alface"
                         },
                         new
                         {
                             Id = 4,
                             AdditionalPrice = 1.20m,
+                            Foto = "https://th.bing.com/th/id/R.0e88ac13dc38fd380591cf4dc357f709?rik=bigMcONgbIcfTA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fTomato-Free-PNG-Image.png&ehk=TnfBtAyfzAetFPKm1B71hlBLCWT%2fIOfh961OOEmsejg%3d&risl=&pid=ImgRaw&r=0",
                             Name = "tomate"
                         },
                         new
                         {
                             Id = 5,
                             AdditionalPrice = 0.80m,
+                            Foto = "https://laretofood.hr/wp-content/uploads/2024/04/ROUNDEES-deciso-industria-min-600x600.png",
                             Name = "Hamburger"
                         });
                 });
@@ -1129,29 +1138,6 @@ namespace TotemPWA.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TotemPWA.Models.Variation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("AdditionalPrice")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Variation");
-                });
-
             modelBuilder.Entity("Category", b =>
                 {
                     b.HasOne("Category", "ParentCategory")
@@ -1196,17 +1182,6 @@ namespace TotemPWA.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("TotemPWA.Models.Variation", b =>
-                {
-                    b.HasOne("TotemPWA.Models.Product", "Product")
-                        .WithMany("Variations")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("Category", b =>
                 {
                     b.Navigation("Products");
@@ -1222,8 +1197,6 @@ namespace TotemPWA.Migrations
             modelBuilder.Entity("TotemPWA.Models.Product", b =>
                 {
                     b.Navigation("Compositions");
-
-                    b.Navigation("Variations");
                 });
 #pragma warning restore 612, 618
         }

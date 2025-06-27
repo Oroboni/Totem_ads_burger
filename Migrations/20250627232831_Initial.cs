@@ -7,7 +7,7 @@
 namespace TotemPWA.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,6 +39,7 @@ namespace TotemPWA.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Foto = table.Column<string>(type: "TEXT", nullable: false),
                     AdditionalPrice = table.Column<decimal>(type: "decimal(10,2)", nullable: false)
                 },
                 constraints: table =>
@@ -105,27 +106,6 @@ namespace TotemPWA.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Variation",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Description = table.Column<string>(type: "TEXT", nullable: false),
-                    AdditionalPrice = table.Column<decimal>(type: "TEXT", nullable: false),
-                    ProductId = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Variation", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Variation_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "Name", "ParentCategoryId", "Slug" },
@@ -140,14 +120,14 @@ namespace TotemPWA.Migrations
 
             migrationBuilder.InsertData(
                 table: "Ingredients",
-                columns: new[] { "Id", "AdditionalPrice", "Name" },
+                columns: new[] { "Id", "AdditionalPrice", "Foto", "Name" },
                 values: new object[,]
                 {
-                    { 1, 2.00m, "Bacon" },
-                    { 2, 1.50m, "Queijo" },
-                    { 3, 1.00m, "alface" },
-                    { 4, 1.20m, "tomate" },
-                    { 5, 0.80m, "Hamburger" }
+                    { 1, 2.00m, "https://purepng.com/public/uploads/large/purepng.com-baconfood-meat-fried-pork-cooked-941524619205lmptp.png", "Bacon" },
+                    { 2, 1.50m, "https://www.pngmart.com/files/16/Cheese-Piece-Slice-PNG-Clipart.png", "Queijo" },
+                    { 3, 1.00m, "https://th.bing.com/th/id/R.e8b9516fa28fb9bd627f165702a56d6e?rik=hLa5GIL15ybojw&pid=ImgRaw&r=0", "alface" },
+                    { 4, 1.20m, "https://th.bing.com/th/id/R.0e88ac13dc38fd380591cf4dc357f709?rik=bigMcONgbIcfTA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fTomato-Free-PNG-Image.png&ehk=TnfBtAyfzAetFPKm1B71hlBLCWT%2fIOfh961OOEmsejg%3d&risl=&pid=ImgRaw&r=0", "tomate" },
+                    { 5, 0.80m, "https://laretofood.hr/wp-content/uploads/2024/04/ROUNDEES-deciso-industria-min-600x600.png", "Hamburger" }
                 });
 
             migrationBuilder.InsertData(
@@ -296,11 +276,6 @@ namespace TotemPWA.Migrations
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Variation_ProductId",
-                table: "Variation",
-                column: "ProductId");
         }
 
         /// <inheritdoc />
@@ -308,9 +283,6 @@ namespace TotemPWA.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Compositions");
-
-            migrationBuilder.DropTable(
-                name: "Variation");
 
             migrationBuilder.DropTable(
                 name: "Ingredients");
