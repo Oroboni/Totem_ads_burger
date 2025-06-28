@@ -296,15 +296,21 @@
 }
 
 #modalFinalizar .modal-content-cupom {
-    background: #fff;
-    padding: 36px 32px 28px 32px;
+    background: linear-gradient(135deg, #fff 80%, #ffe5e5 100%);
+    padding: 38px 28px 28px 28px; /* <-- O último valor é o padding-bottom */
     border-radius: 18px;
     min-width: 340px;
     max-width: 95vw;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 32px rgba(70,59,59,0.18), 0 2px 10px rgba(183,28,28,0.10);
     position: relative;
     text-align: center;
+    border: 2px solid #ffe5e5;
     animation: scaleIn 0.25s;
+    transition: box-shadow 0.3s;
+}
+
+#modalFinalizar #finalizarResumo p {
+    margin: 4px 0; /* ou use 0 para remover totalmente */
 }
 
 #modalFinalizar h2 {
@@ -346,8 +352,8 @@
 }
 
 #modalFinalizar #finalizarResumo {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-size: 1.1em;
     color: #463B3B;
 }
