@@ -88,13 +88,10 @@
                         <img class="img-card" src="/img/${item.imageUrl || "default-product.png"}" alt="${item.name || "Produto"}">
                         <p class="text-body">${item.description || "Descrição não disponível"}</p>
                     </div>
-                    
                     <div class="burguer-bar-footer">
                         <span class="labelNmr">R$${parseFloat(item.totalItemPrice).toFixed(2)}</span>
-                        ${produtosComIngredientes.includes(parseInt(item.id)) ? `
                             <button class="burguer-bar-footer-button"
                                 onclick="salvarEPersonalizar('${item.id}', '${item.idpedido}')">Personalizar Pedido</button>
-                        ` : ''}
 
                         <div class="burguer-bar-buttonQtde">
                             <button class="editarButton" onclick="adjustQty('${item.idpedido}', -1)">

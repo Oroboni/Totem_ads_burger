@@ -526,3 +526,4 @@ C:\Users\0031432512018\Documents\GitHub\Totem_ads_burger\obj\Debug\net9.0\ref\To
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\1xn8zmblva-0dlsbw4sk6.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\dugc06p6qn-s8t9qn0rju.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\melio\Downloads\Totem_ads_burger\bin\Debug\net9.0\Newtonsoft.Json.dll

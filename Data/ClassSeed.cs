@@ -23,6 +23,27 @@ namespace TotemPWA.Models
         public List<CompositionSeed>? Compositions { get; set; }
     }
 
+    public class ComboSeed
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Foto { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int CategoryId { get; set; }
+        public Category? Category { get; set; }
+    }
+
+    public class ComboProductSeed
+    {
+        public int Id { get; set; }
+        public int ComboId { get; set; }
+        public Combo? Combo { get; set; }
+        public int ProductId { get; set; }
+        public Product? Product { get; set; }
+    }
+
+
     public class IngredientSeed
     {
         public int Id { get; set; }

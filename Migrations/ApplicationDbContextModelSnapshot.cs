@@ -142,6 +142,494 @@ namespace TotemPWA.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TotemPWA.Models.Combo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Foto")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Combos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 31,
+                            CategoryId = 12,
+                            Description = "Truffle Burger + Batata Grande + Bebida Premium",
+                            Foto = "ComboCapa.png",
+                            Name = "Combo Truffle",
+                            Price = 45.99m
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CategoryId = 12,
+                            Description = "Bacon Cheddar + Onion Rings Grande + Suco Natural",
+                            Foto = "CombosTransparente.png",
+                            Name = "Combo Gourmet",
+                            Price = 42.5m
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CategoryId = 12,
+                            Description = "Veggie Artesanal + Batata Doce + Suco Verde",
+                            Foto = "ComboCapa.png",
+                            Name = "Combo Veggie",
+                            Price = 38.99m
+                        },
+                        new
+                        {
+                            Id = 34,
+                            CategoryId = 12,
+                            Description = "Blue Cheese Burger + Batata Cheddar + Vinho",
+                            Foto = "CombosTransparente.png",
+                            Name = "Combo Blue Cheese",
+                            Price = 43.5m
+                        },
+                        new
+                        {
+                            Id = 35,
+                            CategoryId = 12,
+                            Description = "Artesanal + Batata Média + Refri 600ml",
+                            Foto = "ComboCapa.png",
+                            Name = "Combo Executivo",
+                            Price = 39.99m
+                        },
+                        new
+                        {
+                            Id = 36,
+                            CategoryId = 13,
+                            Description = "4 Burgers + 2 Batatas Grandes + 4 Bebidas",
+                            Foto = "CombosTransparente.png",
+                            Name = "Combo Família 4 Pessoas",
+                            Price = 89.99m
+                        },
+                        new
+                        {
+                            Id = 37,
+                            CategoryId = 13,
+                            Description = "6 Burgers + 3 Batatas Grandes + 6 Bebidas + Molhos",
+                            Foto = "ComboCapa.png",
+                            Name = "Combo Festa",
+                            Price = 120.0m
+                        },
+                        new
+                        {
+                            Id = 38,
+                            CategoryId = 13,
+                            Description = "2 Burgers Kids + Batata Pequena + 2 Sucos",
+                            Foto = "ComboCapa.png",
+                            Name = "Combo Kids",
+                            Price = 65.0m
+                        },
+                        new
+                        {
+                            Id = 39,
+                            CategoryId = 13,
+                            Description = "2 Burgers + Batata Média + 2 Bebidas",
+                            Foto = "CombosTransparente.png",
+                            Name = "Combo Casal",
+                            Price = 59.99m
+                        },
+                        new
+                        {
+                            Id = 40,
+                            CategoryId = 13,
+                            Description = "3 Burgers + 2 Batatas Médias + 3 Bebidas",
+                            Foto = "ComboCapa.png",
+                            Name = "Combo Economia",
+                            Price = 75.5m
+                        });
+                });
+
+            modelBuilder.Entity("TotemPWA.Models.ComboProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ComboId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ComboId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ComboProducts");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ComboId = 31,
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ComboId = 31,
+                            ProductId = 23
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ComboId = 31,
+                            ProductId = 15
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ComboId = 32,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ComboId = 32,
+                            ProductId = 28
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ComboId = 32,
+                            ProductId = 16
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ComboId = 33,
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ComboId = 33,
+                            ProductId = 25
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ComboId = 33,
+                            ProductId = 20
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ComboId = 34,
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ComboId = 34,
+                            ProductId = 24
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ComboId = 35,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            Id = 13,
+                            ComboId = 35,
+                            ProductId = 22
+                        },
+                        new
+                        {
+                            Id = 14,
+                            ComboId = 35,
+                            ProductId = 15
+                        },
+                        new
+                        {
+                            Id = 15,
+                            ComboId = 36,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 16,
+                            ComboId = 36,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 17,
+                            ComboId = 36,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 18,
+                            ComboId = 36,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 19,
+                            ComboId = 36,
+                            ProductId = 23
+                        },
+                        new
+                        {
+                            Id = 20,
+                            ComboId = 36,
+                            ProductId = 23
+                        },
+                        new
+                        {
+                            Id = 21,
+                            ComboId = 36,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 22,
+                            ComboId = 36,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 23,
+                            ComboId = 36,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 24,
+                            ComboId = 36,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 25,
+                            ComboId = 37,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 26,
+                            ComboId = 37,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 27,
+                            ComboId = 37,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 28,
+                            ComboId = 37,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 29,
+                            ComboId = 37,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 30,
+                            ComboId = 37,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 31,
+                            ComboId = 37,
+                            ProductId = 23
+                        },
+                        new
+                        {
+                            Id = 32,
+                            ComboId = 37,
+                            ProductId = 23
+                        },
+                        new
+                        {
+                            Id = 33,
+                            ComboId = 37,
+                            ProductId = 23
+                        },
+                        new
+                        {
+                            Id = 34,
+                            ComboId = 37,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 35,
+                            ComboId = 37,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 36,
+                            ComboId = 37,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 37,
+                            ComboId = 37,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 38,
+                            ComboId = 37,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 39,
+                            ComboId = 37,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 40,
+                            ComboId = 38,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 41,
+                            ComboId = 38,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 42,
+                            ComboId = 38,
+                            ProductId = 21
+                        },
+                        new
+                        {
+                            Id = 43,
+                            ComboId = 38,
+                            ProductId = 16
+                        },
+                        new
+                        {
+                            Id = 44,
+                            ComboId = 38,
+                            ProductId = 16
+                        },
+                        new
+                        {
+                            Id = 45,
+                            ComboId = 39,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 46,
+                            ComboId = 39,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 47,
+                            ComboId = 39,
+                            ProductId = 22
+                        },
+                        new
+                        {
+                            Id = 48,
+                            ComboId = 39,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 49,
+                            ComboId = 39,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 50,
+                            ComboId = 40,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 51,
+                            ComboId = 40,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 52,
+                            ComboId = 40,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 53,
+                            ComboId = 40,
+                            ProductId = 22
+                        },
+                        new
+                        {
+                            Id = 54,
+                            ComboId = 40,
+                            ProductId = 22
+                        },
+                        new
+                        {
+                            Id = 55,
+                            ComboId = 40,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 56,
+                            ComboId = 40,
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            Id = 57,
+                            ComboId = 40,
+                            ProductId = 11
+                        });
+                });
+
             modelBuilder.Entity("TotemPWA.Models.Composition", b =>
                 {
                     b.Property<int>("Id")
@@ -955,96 +1443,6 @@ namespace TotemPWA.Migrations
                         },
                         new
                         {
-                            Id = 31,
-                            CategoryId = 12,
-                            Description = "Truffle Burger + Batata Grande + Bebida Premium",
-                            Foto = "ComboCapa.png",
-                            Name = "Combo Truffle",
-                            Price = 45.99m
-                        },
-                        new
-                        {
-                            Id = 32,
-                            CategoryId = 12,
-                            Description = "Bacon Cheddar + Onion Rings Grande + Suco Natural",
-                            Foto = "CombosTransparente.png",
-                            Name = "Combo Gourmet",
-                            Price = 42.50m
-                        },
-                        new
-                        {
-                            Id = 33,
-                            CategoryId = 12,
-                            Description = "Veggie Artesanal + Batata Doce + Suco Verde",
-                            Foto = "ComboCapa.png",
-                            Name = "Combo Veggie",
-                            Price = 38.99m
-                        },
-                        new
-                        {
-                            Id = 34,
-                            CategoryId = 12,
-                            Description = "Blue Cheese Burger + Batata Cheddar + Vinho",
-                            Foto = "CombosTransparente.png",
-                            Name = "Combo Blue Cheese",
-                            Price = 43.50m
-                        },
-                        new
-                        {
-                            Id = 35,
-                            CategoryId = 12,
-                            Description = "Artesanal + Batata Média + Refri 600ml",
-                            Foto = "ComboCapa.png",
-                            Name = "Combo Executivo",
-                            Price = 39.99m
-                        },
-                        new
-                        {
-                            Id = 36,
-                            CategoryId = 13,
-                            Description = "4 Burgers + 2 Batatas Grandes + 4 Bebidas",
-                            Foto = "CombosTransparente.png",
-                            Name = "Combo Família 4 Pessoas",
-                            Price = 89.99m
-                        },
-                        new
-                        {
-                            Id = 37,
-                            CategoryId = 13,
-                            Description = "6 Burgers + 3 Batatas Grandes + 6 Bebidas + Molhos",
-                            Foto = "ComboCapa.png",
-                            Name = "Combo Festa",
-                            Price = 120.00m
-                        },
-                        new
-                        {
-                            Id = 38,
-                            CategoryId = 13,
-                            Description = "2 Burgers Kids + Batata Pequena + 2 Sucos",
-                            Foto = "ComboCapa.png",
-                            Name = "Combo Kids",
-                            Price = 65.00m
-                        },
-                        new
-                        {
-                            Id = 39,
-                            CategoryId = 13,
-                            Description = "2 Burgers + Batata Média + 2 Bebidas",
-                            Foto = "CombosTransparente.png",
-                            Name = "Combo Casal",
-                            Price = 59.99m
-                        },
-                        new
-                        {
-                            Id = 40,
-                            CategoryId = 13,
-                            Description = "3 Burgers + 2 Batatas Médias + 3 Bebidas",
-                            Foto = "ComboCapa.png",
-                            Name = "Combo Economia",
-                            Price = 75.50m
-                        },
-                        new
-                        {
                             Id = 41,
                             CategoryId = 14,
                             Description = "50ml - Picância média",
@@ -1145,6 +1543,36 @@ namespace TotemPWA.Migrations
                     b.Navigation("ParentCategory");
                 });
 
+            modelBuilder.Entity("TotemPWA.Models.Combo", b =>
+                {
+                    b.HasOne("Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("TotemPWA.Models.ComboProduct", b =>
+                {
+                    b.HasOne("TotemPWA.Models.Combo", "Combo")
+                        .WithMany("ComboProducts")
+                        .HasForeignKey("ComboId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TotemPWA.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Combo");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("TotemPWA.Models.Composition", b =>
                 {
                     b.HasOne("TotemPWA.Models.Ingredient", "Ingredient")
@@ -1184,6 +1612,11 @@ namespace TotemPWA.Migrations
                     b.Navigation("Products");
 
                     b.Navigation("Subcategories");
+                });
+
+            modelBuilder.Entity("TotemPWA.Models.Combo", b =>
+                {
+                    b.Navigation("ComboProducts");
                 });
 
             modelBuilder.Entity("TotemPWA.Models.Ingredient", b =>

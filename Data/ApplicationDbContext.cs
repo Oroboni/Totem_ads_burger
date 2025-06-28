@@ -13,6 +13,9 @@ namespace TotemPWA.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Composition> Compositions { get; set; }
+        public DbSet<Combo> Combos { get; set; }
+        public DbSet<ComboProduct> ComboProducts { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -42,6 +45,27 @@ namespace TotemPWA.Data
                 .WithMany(p => p.Compositions)
                 .HasForeignKey(c => c.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ComboProduct>()
+                .HasOne(cp => cp.Combo)
+                .WithMany(c => c.ComboProducts)
+                .HasForeignKey(cp => cp.ComboId);
+
+            modelBuilder.Entity<ComboProduct>()
+                .HasOne(cp => cp.Product)
+                .WithMany()
+                .HasForeignKey(cp => cp.ProductId);
+
+            modelBuilder.Entity<Combo>()
+                .HasOne(c => c.Category)
+                .WithMany()
+                .HasForeignKey(c => c.CategoryId);
+
+            modelBuilder.Entity<Combo>()
+                .HasMany(c => c.ComboProducts)
+                .WithOne(cp => cp.Combo)
+                .HasForeignKey(cp => cp.ComboId);
+
 
 
 
@@ -109,18 +133,6 @@ namespace TotemPWA.Data
                 new Product { Id = 29, Name = "Onion Rings Cheddar", CategoryId = 11, Price = 16.00m, Description = "Porção média com cheddar", Foto = "batata frita.jpg" },
                 new Product { Id = 30, Name = "Onion Rings Picante", CategoryId = 11, Price = 15.00m, Description = "Porção média com molho picante", Foto = "batata frita.jpg" },
 
-                new Product { Id = 31, Name = "Combo Truffle", CategoryId = 12, Price = 45.99m, Description = "Truffle Burger + Batata Grande + Bebida Premium", Foto = "ComboCapa.png" },
-                new Product { Id = 32, Name = "Combo Gourmet", CategoryId = 12, Price = 42.50m, Description = "Bacon Cheddar + Onion Rings Grande + Suco Natural", Foto = "CombosTransparente.png" },
-                new Product { Id = 33, Name = "Combo Veggie", CategoryId = 12, Price = 38.99m, Description = "Veggie Artesanal + Batata Doce + Suco Verde", Foto = "ComboCapa.png" },
-                new Product { Id = 34, Name = "Combo Blue Cheese", CategoryId = 12, Price = 43.50m, Description = "Blue Cheese Burger + Batata Cheddar + Vinho", Foto = "CombosTransparente.png" },
-                new Product { Id = 35, Name = "Combo Executivo", CategoryId = 12, Price = 39.99m, Description = "Artesanal + Batata Média + Refri 600ml", Foto = "ComboCapa.png" },
-
-                new Product { Id = 36, Name = "Combo Família 4 Pessoas", CategoryId = 13, Price = 89.99m, Description = "4 Burgers + 2 Batatas Grandes + 4 Bebidas", Foto = "CombosTransparente.png" },
-                new Product { Id = 37, Name = "Combo Festa", CategoryId = 13, Price = 120.00m, Description = "6 Burgers + 3 Batatas Grandes + 6 Bebidas + Molhos", Foto = "ComboCapa.png" },
-                new Product { Id = 38, Name = "Combo Kids", CategoryId = 13, Price = 65.00m, Description = "2 Burgers Kids + Batata Pequena + 2 Sucos", Foto = "ComboCapa.png" },
-                new Product { Id = 39, Name = "Combo Casal", CategoryId = 13, Price = 59.99m, Description = "2 Burgers + Batata Média + 2 Bebidas", Foto = "CombosTransparente.png" },
-                new Product { Id = 40, Name = "Combo Economia", CategoryId = 13, Price = 75.50m, Description = "3 Burgers + 2 Batatas Médias + 3 Bebidas", Foto = "ComboCapa.png" },
-
                 new Product { Id = 41, Name = "Molho de Pimenta Jalapeño", CategoryId = 14, Price = 3.50m, Description = "50ml - Picância média", Foto = "pimenta1.jpg" },
                 new Product { Id = 42, Name = "Molho Habanero", CategoryId = 14, Price = 4.00m, Description = "50ml - Picância forte", Foto = "pimenta2.jpg" },
                 new Product { Id = 43, Name = "Molho de Pimenta Caiena", CategoryId = 14, Price = 3.50m, Description = "50ml - Picância média", Foto = "pimenta3.jpg" },
@@ -136,12 +148,107 @@ namespace TotemPWA.Data
 
 
             modelBuilder.Entity<Ingredient>().HasData(
-                new Ingredient { Id = 1, Name = "Bacon", AdditionalPrice = 2.00m, Foto= "https://purepng.com/public/uploads/large/purepng.com-baconfood-meat-fried-pork-cooked-941524619205lmptp.png" },
-                new Ingredient { Id = 2, Name = "Queijo", AdditionalPrice = 1.50m, Foto= "https://www.pngmart.com/files/16/Cheese-Piece-Slice-PNG-Clipart.png" },
-                new Ingredient { Id = 3, Name = "alface", AdditionalPrice = 1.00m, Foto= "https://th.bing.com/th/id/R.e8b9516fa28fb9bd627f165702a56d6e?rik=hLa5GIL15ybojw&pid=ImgRaw&r=0" },
-                new Ingredient { Id = 4, Name = "tomate", AdditionalPrice = 1.20m, Foto= "https://th.bing.com/th/id/R.0e88ac13dc38fd380591cf4dc357f709?rik=bigMcONgbIcfTA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fTomato-Free-PNG-Image.png&ehk=TnfBtAyfzAetFPKm1B71hlBLCWT%2fIOfh961OOEmsejg%3d&risl=&pid=ImgRaw&r=0" },
-                new Ingredient { Id = 5, Name = "Hamburger", AdditionalPrice = 0.80m, Foto= "https://laretofood.hr/wp-content/uploads/2024/04/ROUNDEES-deciso-industria-min-600x600.png" }
+                new Ingredient { Id = 1, Name = "Bacon", AdditionalPrice = 2.00m, Foto = "https://purepng.com/public/uploads/large/purepng.com-baconfood-meat-fried-pork-cooked-941524619205lmptp.png" },
+                new Ingredient { Id = 2, Name = "Queijo", AdditionalPrice = 1.50m, Foto = "https://www.pngmart.com/files/16/Cheese-Piece-Slice-PNG-Clipart.png" },
+                new Ingredient { Id = 3, Name = "alface", AdditionalPrice = 1.00m, Foto = "https://th.bing.com/th/id/R.e8b9516fa28fb9bd627f165702a56d6e?rik=hLa5GIL15ybojw&pid=ImgRaw&r=0" },
+                new Ingredient { Id = 4, Name = "tomate", AdditionalPrice = 1.20m, Foto = "https://th.bing.com/th/id/R.0e88ac13dc38fd380591cf4dc357f709?rik=bigMcONgbIcfTA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fTomato-Free-PNG-Image.png&ehk=TnfBtAyfzAetFPKm1B71hlBLCWT%2fIOfh961OOEmsejg%3d&risl=&pid=ImgRaw&r=0" },
+                new Ingredient { Id = 5, Name = "Hamburger", AdditionalPrice = 0.80m, Foto = "https://laretofood.hr/wp-content/uploads/2024/04/ROUNDEES-deciso-industria-min-600x600.png" }
             );
+
+            modelBuilder.Entity<Combo>().HasData(
+                new Combo { Id = 31, Name = "Combo Truffle", CategoryId = 12, Price = 45.99m, Description = "Truffle Burger + Batata Grande + Bebida Premium", Foto = "ComboCapa.png" },
+                new Combo { Id = 32, Name = "Combo Gourmet", CategoryId = 12, Price = 42.5m, Description = "Bacon Cheddar + Onion Rings Grande + Suco Natural", Foto = "CombosTransparente.png" },
+                new Combo { Id = 33, Name = "Combo Veggie", CategoryId = 12, Price = 38.99m, Description = "Veggie Artesanal + Batata Doce + Suco Verde", Foto = "ComboCapa.png" },
+                new Combo { Id = 34, Name = "Combo Blue Cheese", CategoryId = 12, Price = 43.5m, Description = "Blue Cheese Burger + Batata Cheddar + Vinho", Foto = "CombosTransparente.png" },
+                new Combo { Id = 35, Name = "Combo Executivo", CategoryId = 12, Price = 39.99m, Description = "Artesanal + Batata Média + Refri 600ml", Foto = "ComboCapa.png" },
+                new Combo { Id = 36, Name = "Combo Família 4 Pessoas", CategoryId = 13, Price = 89.99m, Description = "4 Burgers + 2 Batatas Grandes + 4 Bebidas", Foto = "CombosTransparente.png" },
+                new Combo { Id = 37, Name = "Combo Festa", CategoryId = 13, Price = 120.0m, Description = "6 Burgers + 3 Batatas Grandes + 6 Bebidas + Molhos", Foto = "ComboCapa.png" },
+                new Combo { Id = 38, Name = "Combo Kids", CategoryId = 13, Price = 65.0m, Description = "2 Burgers Kids + Batata Pequena + 2 Sucos", Foto = "ComboCapa.png" },
+                new Combo { Id = 39, Name = "Combo Casal", CategoryId = 13, Price = 59.99m, Description = "2 Burgers + Batata Média + 2 Bebidas", Foto = "CombosTransparente.png" },
+                new Combo { Id = 40, Name = "Combo Economia", CategoryId = 13, Price = 75.5m, Description = "3 Burgers + 2 Batatas Médias + 3 Bebidas", Foto = "ComboCapa.png" }
+            );
+
+
+            modelBuilder.Entity<ComboProduct>().HasData(
+                // Combo 1 - Combo Truffle
+                new ComboProduct { Id = 1, ComboId = 31, ProductId = 4 },  // Truffle Burger
+                new ComboProduct { Id = 2, ComboId = 31, ProductId = 23 }, // Batata Frita Grande
+                new ComboProduct { Id = 3, ComboId = 31, ProductId = 15 }, // Coca-Cola 600ml
+
+                // Combo 2 - Combo Gourmet
+                new ComboProduct { Id = 4, ComboId = 32, ProductId = 2 },  // Bacon Cheddar
+                new ComboProduct { Id = 5, ComboId = 32, ProductId = 28 }, // Onion Rings Grande
+                new ComboProduct { Id = 6, ComboId = 32, ProductId = 16 }, // Suco de Laranja
+
+                // Combo 33 - Combo Veggie (corrigido!)
+                new ComboProduct { Id = 7, ComboId = 33, ProductId = 5 },  // Veggie Artesanal
+                new ComboProduct { Id = 8, ComboId = 33, ProductId = 25 }, // Batata Doce
+                new ComboProduct { Id = 9, ComboId = 33, ProductId = 20 }, // Suco Verde
+
+                // Combo 34 - Combo Blue Cheese
+                new ComboProduct { Id = 10, ComboId = 34, ProductId = 3 },  // Blue Cheese Burger
+                new ComboProduct { Id = 11, ComboId = 34, ProductId = 24 }, // Batata Cheddar e Bacon
+
+                // Combo 35 - Combo Executivo
+                new ComboProduct { Id = 12, ComboId = 35, ProductId = 1 },  // Cheeseburger Artesanal
+                new ComboProduct { Id = 13, ComboId = 35, ProductId = 22 }, // Batata Frita Média
+                new ComboProduct { Id = 14, ComboId = 35, ProductId = 15 }, // Coca-Cola 600ml
+
+                // Combo 36 - Combo Família 4 Pessoas
+                new ComboProduct { Id = 15, ComboId = 36, ProductId = 6 },
+                new ComboProduct { Id = 16, ComboId = 36, ProductId = 6 },
+                new ComboProduct { Id = 17, ComboId = 36, ProductId = 6 },
+                new ComboProduct { Id = 18, ComboId = 36, ProductId = 6 },
+                new ComboProduct { Id = 19, ComboId = 36, ProductId = 23 },
+                new ComboProduct { Id = 20, ComboId = 36, ProductId = 23 },
+                new ComboProduct { Id = 21, ComboId = 36, ProductId = 11 },
+                new ComboProduct { Id = 22, ComboId = 36, ProductId = 11 },
+                new ComboProduct { Id = 23, ComboId = 36, ProductId = 11 },
+                new ComboProduct { Id = 24, ComboId = 36, ProductId = 11 },
+
+                // Combo 37 - Combo Festa
+                new ComboProduct { Id = 25, ComboId = 37, ProductId = 6 },
+                new ComboProduct { Id = 26, ComboId = 37, ProductId = 6 },
+                new ComboProduct { Id = 27, ComboId = 37, ProductId = 6 },
+                new ComboProduct { Id = 28, ComboId = 37, ProductId = 6 },
+                new ComboProduct { Id = 29, ComboId = 37, ProductId = 6 },
+                new ComboProduct { Id = 30, ComboId = 37, ProductId = 6 },
+                new ComboProduct { Id = 31, ComboId = 37, ProductId = 23 },
+                new ComboProduct { Id = 32, ComboId = 37, ProductId = 23 },
+                new ComboProduct { Id = 33, ComboId = 37, ProductId = 23 },
+                new ComboProduct { Id = 34, ComboId = 37, ProductId = 11 },
+                new ComboProduct { Id = 35, ComboId = 37, ProductId = 11 },
+                new ComboProduct { Id = 36, ComboId = 37, ProductId = 11 },
+                new ComboProduct { Id = 37, ComboId = 37, ProductId = 11 },
+                new ComboProduct { Id = 38, ComboId = 37, ProductId = 11 },
+                new ComboProduct { Id = 39, ComboId = 37, ProductId = 11 },
+
+                // Combo 38 - Combo Kids
+                new ComboProduct { Id = 40, ComboId = 38, ProductId = 6 },
+                new ComboProduct { Id = 41, ComboId = 38, ProductId = 6 },
+                new ComboProduct { Id = 42, ComboId = 38, ProductId = 21 },
+                new ComboProduct { Id = 43, ComboId = 38, ProductId = 16 },
+                new ComboProduct { Id = 44, ComboId = 38, ProductId = 16 },
+
+                // Combo 39 - Combo Casal
+                new ComboProduct { Id = 45, ComboId = 39, ProductId = 6 },
+                new ComboProduct { Id = 46, ComboId = 39, ProductId = 6 },
+                new ComboProduct { Id = 47, ComboId = 39, ProductId = 22 },
+                new ComboProduct { Id = 48, ComboId = 39, ProductId = 11 },
+                new ComboProduct { Id = 49, ComboId = 39, ProductId = 11 },
+
+                // Combo 40 - Combo Economia
+                new ComboProduct { Id = 50, ComboId = 40, ProductId = 6 },
+                new ComboProduct { Id = 51, ComboId = 40, ProductId = 6 },
+                new ComboProduct { Id = 52, ComboId = 40, ProductId = 6 },
+                new ComboProduct { Id = 53, ComboId = 40, ProductId = 22 },
+                new ComboProduct { Id = 54, ComboId = 40, ProductId = 22 },
+                new ComboProduct { Id = 55, ComboId = 40, ProductId = 11 },
+                new ComboProduct { Id = 56, ComboId = 40, ProductId = 11 },
+                new ComboProduct { Id = 57, ComboId = 40, ProductId = 11 }
+            );
+
+
 
             modelBuilder.Entity<Composition>().HasData(
                 // Cheeseburger Artesanal
