@@ -15,7 +15,7 @@ namespace TotemPWA.Data
         public DbSet<Composition> Compositions { get; set; }
         public DbSet<Combo> Combos { get; set; }
         public DbSet<ComboProduct> ComboProducts { get; set; }
-
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -311,6 +311,10 @@ namespace TotemPWA.Data
                 new Composition { Id = 39, MaxQuantity = 5, IngredientId = 3, ProductId = 10, quantity = 2 },
                 new Composition { Id = 40, MaxQuantity = 5, IngredientId = 4, ProductId = 10, quantity = 1 },
                 new Composition { Id = 41, MaxQuantity = 5, IngredientId = 5, ProductId = 10, quantity = 4 }
+            );
+
+            modelBuilder.Entity<User>().HasData(
+                new User { Id = 1, Login = "123", Senha = "123" }
             );
 
             // dotnet ef migrations add SeedProducts

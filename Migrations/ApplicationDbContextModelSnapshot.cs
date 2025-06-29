@@ -151,6 +151,9 @@ namespace TotemPWA.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("CategoryId1")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -169,6 +172,8 @@ namespace TotemPWA.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("CategoryId1");
 
                     b.ToTable("Combos");
 
@@ -1533,6 +1538,33 @@ namespace TotemPWA.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TotemPWA.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Login = "123",
+                            Senha = "123"
+                        });
+                });
+
             modelBuilder.Entity("Category", b =>
                 {
                     b.HasOne("Category", "ParentCategory")
@@ -1550,6 +1582,10 @@ namespace TotemPWA.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Category", null)
+                        .WithMany("Combos")
+                        .HasForeignKey("CategoryId1");
 
                     b.Navigation("Category");
                 });
@@ -1609,6 +1645,8 @@ namespace TotemPWA.Migrations
 
             modelBuilder.Entity("Category", b =>
                 {
+                    b.Navigation("Combos");
+
                     b.Navigation("Products");
 
                     b.Navigation("Subcategories");

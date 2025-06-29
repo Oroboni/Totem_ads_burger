@@ -11,7 +11,7 @@ public class Category
     {
         get => _name;
         set
-        { 
+        {
             _name = value;
             Slug = GenerateSlug(value); // Gera o slug quando o nome é definido
         }
@@ -36,4 +36,6 @@ public class Category
     public ICollection<Category> Subcategories { get; set; } = new List<Category>();
 
     public ICollection<Product> Products { get; set; } = new List<Product>();
+    
+    public ICollection<Combo> Combos { get; set; } = new List<Combo>();
 }

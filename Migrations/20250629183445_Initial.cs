@@ -48,6 +48,20 @@ namespace TotemPWA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Login = table.Column<string>(type: "TEXT", nullable: false),
+                    Senha = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Combos",
                 columns: table => new
                 {
@@ -57,7 +71,8 @@ namespace TotemPWA.Migrations
                     Foto = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    CategoryId = table.Column<int>(type: "INTEGER", nullable: false)
+                    CategoryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CategoryId1 = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -68,6 +83,11 @@ namespace TotemPWA.Migrations
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Combos_Categories_CategoryId1",
+                        column: x => x.CategoryId1,
+                        principalTable: "Categories",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -180,6 +200,11 @@ namespace TotemPWA.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Login", "Senha" },
+                values: new object[] { 1, "123", "123" });
+
+            migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "Name", "ParentCategoryId", "Slug" },
                 values: new object[,]
@@ -198,19 +223,19 @@ namespace TotemPWA.Migrations
 
             migrationBuilder.InsertData(
                 table: "Combos",
-                columns: new[] { "Id", "CategoryId", "Description", "Foto", "Name", "Price" },
+                columns: new[] { "Id", "CategoryId", "CategoryId1", "Description", "Foto", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 31, 12, "Truffle Burger + Batata Grande + Bebida Premium", "ComboCapa.png", "Combo Truffle", 45.99m },
-                    { 32, 12, "Bacon Cheddar + Onion Rings Grande + Suco Natural", "CombosTransparente.png", "Combo Gourmet", 42.5m },
-                    { 33, 12, "Veggie Artesanal + Batata Doce + Suco Verde", "ComboCapa.png", "Combo Veggie", 38.99m },
-                    { 34, 12, "Blue Cheese Burger + Batata Cheddar + Vinho", "CombosTransparente.png", "Combo Blue Cheese", 43.5m },
-                    { 35, 12, "Artesanal + Batata Média + Refri 600ml", "ComboCapa.png", "Combo Executivo", 39.99m },
-                    { 36, 13, "4 Burgers + 2 Batatas Grandes + 4 Bebidas", "CombosTransparente.png", "Combo Família 4 Pessoas", 89.99m },
-                    { 37, 13, "6 Burgers + 3 Batatas Grandes + 6 Bebidas + Molhos", "ComboCapa.png", "Combo Festa", 120.0m },
-                    { 38, 13, "2 Burgers Kids + Batata Pequena + 2 Sucos", "ComboCapa.png", "Combo Kids", 65.0m },
-                    { 39, 13, "2 Burgers + Batata Média + 2 Bebidas", "CombosTransparente.png", "Combo Casal", 59.99m },
-                    { 40, 13, "3 Burgers + 2 Batatas Médias + 3 Bebidas", "ComboCapa.png", "Combo Economia", 75.5m }
+                    { 31, 12, null, "Truffle Burger + Batata Grande + Bebida Premium", "ComboCapa.png", "Combo Truffle", 45.99m },
+                    { 32, 12, null, "Bacon Cheddar + Onion Rings Grande + Suco Natural", "CombosTransparente.png", "Combo Gourmet", 42.5m },
+                    { 33, 12, null, "Veggie Artesanal + Batata Doce + Suco Verde", "ComboCapa.png", "Combo Veggie", 38.99m },
+                    { 34, 12, null, "Blue Cheese Burger + Batata Cheddar + Vinho", "CombosTransparente.png", "Combo Blue Cheese", 43.5m },
+                    { 35, 12, null, "Artesanal + Batata Média + Refri 600ml", "ComboCapa.png", "Combo Executivo", 39.99m },
+                    { 36, 13, null, "4 Burgers + 2 Batatas Grandes + 4 Bebidas", "CombosTransparente.png", "Combo Família 4 Pessoas", 89.99m },
+                    { 37, 13, null, "6 Burgers + 3 Batatas Grandes + 6 Bebidas + Molhos", "ComboCapa.png", "Combo Festa", 120.0m },
+                    { 38, 13, null, "2 Burgers Kids + Batata Pequena + 2 Sucos", "ComboCapa.png", "Combo Kids", 65.0m },
+                    { 39, 13, null, "2 Burgers + Batata Média + 2 Bebidas", "CombosTransparente.png", "Combo Casal", 59.99m },
+                    { 40, 13, null, "3 Burgers + 2 Batatas Médias + 3 Bebidas", "ComboCapa.png", "Combo Economia", 75.5m }
                 });
 
             migrationBuilder.InsertData(
@@ -393,6 +418,11 @@ namespace TotemPWA.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Combos_CategoryId1",
+                table: "Combos",
+                column: "CategoryId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Compositions_IngredientId",
                 table: "Compositions",
                 column: "IngredientId");
@@ -421,6 +451,9 @@ namespace TotemPWA.Migrations
 
             migrationBuilder.DropTable(
                 name: "Compositions");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Combos");

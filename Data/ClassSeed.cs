@@ -64,4 +64,11 @@ namespace TotemPWA.Models
         public int ProductId { get; set; }
         public int IngredientId { get; set; }
     }
+
+    public class UserSeed
+    {
+        public int Id { get; set; }
+        public string Login { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
+    }
 }
