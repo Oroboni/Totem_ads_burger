@@ -24,6 +24,7 @@
 <script>
     function apagar(){
         localStorage.removeItem("cart");
+        localStorage.removeItem("clienteCPF");
     }
     window.onload = function() {
         if (localStorage.getItem("cart")) {

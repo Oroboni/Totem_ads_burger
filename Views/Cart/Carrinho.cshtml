@@ -10,13 +10,14 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    
 </head>
 
 
 <div class="coupon-bar">
     <a onclick="location.href='@Url.Action("Pedido", "Home")'" class="button btn-left">
         <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i> Voltar</a>
-    <button type="button" onclick="cupomModal()" class="button btn-right">
+    <button id="cupomButton" type="button" onclick="cupomModal()" class="button btn-right">
         <i class="fa-solid fa-ticket" style="color: #ffffff;"></i> INSIRA AQUI SEU CUPOM!
     </button>
 </div>
@@ -78,6 +79,7 @@
 <script src="~/js/editar.js"></script>
 <script>
     var descontoCupom = 0;
+    var tipoCupom = null;
     const produtosComIngredientes = @Html.Raw(Json.Serialize(ViewBag.IdsComIngredientes));
     function load() {
         const savedCart = localStorage.getItem("cart");
@@ -201,8 +203,8 @@
             ).join('');
             titulo.innerText = "Resumo do Pedido";
             resumo.innerHTML = `<ul style="text-align:left;">${itens}</ul>
-                <p><span style="color:#b71c1c; font-size:0.95em;">Subtotal: R$${totalBruto.toFixed(2)}</span></p>
-                ${descontoCupom > 0 ? `<p><span style="color:#388e3c; font-size:0.95em;">Desconto: -R$${descontoValor.toFixed(2)}</span></p>` : ""}
+                <p><span style="color:#b71c1c; font-size:0.5em;">Subtotal: R$${totalBruto.toFixed(2)}</span></p>
+                ${descontoCupom > 0 ? `<p><span style="color:#388e3c; font-size:0.5em;">Desconto: -R$${descontoValor.toFixed(2)}</span></p>` : ""}
                 <p><strong>Total: R$${total.toFixed(2)}</strong></p>`;
         }
     }
@@ -226,14 +228,27 @@
             alert('Digite um cupom!');
             return;
         }
+        
 
         fetch('/Order/ApplyCupom?code=' + encodeURIComponent(cupom))
             .then(response => response.json())
             .then(data => {
                 if (data.desconto && data.desconto !== 0) {
                     descontoCupom = data.desconto;
-                    let precoAtual = document.getElementById("total-price").innerText;
-                    let novoPreco = parseFloat(precoAtual) - (parseFloat(precoAtual) * descontoCupom);
+                    tipoCupom = data.tipo;
+                    let precoAtual = parseFloat(document.getElementById("total-price").innerText);
+
+                    let novoPreco;
+                    if (data.tipo === "Porcentagem") {
+                        novoPreco = precoAtual - (precoAtual * descontoCupom);
+                    } else if (data.tipo === "ValorFixo") {
+                        novoPreco = precoAtual - descontoCupom;
+                    } else {
+                        novoPreco = precoAtual;
+                    }
+
+                    if (novoPreco < 0) novoPreco = 0;
+
                     document.getElementById("total-price").innerText = novoPreco.toFixed(2);
                     fecharCupomModal();
                 } else {
@@ -264,15 +279,31 @@
         } else {
             // Monta o resumo do pedido
             let totalBruto = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice), 0);
-            let descontoValor = totalBruto * descontoCupom;
+            let descontoValor = 0;
+            if (tipoCupom === "Porcentagem") {
+                descontoValor = totalBruto * descontoCupom;
+            } else if (tipoCupom === "ValorFixo") {
+                descontoValor = descontoCupom;
+            }
+            if (descontoValor > totalBruto) descontoValor = totalBruto; // nunca maior que o total
             let total = totalBruto - descontoValor;
+            if (total < 0) total = 0;
             let itens = cart.map(item => 
                 `<li>${item.quantity}x ${item.name} - R$${parseFloat(item.totalItemPrice).toFixed(2)}</li>`
             ).join('');
             titulo.innerText = "Resumo do Pedido";
+            let descontoTexto = "";
+            if (descontoCupom > 0) {
+                if (tipoCupom === "Porcentagem") {
+                    descontoTexto = `<p><span style="color:#388e3c; font-size:0.95em;">Desconto: -${(descontoCupom * 100).toFixed(0)}% (-R$${descontoValor.toFixed(2)})</span></p>`;
+                } else if (tipoCupom === "ValorFixo") {
+                    descontoTexto = `<p><span style="color:#388e3c; font-size:0.95em;">Desconto: -R$${descontoValor.toFixed(2)}</span></p>`;
+                }
+            }
+
             resumo.innerHTML = `<ul style="text-align:left;">${itens}</ul>
-                <p><span style="color:#b71c1c; font-size:0.5em;">Subtotal: R$${totalBruto.toFixed(2)}</span></p>
-                ${descontoCupom > 0 ? `<p><span style="color:#388e3c; font-size:0.5em;">Desconto: -R$${descontoValor.toFixed(2)}</span></p>` : ""}
+                <p><span style="color:#b71c1c; font-size:0.95em;">Subtotal: R$${totalBruto.toFixed(2)}</span></p>
+                ${descontoTexto}
                 <p><strong>Total: R$${total.toFixed(2)}</strong></p>`;
             btn = document.createElement('button');
             btn.className = "confirm-deletar-btn";
@@ -290,5 +321,13 @@
         document.getElementById('modalFinalizar').style.display = 'none';
     }
 
-    window.onload = load;
+    window.onload = function() {
+        // Verifica se o cliente está logado com CPF
+        const clienteCPF = localStorage.getItem("clienteCPF");
+        const cupomBtn = document.getElementById('cupomButton');
+        if (cupomBtn) {
+            cupomBtn.style.display = clienteCPF ? 'inline-flex' : 'none';
+        }
+        load();
+    };
 </script>
