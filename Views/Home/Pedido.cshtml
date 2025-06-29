@@ -120,7 +120,7 @@
         <p><strong>Descrição:</strong></p>
         <p id="descricao" class="modal-product-description"></p>
 
-        <button  class="modal-add-button" id="add-button" onclick="carrinho(),closeModal(),checkout()">Adicionar</button>
+        <button  class="modal-add-button" id="add-button" onclick="carrinho(),closeModal(),addItem()">Adicionar</button>
         <p style="display: none;" id="id"> asdasd</p>
     </div>
 </div>
@@ -130,10 +130,29 @@
         <div>Total de itens: <span id="cart-count">0</span></div>
         <div>Total do pedido: <span class="currency-symbol">R$</span> <span id="total-price">0.00</span></div>
     </div>
-    <button class="button" onclick="checkout(); check();;">Visualizar Pedido!</button>
+    <button class="button" onclick="checkout()">Visualizar
+        Pedido!</button>
+</div>
+
+<div id="modalDeletar" class="modal-cupom" style="display:none;">
+    <div class="modal-content-cupom2">
+        <span class="close-deletar" onclick="fecharModalDeletar()">&times;</span>
+        <h2>Insira algum item no <br> carrinho para prosseguir</h2>
+
+        <button id="confirm-entendido-btn" class="confirm-entendido-btn" onclick="fecharModalDeletar()">Entendido</button>
+    </div>
 </div>
 
 <script>
+    // Modal para confirmação da remoção do item
+    function abrirModalDeletar(idpedido) {
+        document.getElementById('modalDeletar').style.display = 'flex';
+    }
+
+    function fecharModalDeletar() {
+        document.getElementById('modalDeletar').style.display = 'none';
+    }
+
     let cartCount = 0;
     let totalPrice = 0;
     let cart = [];
@@ -186,7 +205,7 @@
         }
 
         updateCartUI();
-    }
+    } 
 
     function updateCartUI() {
         cartCount = cart.reduce((sum, i) => sum + i.quantity, 0);
@@ -197,6 +216,17 @@
     }
 
     function checkout() {
+        if(cart.length > 0){
+            window.location='@Url.Action("Carrinho", "Cart")';
+        }
+        if (!cart || cart.length === 0) {
+            abrirModalDeletar();
+            return;
+        } 
+
+        
+    }
+    function addItem(){
         localStorage.setItem("cart", JSON.stringify(cart));
     }
 

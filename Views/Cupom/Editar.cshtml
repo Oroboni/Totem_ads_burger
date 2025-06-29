@@ -1,0 +1,36 @@
+@model TotemPWA.Models.Cupom
+@{
+    ViewBag.Title = "Cupom";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<form asp-action="Editar" method="post">
+    <div class="container mt-5">
+        <h1>Editar Cupom</h1>
+        <input type="hidden" asp-for="Codigo" />
+
+        <div class="mb-3">
+            <label asp-for="Codigo" class="form-label">Código</label>
+            <input asp-for="Codigo" class="form-control" readonly />
+            <span asp-validation-for="Codigo" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Desconto" class="form-label">Desconto</label>
+            <input asp-for="Desconto" class="form-control" required type="number" step="0.01" />
+            <span asp-validation-for="Desconto" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Type" class="form-label">Tipo</label>
+            <select asp-for="Type" class="form-control">
+                <option value="Porcentagem">Porcentagem (%)</option>
+                <option value="ValorFixo">Valor Fixo (R$)</option>
+            </select>
+            <span asp-validation-for="Type" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        <button asp-action="Index" class="btn btn-primary">Cancelar</button>
+    </div>
+</form>

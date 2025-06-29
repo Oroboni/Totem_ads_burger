@@ -64,11 +64,20 @@ namespace TotemPWA.Models
         public int ProductId { get; set; }
         public int IngredientId { get; set; }
     }
+}
 
-    public class UserSeed
+//arquivos aceitos no pull request com mesclagem
+public class UserSeed
     {
         public int Id { get; set; }
         public string Login { get; set; } = string.Empty;
         public string Senha { get; set; } = string.Empty;
     }
+    
+    public class CupomSeed
+{
+    public int Id { get; set; }
+    public string Codigo { get; set; } = string.Empty;
+    public CupomType Type { get; set; }
+    public decimal Desconto { get; set; }
 }

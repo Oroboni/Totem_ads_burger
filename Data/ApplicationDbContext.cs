@@ -16,6 +16,7 @@ namespace TotemPWA.Data
         public DbSet<Combo> Combos { get; set; }
         public DbSet<ComboProduct> ComboProducts { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Cupom> Cupons { get; set; }//aceito no pull request
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -315,6 +316,12 @@ namespace TotemPWA.Data
 
             modelBuilder.Entity<User>().HasData(
                 new User { Id = 1, Login = "123", Senha = "123" }
+            );
+
+            modelBuilder.Entity<Cupom>().HasData(
+                new Cupom { Id = 1, Codigo = "BLACKFRIDAY", Desconto = 0.2m, Type = CupomType.Porcentagem },
+                new Cupom { Id = 2, Codigo = "NATAL2023", Desconto = 0.15m, Type = CupomType.Porcentagem },
+                new Cupom { Id = 3, Codigo = "VERAO2023", Desconto = 10.00m, Type = CupomType.ValorFixo }
             );
 
             // dotnet ef migrations add SeedProducts

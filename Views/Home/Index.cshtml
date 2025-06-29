@@ -17,13 +17,14 @@
     </div>
 
     <div class="Image botao">
-        <a class="nav-link text-dark a" asp-area="" asp-controller="Home" asp-action="Pedido">Toque para iniciar</a>
+        <a class="nav-link text-dark a" asp-area="" asp-controller="Home" asp-action="LoginCliente">Toque para iniciar</a>
     </div>
 
 </div>
 <script>
     function apagar(){
         localStorage.removeItem("cart");
+        localStorage.removeItem("clienteCPF");
     }
     window.onload = function() {
         if (localStorage.getItem("cart")) {

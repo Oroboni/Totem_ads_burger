@@ -1,0 +1,94 @@
+@{
+    ViewData["Title"] = "Pedido Confirmado";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Confirmado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        localStorage.removeItem("clienteCPF")
+        setTimeout(function() {
+            window.location = '@Url.Action("Index", "Home")';
+        }, 10000);
+    </script>
+    <style>
+        body {
+            background: #c1d343;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            color: #FAFAF5;
+            text-align: center;
+            font-family: Poppins;
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 100%; /* 128px */
+            letter-spacing: -3.84px;
+        }
+        h2 {
+            color: #FAFAF5;
+            text-align: center;
+            font-family: Poppins;
+            font-size: 128px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 100%; /* 128px */
+            letter-spacing: -3.84px;
+        }
+        .icon-success {
+            font-size: 6rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .pedido-titulo {
+            color: #fff;
+            font-size: 2.4rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            letter-spacing: 1px;
+        }
+        .pedido-msg {
+            color: #fff;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 0;
+            margin-top: 2rem;
+        }
+        .pedido-msg .destaque {
+            color: #b71c1c;
+            font-weight: bold;
+        }
+    </style>
+    
+</head>
+<body>
+    <div>
+        <div class="icon-success">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="pedido-titulo">
+            <h2>Pedido Confirmado</h2>
+        </div>
+        <div class="pedido-msg">
+            Obrigado por seu pedido! Sua compra foi confirmada com sucesso.
+            <div class="destaque">Aguarde enquanto preparamos tudo para você.</div>
+        </div>
+    </div>
+    
+</body>
+</html>
