@@ -528,3 +528,5 @@ C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\refint\TotemPWA.dll
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.pdb
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\i6djhtxhil-41qz4yplaa.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\wcr0pha0z0-pw4uj0so9t.gz
