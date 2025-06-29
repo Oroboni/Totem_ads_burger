@@ -214,6 +214,7 @@
                 return;
             }
             if (TestaCPF(cpf)) {
+                localStorage.setItem("clienteCPF", cpf); // Salva o CPF do cliente
                  window.location='@Url.Action("Pedido", "Home")';
             } else {
                 alert("CPF inválido");

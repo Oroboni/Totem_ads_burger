@@ -1,0 +1,45 @@
+@model List<TotemPWA.Models.Cupom>
+
+@{
+    ViewBag.Title = "Cupons";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/Editar.css">
+
+<div class="content">
+    <div class="container mt-5">
+        <h1>Cupons Disponíveis</h1>
+
+        <button onclick="location.href = '/Cupom/Create';">Adicionar cupom</button>
+
+        @foreach (var cupom in Model)
+        {
+            <div class="contentIngredient cupom-@cupom.Codigo">
+                <h2>@cupom.Codigo</h2>
+                <p>
+                    Tipo: <strong>@cupom.Type</strong>
+                </p>
+                <p>
+                    Desconto:
+                    @if (cupom.Type == TotemPWA.Models.CupomType.Porcentagem)
+                    {
+                        @($"{cupom.Desconto:P0}")
+                    }
+                    else
+                    {
+                        @cupom.Desconto.ToString("F2")
+                    }
+                </p>
+
+                <form asp-action="Delete" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="codigo" value="@cupom.Codigo" />
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </form>
+
+                <button class="btn btn-primary" onclick="location.href = '/Cupom/Editar?codigo=@cupom.Codigo';">Editar</button>
+            </div>
+        }
+    </div>
+</div>

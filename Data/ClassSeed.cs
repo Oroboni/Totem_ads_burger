@@ -41,7 +41,9 @@ namespace TotemPWA.Models
     }
     public class CupomSeed
     {
+        public int Id { get; set; }
         public string Codigo { get; set; } = string.Empty;
+        public CupomType Type { get; set; } 
         public decimal Desconto { get; set; }
     }
 }

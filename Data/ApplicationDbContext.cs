@@ -208,9 +208,9 @@ namespace TotemPWA.Data
             );
 
             modelBuilder.Entity<Cupom>().HasData(
-                new Cupom { Codigo = "BLACKFRIDAY", Desconto = 0.2m },
-                new Cupom { Codigo = "NATAL2023", Desconto = 0.15m },
-                new Cupom { Codigo = "VERAO2023", Desconto = 0.1m }
+                new Cupom { Id = 1, Codigo = "BLACKFRIDAY", Desconto = 0.2m, Type = CupomType.Porcentagem },
+                new Cupom { Id = 2, Codigo = "NATAL2023", Desconto = 0.15m, Type = CupomType.Porcentagem },
+                new Cupom { Id = 3, Codigo = "VERAO2023", Desconto = 10.00m, Type = CupomType.ValorFixo }
             );
 
             // dotnet ef migrations add SeedProducts

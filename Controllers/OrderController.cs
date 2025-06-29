@@ -13,12 +13,13 @@ namespace TotemPWA.Controllers
         }   
         public IActionResult ApplyCupom(string code)
         {
-           var desconto = _context.Cupons
-            .Where(c => c.Codigo == code)
-            .Select(c => c.Desconto)
-            .FirstOrDefault();
+            var cupom = _context.Cupons
+                .FirstOrDefault(c => c.Codigo == code);
 
-            return Json(new { desconto });
+            var desconto = cupom != null ? cupom.Desconto : 0;
+            var tipo = cupom != null ? cupom.Type.ToString() : null;
+
+            return Json(new { desconto, tipo });
         }
         public IActionResult SetDeliveryType(string type)
         {
