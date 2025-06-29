@@ -1,0 +1,64 @@
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<body class="bg-gray-100 font-[Poppins]">
+    <!-- Header -->
+    <header class="bg-[#3d422f] shadow-md p-4 flex justify-between items-center">
+        <div class="flex gap-4">
+            <a href="/Pedidos"
+                class="bg-[#a4a000] text-white font-bold px-4 py-2 rounded-md flex items-center gap-2 hover:brightness-110">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18" />
+                </svg>
+                visualizar pedidos
+            </a>
+            <a href="/Funcionarios"
+                class="bg-gray-700 text-white font-bold px-4 py-2 rounded-md flex items-center gap-2 shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.656 6.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                funcionários
+            </a>
+        </div>
+        <div class="text-white font-bold flex items-center gap-2">
+            <a href="/Admin" class="text-500 hover:text-gray-300">
+                Logout
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Grid de cards -->
+    <main class="max-w-6xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+        <a href="/Category" class="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition">
+            @* <img src="/img/card-sacola.png" alt="Categorias" class="mx-auto h-28 mb-4"> *@
+            <h3 class="text-green-800 font-semibold text-lg">Categorias & Subcategorias</h3>
+        </a>
+
+        <a href="/Combo" class="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition">
+            <h3 class="text-green-800 font-semibold text-lg">Produtos & Combos</h3>
+        </a>
+
+        <a href="/Ingredient" class="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition">
+            <h3 class="text-green-800 font-semibold text-lg">Ingredientes & Associações</h3>
+        </a>
+
+        <a href="/Lanche" class="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition">
+            <h3 class="text-green-800 font-semibold text-lg">Lanches</h3>
+        </a>
+
+        <a href="/Cupom" class="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition">
+            <h3 class="text-green-800 font-semibold text-lg">Cupons de desconto</h3>
+        </a>
+    </main>
+</body>

@@ -22,8 +22,6 @@ namespace TotemPWA.Models
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
-
-        public ICollection<Variation> Variations { get; set; } = new List<Variation>();
         public ICollection<Composition>? Compositions { get; set; } 
     }
 }

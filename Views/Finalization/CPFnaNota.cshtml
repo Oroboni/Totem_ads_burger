@@ -4,12 +4,14 @@
 }
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CPF na Nota</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <LINK rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></LINK>
+    <LINK rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </LINK>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         if (localStorage.getItem("clienteCPF")) {
@@ -17,46 +19,56 @@
         }
     </script>
     <style>
-    
         body {
-            font-family: 'Inter', sans-serif; 
+            font-family: 'Inter', sans-serif;
         }
-        
+
         .custom-checkbox:checked {
             background-color: #C1D343;
-            border-color: #C1D343; 
+            border-color: #C1D343;
         }
+
         .custom-checkbox:checked::before {
             content: '✓';
             display: block;
             color: white;
             text-align: center;
-            line-height: 1.25rem; 
-            font-size: 0.875rem; 
+            line-height: 1.25rem;
+            font-size: 0.875rem;
         }
+
         .cpf-input-placeholder::placeholder {
-            color: #9ca3af; 
+            color: #9ca3af;
             letter-spacing: 0.1em;
         }
-        .custom-button-color
-        {
+
+        .custom-button-color {
             background-color: #C1D343;
         }
-        .custom-letter-color{
-            color:#C30909;
+
+        .custom-letter-color {
+            color: #C30909;
             font-weight: bolder;
         }
     </style>
 </head>
+
 <body class="bg-gray-100 flex flex-col min-h-screen">
 
     <div class="flex-grow flex flex-col items-center justify-center p-4 w-full max-w-sm mx-auto">
         <h1 class="text-3xl font-bold text-gray-800 text-center">DESEJA CPF NA NOTA?</h1>
         
         <div class="flex items-center space-x-3 mt-5">
-            <input type="checkbox" id="incluirCpfCheckbox" class="custom-checkbox appearance-none w-6 h-6 border-2 border-gray-400 rounded-md cursor-pointer focus:ring-2 focus:ring-lime-300">
-            <label for="incluirCpfCheckbox" class="text-lg text-gray-700 cursor-pointer">Sim, Desejo incluir o CPF</label>
+            <input type="checkbox" id="incluirCpfCheckbox"
+                class="custom-checkbox appearance-none w-6 h-6 border-2 border-gray-400 rounded-md cursor-pointer focus:ring-2 focus:ring-lime-300">
+            <label for="incluirCpfCheckbox" class="text-lg text-gray-700 cursor-pointer">Sim, Desejo incluir o
+                CPF</label>
         </div>
+        <button id="continueButton"
+            class="custom-button-color my-8 hover:bg-lime-500 text-orange-50 font-semibold py-3 px-10 rounded-lg text-lg shadow-md transition duration-150"
+            onclick="TestaCPF()">
+            Continuar
+        </button>
 
         <!-- checkbox para CPF -->
         <div id="cpfSection" class="hidden w-full space-y-6">
@@ -65,8 +77,9 @@
                    placeholder="___.___.___-__" style="margin-bottom: 1rem;"
                    readonly>
 
-        
-            <div id="numericKeypad" class="grid grid-cols-3 gap-2 w-full max-w-xs mx-auto bg-gray-800 p-3 rounded-lg shadow-md">
+
+            <div id="numericKeypad"
+                class="grid grid-cols-3 gap-2 w-full max-w-xs mx-auto bg-gray-800 p-3 rounded-lg shadow-md">
                 <!-- Row 1 -->
                 <button data-key="7" class="keypad-btn">7</button>
                 <button data-key="8" class="keypad-btn">8</button>
@@ -82,7 +95,8 @@
                 <!-- Row 4 -->
                 <button data-key="clear" class="keypad-btn text-sm col-span-1">Limpar</button>
                 <button data-key="0" class="keypad-btn">0</button>
-                <button data-key="backspace" class="keypad-btn text-2xl"><i class="fa-solid fa-delete-left"></i></button>
+                <button data-key="backspace" class="keypad-btn text-2xl"><i
+                        class="fa-solid fa-delete-left"></i></button>
             </div>
         </div>
 
@@ -94,24 +108,19 @@
                 Continuar sem CPF
             </button>
         </div>
-
-        
-
-        
     </div>
 
     <footer class="bg-red-700 text-white p-4 w-full mt-auto">
         <div class="max-w-sm mx-auto flex justify-between items-center">
             <button onclick="history.back()" id=" backButton"
-                    class="bg-white hover:bg-gray-100 text-red-700 font-semibold py-2 px-6 rounded-lg shadow transition duration-150">
+                class="bg-white hover:bg-gray-100 text-red-700 font-semibold py-2 px-6 rounded-lg shadow transition duration-150">
                 Voltar
             </button>
-            <span class="font-semibold text-lg">Valor : R$173,30</span>
+            <span class="font-semibold text-lg" id="total-price"></span>
         </div>
     </footer>
-
     <script>
-        
+        window.addEventListener("DOMContentLoaded", () => { load(); });//aceito no pull request
 
         const incluirCpfCheckbox = document.getElementById('incluirCpfCheckbox');
         const cpfSection = document.getElementById('cpfSection');
@@ -121,8 +130,77 @@
         const backButton = document.getElementById('backButton');
         let cpfValue = "";
 
+        function load() {
+            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            const total = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice || 0), 0);
+            const price = document.getElementById("total-price");
+            price.innerText = "Valor: R$ " + parseFloat(total).toFixed(2);
+            console.log(cart);
+        }
+
+        function carrinho() {
+            const savedCart = localStorage.getItem("cart");
+            const Initial = JSON.parse(savedCart);
+            const cart = Initial.filter(item => !item.CPF);
+            const CPF = cpfValue;
+
+            if (CPF != "") {
+                cart.push({ CPF });
+                localStorage.setItem("cart", JSON.stringify(cart));
+            }
+            console.log(cart);
+            window.location.href = "@Url.Action("Editar", "Ingredient")";
+        }
+
+        function TestaCPF() {
+            if (incluirCpfCheckbox.checked) {
+                var Soma = 0;
+                var Resto;
+                const CPF = cpfValue;
+                if ([
+                    '00000000000',
+                    '11111111111',
+                    '22222222222',
+                    '33333333333',
+                    '44444444444',
+                    '55555555555',
+                    '66666666666',
+                    '77777777777',
+                    '88888888888',
+                    '99999999999',
+                ].indexOf(CPF) !== -1) {
+                    alert("insira um cpf valido");
+                    return false
+                }
+                for (i = 1; i <= 9; i++) Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (11 - i);
+                Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11)) Resto = 0;
+                if (Resto != parseInt(CPF.substring(9, 10))) {
+                    alert("Insira um CPF valido");
+                    return false;
+                }
+
+                Soma = 0;
+                for (i = 1; i <= 10; i++) Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (12 - i);
+                Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11)) Resto = 0;
+                if (Resto != parseInt(CPF.substring(10, 11))) {
+                    alert("Insira um CPF valido");
+                    return false;
+                } else {
+                    carrinho();
+                    return true;
+                }
+            }else{
+                window.location.href = "@Url.Action("Index", "Combo")";
+            }
+            return false;
+        }
+
         function formatCPF(value) {
-            const digits = value.replace(/\D/g, ""); 
+            const digits = value.replace(/\D/g, "");
             let formatted = "";
 
             if (digits.length <= 3) {
@@ -147,7 +225,7 @@
                 cpfInput.placeholder = "___.___.___-__";
             } else {
                 const placeholderMask = "___.___.___-__";
-                
+
                 let displayValue = "";
                 let rawIdx = 0;
                 for (let i = 0; i < placeholderMask.length; i++) {
@@ -159,7 +237,7 @@
 
 
 
-        incluirCpfCheckbox.addEventListener('change', function() {
+        incluirCpfCheckbox.addEventListener('change', function () {
             if (this.checked) {
                 cpfSection.classList.remove('hidden');
                 cpfSection.classList.add('flex', 'flex-col', 'items-center');
@@ -174,7 +252,7 @@
         });
 
 
-        numericKeypad.addEventListener('click', function(event) {
+        numericKeypad.addEventListener('click', function (event) {
             const target = event.target;
             if (target.classList.contains('keypad-btn')) {
                 const key = target.dataset.key;
@@ -200,11 +278,11 @@
                 'transition', 'duration-150', 'ease-in-out', 'flex', 'items-center', 'justify-center'
             );
             if (btn.dataset.key === 'clear' || btn.dataset.key === 'backspace') {
-                 btn.classList.add('text-lime-400');
+                btn.classList.add('text-lime-400');
             }
         });
 
-        
+
         if (incluirCpfCheckbox.checked) {
             cpfSection.classList.remove('hidden');
             cpfSection.classList.add('flex', 'flex-col', 'items-center');
@@ -249,4 +327,5 @@
         }
     </script>
 </body>
+
 </html>

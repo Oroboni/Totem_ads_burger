@@ -7,7 +7,7 @@
 namespace TotemPWA.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,11 +39,55 @@ namespace TotemPWA.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Foto = table.Column<string>(type: "TEXT", nullable: false),
                     AdditionalPrice = table.Column<decimal>(type: "decimal(10,2)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ingredients", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Login = table.Column<string>(type: "TEXT", nullable: false),
+                    Senha = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Combos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Foto = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    CategoryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CategoryId1 = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Combos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Combos_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Combos_Categories_CategoryId1",
+                        column: x => x.CategoryId1,
+                        principalTable: "Categories",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -65,6 +109,32 @@ namespace TotemPWA.Migrations
                         name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ComboProducts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ComboId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ProductId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ComboProducts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ComboProducts_Combos_ComboId",
+                        column: x => x.ComboId,
+                        principalTable: "Combos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ComboProducts_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -105,27 +175,6 @@ namespace TotemPWA.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Variation",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Description = table.Column<string>(type: "TEXT", nullable: false),
-                    AdditionalPrice = table.Column<decimal>(type: "TEXT", nullable: false),
-                    ProductId = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Variation", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Variation_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "Name", "ParentCategoryId", "Slug" },
@@ -140,15 +189,20 @@ namespace TotemPWA.Migrations
 
             migrationBuilder.InsertData(
                 table: "Ingredients",
-                columns: new[] { "Id", "AdditionalPrice", "Name" },
+                columns: new[] { "Id", "AdditionalPrice", "Foto", "Name" },
                 values: new object[,]
                 {
-                    { 1, 2.00m, "Bacon" },
-                    { 2, 1.50m, "Queijo" },
-                    { 3, 1.00m, "alface" },
-                    { 4, 1.20m, "tomate" },
-                    { 5, 0.80m, "Hamburger" }
+                    { 1, 2.00m, "https://purepng.com/public/uploads/large/purepng.com-baconfood-meat-fried-pork-cooked-941524619205lmptp.png", "Bacon" },
+                    { 2, 1.50m, "https://www.pngmart.com/files/16/Cheese-Piece-Slice-PNG-Clipart.png", "Queijo" },
+                    { 3, 1.00m, "https://th.bing.com/th/id/R.e8b9516fa28fb9bd627f165702a56d6e?rik=hLa5GIL15ybojw&pid=ImgRaw&r=0", "alface" },
+                    { 4, 1.20m, "https://th.bing.com/th/id/R.0e88ac13dc38fd380591cf4dc357f709?rik=bigMcONgbIcfTA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f04%2fTomato-Free-PNG-Image.png&ehk=TnfBtAyfzAetFPKm1B71hlBLCWT%2fIOfh961OOEmsejg%3d&risl=&pid=ImgRaw&r=0", "tomate" },
+                    { 5, 0.80m, "https://laretofood.hr/wp-content/uploads/2024/04/ROUNDEES-deciso-industria-min-600x600.png", "Hamburger" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Login", "Senha" },
+                values: new object[] { 1, "123", "123" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -165,6 +219,23 @@ namespace TotemPWA.Migrations
                     { 13, "Combos Familiares", 2, "combos-familiares" },
                     { 14, "Molhos Picantes", 5, "molhos-picantes" },
                     { 15, "Molhos Especiais", 5, "molhos-especiais" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Combos",
+                columns: new[] { "Id", "CategoryId", "CategoryId1", "Description", "Foto", "Name", "Price" },
+                values: new object[,]
+                {
+                    { 31, 12, null, "Truffle Burger + Batata Grande + Bebida Premium", "ComboCapa.png", "Combo Truffle", 45.99m },
+                    { 32, 12, null, "Bacon Cheddar + Onion Rings Grande + Suco Natural", "CombosTransparente.png", "Combo Gourmet", 42.5m },
+                    { 33, 12, null, "Veggie Artesanal + Batata Doce + Suco Verde", "ComboCapa.png", "Combo Veggie", 38.99m },
+                    { 34, 12, null, "Blue Cheese Burger + Batata Cheddar + Vinho", "CombosTransparente.png", "Combo Blue Cheese", 43.5m },
+                    { 35, 12, null, "Artesanal + Batata Média + Refri 600ml", "ComboCapa.png", "Combo Executivo", 39.99m },
+                    { 36, 13, null, "4 Burgers + 2 Batatas Grandes + 4 Bebidas", "CombosTransparente.png", "Combo Família 4 Pessoas", 89.99m },
+                    { 37, 13, null, "6 Burgers + 3 Batatas Grandes + 6 Bebidas + Molhos", "ComboCapa.png", "Combo Festa", 120.0m },
+                    { 38, 13, null, "2 Burgers Kids + Batata Pequena + 2 Sucos", "ComboCapa.png", "Combo Kids", 65.0m },
+                    { 39, 13, null, "2 Burgers + Batata Média + 2 Bebidas", "CombosTransparente.png", "Combo Casal", 59.99m },
+                    { 40, 13, null, "3 Burgers + 2 Batatas Médias + 3 Bebidas", "ComboCapa.png", "Combo Economia", 75.5m }
                 });
 
             migrationBuilder.InsertData(
@@ -202,16 +273,6 @@ namespace TotemPWA.Migrations
                     { 28, 11, "Porção grande", "batata frita.jpg", "Onion Rings Grande", 18.00m },
                     { 29, 11, "Porção média com cheddar", "batata frita.jpg", "Onion Rings Cheddar", 16.00m },
                     { 30, 11, "Porção média com molho picante", "batata frita.jpg", "Onion Rings Picante", 15.00m },
-                    { 31, 12, "Truffle Burger + Batata Grande + Bebida Premium", "ComboCapa.png", "Combo Truffle", 45.99m },
-                    { 32, 12, "Bacon Cheddar + Onion Rings Grande + Suco Natural", "CombosTransparente.png", "Combo Gourmet", 42.50m },
-                    { 33, 12, "Veggie Artesanal + Batata Doce + Suco Verde", "ComboCapa.png", "Combo Veggie", 38.99m },
-                    { 34, 12, "Blue Cheese Burger + Batata Cheddar + Vinho", "CombosTransparente.png", "Combo Blue Cheese", 43.50m },
-                    { 35, 12, "Artesanal + Batata Média + Refri 600ml", "ComboCapa.png", "Combo Executivo", 39.99m },
-                    { 36, 13, "4 Burgers + 2 Batatas Grandes + 4 Bebidas", "CombosTransparente.png", "Combo Família 4 Pessoas", 89.99m },
-                    { 37, 13, "6 Burgers + 3 Batatas Grandes + 6 Bebidas + Molhos", "ComboCapa.png", "Combo Festa", 120.00m },
-                    { 38, 13, "2 Burgers Kids + Batata Pequena + 2 Sucos", "ComboCapa.png", "Combo Kids", 65.00m },
-                    { 39, 13, "2 Burgers + Batata Média + 2 Bebidas", "CombosTransparente.png", "Combo Casal", 59.99m },
-                    { 40, 13, "3 Burgers + 2 Batatas Médias + 3 Bebidas", "ComboCapa.png", "Combo Economia", 75.50m },
                     { 41, 14, "50ml - Picância média", "pimenta1.jpg", "Molho de Pimenta Jalapeño", 3.50m },
                     { 42, 14, "50ml - Picância forte", "pimenta2.jpg", "Molho Habanero", 4.00m },
                     { 43, 14, "50ml - Picância média", "pimenta3.jpg", "Molho de Pimenta Caiena", 3.50m },
@@ -222,6 +283,70 @@ namespace TotemPWA.Migrations
                     { 48, 15, "50ml - Barbecue com whisky bourbon", "pimenta4.jpg", "Molho Barbecue Bourbon", 5.50m },
                     { 49, 15, "50ml - Exclusivo alho fermentado", "pimenta2.jpg", "Molho de Alho Negro", 6.50m },
                     { 50, 15, "50ml - Clássico molho caesar", "pimenta1.jpg", "Molho Caesar", 4.50m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ComboProducts",
+                columns: new[] { "Id", "ComboId", "ProductId" },
+                values: new object[,]
+                {
+                    { 1, 31, 4 },
+                    { 2, 31, 23 },
+                    { 3, 31, 15 },
+                    { 4, 32, 2 },
+                    { 5, 32, 28 },
+                    { 6, 32, 16 },
+                    { 7, 33, 5 },
+                    { 8, 33, 25 },
+                    { 9, 33, 20 },
+                    { 10, 34, 3 },
+                    { 11, 34, 24 },
+                    { 12, 35, 1 },
+                    { 13, 35, 22 },
+                    { 14, 35, 15 },
+                    { 15, 36, 6 },
+                    { 16, 36, 6 },
+                    { 17, 36, 6 },
+                    { 18, 36, 6 },
+                    { 19, 36, 23 },
+                    { 20, 36, 23 },
+                    { 21, 36, 11 },
+                    { 22, 36, 11 },
+                    { 23, 36, 11 },
+                    { 24, 36, 11 },
+                    { 25, 37, 6 },
+                    { 26, 37, 6 },
+                    { 27, 37, 6 },
+                    { 28, 37, 6 },
+                    { 29, 37, 6 },
+                    { 30, 37, 6 },
+                    { 31, 37, 23 },
+                    { 32, 37, 23 },
+                    { 33, 37, 23 },
+                    { 34, 37, 11 },
+                    { 35, 37, 11 },
+                    { 36, 37, 11 },
+                    { 37, 37, 11 },
+                    { 38, 37, 11 },
+                    { 39, 37, 11 },
+                    { 40, 38, 6 },
+                    { 41, 38, 6 },
+                    { 42, 38, 21 },
+                    { 43, 38, 16 },
+                    { 44, 38, 16 },
+                    { 45, 39, 6 },
+                    { 46, 39, 6 },
+                    { 47, 39, 22 },
+                    { 48, 39, 11 },
+                    { 49, 39, 11 },
+                    { 50, 40, 6 },
+                    { 51, 40, 6 },
+                    { 52, 40, 6 },
+                    { 53, 40, 22 },
+                    { 54, 40, 22 },
+                    { 55, 40, 11 },
+                    { 56, 40, 11 },
+                    { 57, 40, 11 }
                 });
 
             migrationBuilder.InsertData(
@@ -278,6 +403,26 @@ namespace TotemPWA.Migrations
                 column: "ParentCategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ComboProducts_ComboId",
+                table: "ComboProducts",
+                column: "ComboId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ComboProducts_ProductId",
+                table: "ComboProducts",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Combos_CategoryId",
+                table: "Combos",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Combos_CategoryId1",
+                table: "Combos",
+                column: "CategoryId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Compositions_IngredientId",
                 table: "Compositions",
                 column: "IngredientId");
@@ -296,21 +441,22 @@ namespace TotemPWA.Migrations
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Variation_ProductId",
-                table: "Variation",
-                column: "ProductId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "ComboProducts");
+
+            migrationBuilder.DropTable(
                 name: "Compositions");
 
             migrationBuilder.DropTable(
-                name: "Variation");
+                name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Combos");
 
             migrationBuilder.DropTable(
                 name: "Ingredients");

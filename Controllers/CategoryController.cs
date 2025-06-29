@@ -1,77 +1,102 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TotemPWA.Data;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using TotemPWA.Models;
+using TotemPWA.Data;
 
-namespace TotemPWA.Controllers
+namespace TotemPWA.Controllers;
+
+public class CategoryController : Controller
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class CategoryController : ControllerBase
+
+    private readonly ApplicationDbContext _context;
+
+    public CategoryController(ApplicationDbContext context)
     {
-        private readonly ApplicationDbContext _context;
+        _context = context;
+    }
 
-        public CategoryController(ApplicationDbContext context)
+    public async Task<IActionResult> Index()
+    {
+        var category = await _context.Categories
+            .Include(c => c.Subcategories)
+            .ToListAsync();
+        return View(category);
+    }
+
+    [HttpGet]
+    public IActionResult Create()
+    {
+        var categoriasPai = _context.Categories
+        .Where(c => c.ParentCategoryId == null)
+        .ToList();
+
+        ViewBag.ParentCategories = categoriasPai;
+
+        return View(new Category { Name = string.Empty });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(Category category)
+    {
+        _context.Categories.Add(category);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Editar(int id)
+    {
+        var categoriasPai = _context.Categories
+        .Where(c => c.ParentCategoryId == null)
+        .ToList();
+
+        ViewBag.ParentCategories = categoriasPai;
+
+        var Categories = await _context.Categories.FindAsync(id);
+        if (Categories == null)
         {
-            _context = context;
+            return NotFound();
+        }
+        return View(Categories);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Editar(Category category)
+    {
+        var categoryDb = await _context.Categories.FindAsync(category.Id);
+        if (categoryDb == null)
+        {
+            return NotFound();
         }
 
-        // GET: api/Category
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetAll()
-        {
-            return await _context.Categories
-                .Where(c => c.ParentCategoryId == null) 
-                .Include(c => c.Subcategories)
-                    .ThenInclude(sc => sc.Products)
-                        .ThenInclude(p => p.Variations)
-                .Include(c => c.Products)
-                    .ThenInclude(p => p.Variations)
-                .ToListAsync();
-        }
+        categoryDb.Name = category.Name;
+        categoryDb.ParentCategoryId = category.ParentCategoryId;
 
-        // GET: api/Category/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> Get(int id)
-        {
-            var category = await _context.Categories
-                .Include(c => c.Subcategories)
-                .FirstOrDefaultAsync(c => c.Id == id);
+        _context.Update(categoryDb);
+        await _context.SaveChangesAsync();
 
-            if (category == null) return NotFound();
-            return category;
-        }
+        return RedirectToAction("Index");
+    }
 
-        // POST: api/Category
-        [HttpPost]
-        public async Task<ActionResult<Category>> Create(Category category)
-        {
-            _context.Categories.Add(category);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(Get), new { id = category.Id }, category);
-        }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var ingredient = await _context.Categories.FindAsync(id);
+        if (ingredient == null) return NotFound();
 
-        // PUT: api/Category/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Category category)
-        {
-            if (id != category.Id) return BadRequest();
+        _context.Categories.Remove(ingredient);
+        await _context.SaveChangesAsync();
 
-            _context.Entry(category).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
+        return RedirectToAction("Index");
+    }
 
-        // DELETE: api/Category/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null) return NotFound();
-
-            _context.Categories.Remove(category);
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }

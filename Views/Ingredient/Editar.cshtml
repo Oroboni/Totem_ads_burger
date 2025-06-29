@@ -1,0 +1,33 @@
+@model TotemPWA.Models.Ingredient
+@{
+    ViewBag.Title = "Ingrediente";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<form asp-action="Editar" method="post">
+    <div class="container mt-5">
+        <h1>Editar Ingrediente</h1>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Nome</label>
+            <input asp-for="Name" class="form-control" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="AdditionalPrice" class="form-label">Preço</label>
+            <input asp-for="AdditionalPrice" class="form-control" required type="number" />
+            <span asp-validation-for="AdditionalPrice" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Foto" class="form-label">URL da Imagem</label>
+            <input asp-for="Foto" class="form-control" />
+            <span asp-validation-for="Foto" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>

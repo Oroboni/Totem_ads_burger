@@ -1,0 +1,75 @@
+@model ComboFormViewModel
+@{
+    ViewBag.Title = "Novo Combo";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<div class="container py-5">
+    <div class="card shadow-lg rounded-4 p-4">
+        <h1 class="mb-4 text-primary">Editar Combo</h1>
+
+        <form asp-action="Editar" method="post">
+            <input type="hidden" asp-for="Combo.Id" />
+            <div class="mb-3">
+                <label asp-for="Combo.Name" class="form-label">Nome</label>
+                <input asp-for="Combo.Name" class="form-control form-control-lg" required value="@Model.Combo.Name" />
+                <span asp-validation-for="Combo.Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Combo.Description" class="form-label">Descrição</label>
+                <textarea asp-for="Combo.Description" class="form-control form-control-lg" rows="3" required>@Model.Combo.Description</textarea>
+                <span asp-validation-for="Combo.Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Combo.CategoryId" class="form-label">Categoria</label>
+                <select asp-for="Combo.CategoryId" asp-items="ViewBag.Categories" class="form-select form-select-lg" required>
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <option value="@category.Value" selected="@Model.Combo.CategoryId == category.Value">@category.Text
+                        </option>
+                    }
+                </select>
+                <span asp-validation-for="Combo.CategoryId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Combo.Foto" class="form-label">Foto (URL)</label>
+                <input asp-for="Combo.Foto" class="form-control form-control-lg" type="url" required value="@Model.Combo.Foto" />
+                <span asp-validation-for="Combo.Foto" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Combo.Price" class="form-label">Preço</label>
+                <input asp-for="Combo.Price" class="form-control form-control-lg" type="number" step="0.01" required value="@Model.Combo.Price" />
+                <span asp-validation-for="Combo.Price" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Produtos</label>
+                <select asp-for="SelectedProductIds" asp-items="ViewBag.Products" class="form-select form-select-lg select2" multiple="multiple" value="@string.Join(",", Model.SelectedProductIds)"></select>
+            </div>
+
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success px-4 py-2">Salvar</button>
+                <a asp-action="Index" class="btn btn-outline-secondary px-4 py-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.select2').select2({
+            placeholder: "Selecione os produtos",
+            width: '100%'
+        });
+    });
+</script>

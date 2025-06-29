@@ -81,6 +81,20 @@
     var descontoCupom = 0;
     var tipoCupom = null;
     const produtosComIngredientes = @Html.Raw(Json.Serialize(ViewBag.IdsComIngredientes));
+
+    function Confirmar() {
+        const savedCart = localStorage.getItem("cart");
+        const Initial = JSON.parse(savedCart) || [];
+        const cart = Initial.filter(item => item.totalItemPrice !== undefined);
+        let totalPrice = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice), 0);
+        cart.push({ totalPrice: totalPrice.toFixed(2) });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        console.log(cart);
+
+        window.location.href = "@Url.Action("EscolherLocal", "Home")";
+    }
+
+
     function load() {
         const savedCart = localStorage.getItem("cart");
         if (!savedCart) return;
@@ -113,10 +127,8 @@
                     </div>
                     <div class="burguer-bar-footer">
                         <span class="labelNmr">R$${parseFloat(item.totalItemPrice).toFixed(2)}</span>
-                        ${produtosComIngredientes.includes(parseInt(item.id)) ? `
                             <button class="burguer-bar-footer-button"
                                 onclick="salvarEPersonalizar('${item.id}', '${item.idpedido}')">Personalizar Pedido</button>
-                        ` : ''}
 
                         <div class="burguer-bar-buttonQtde">
                             <button class="editarButton" onclick="adjustQty('${item.idpedido}', -1)">
@@ -140,7 +152,7 @@
 
     function cancel() {
         localStorage.removeItem("cart");
-        history.back();
+        location.href = '/Pedido'
     }
 
     function removerItem(idpedido) {

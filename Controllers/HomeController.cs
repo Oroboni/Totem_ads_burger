@@ -101,37 +101,111 @@ public class HomeController : Controller
 
         List<object> products;
         bool hasSubcategories = subcategoriesRaw.Any();
+        List<object> items;
 
         if (hasSubcategories)
         {
             if (activeSubcategoryId.HasValue)
             {
-                products = await _context.Products
-                    .Where(p => p.CategoryId == activeSubcategoryId)
-                    .Select(p => new
+                bool isComboCategory = false;
+
+                if (activeCategoryId == 2)
+                {
+                    isComboCategory = true;
+                }
+                else
+                {
+                    var subcategory = await _context.Categories.FindAsync(activeSubcategoryId.Value);
+                    if (subcategory?.ParentCategoryId == 2)
                     {
-                        id = p.Id,
-                        name = p.Name,
-                        description = p.Description,
-                        Foto = p.Foto,
-                        price = p.Price
-                    })
-                    .ToListAsync<object>();
+                        isComboCategory = true;
+                    }
+                }
+
+                if (isComboCategory)
+                {
+                    var comboQuery = _context.Combos.AsQueryable();
+                    comboQuery = comboQuery.Where(c => c.CategoryId == activeSubcategoryId.Value);
+
+                    items = await comboQuery
+                        .Select(c => new
+                        {
+                            id = c.Id,
+                            name = c.Name,
+                            description = c.Description,
+                            Foto = c.Foto,
+                            price = c.Price,
+                            isCombo = true
+                        }).ToListAsync<object>();
+
+                    ViewBag.Products = items;
+                }
+                else
+                {
+                    products = await _context.Products
+                        .Where(p => p.CategoryId == activeSubcategoryId)
+                        .Select(p => new
+                        {
+                            id = p.Id,
+                            name = p.Name,
+                            description = p.Description,
+                            Foto = p.Foto,
+                            price = p.Price
+                        })
+                        .ToListAsync<object>();
+
+                    ViewBag.Products = products;
+                }
             }
             else
             {
-                var subcategoryIds = subcategoriesRaw.Select(s => s.Id).ToList();
-                products = await _context.Products
-                    .Where(p => subcategoryIds.Contains(p.CategoryId))
-                    .Select(p => new
-                    {
-                        id = p.Id,
-                        name = p.Name,
-                        description = p.Description,
-                        Foto = p.Foto,
-                        price = p.Price
-                    })
-                    .ToListAsync<object>();
+                bool isComboCategory = false;
+
+                if (activeCategoryId == 2)
+                {
+                    isComboCategory = true;
+                }
+                else if (subcategoriesRaw.Any(s => s.ParentCategoryId == 2))
+                {
+                    isComboCategory = true;
+                }
+
+                if (isComboCategory)
+                {
+                    var subcategoryIds = subcategoriesRaw.Select(s => s.Id).ToList();
+                    var comboQuery = _context.Combos.AsQueryable();
+                    comboQuery = comboQuery.Where(c => subcategoryIds.Contains(c.CategoryId));
+
+                    items = await comboQuery
+                        .Select(c => new
+                        {
+                            id = c.Id,
+                            name = c.Name,
+                            description = c.Description,
+                            Foto = c.Foto,
+                            price = c.Price,
+                            isCombo = true
+                        }).ToListAsync<object>();
+
+                    ViewBag.Products = items;
+                }
+                else
+                {
+                    var subcategoryIds = subcategoriesRaw.Select(s => s.Id).ToList();
+                    products = await _context.Products
+                        .Where(p => subcategoryIds.Contains(p.CategoryId))
+                        .Select(p => new
+                        {
+                            id = p.Id,
+                            name = p.Name,
+                            description = p.Description,
+                            Foto = p.Foto,
+                            price = p.Price
+                        })
+                        .ToListAsync<object>();
+
+                    ViewBag.Products = products;
+                }
             }
         }
         else
@@ -147,12 +221,13 @@ public class HomeController : Controller
                     price = p.Price
                 })
                 .ToListAsync<object>();
+
+            ViewBag.Products = products;
         }
 
         ViewBag.CategorySlug = categorySlug;
         ViewBag.Categories = rootCategories;
         ViewBag.SubCategories = subcategories;
-        ViewBag.Products = products;
 
         return View();
     }
@@ -167,8 +242,8 @@ public class HomeController : Controller
     }
     public IActionResult CPFnaNota()
     {
-        
-        return View(); 
+
+        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
