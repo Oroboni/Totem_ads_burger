@@ -36,24 +36,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxFZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Home/CarrinhoMerge.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXJyaW5ob01lcmdlLmNzaHRtbA==
+[C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Finalization/CPFnaNota.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluYWxpemF0aW9uXENQRm5hTm90YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Home/CPFnaNota.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDUEZuYU5vdGEuY3NodG1s
+[C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Finalization/EscolherLocal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluYWxpemF0aW9uXEVzY29saGVyTG9jYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Finalization/Pagamento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluYWxpemF0aW9uXFBhZ2FtZW50by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Finalization/PedidoFinalizado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluYWxpemF0aW9uXFBlZGlkb0ZpbmFsaXphZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Home/CarrinhoMerge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXJyaW5ob01lcmdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Home/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Home/EscolherLocal.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFc2NvbGhlckxvY2FsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Home/LoginCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbkNsaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/luisf/OneDrive/Documentos/FATEC/Técnicas Avançadas de Programação/Totem/Totem_ads_burger/Views/Home/Pedido.cshtml]

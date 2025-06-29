@@ -21,7 +21,12 @@ public class HomeController : Controller
     {
         return View();
     }
-
+    
+    public IActionResult LoginCliente()
+    {
+        return View();
+    }
+    
     [HttpGet("Pedido")]
     [HttpGet("Pedido/{categorySlug}")]
     [HttpGet("Pedido/{categorySlug}/{subcategorySlug?}")]

@@ -41,30 +41,43 @@
             color:#C30909;
             font-weight: bolder;
         }
+        /* Deixe igual ao CPFnaNota */
+        #numericKeypad {
+            background: #1f2937; /* bg-gray-800 */
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            margin-top: 0.5rem;
+        }
+        .keypad-btn {
+            background: #374151; /* bg-gray-700 */
+            color: #fff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .keypad-btn:hover, .keypad-btn:focus {
+            background: #4b5563; /* hover:bg-gray-600 */
+            outline: none;
+        }
+        .keypad-btn.text-lime-400 {
+            color: #a3e635;
+        }
     </style>
 </head>
 <body class="bg-gray-100 flex flex-col min-h-screen">
 
     <div class="flex-grow flex flex-col items-center justify-center p-4 w-full max-w-sm mx-auto">
-        <h1 class="text-3xl font-bold text-gray-800 text-center">DESEJA CPF NA NOTA?</h1>
-
-        <div class="flex items-center space-x-3 mt-5">
-            <input type="checkbox" id="incluirCpfCheckbox" class="custom-checkbox appearance-none w-6 h-6 border-2 border-gray-400 rounded-md cursor-pointer focus:ring-2 focus:ring-lime-300">
-            <label for="incluirCpfCheckbox" class="text-lg text-gray-700 cursor-pointer">Sim, Desejo incluir o CPF</label>
-        </div>
-        <button id="continueButton"
-                class="custom-button-color my-8 hover:bg-lime-500 text-orange-50 font-semibold py-3 px-10 rounded-lg text-lg shadow-md transition duration-150">
-            Continuar
-        </button>
-
-        <!-- checkbox para CPF -->
-        <div id="cpfSection" class="hidden w-full space-y-6">
+        <h1 class="text-3xl font-bold text-gray-800 text-center">Desejar entrar com CPF para obter acesso a cupons?</h1>
+        <div id="cpfSection" class="w-full space-y-6">
             <input type="text" id="cpfInput"
-                   class="custom-letter-color w-full p-3 text-xl text-center border border-gray-300 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-lime-400 focus:border-lime-400 cpf-input-placeholder"
-                   placeholder="___.___.___-__"
-                   readonly>
-
-        
+                class="custom-letter-color w-full p-3 text-xl text-center border border-gray-300 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-lime-400 focus:border-lime-400 cpf-input-placeholder"
+                placeholder="___.___.___-__" style="margin-bottom: 1rem;" readonly>
             <div id="numericKeypad" class="grid grid-cols-3 gap-2 w-full max-w-xs mx-auto bg-gray-800 p-3 rounded-lg shadow-md">
                 <!-- Row 1 -->
                 <button data-key="7" class="keypad-btn">7</button>
@@ -84,22 +97,20 @@
                 <button data-key="backspace" class="keypad-btn text-2xl"><i class="fa-solid fa-delete-left"></i></button>
             </div>
         </div>
-
-        
+        <!-- Botões de ação -->
+        <div class="flex gap-4 justify-center">
+            <button id="continueButton" class="bg-green-700 my-8 hover:bg-green-800 text-orange-50 font-semibold py-3 px-10 rounded-lg text-lg shadow-md transition duration-150" onclick="validarCPF()">
+                Incluir o CPF
+            </button> 
+            <button id="continueButton" class="custom-button-color my-8 hover:bg-lime-500 text-orange-50 font-semibold py-3 px-10 rounded-lg text-lg shadow-md transition duration-150" onclick="location.href='@Url.Action("Pedido", "Home")'">
+                Continuar sem CPF
+            </button>
+        </div>        
     </div>
 
-    <footer class="bg-red-700 text-white p-4 w-full mt-auto">
-        <div class="max-w-sm mx-auto flex justify-between items-center">
-            <button onclick="history.back()" id=" backButton"
-                    class="bg-white hover:bg-gray-100 text-red-700 font-semibold py-2 px-6 rounded-lg shadow transition duration-150">
-                Voltar
-            </button>
-            <span class="font-semibold text-lg">Valor : R$173,30</span>
-        </div>
-    </footer>
+    
 
     <script>
-        const incluirCpfCheckbox = document.getElementById('incluirCpfCheckbox');
         const cpfSection = document.getElementById('cpfSection');
         const cpfInput = document.getElementById('cpfInput');
         const numericKeypad = document.getElementById('numericKeypad');
@@ -142,22 +153,6 @@
                 }
             }
         }
-
-
-
-        incluirCpfCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                cpfSection.classList.remove('hidden');
-                cpfSection.classList.add('flex', 'flex-col', 'items-center'); 
-             } else {
-                cpfSection.classList.add('hidden');
-                cpfSection.classList.remove('flex', 'flex-col', 'items-center');
-                cpfValue = ""; 
-                updateCpfInput();
-            }
-        });
-
-
         numericKeypad.addEventListener('click', function(event) {
             const target = event.target;
             if (target.classList.contains('keypad-btn')) {
@@ -188,13 +183,42 @@
             }
         });
 
-        
-        if (incluirCpfCheckbox.checked) {
-            cpfSection.classList.remove('hidden');
-            cpfSection.classList.add('flex', 'flex-col', 'items-center');
-        }
         updateCpfInput();
 
+    
+        function TestaCPF(strCPF) {
+            var Soma;
+            var Resto;
+            Soma = 0;
+            if (strCPF == "00000000000") return false;
+
+            for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+            Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11))  Resto = 0;
+                if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
+
+            Soma = 0;
+                for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+                Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11))  Resto = 0;
+                if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+                return true;
+            }
+        
+        function validarCPF(){
+            let cpf = cpfInput.value.replace(/\D/g, "");
+            if (cpf.length !== 11) {
+                alert("CPF deve ter 11 dígitos");
+                return;
+            }
+            if (TestaCPF(cpf)) {
+                 window.location='@Url.Action("Pedido", "Home")';
+            } else {
+                alert("CPF inválido");
+            }
+        }
     </script>
 </body>
 </html>

@@ -50,14 +50,34 @@
     </div>
     <div class="bottom-buttons">
         <button class="cancel-button" onclick="cancel()">Cancelar pedido</button>
-        <button class="confirm-button">Confirmar pedido</button>
+        <button class="confirm-button" onclick="mostrarModalFinalizar()">Confirmar pedido</button>
+    </div>
+</div>
+
+<div id="modalDeletar" class="modal-cupom" style="display:none;">
+    <div class="modal-content-cupom">
+        <span class="close-deletar" onclick="fecharModalDeletar()">&times;</span>
+        <h2>Deseja remover o item?</h2>
+
+        <button class="cancel-deletar-btn" onclick="fecharModalDeletar()">Cancelar</button>
+        <button id="confirmarRemocao" class="confirm-deletar-btn" >Remover Item</button>
+    </div>
+</div>
+
+<!-- Modal de Finalização -->
+<div id="modalFinalizar" class="modal-cupom" style="display:none;">
+    <div class="modal-content-cupom">
+        <span class="close-deletar" onclick="fecharModalFinalizar()">&times;</span>
+        <h2 id="finalizarTitulo"></h2>
+        <div id="finalizarResumo"></div>
+        
     </div>
 </div>
 
 <script src="~/js/Cupom.js"></script>
 <script src="~/js/editar.js"></script>
 <script>
-    let descontoCupom = 0;
+    var descontoCupom = 0;
     const produtosComIngredientes = @Html.Raw(Json.Serialize(ViewBag.IdsComIngredientes));
     function load() {
         const savedCart = localStorage.getItem("cart");
@@ -80,7 +100,7 @@
                     <div class="burguer-bar">
                         <p class="text-title">${item.name || "Produto"}</p>
                         <div class="burguer-barTrash">
-                            <button onclick="removerItem('${item.idpedido}')" style="background: none; border: none; cursor: pointer;">
+                            <button onclick="abrirModalDeletar('${item.idpedido}')" style="background: none; border: none; cursor: pointer;">
                                 <img src="/img/icons/trash-can.svg" alt="Remover">
                             </button>
                         </div>
@@ -126,7 +146,6 @@
         const updatedCart = cart.filter(item => item.idpedido !== idpedido);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
         load();
-        alert("Item removido com sucesso!");
     }
 
     function salvarEPersonalizar(id, idpedido) {
@@ -154,7 +173,41 @@
 
         load(); // Recarrega o HTML dinamicamente
     }
+    // Modal para confirmação da remoção do item
+    function abrirModalDeletar(idpedido) {
+        document.getElementById('modalDeletar').style.display = 'flex';
+        document.getElementById('confirmarRemocao').onclick = function() {
+            removerItem(idpedido);
+            fecharModalDeletar();
+        };
+    }
 
+    function fecharModalDeletar() {
+        document.getElementById('modalDeletar').style.display = 'none';
+    }
+
+    function mostrarModalFinalizar(){
+        if(!cart || cart.length === 0){
+            document.getElementById('modalFinalizar').style.display = 'flex';
+            titulo.innerText = "Sem item no carrinho";
+            resumo.innerHTML = "<p>Adicione pelo menos um item para prosseguir.</p>";
+            return;
+        } else {
+            let totalBruto = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice), 0);
+            let descontoValor = totalBruto * descontoCupom;
+            let total = totalBruto - descontoValor;
+            let itens = cart.map(item => 
+                `<li>${item.quantity}x ${item.name} - R$${parseFloat(item.totalItemPrice).toFixed(2)}</li>`
+            ).join('');
+            titulo.innerText = "Resumo do Pedido";
+            resumo.innerHTML = `<ul style="text-align:left;">${itens}</ul>
+                <p><span style="color:#b71c1c; font-size:0.95em;">Subtotal: R$${totalBruto.toFixed(2)}</span></p>
+                ${descontoCupom > 0 ? `<p><span style="color:#388e3c; font-size:0.95em;">Desconto: -R$${descontoValor.toFixed(2)}</span></p>` : ""}
+                <p><strong>Total: R$${total.toFixed(2)}</strong></p>`;
+        }
+    }
+
+    // Modal para aplicação de cupom
     function cupomModal() {
         if (descontoCupom > 0) {
             alert('Cupom já aplicado! Desconto: R$ ' + (precoAtual * descontoCupom).toFixed(2));
@@ -181,7 +234,6 @@
                     descontoCupom = data.desconto;
                     let precoAtual = document.getElementById("total-price").innerText;
                     let novoPreco = parseFloat(precoAtual) - (parseFloat(precoAtual) * descontoCupom);
-                    alert('Cupom aplicado! Desconto: R$ ' + (precoAtual * descontoCupom).toFixed(2) + ' | Novo preço: R$ ' + novoPreco.toFixed(2));
                     document.getElementById("total-price").innerText = novoPreco.toFixed(2);
                     fecharCupomModal();
                 } else {
@@ -189,7 +241,54 @@
                 }
             });
     }
+    function mostrarModalFinalizar() {
+        const savedCart = localStorage.getItem("cart");
+        const cart = savedCart ? JSON.parse(savedCart) : [];
+        const modal = document.getElementById('modalFinalizar');
+        const titulo = document.getElementById('finalizarTitulo');
+        const resumo = document.getElementById('finalizarResumo');
+        const btnContainer = modal.querySelector('.modal-content-cupom');
 
+        const oldBtn = modal.querySelector('#btnFinalizarPedido');
+        if (oldBtn) oldBtn.remove();
+
+        let btn;
+        if (!cart || cart.length === 0) {
+            titulo.innerText = "Sem item no carrinho";
+            resumo.innerHTML = "<p>Adicione pelo menos um item para prosseguir.</p>";
+            btn = document.createElement('button');
+            btn.className = "confirm-deletar-btn";
+            btn.id = "btnFinalizarPedido";
+            btn.innerText = "Fechar";
+            btn.onclick = fecharModalFinalizar;
+        } else {
+            // Monta o resumo do pedido
+            let totalBruto = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice), 0);
+            let descontoValor = totalBruto * descontoCupom;
+            let total = totalBruto - descontoValor;
+            let itens = cart.map(item => 
+                `<li>${item.quantity}x ${item.name} - R$${parseFloat(item.totalItemPrice).toFixed(2)}</li>`
+            ).join('');
+            titulo.innerText = "Resumo do Pedido";
+            resumo.innerHTML = `<ul style="text-align:left;">${itens}</ul>
+                <p><span style="color:#b71c1c; font-size:0.5em;">Subtotal: R$${totalBruto.toFixed(2)}</span></p>
+                ${descontoCupom > 0 ? `<p><span style="color:#388e3c; font-size:0.5em;">Desconto: -R$${descontoValor.toFixed(2)}</span></p>` : ""}
+                <p><strong>Total: R$${total.toFixed(2)}</strong></p>`;
+            btn = document.createElement('button');
+            btn.className = "confirm-deletar-btn";
+            btn.id = "btnFinalizarPedido";
+            btn.innerText = "Prosseguir para o pagamento";
+            btn.onclick = function() {
+                location.href = '@Url.Action("EscolherLocal", "Finalization")';
+            };
+        }
+        btnContainer.appendChild(btn);
+        modal.style.display = 'flex';
+    }
+
+    function fecharModalFinalizar() {
+        document.getElementById('modalFinalizar').style.display = 'none';
+    }
 
     window.onload = load;
 </script>

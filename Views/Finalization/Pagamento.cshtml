@@ -1,0 +1,156 @@
+@{
+    ViewData["Title"] = "Pagamento";
+    Layout = null; // pra ignorar o layout padrão
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPF na Nota</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <LINK rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></LINK>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    
+        body {
+            font-family: 'Inter', sans-serif; 
+        }
+        p {
+            color: #000;
+            font-feature-settings: 'liga' off, 'clig' off;
+            font-family: Inter;
+            font-size: 55px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+        
+        .custom-checkbox:checked {
+            background-color: #C1D343;
+            border-color: #C1D343; 
+        }
+        .custom-checkbox:checked::before {
+            content: '✓';
+            display: block;
+            color: white;
+            text-align: center;
+            line-height: 1.25rem; 
+            font-size: 0.875rem; 
+        }
+        .cpf-input-placeholder::placeholder {
+            color: #9ca3af; 
+            letter-spacing: 0.1em;
+        }
+        .custom-button-color
+        {
+            background-color: #C1D343;
+        }
+        .custom-letter-color{
+            color:#C30909;
+            font-weight: bolder;
+        }
+
+        .pagamento-container {
+            max-width: 400px;
+            margin: 40px auto 0 auto;
+            background: #f7f7f7;
+            border-radius: 18px;
+            padding: 32px 24px 24px 24px;
+            box-shadow: 0 0 40px -5px rgba(0,0,0,0.15);
+            text-align: left;
+        }
+        .pagamento-titulo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+        .pagamento-subtitulo {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+        .pagamento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .opcaoPagamento {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 18px 18px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #222;
+            transition: border 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            min-width: 0;
+            min-height: 70px;
+            gap: 10px;
+        }
+        .opcaoPagamento i, .opcaoPagamento img {
+            font-size: 1.5em;
+            color: #222;
+        }
+        
+        .opcaoPagamento:active, .opcaoPagamento:focus {
+            border: 2px solid #b71c1c;
+            box-shadow: 0 0 0 2px #ffe5e5;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    
+    <div class="pagamento-container">
+        <h1 class="pagamento-titulo">Formas de Pagamento</h1>
+        <p class="pagamento-subtitulo">Como deseja pagar?</p>
+        <div class="pagamento-grid">
+            <button class="opcaoPagamento" onclick="testarPagamento()">
+                <span>Débito</span>
+                <i class="fa-regular fa-credit-card"></i>
+            </button>
+            <button class="opcaoPagamento" onclick="testarPagamento()">
+                <span>Crédito</span>
+                <i class="fa-regular fa-credit-card"></i>
+            </button>
+            <button class="opcaoPagamento" onclick="testarPagamento()">
+                <span>Pix</span>
+                <img src="https://www.svgrepo.com/show/500416/pix.svg" alt="Pix" style="width:28px;height:28px;">
+            </button>
+            <button class="opcaoPagamento" onclick="testarPagamento()">
+                <span>Dinheiro</span>
+                <i class="fa-solid fa-money-bill-wave"></i>
+            </button>
+        </div>
+    </div>
+        
+    <footer class="bg-red-700 text-white p-4 w-full mt-auto">
+        <div class="max-w-sm mx-auto flex justify-between items-center">
+            <button onclick="history.back()" id=" backButton"
+                    class="bg-white hover:bg-gray-100 text-red-700 font-semibold py-2 px-6 rounded-lg shadow transition duration-150">
+                Voltar
+            </button>
+            <span class="font-semibold text-lg">Valor : R$173,30</span>
+        </div>
+    </footer>
+
+    <script>
+        function testarPagamento() {
+            let num = Math.random();
+            if (num > 0.33) {
+                alert("Pagamento aprovado!");
+                window.location='@Url.Action("PedidoFinalizado", "Finalization")';
+            } else {
+                alert("Pagamento recusado!");
+            }
+        }
+    </script>
+</body>
+</html>
