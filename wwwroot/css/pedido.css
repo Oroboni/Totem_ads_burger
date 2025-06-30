@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: #E7E7E7 !important;
+    background-color: #e7e7e7 !important;
 }
 
 .banner {
@@ -49,8 +49,8 @@ body {
     flex-shrink: 0; /* Nao deixa que o label encolha */
     letter-spacing: 1px;
 }
-.filter{
-    font-size: 25px !important; 
+.filter {
+    font-size: 25px !important;
     font-weight: bold;
 }
 
@@ -87,7 +87,8 @@ body {
 
 .subcategory-item-card {
     border-width: 3px;
-    border-style: outset;
+    border-style: solid;
+    border-color: #d4d4d4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,12 +98,13 @@ body {
     padding: 8px;
     margin-right: 12px;
     height: 95%;
-    min-width:120px;
+    min-width: 120px;
     width: 100%;
     max-width: 130px;
     text-decoration: none;
     color: #555;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+        rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
     transition: transform 0.2s ease, box-shadow 0.2s ease,
         background-color 0.2s ease;
     flex-shrink: 0;
@@ -113,7 +115,7 @@ body {
     margin-right: 5px; /* Menor margem para o último item não ficar muito longe da borda da scrollbar */
 }
 
-.subcategory-item-card:first-child{
+.subcategory-item-card:first-child {
     margin-left: 0rem; /* Remove margem esquerda do primeiro item */
 }
 
@@ -142,22 +144,21 @@ body {
 
 .subcategory-name-label {
     text-decoration: none;
-    font-family: "Inter", 'Sans Serif';
+    font-family: 'Inter', 'Sans Serif';
     font-weight: 500; /* Peso do texto */
     font-size: 1em;
     text-align: center;
     line-height: 1.2;
-    color: #1E1E1E; /* Cor padrão do texto */
-    
+    color: #1e1e1e; /* Cor padrão do texto */
+
     white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    
+
     -webkit-box-orient: vertical;
     max-height: calc(1em * 1.2 * 2); /* font-size * line-height * line-clamp */
 }
-
 
 /* --- SIDEBAR E CONTENT --- */
 .sidebar {
@@ -202,7 +203,8 @@ body {
     text-align: center;
     border-radius: 10px;
     transition: transform 0.2s ease-in-out, background-color 0.2s;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+        rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
     cursor: pointer;
     text-decoration: none;
     border: 1px solid #eee;
@@ -214,21 +216,21 @@ body {
 }
 .category-btn.active {
     background-color: #ff9800; /* Laranja mais forte para ativo */
-    color: #463B3B;
+    color: #463b3b;
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(255, 152, 0, 0.4);
     border-color: #f57c00;
 }
 .category-btn.active .label {
-    color: #463B3B;
+    color: #463b3b;
     font-weight: 600;
 }
 
 .category-icon-img {
     /* Estilo para as imagens de ícone na sidebar */
-    width: 80%; 
+    width: 80%;
     height: 100%;
-    object-fit: contain; 
+    object-fit: contain;
     margin-bottom: 8px; /* Espaço entre imagem e texto */
     border-radius: 4px;
     margin: 0px;
@@ -236,15 +238,15 @@ body {
 
 .category-btn .label {
     font-size: 1.2em;
-    color: #1E1E1E;
+    color: #1e1e1e;
     font-weight: 500;
-   word-break: break-all;
+    word-break: break-all;
 }
 
 .content {
     top: -55rem;
     position: relative;
-    background-color: #E7E7E7;
+    background-color: #e7e7e7;
     margin-left: 240px;
     padding: 20px;
     width: calc(100% - 240px);
@@ -257,7 +259,7 @@ body {
 }
 
 .menu-item {
-    background-color: #FAFAF5;
+    background-color: #fafaf5;
     left: 1vw;
     background: FAFAF5;
     border-radius: 24px;
@@ -273,8 +275,8 @@ body {
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.12);
     border-radius: 24px;
 }
-.rectangle-background{
-background-color: #f1f1f1;
+.rectangle-background {
+    background-color: #f1f1f1;
     /* margin-inline: 1em; */
     padding: 0.5em;
     border-radius: 24px 24px 0px 0px;
@@ -303,7 +305,6 @@ background-color: #f1f1f1;
     font-size: 18px; /* Tamanho do nome do produto */
     color: #333;
     font-weight: 600;
-    
 }
 
 .menu-item .price {
@@ -337,7 +338,7 @@ background-color: #f1f1f1;
     justify-content: space-between; /* Coloca .footer-summary à esquerda e .button à direita */
     align-items: center;
     min-height: 70px;
-    color: #1E1E1E; /* Cor padrão do texto*/
+    color: #1e1e1e; /* Cor padrão do texto*/
 }
 
 .footer-summary > div {
@@ -356,16 +357,16 @@ background-color: #f1f1f1;
 }
 
 .footer-summary span#cart-count {
-    color: #1E1E1E; /* Cor preta para a contagem de itens */
+    color: #1e1e1e; /* Cor preta para a contagem de itens */
 }
 
 .footer-summary .currency-symbol,
 .footer-summary span#total-price {
-    color: #426B1F;
+    color: #426b1f;
 }
 
 .footer .button {
-    background: #426B1F;
+    background: #426b1f;
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -402,7 +403,7 @@ background-color: #f1f1f1;
 }
 
 .modal-content {
-    background-color: #E7E7E7;
+    background-color: #e7e7e7;
     margin: auto;
     padding: 25px 30px;
     border-radius: 50px !important;
@@ -591,10 +592,39 @@ background-color: #f1f1f1;
 }
 
 /* Media Queries (adaptações do código original) */
+
+@media (max-width: 880px) and (min-width: 768px) {
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+        gap: 20px;
+    }
+    .footer {
+        padding: 10px 15px;
+        font-size: clamp(1.8rem, 2vw, 2rem);
+    }
+    .menu-item h3.product-name {
+        font-size: clamp(1.4rem, 2vw, 2.2rem);
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+    .menu-item .price {
+        font-size: clamp(1.3rem, 2vw, 2.2rem);
+    }
+    .menu-item p {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .content {
+        margin-top: 0; /* altura do banner + altura aproximada do filtro */
+    }
+}
+@media (max-width: 880px) {
+}
+
 @media (max-width: 768px) {
     /* Ajuste para tablets e celulares maiores */
     .sidebar {
-        align-items:normal;
+        align-items: normal;
         flex-direction: row;
         width: 100%;
         height: auto;
@@ -623,7 +653,7 @@ background-color: #f1f1f1;
     .category-btn .label {
         white-space: nowrap;
     }
-    
+
     .sidebar .label {
         font-size: 13px;
     }
@@ -674,7 +704,10 @@ background-color: #f1f1f1;
 @media (max-width: 480px) {
     /* Celulares menores */
     .menu-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Uma coluna para cards de produto */
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(140px, 1fr)
+        ); /* Uma coluna para cards de produto */
     }
     .menu-item .image-background {
         height: 160px;

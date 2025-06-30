@@ -3,32 +3,22 @@
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
 
-
-
-
 <a asp-area="" asp-controller="Home" asp-action="Pedido"></a>
-<div class="content">
-    <img id="logo" class="Image" src="img\LogoADSBurguer.png" alt="LogoADSBurguer" />
 
-    <div>
-        <h1 id="text-center">O MELHOR LANCHE DE SOROCABA</h1>
-        <img id="combo" class="Image" src="\img\ComboCapa.png" />
-        <img id="sombra" alt="" src="img\sombra 1.png">
+<div class="container">
+    <a href="/Admin" class="admin-btn" title="Acesso Admin">
+        <i class="fa fa-user"></i>
+    </a>
+    <img id="logo" class="image" src="img/LogoADSBurguer.png" alt="Logo ADS Burguer" />
+
+    <h1 id="text-center">O MELHOR LANCHE DE SOROCABA!</h1>
+
+
+    <div class="combo-wrapper">
+        <img id="combo" class="image" src="img/combo.png" alt="Combo Capa" />
     </div>
 
-    <div class="Image botao">
-        <a class="nav-link text-dark a" asp-area="" asp-controller="Home" asp-action="LoginCliente">Toque para iniciar</a>
+    <div class="botao">
+        <a class="nav-link text-dark" href="/Home/LoginCliente">Toque para iniciar</a>
     </div>
-
 </div>
-<script>
-    function apagar(){
-        localStorage.removeItem("cart");
-        localStorage.removeItem("clienteCPF");
-    }
-    window.onload = function() {
-        if (localStorage.getItem("cart")) {
-            apagar();
-        }
-    };
-</script>
