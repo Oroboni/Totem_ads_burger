@@ -1079,6 +1079,9 @@ C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\T
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 5\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 5\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> da61b237ed57a1d8a322637ba6a4622c9b697501
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 6\Totem_ads_burger\bin\Debug\net9.0\.prettierrc.json
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 6\Totem_ads_burger\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 6\Totem_ads_burger\bin\Debug\net9.0\appsettings.json
@@ -1353,6 +1356,7 @@ C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\T
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 6\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.pdb
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 6\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 6\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
+<<<<<<< HEAD
 =======
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\bin\Debug\net9.0\.prettierrc.json
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\bin\Debug\net9.0\appsettings.Development.json
@@ -1629,3 +1633,5 @@ C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.pd
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
 >>>>>>> dc7c1816dba2343f3a6a9d955778459757ef59c1
+=======
+>>>>>>> da61b237ed57a1d8a322637ba6a4622c9b697501
