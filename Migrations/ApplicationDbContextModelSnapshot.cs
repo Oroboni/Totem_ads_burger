@@ -270,6 +270,26 @@ namespace TotemPWA.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TotemPWA.Models.ComboLanche", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ItemPedidoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NomeLanche")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemPedidoId");
+
+                    b.ToTable("ComboLanches");
+                });
+
             modelBuilder.Entity("TotemPWA.Models.ComboProduct", b =>
                 {
                     b.Property<int>("Id")
@@ -1189,6 +1209,103 @@ namespace TotemPWA.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TotemPWA.Models.ItemIngrediente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ComboLancheId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IngredienteId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ItemPedidoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("PrecoAdicional")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ComboLancheId");
+
+                    b.HasIndex("ItemPedidoId");
+
+                    b.ToTable("ItensIngredientes");
+                });
+
+            modelBuilder.Entity("TotemPWA.Models.ItemPedido", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImagemUrl")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("PedidoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("PrecoBase")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("PrecoTotal")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ProdutoId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PedidoId");
+
+                    b.ToTable("ItensPedidos");
+                });
+
+            modelBuilder.Entity("TotemPWA.Models.Pedido", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("IdPedido")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Local")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pedidos");
+                });
+
             modelBuilder.Entity("TotemPWA.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -1634,6 +1751,13 @@ namespace TotemPWA.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("TotemPWA.Models.ComboLanche", b =>
+                {
+                    b.HasOne("TotemPWA.Models.ItemPedido", null)
+                        .WithMany("ComboLanches")
+                        .HasForeignKey("ItemPedidoId");
+                });
+
             modelBuilder.Entity("TotemPWA.Models.ComboProduct", b =>
                 {
                     b.HasOne("TotemPWA.Models.Combo", "Combo")
@@ -1676,6 +1800,24 @@ namespace TotemPWA.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("TotemPWA.Models.ItemIngrediente", b =>
+                {
+                    b.HasOne("TotemPWA.Models.ComboLanche", null)
+                        .WithMany("Ingredientes")
+                        .HasForeignKey("ComboLancheId");
+
+                    b.HasOne("TotemPWA.Models.ItemPedido", null)
+                        .WithMany("Ingredientes")
+                        .HasForeignKey("ItemPedidoId");
+                });
+
+            modelBuilder.Entity("TotemPWA.Models.ItemPedido", b =>
+                {
+                    b.HasOne("TotemPWA.Models.Pedido", null)
+                        .WithMany("Itens")
+                        .HasForeignKey("PedidoId");
+                });
+
             modelBuilder.Entity("TotemPWA.Models.Product", b =>
                 {
                     b.HasOne("Category", "Category")
@@ -1701,9 +1843,26 @@ namespace TotemPWA.Migrations
                     b.Navigation("ComboProducts");
                 });
 
+            modelBuilder.Entity("TotemPWA.Models.ComboLanche", b =>
+                {
+                    b.Navigation("Ingredientes");
+                });
+
             modelBuilder.Entity("TotemPWA.Models.Ingredient", b =>
                 {
                     b.Navigation("Compositions");
+                });
+
+            modelBuilder.Entity("TotemPWA.Models.ItemPedido", b =>
+                {
+                    b.Navigation("ComboLanches");
+
+                    b.Navigation("Ingredientes");
+                });
+
+            modelBuilder.Entity("TotemPWA.Models.Pedido", b =>
+                {
+                    b.Navigation("Itens");
                 });
 
             modelBuilder.Entity("TotemPWA.Models.Product", b =>

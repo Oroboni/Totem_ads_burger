@@ -27,3 +27,7 @@ packages/
 # Ignora diretórios de publicação
 publish/
 out/
+obj/Debug/net9.0/TotemPWA.csproj.AssemblyReference.cache
+obj/Debug/net9.0/TotemPWA.GeneratedMSBuildEditorConfig.editorconfig
+obj/Debug/net9.0/TotemPWA.GlobalUsings.g.cs
+obj/Debug/net9.0/TotemPWA.RazorAssemblyInfo.cs

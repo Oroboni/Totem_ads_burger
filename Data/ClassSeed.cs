@@ -64,8 +64,8 @@ namespace TotemPWA.Models
         public int ProductId { get; set; }
         public int IngredientId { get; set; }
     }
-//arquivos aceitos no pull request com mesclagem
-public class UserSeed
+    //arquivos aceitos no pull request com mesclagem
+    public class UserSeed
     {
         public int Id { get; set; }
         public string Login { get; set; } = string.Empty;
@@ -78,5 +78,44 @@ public class UserSeed
         public string Codigo { get; set; } = string.Empty;
         public CupomType Type { get; set; }
         public decimal Desconto { get; set; }
+    }
+
+    public class PedidoSeed
+    {
+        public int Id { get; set; }
+        public string IdPedido { get; set; } = "";
+        public decimal Total { get; set; }
+        public string Local { get; set; } = "";
+        public string CPF { get; set; } = "";
+        public List<ItemPedidoSeed> Itens { get; set; } = new();
+    }
+
+    public class ItemPedidoSeed
+    {
+        public int Id { get; set; }
+        public string ProdutoId { get; set; } = "";
+        public string Nome { get; set; } = "";
+        public string Descricao { get; set; } = "";
+        public int Quantidade { get; set; }
+        public decimal PrecoBase { get; set; }
+        public decimal PrecoTotal { get; set; }
+        public string ImagemUrl { get; set; } = "";
+        public List<ItemIngredienteSeed> Ingredientes { get; set; } = new();
+        public List<ComboLancheSeed> ComboLanches { get; set; } = new();
+    }
+
+    public class ItemIngredienteSeed
+    {
+        public int Id { get; set; }
+        public int IngredienteId { get; set; }
+        public int Quantidade { get; set; }
+        public decimal PrecoAdicional { get; set; }
+    }
+
+    public class ComboLancheSeed
+    {
+        public int Id { get; set; }
+        public string NomeLanche { get; set; } = "";
+        public List<ItemIngredienteSeed> Ingredientes { get; set; } = new();
     }
 }

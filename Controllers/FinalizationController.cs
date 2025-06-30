@@ -30,6 +30,19 @@ public class FinalizationController : Controller
     {
         return View();
     }
+    [HttpPost]
+    public async Task<IActionResult> SavePedido([FromBody] Pedido pedido)
+    {
+        if (pedido == null || pedido.Itens.Count == 0)
+        {
+            return BadRequest("Pedido vazio");
+        }
+
+        _context.Pedidos.Add(pedido);
+        await _context.SaveChangesAsync();
+        return Ok(new { success = true, pedidoId = pedido.Id });
+    }
+
 
     // Actions for the Finalization process
 }
