@@ -16,7 +16,12 @@ namespace TotemPWA.Data
         public DbSet<Combo> Combos { get; set; }
         public DbSet<ComboProduct> ComboProducts { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Cupom> Cupons { get; set; }//aceito no pull request
+        public DbSet<Cupom> Cupons { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<ItemPedido> ItensPedidos { get; set; }
+        public DbSet<ItemIngrediente> ItensIngredientes { get; set; }
+        public DbSet<ComboLanche> ComboLanches { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

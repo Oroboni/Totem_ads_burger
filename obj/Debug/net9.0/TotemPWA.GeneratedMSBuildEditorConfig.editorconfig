@@ -38,6 +38,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/melio/Downloads/Totem_ads_burger/Views/Admin/Pedidos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGVkaWRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melio/Downloads/Totem_ads_burger/Views/Admin/ViewPedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlld1BlZGlkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/melio/Downloads/Totem_ads_burger/Views/Cart/Carrinho.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDYXJyaW5oby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -108,6 +116,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/melio/Downloads/Totem_ads_burger/Views/Finalization/PedidoFinalizado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluYWxpemF0aW9uXFBlZGlkb0ZpbmFsaXphZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melio/Downloads/Totem_ads_burger/Views/Finalization/SavePedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluYWxpemF0aW9uXFNhdmVQZWRpZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/melio/Downloads/Totem_ads_burger/Views/Home/CarrinhoMerge.cshtml]

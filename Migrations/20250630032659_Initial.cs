@@ -33,6 +33,21 @@ namespace TotemPWA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Cupons",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Codigo = table.Column<string>(type: "TEXT", nullable: false),
+                    Desconto = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Type = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cupons", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Ingredients",
                 columns: table => new
                 {
@@ -45,6 +60,22 @@ namespace TotemPWA.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ingredients", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pedidos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    IdPedido = table.Column<string>(type: "TEXT", nullable: false),
+                    Total = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Local = table.Column<string>(type: "TEXT", nullable: false),
+                    CPF = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pedidos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -114,6 +145,31 @@ namespace TotemPWA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ItensPedidos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ProdutoId = table.Column<string>(type: "TEXT", nullable: false),
+                    Nome = table.Column<string>(type: "TEXT", nullable: false),
+                    Descricao = table.Column<string>(type: "TEXT", nullable: false),
+                    Quantidade = table.Column<int>(type: "INTEGER", nullable: false),
+                    PrecoBase = table.Column<decimal>(type: "TEXT", nullable: false),
+                    PrecoTotal = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ImagemUrl = table.Column<string>(type: "TEXT", nullable: false),
+                    PedidoId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ItensPedidos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ItensPedidos_Pedidos_PedidoId",
+                        column: x => x.PedidoId,
+                        principalTable: "Pedidos",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ComboProducts",
                 columns: table => new
                 {
@@ -175,6 +231,52 @@ namespace TotemPWA.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ComboLanches",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NomeLanche = table.Column<string>(type: "TEXT", nullable: false),
+                    ItemPedidoId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ComboLanches", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ComboLanches_ItensPedidos_ItemPedidoId",
+                        column: x => x.ItemPedidoId,
+                        principalTable: "ItensPedidos",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ItensIngredientes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    IngredienteId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Quantidade = table.Column<int>(type: "INTEGER", nullable: false),
+                    PrecoAdicional = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ComboLancheId = table.Column<int>(type: "INTEGER", nullable: true),
+                    ItemPedidoId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ItensIngredientes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ItensIngredientes_ComboLanches_ComboLancheId",
+                        column: x => x.ComboLancheId,
+                        principalTable: "ComboLanches",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ItensIngredientes_ItensPedidos_ItemPedidoId",
+                        column: x => x.ItemPedidoId,
+                        principalTable: "ItensPedidos",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "Name", "ParentCategoryId", "Slug" },
@@ -185,6 +287,16 @@ namespace TotemPWA.Migrations
                     { 3, "Bebidas", null, "bebidas" },
                     { 4, "Acompanhamentos", null, "acompanhamentos" },
                     { 5, "Molhos", null, "molhos" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Cupons",
+                columns: new[] { "Id", "Codigo", "Desconto", "Type" },
+                values: new object[,]
+                {
+                    { 1, "BLACKFRIDAY", 0.2m, 0 },
+                    { 2, "NATAL2023", 0.15m, 0 },
+                    { 3, "VERAO2023", 10.00m, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -403,6 +515,11 @@ namespace TotemPWA.Migrations
                 column: "ParentCategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ComboLanches_ItemPedidoId",
+                table: "ComboLanches",
+                column: "ItemPedidoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ComboProducts_ComboId",
                 table: "ComboProducts",
                 column: "ComboId");
@@ -438,6 +555,21 @@ namespace TotemPWA.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ItensIngredientes_ComboLancheId",
+                table: "ItensIngredientes",
+                column: "ComboLancheId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ItensIngredientes_ItemPedidoId",
+                table: "ItensIngredientes",
+                column: "ItemPedidoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ItensPedidos_PedidoId",
+                table: "ItensPedidos",
+                column: "PedidoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
@@ -453,6 +585,12 @@ namespace TotemPWA.Migrations
                 name: "Compositions");
 
             migrationBuilder.DropTable(
+                name: "Cupons");
+
+            migrationBuilder.DropTable(
+                name: "ItensIngredientes");
+
+            migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
@@ -465,7 +603,16 @@ namespace TotemPWA.Migrations
                 name: "Products");
 
             migrationBuilder.DropTable(
+                name: "ComboLanches");
+
+            migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "ItensPedidos");
+
+            migrationBuilder.DropTable(
+                name: "Pedidos");
         }
     }
 }

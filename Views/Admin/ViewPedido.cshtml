@@ -1,0 +1,37 @@
+@model List<TotemPWA.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Lista de Pedidos";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="max-w-5xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Todos os Pedidos</h1>
+
+    @if (!Model.Any())
+    {
+        <p>Nenhum pedido encontrado.</p>
+    }
+    else
+    {
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            @foreach (var pedido in Model)
+            {
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h2 class="text-xl font-semibold mb-2">Pedido #@pedido.Id</h2>
+                    <p><strong>ID do Pedido:</strong> @pedido.IdPedido</p>
+                    <p><strong>CPF:</strong> @pedido.CPF</p>
+                    <p><strong>Local:</strong> @pedido.Local</p>
+                    <p><strong>Total:</strong> R$ @pedido.Total.ToString("F2")</p>
+                    <a href="@Url.Action("Pedidos", "Admin", new { id = pedido.Id })"
+                       class="inline-block mt-4 bg-[#a4a000] text-white px-4 py-2 rounded hover:brightness-110">Ver detalhes</a>
+                </div>
+            }
+        </div>
+    }
+</div>

@@ -37,6 +37,34 @@ public class AdminController : Controller
         return View();
     }
 
+    public async Task<IActionResult> ViewPedido(int id)
+    {
+        var pedidos = await _context.Pedidos
+        .Include(p => p.Itens)
+        .ToListAsync();
+
+        return View(pedidos);
+    }
+
+    public async Task<IActionResult> Pedidos(int id)
+    {
+        var pedido = await _context.Pedidos
+            .Include(p => p.Itens)
+                .ThenInclude(i => i.Ingredientes)
+            .Include(p => p.Itens)
+                .ThenInclude(i => i.ComboLanches)
+                    .ThenInclude(c => c.Ingredientes)
+            .FirstOrDefaultAsync(p => p.Id == id);
+
+        if (pedido == null)
+        {
+            return NotFound();
+        }
+
+        return View(pedido);
+    }
+
+
     public IActionResult Dashboard()
     {
         return View();

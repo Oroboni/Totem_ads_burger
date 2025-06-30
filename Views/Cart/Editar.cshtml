@@ -73,7 +73,7 @@
 
                     @if (cp.Product.Compositions.Count != 0)
                     {
-                        <h2>@cp.Product.Name</h2>
+                        <h2 class="lanche-nome" data-product-index="@productIndex">@cp.Product.Name</h2>
                         <div style="align-content: flex-start; justify-content: flex-start;">
                             <h2 style="margin-left: 30px; font-size: 30px; text-align: left;">Ingredientes: </h2>
                         </div>
@@ -84,10 +84,8 @@
                         if (comp?.Ingredient == null) { continue; }
 
                         <div class="contentIngredient ingrediente-@comp.Ingredient.Id-product-@productIndex">
-                            <button class="editarButton decreseButton" 
-                                data-ingredient-id="@comp.Ingredient.Id"
-                                data-product-index="@productIndex"
-                                data-pedido-id="@Model.Combo.Id">
+                            <button class="editarButton decreseButton" data-ingredient-id="@comp.Ingredient.Id"
+                                data-product-index="@productIndex" data-pedido-id="@Model.Combo.Id">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 70 70"
                                     object-fit="contain">
                                     <path
@@ -95,16 +93,12 @@
                                         fill="#463B3B" />
                                 </svg>
                             </button>
-                            <span class="labelNmr" 
-                                data-ingredient-id="@comp.Ingredient.Id" 
-                                data-product-index="@productIndex"
+                            <span class="labelNmr" data-ingredient-id="@comp.Ingredient.Id" data-product-index="@productIndex"
                                 data-pedido-id="@Model.Combo?.Id">
                                 @comp.quantity
                             </span>
-                            <button class="editarButton increaseButton" 
-                                data-ingredient-id="@comp.Ingredient.Id"
-                                data-product-index="@productIndex"
-                                data-pedido-id="@Model.Combo.Id">
+                            <button class="editarButton increaseButton" data-ingredient-id="@comp.Ingredient.Id"
+                                data-product-index="@productIndex" data-pedido-id="@Model.Combo.Id">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 70 70"
                                     object-fit="contain">
                                     <path
@@ -173,7 +167,7 @@
 
             const cart = JSON.parse(savedCart);
             const pedido = cart.find(p => p.idpedido == selectedPedidoId);
-            
+
             // Para produtos únicos
             if (Array.isArray(pedido.ingredients)) {
                 pedido.ingredients.forEach(ing => {
@@ -183,7 +177,7 @@
                     }
                 });
             }
-            
+
             // Para combos - ingredientes separados por produto
             if (Array.isArray(pedido.comboIngredients)) {
                 pedido.comboIngredients.forEach(productIngredients => {
@@ -224,17 +218,21 @@
             if (!Array.isArray(pedido.comboIngredients)) {
                 pedido.comboIngredients = [];
                 const productIndices = new Set();
-                
+
                 // Descobrir quantos produtos diferentes temos
                 document.querySelectorAll('.labelNmr[data-product-index]').forEach(span => {
                     productIndices.add(parseInt(span.dataset.productIndex));
                 });
 
+
                 // Criar estrutura para cada produto do combo
                 productIndices.forEach(productIndex => {
+                    const lancheNameSpan = document.querySelector(`.lanche-nome[data-product-index="${productIndex}"]`);
+                    const lancheName = lancheNameSpan ? lancheNameSpan.innerText.trim() : `Lanche ${productIndex}`;
                     const productIngredients = {
                         productIndex: productIndex,
-                        ingredients: []
+                        ingredients: [],
+                        Lanche: lancheName
                     };
 
                     const spans = document.querySelectorAll(`.labelNmr[data-product-index="${productIndex}"]`);
@@ -260,7 +258,7 @@
             if (counter) counter.innerText = pedido.quantity || 1;
             if (price) price.innerText = pedido.totalItemPrice || "0.00";
             document.getElementById("nome").innerText = pedido.name || "Produto";
-            
+
             pedido.unitBasePrice = parseFloat(pedido.totalItemPrice) / (pedido.quantity || 1);
             pedidoTemporario = JSON.parse(JSON.stringify(pedido));
         }
@@ -289,7 +287,7 @@
             // Para combos
             if (productIndex !== null && Array.isArray(pedidoTemporario.comboIngredients)) {
                 let productIngredients = pedidoTemporario.comboIngredients.find(p => p.productIndex === productIndex);
-                
+
                 if (!productIngredients) {
                     productIngredients = { productIndex: productIndex, ingredients: [] };
                     pedidoTemporario.comboIngredients.push(productIngredients);
@@ -410,7 +408,7 @@
             } else {
                 selector = `.ingrediente-${ingredientId}`;
             }
-            
+
             const el = document.querySelector(selector);
             if (!el) return 0;
             const priceText = el.querySelector("span.price")?.innerText;
