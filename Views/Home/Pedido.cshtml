@@ -27,17 +27,14 @@
         @foreach (var subcategory in ViewBag.SubCategories)
         {
             string activeClass = subcategory.active ? "active" : "";
-            
-                <div class="subcategory-item-card">
-                    <div class="">
-                        <img class="subcategory-image" src="/img/IcedCola.png"
-                            alt="">
-                    </div>
-                    <a class="subcategory-name-label" href="/Pedido/@ViewBag.CategorySlug/@subcategory.Slug"
-                        class="subcategory-item-card.active @activeClass">
-                        <span class="label">@subcategory.name</span>
-                    </a>
-                </div>
+            <button type="button"
+                    class="subcategory-item-card @activeClass"
+                    onclick="window.location.href='/Pedido/@ViewBag.CategorySlug/@subcategory.Slug'">
+                <img class="subcategory-image" src="/img/IcedCola.png" alt="">
+                <span class="subcategory-name-label">
+                    <span class="label">@subcategory.name</span>
+                </span>
+            </button>
         }
         </div>
     

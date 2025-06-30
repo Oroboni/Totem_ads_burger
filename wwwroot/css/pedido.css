@@ -86,24 +86,26 @@ body {
 }
 
 .subcategory-item-card {
+    border-width: 3px;
+    border-style: outset;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff; /* Fundo do card */
-    border-radius: 24px; /* Bordas arredondadas */
+    background-color: #f4f4f4;
+    border-radius: 24px;
     padding: 8px;
-    margin-right: 12px; /* Espaço entre os cards */
-    height: 90%; /* Altura fixa do card */
-    min-width:120px; /* Largura mínima */
-    width: auto; /* Largura se ajusta ao conteúdo */
-    max-width: 130px; /* Largura máxima */
+    margin-right: 12px;
+    height: 95%;
+    min-width:120px;
+    width: 100%;
+    max-width: 130px;
     text-decoration: none;
-    color: #555; /* Cor do texto padrão */
+    color: #555;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease,
         background-color 0.2s ease;
-    flex-shrink: 0; /* Impede que cards encolham */
+    flex-shrink: 0;
     cursor: pointer;
 }
 
@@ -126,7 +128,7 @@ body {
     color: #d97706; /* Laranja mais escuro para o texto do ativo */
 }
 .subcategory-item-card.active .subcategory-name-label {
-    color: #d97706; /* Garante que o texto do label também mude */
+    color: #724614; /* Garante que o texto do label também mude */
     font-weight: 600;
 }
 
