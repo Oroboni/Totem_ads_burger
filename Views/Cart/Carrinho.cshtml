@@ -11,7 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-                .footer {
+        .footer {
             width: 100%;
             background: white;
             padding: 12px 25px;
@@ -368,14 +368,14 @@
             let descontoTexto = "";
             if (descontoCupom > 0) {
                 if (tipoCupom === "Porcentagem") {
-                    descontoTexto = `<p><span style="color:#388e3c; font-size:0.95em;">Desconto: -${(descontoCupom * 100).toFixed(0)}% (-R$${descontoValor.toFixed(2)})</span></p>`;
+                    descontoTexto = `<p><span style="color:#388e3c; font-size:0.5em;">Desconto: -${(descontoCupom * 100).toFixed(0)}% (-R$${descontoValor.toFixed(2)})</span></p>`;
                 } else if (tipoCupom === "ValorFixo") {
-                    descontoTexto = `<p><span style="color:#388e3c; font-size:0.95em;">Desconto: -R$${descontoValor.toFixed(2)}</span></p>`;
+                    descontoTexto = `<p><span style="color:#388e3c; font-size:0.5em;">Desconto: -R$${descontoValor.toFixed(2)}</span></p>`;
                 }
             }
 
             resumo.innerHTML = `<ul style="text-align:left;">${itens}</ul>
-                <p><span style="color:#b71c1c; font-size:0.95em;">Subtotal: R$${totalBruto.toFixed(2)}</span></p>
+                <p><span style="color:#b71c1c; font-size:0.5em;">Subtotal: R$${totalBruto.toFixed(2)}</span></p>
                 ${descontoTexto}
                 <p><strong>Total: R$${total.toFixed(2)}</strong></p>`;
             btn = document.createElement('button');

@@ -79,6 +79,7 @@
         .then(data => {
             console.log("✅ Pedido salvo:", data);
             localStorage.removeItem("cart");
+            localStorage.removeItem("clienteCPF"); // Remove o CPF ao finalizar
         })
         .catch(err => {
             console.error("❌ Erro ao salvar pedido:", err);
@@ -168,6 +169,12 @@
             <div class="destaque">Aguarde enquanto preparamos tudo para você.</div>
         </div>
     </div>
+    <script>
+        localStorage.removeItem("clienteCPF")
+        setTimeout(function() {
+            window.location = '@Url.Action("Index", "Home")';
+        }, 10000);
+    </script>
 
 </body>
 
