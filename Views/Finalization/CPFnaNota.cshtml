@@ -13,6 +13,11 @@
     <LINK rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     </LINK>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        if (localStorage.getItem("clienteCPF")) {
+            window.location = '@Url.Action("Pagamento", "Finalization")';
+        }
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -52,24 +57,20 @@
 
     <div class="flex-grow flex flex-col items-center justify-center p-4 w-full max-w-sm mx-auto">
         <h1 class="text-3xl font-bold text-gray-800 text-center">DESEJA CPF NA NOTA?</h1>
-
+        
         <div class="flex items-center space-x-3 mt-5">
             <input type="checkbox" id="incluirCpfCheckbox"
                 class="custom-checkbox appearance-none w-6 h-6 border-2 border-gray-400 rounded-md cursor-pointer focus:ring-2 focus:ring-lime-300">
             <label for="incluirCpfCheckbox" class="text-lg text-gray-700 cursor-pointer">Sim, Desejo incluir o
                 CPF</label>
         </div>
-        <button id="continueButton"
-            class="custom-button-color my-8 hover:bg-lime-500 text-orange-50 font-semibold py-3 px-10 rounded-lg text-lg shadow-md transition duration-150"
-            onclick="TestaCPF()">
-            Continuar
-        </button>
-
+        
         <!-- checkbox para CPF -->
         <div id="cpfSection" class="hidden w-full space-y-6">
             <input type="text" id="cpfInput"
-                class="custom-letter-color w-full p-3 text-xl text-center border border-gray-300 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-lime-400 focus:border-lime-400 cpf-input-placeholder"
-                placeholder="___.___.___-__" readonly>
+                   class="custom-letter-color w-full p-3 text-xl text-center border border-gray-300 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-lime-400 focus:border-lime-400 cpf-input-placeholder"
+                   placeholder="___.___.___-__" style="margin-bottom: 1rem;"
+                   readonly>
 
 
             <div id="numericKeypad"
@@ -94,13 +95,14 @@
             </div>
         </div>
 
-        <button id="continueButton"
-            class="custom-button-color my-8 hover:bg-lime-500 text-orange-50 font-semibold py-3 px-10 rounded-lg text-lg shadow-md transition duration-150"
-            onclick="location.href='@Url.Action("Pagamento", "Finalization")'">
-            Continuar sem CPF
-        </button>
-
-
+        <div class="flex gap-4 justify-center">
+            <button id="continueButton" class="hidden bg-green-700 my-8 hover:bg-green-800 text-orange-50 font-semibold py-3 px-10 rounded-lg text-lg shadow-md transition duration-150" onclick="validarCPF()">
+                Incluir o CPF
+            </button> 
+            <button id="continueButton" class="custom-button-color my-8 hover:bg-lime-500 text-orange-50 font-semibold py-3 px-10 rounded-lg text-lg shadow-md transition duration-150" onclick="location.href='@Url.Action("Pagamento", "Finalization")'">
+                Continuar sem CPF
+            </button>
+        </div>
     </div>
 
     <footer class="bg-red-700 text-white p-4 w-full mt-auto">
@@ -113,7 +115,7 @@
         </div>
     </footer>
     <script>
-        window.addEventListener("DOMContentLoaded", () => { load(); });
+        window.addEventListener("DOMContentLoaded", () => { load(); });//aceito no pull request
 
         const incluirCpfCheckbox = document.getElementById('incluirCpfCheckbox');
         const cpfSection = document.getElementById('cpfSection');
@@ -142,7 +144,7 @@
                 localStorage.setItem("cart", JSON.stringify(cart));
             }
             console.log(cart);
-            window.location.href = "@Url.Action("Pagamento", "Finalization")";
+            window.location.href = "@Url.Action("Editar", "Ingredient")";
         }
 
         function TestaCPF() {
@@ -186,8 +188,8 @@
                     carrinho();
                     return true;
                 }
-            } else {
-                window.location.href = "@Url.Action("Pagamento", "Finalization")";
+            }else{
+                window.location.href = "@Url.Action("Index", "Combo")";
             }
             return false;
         }
@@ -234,11 +236,13 @@
             if (this.checked) {
                 cpfSection.classList.remove('hidden');
                 cpfSection.classList.add('flex', 'flex-col', 'items-center');
+                continueButton.classList.remove('hidden'); // Mostra o botão
             } else {
                 cpfSection.classList.add('hidden');
                 cpfSection.classList.remove('flex', 'flex-col', 'items-center');
                 cpfValue = "";
                 updateCpfInput();
+                continueButton.classList.add('hidden'); // Esconde o botão
             }
         });
 
@@ -277,9 +281,45 @@
         if (incluirCpfCheckbox.checked) {
             cpfSection.classList.remove('hidden');
             cpfSection.classList.add('flex', 'flex-col', 'items-center');
+            continueButton.classList.toggle('hidden', !incluirCpfCheckbox.checked);
         }
+        
         updateCpfInput();
 
+    
+        function TestaCPF(strCPF) {
+            var Soma;
+            var Resto;
+            Soma = 0;
+            if (/^(\d)\1{10}$/.test(strCPF)) return false;
+
+            for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+            Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11))  Resto = 0;
+                if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
+
+            Soma = 0;
+                for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+                Resto = (Soma * 10) % 11;
+
+                if ((Resto == 10) || (Resto == 11))  Resto = 0;
+                if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+                return true;
+            }
+            
+            function validarCPF(){
+            let cpf = cpfInput.value.replace(/\D/g, "");
+            if (cpf.length !== 11) {
+                alert("CPF deve ter 11 dígitos");
+                return;
+            }
+            if (TestaCPF(cpf)) {
+                 window.location='@Url.Action("Pagamento", "Finalization")';
+            } else {
+                alert("CPF inválido");
+            }
+        }
     </script>
 </body>
 
