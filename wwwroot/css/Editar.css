@@ -1,0 +1,316 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: hsl(0, 0%, 95%);
+    width: 100%;
+    height: auto;
+}
+
+
+h1 {
+    color: #000;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Inter;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 83.2px */
+}
+
+h2{
+    margin-left: 15px;
+    color: #000;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 46.8px */
+}
+
+.fotoHamburger {
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    display: flex;
+}
+
+.fotoHamburger img {
+    max-width: 126px;
+    max-height: 126px;
+    margin-left: 10px;
+}
+
+.fotoIngrediente {
+    max-width: 126px;
+    max-height: 126px;
+}
+
+.labelNmr {
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: #F7F7F7;
+}
+
+.labelNmr span {
+    color: #000;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.banner {
+    width: 100%;
+    height: 160px;
+    background: url("https://as1.ftcdn.net/v2/jpg/11/83/61/00/1000_F_1183610030_iUhROCUzBuwVs6SkAk9um8cTY43gNUh8.jpg") center/cover;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15vh; /* Ajuste para a altura do banner */
+    padding-bottom: 20px;
+}
+
+.content > div.container.mt-5 {
+    margin-top: 0px !important;
+}
+
+.contentIngredient {
+    width: 100%; /* Ajuste para ocupar a largura total */
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    margin-left: 0; /* Removido margem negativa */
+}
+
+.contentIngredient > div {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Garante que cada item ocupe a largura total */
+}
+
+.contentIngredient > div > div {
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    width: 100%;
+    background: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    gap: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer button {
+    background: var(--Verdes, #C1D343);
+    box-shadow: 0px 4px 23.3px -5px rgba(0, 0, 0, 0.25);
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 1;
+
+
+}
+
+.footer button:hover {
+    background: #879628;
+}
+
+.ftr2 button {
+     background: var(--Verdes, #900);
+}
+
+.ftr2 button:hover {
+    background: var(--Verdes, rgb(109, 2, 2));
+}
+
+.table thead {
+    background-color: #ff6600;
+    color: white;
+}
+
+.table tbody tr td {
+    vertical-align: middle;
+}
+
+.buttonVoltar {
+    display: inline-block;
+    background: #1E1E1E;
+    box-shadow: 0px 2px 10px -2px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    align-self: flex-start;
+    display: flex;
+    margin-left: 5px;
+    line-height: 30px;
+    height: 30px;
+    padding: 0.7rem 2rem 0.7rem 2rem;
+    text-decoration: none;
+    margin-top: 0;
+}
+
+.editarButton {
+    background: transparent;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.editarButton img {
+    background: transparent;
+    max-width: 40px;
+    max-height: 40px;
+    object-fit: contain;
+    display: block;
+}
+
+.editarButtonFooter button{
+    background: transparent;
+    box-shadow: 0px 4px 23.3px -5px rgba(0, 0, 0, 0);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.editarButtonFooter button:hover{
+    background: transparent;
+    
+}
+
+.labelNmrFooter{
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: #F7F7F7;
+}
+
+.editarPao {
+    width: 247px;
+    height: 75px;
+    flex-shrink: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid #000;
+    font-size: 36px;
+    background: #F7F7F7;
+}
+
+.editarButton:hover {
+    background: transparent;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .contentIngredient {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contentIngredient {
+        padding: 5px;
+    }
+    .labelNmr {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    .labelNmr span {
+        font-size: 24px;
+    }
+    .fotoIngrediente {
+        max-width: 80px;
+        max-height: 80px;
+    }
+    .fotoHamburger img {
+        max-width: 60px;
+        max-height: 60px;
+    }
+}
+/* ... (Seu CSS Existente) ... */
+
+/* Media Queries para Desktops (acima de 1200px) */
+@media (min-width: 1201px) {
+    .footer {
+        max-width: 100%; /* Define uma largura máxima para o footer */
+        margin: 0 auto; /* Centraliza o footer na tela */
+        padding: 10px 20px; /* Ajusta o padding */
+        font-size: 16px; /* Ajusta o tamanho da fonte */
+    }
+
+    .footer button {
+        padding: 8px 16px; /* Ajusta o padding dos botões */
+        font-size: 16px; /* Ajusta o tamanho da fonte dos botões */
+    }
+
+    .editarButtonFooter button {
+        padding: 10px 18px;
+    }
+}

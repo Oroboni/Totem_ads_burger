@@ -1,0 +1,64 @@
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<body class="bg-gray-100 font-[Poppins]">
+    <!-- Header -->
+    <header class="bg-[#3d422f] shadow-md p-4 flex justify-between items-center">
+        <div class="flex gap-4">
+            <a href="/Admin/ViewPedido"
+                class="flex items-center gap-2 font-bold px-3 py-1 rounded-md shadow-md bg-[#c1d343] text-[#3d422f] hover:brightness-110 transition-all text-base"
+               style="box-shadow: 0 2px 8px #0002;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18" />
+                </svg>
+                <span class="font-bold">Visualizar Pedidos</span>
+            </a>
+            @* <a href="/Funcionarios"
+               class="flex items-center gap-2 font-bold px-3 py-1 rounded-md shadow-md bg-[#666] text-white text-base"
+               style="box-shadow: 0 2px 8px #0002;">
+                <span class="material-icons" style="font-size: 1rem;">badge</span>
+                <span class="font-bold">funcionários</span>
+            </a> *@
+        </div>
+        <div class="flex items-center gap-2 font-bold text-white text-base">
+            <span>Administrador</span>
+            <a href="/Admin" class="text-orange-400 hover:text-orange-300 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #fb923c;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v1" />
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Grid de cards -->
+    <main class="max-w-6xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+        <a href="/Category" class="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition">
+            @* <img src="/img/card-sacola.png" alt="Categorias" class="mx-auto h-28 mb-4"> *@
+            <h3 class="text-green-800 font-semibold text-lg">Categorias & Subcategorias</h3>
+        </a>
+
+        <a href="/Combo" class="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition">
+            <h3 class="text-green-800 font-semibold text-lg">Produtos & Combos</h3>
+        </a>
+
+        <a href="/Ingredient" class="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition">
+            <h3 class="text-green-800 font-semibold text-lg">Ingredientes & Associações</h3>
+        </a>
+
+        <a href="/Lanche" class="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition">
+            <h3 class="text-green-800 font-semibold text-lg">Lanches</h3>
+        </a>
+
+        <a href="/Cupom" class="bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transition">
+            <h3 class="text-green-800 font-semibold text-lg">Cupons de desconto</h3>
+        </a>
+    </main>
+</body>

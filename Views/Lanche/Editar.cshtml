@@ -1,0 +1,163 @@
+@model TotemPWA.Models.Product
+@{
+    ViewBag.Title = "Editar Lanche";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+    var categoriasFilho = ViewBag.ChildCategories as List<Category>;
+    var ingredientes = ViewBag.Ingredients as List<Ingredient>;
+}
+
+<style>
+    .container.mt-5 {
+        background: #fff;
+        justify-self: center;
+        border-radius: 20px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        padding: 40px 32px 32px 32px;
+        max-width: 600px;
+        margin-top: 48px;
+    }
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin-bottom: 32px;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    .form-label {
+        font-weight: 600;
+        color: #b71c1c;
+        margin-bottom: 6px;
+        letter-spacing: 0.5px;
+    }
+    .form-control {
+        border-radius: 10px;
+        border: 1.5px solid #e0e0e0;
+        font-size: 1.15rem;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        transition: border 0.2s;
+        background: #fafafa;
+    }
+    .form-control:focus {
+        border-color: #c1d343;
+        box-shadow: 0 0 0 2px #c1d34344;
+        background: #fff;
+    }
+    .input-group-text {
+        background: #c1d343;
+        color: #b71c1c;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px 0 0 10px;
+    }
+    .btn-primary, .btn-secondary {
+        border-radius: 10px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        padding: 12px 32px;
+        margin-right: 12px;
+        margin-top: 18px;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .btn-primary {
+        background: #c1d343;
+        color: #b71c1c;
+        border: none;
+    }
+    .btn-primary:hover {
+        background: #b6c12f;
+        color: #b71c1c;
+    }
+    .btn-secondary {
+        background: #b71c1c;
+        color: #fff;
+        border: none;
+    }
+    .btn-secondary:hover {
+        background: #a31515;
+    }
+    .preview-img {
+        display: block;
+        margin: 0 auto 18px auto;
+        max-width: 126px;
+        max-height: 126px;
+        border-radius: 8px;
+        border: 1px solid #eee;
+        object-fit: cover;
+        background: #fafafa;
+    }
+</style>
+
+<form asp-action="Editar" method="post">
+    <div class="container mt-5">
+        <h1>Editar Lanche</h1>
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Nome</label>
+            <input asp-for="Name" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Descrição</label>
+            <input asp-for="Description" class="form-control" required />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Preço</label>
+            <input asp-for="Price" class="form-control" required type="number" step="0.01" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CategoryId" class="form-label">Sub-Categoria</label>
+            <select asp-for="CategoryId" class="form-select">
+                @if (categoriasFilho != null)
+                {
+                    foreach (var cat in categoriasFilho)
+                    {
+                        <option value="@cat.Id" selected="@(cat.Id == Model.CategoryId)">
+                            @cat.Name
+                        </option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Foto" class="form-label">URL da Imagem</label>
+            <input asp-for="Foto" class="form-control" />
+            <span asp-validation-for="Foto" class="text-danger"></span>
+        </div>
+
+        <h3>Composição do Lanche</h3>
+        <div class="mb-3">
+            @if (ingredientes != null)
+            {
+                @for (int i = 0; i < ingredientes.Count; i++)
+                {
+                    var ing = ingredientes[i];
+                    var comp = Model.Compositions?.FirstOrDefault(c => c.IngredientId == ing.Id);
+                    bool isIncluded = comp != null;
+                    int quantity = comp?.quantity ?? 1;
+
+                    <div class="form-check d-flex align-items-center gap-2 mb-2">
+                        <input type="checkbox" class="form-check-input" name="Compositions[@i].IsSelected" value="true"
+                            @(isIncluded ? "checked" : "") />
+                        <input type="hidden" name="Compositions[@i].IngredientId" value="@ing.Id" />
+                        <label class="form-check-label">@ing.Name</label>
+                        <input type="number" class="form-control ms-3" style="width:100px" name="Compositions[@i].Quantity"
+                            value="@quantity" min="1" />
+                    </div>
+                }
+            }
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>

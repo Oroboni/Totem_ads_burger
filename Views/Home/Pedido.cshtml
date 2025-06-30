@@ -1,0 +1,257 @@
+@{
+    ViewBag.Title = "Pedido";
+    Layout = "~/Views/Shared/_PedidoLayout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Totem_ads_burger</title>
+    <link rel="stylesheet" href="~/css/pedido.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+
+<div class="banner">
+</div>
+
+<div class="category-scrollbar">
+    
+        <div class="filter-session">
+            <div class="filter-label-vertical">
+                <h1 class="filter">FILTROS</h1>
+            </div>
+        </div>
+        <div class="category-scrollbar">
+        @foreach (var subcategory in ViewBag.SubCategories)
+        {
+            string activeClass = subcategory.active ? "active" : "";
+            <button type="button"
+                    class="subcategory-item-card @activeClass"
+                    onclick="window.location.href='/Pedido/@ViewBag.CategorySlug/@subcategory.Slug'">
+                <img class="subcategory-image" src="/img/IcedCola.png" alt="">
+                <span class="subcategory-name-label">
+                    <span class="label">@subcategory.name</span>
+                </span>
+            </button>
+        }
+        </div>
+    
+</div>
+
+<div class="sidebar">
+    @foreach (var category in ViewBag.Categories)
+    {
+        string activeClass = category.active ? "active" : "";
+        <a href="/Pedido/@category.Slug" class="category-btn @activeClass">
+
+            <span class="icon">
+                <img src="~/img/lanche.png"
+                    alt="Descrição da imagem" class="category-icon-img" width="100" height="100">
+            </span>
+            <span class="label">@category.name</span>
+        </a>
+    }
+    <div class="end"></div>
+</div>
+
+
+<!-- Conteúdo Principal -->
+<div class="content" id="content">
+    <div class="menu-grid">
+        @foreach (var product in ViewBag.Products)
+        {
+            var priceStr = product.price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"));
+            var imageUrl = product.Foto ?? "/images/default-product.png";
+
+            <div class="menu-item"
+                onclick="showModal('@product.name', '@(product.description ?? "Descrição não disponível")', '@priceStr', '@imageUrl', '@product.id')">
+                <div class="rectangle-background">
+                    <img class="image-background" src="/img/@imageUrl" alt="@product.name" />
+                </div>
+                <div class="options">
+                    <h3 class="product-name">@product.name</h3>
+                    <strong class="price">@priceStr</strong>
+                    <p>@(product.description ?? "Descrição não disponível")</p>
+                </div>
+            </div>
+        }
+
+        <div class="end">
+        </div>
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+
+        <!-- Botão de fechar -->
+        <button type="button" class="modal-close-btn" onclick="closeModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Imagem do produto -->
+        <div class="modal-image-container">
+            <img id="modal-img" src="https://via.placeholder.com/150x100/CCCCCC/808080?text=Produto"
+                alt="Imagem do Produto" />
+        </div>
+
+        <!-- Título do produto -->
+        <h2 id="titulo" class="modal-product-title">Título do Produto</h2>
+
+        <!-- Preço calculado -->
+        <p id="preco" class="modal-product-price">R$ 0,00</p>
+
+        <!-- Preço maior/menor no modal -->
+        <div class="quantity-control modal-quantity-selector">
+            <button type="button" class="quantity-btn minus-btn" onclick="changeQuantity(-1)">−</button>
+            <span id="quantity" class="quantity-display">1</span>
+            <button type="button" class="quantity-btn plus-btn" onclick="changeQuantity(1)">+</button>
+        </div>
+
+        <p><strong>Descrição:</strong></p>
+        <p id="descricao" class="modal-product-description"></p>
+
+        <button  class="modal-add-button" id="add-button" onclick="carrinho(),closeModal(),addItem()">Adicionar</button>
+        <p style="display: none;" id="id"> asdasd</p>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-summary">
+        <div>Total de itens: <span id="cart-count">0</span></div>
+        <div>Total do pedido: <span class="currency-symbol">R$</span> <span id="total-price">0.00</span></div>
+    </div>
+    <button class="button" onclick="checkout()">Visualizar
+        Pedido!</button>
+</div>
+
+<div id="modalDeletar" class="modal-cupom" style="display:none;">
+    <div class="modal-content-cupom2">
+        <span class="close-deletar" onclick="fecharModalDeletar()">&times;</span>
+        <h2>Insira algum item no <br> carrinho para prosseguir</h2>
+
+        <button id="confirm-entendido-btn" class="confirm-entendido-btn" onclick="fecharModalDeletar()">Entendido</button>
+    </div>
+</div>
+
+<script>
+    // Modal para confirmação da remoção do item
+    function abrirModalDeletar(idpedido) {
+        document.getElementById('modalDeletar').style.display = 'flex';
+    }
+
+    function fecharModalDeletar() {
+        document.getElementById('modalDeletar').style.display = 'none';
+    }
+
+    let cartCount = 0;
+    let totalPrice = 0;
+    let cart = [];
+
+    function changeQuantity(amount) {
+        const quantityElement = document.getElementById("quantity");
+        let currentQuantity = parseInt(quantityElement.innerText);
+        currentQuantity = Math.max(1, currentQuantity + amount);
+        quantityElement.innerText = currentQuantity;
+    }
+
+    function showModal(title, description, preco, imageUrl, id) {
+        document.getElementById('titulo').innerText = title;
+        document.getElementById('descricao').innerText = description;
+        document.getElementById('preco').innerText = preco;
+        document.getElementById('id').innerText = id;
+        document.getElementById('modal-img').src = "/img/" + imageUrl;
+        document.getElementById('quantity').innerText = 1;
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    function carrinho() {
+        const id = document.getElementById("id").innerText;
+        const quantity = parseInt(document.getElementById("quantity").innerText);
+        const priceStr = document.getElementById("preco").innerText;
+        const unitPrice = parseFloat(priceStr.replace('R$', '').replace(',', '.').trim());
+        const fullSrc = document.getElementById("modal-img").src;
+        const imageUrl = fullSrc.substring(fullSrc.lastIndexOf("/") + 1);
+        const description = document.getElementById("descricao").innerText;
+        const name = document.getElementById("titulo").innerText;
+        const idpedido = Date.now().toString() + Math.floor(Math.random() * 10000);
+
+        let item = cart.find(i => i.idpedido === idpedido);
+
+        if (item) {
+            item.quantity += quantity;
+            item.totalItemPrice = (item.quantity * unitPrice).toFixed(2);
+        } else {
+            cart.push({
+                id,
+                quantity,
+                totalItemPrice: (quantity * unitPrice).toFixed(2),
+                precobase: (quantity * unitPrice).toFixed(2),
+                imageUrl,
+                description,
+                name,
+                idpedido,
+            });
+        }
+
+        updateCartUI();
+    } 
+
+    function updateCartUI() {
+        cartCount = cart.reduce((sum, i) => sum + i.quantity, 0);
+        totalPrice = cart.reduce((sum, i) => sum + parseFloat(i.totalItemPrice), 0);
+
+        document.getElementById("cart-count").innerText = cartCount;
+        document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+    }
+
+    function checkout() {
+        if(cart.length > 0){
+            window.location='@Url.Action("Carrinho", "Cart")';
+        }
+        if (!cart || cart.length === 0) {
+            abrirModalDeletar();
+            return;
+        } 
+
+        
+    }
+    function addItem(){
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function check(){
+        if(cart.length == 0){
+            alert("selecione um item primeiro")
+        }else{
+            location.href = `/Cart/Carrinho`;
+        }
+    }
+
+    function load() {
+        const savedCart = localStorage.getItem("cart");
+        if (savedCart) {
+            cart = JSON.parse(savedCart);
+            updateCartUI();
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+        var modal = document.getElementById('modal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    window.onload = load;
+</script>

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\xampp\\htdocs\\Totem_ads_burger\\TotemPWA.csproj": {}
+    "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 5\\Totem_ads_burger\\TotemPWA.csproj": {}
   },
   "projects": {
-    "c:\\xampp\\htdocs\\Totem_ads_burger\\TotemPWA.csproj": {
+    "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 5\\Totem_ads_burger\\TotemPWA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\xampp\\htdocs\\Totem_ads_burger\\TotemPWA.csproj",
+        "projectUniqueName": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 5\\Totem_ads_burger\\TotemPWA.csproj",
         "projectName": "TotemPWA",
-        "projectPath": "c:\\xampp\\htdocs\\Totem_ads_burger\\TotemPWA.csproj",
-        "packagesPath": "C:\\Users\\0031432512018\\.nuget\\packages\\",
-        "outputPath": "c:\\xampp\\htdocs\\Totem_ads_burger\\obj\\",
+        "projectPath": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 5\\Totem_ads_burger\\TotemPWA.csproj",
+        "packagesPath": "C:\\Users\\luisf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 5\\Totem_ads_burger\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\0031432512018\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\luisf\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,11 +40,39 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -68,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

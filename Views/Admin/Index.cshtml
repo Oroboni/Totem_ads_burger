@@ -1,0 +1,63 @@
+@{
+    ViewBag.Title = "Login Page";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="~/css/Admin.css" />
+
+<body>
+
+    <div class="login-container">
+        <div class="info-panel">
+            <a href="#" class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5" />
+                    <path d="m12 19-7-7 7-7" />
+                </svg>
+                <span onclick="Voltar()">Voltar</span>
+            </a>
+
+            <div class="logo">
+                <img id="logo" class="Image" src="img\LogoADSBurguer.png" alt="LogoADSBurguer" />
+            </div>
+
+            <h1>ACESSO ESPECIAL</h1>
+            <p>SEJA BEM-VINDO!</p>
+        </div>
+
+        <div class="form-panel">
+            <h2>insira as credenciais</h2>
+
+            <div class="form-card-wrapper">
+                <div class="form-card">
+                    <form asp-action="Index" method="post">
+                        <div class="input-group">
+                            <label for="login">LOGIN:</label>
+                            <input type="text" id="login" name="login" placeholder="insira seu login admin/operador" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="senha">SENHA:</label>
+                            <input type="password" id="senha" name="senha" placeholder="••••••" required>
+                        </div>
+                        <!-- Botão de login pode ser adicionado aqui -->
+                        <button type="submit" class="login-button">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function Voltar() {
+        location.href = '/Home'
+    }
+</script>

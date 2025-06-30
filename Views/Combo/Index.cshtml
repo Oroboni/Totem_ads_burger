@@ -1,0 +1,134 @@
+@model List<TotemPWA.Models.Combo>
+
+@{
+    ViewBag.Title = "Combo";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+
+<style>
+    .container.mt-5 {
+        background: #fff;
+        border-radius: 20px;
+        justify-self: center;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        padding: 40px 32px 32px 32px;
+        max-width: 600px;
+        margin-top: 48px;
+    }
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin-bottom: 32px;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    .add-combo-btn {
+        background: #c1d343;
+        color: #b71c1c;
+        font-weight: 700;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 36px;
+        font-size: 1.25rem;
+        margin-bottom: 36px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .add-combo-btn:hover {
+        background: #b6c12f;
+        color: #b71c1c;
+    }
+    .contentIngredient {
+        background: #f7f7f7;
+        border-radius: 16px;
+        padding: 22px 20px 18px 20px;
+        margin-bottom: 28px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+    }
+    .contentIngredient h2 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin: 0;
+        flex: 1;
+    }
+    .btn-action-group {
+        display: flex;
+        gap: 18px;
+    }
+    .btn-danger {
+        background: #b71c1c;
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 32px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .btn-danger:hover {
+        background: #a31515;
+    }
+    .btn-primary {
+        background: #c1d343;
+        color: #b71c1c;
+        font-weight: 700;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 32px;
+        font-size: 1.15rem;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .btn-primary:hover {
+        background: #b6c12f;
+        color: #b71c1c;
+    }
+    .fotoIngrediente {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-right: 16px;
+        border: 1px solid #eee;
+        background: #fafafa;
+    }
+</style>
+
+<div class="content">
+    <div class="container mt-5">
+        <button onclick="location.href='@Url.Action("Dashboard", "Admin")'" class="btn btn-primary">
+            Voltar
+        </button>
+        <h1>Combos Disponíveis</h1>
+
+        <button class="btn-primary" onclick="location.href = `/Combo/Create`;">Adicionar Combo</button>
+
+        @foreach (var ing in Model)
+        {
+            <div class="contentIngredient ingrediente-@ing.Id">
+                <img class="fotoIngrediente" src="img/@ing.Foto" alt="@ing.Name" />
+                <h2>@ing.Name</h2>
+            
+                <form asp-action="Delete" method="post" >
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@ing.Id" />
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </form>
+                
+                    <button class="btn btn-primary" onclick="location.href = `/Combo/Editar?id=@ing.Id`;">Editar</button>
+                
+            </div>
+        }
+    </div>
+</div>

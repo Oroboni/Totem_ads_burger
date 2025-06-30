@@ -1,0 +1,59 @@
+@model TotemPWA.Models.Pedido
+
+@{
+    ViewData["Title"] = "Visualização de Pedido";
+    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+}
+
+<div style="max-width: 800px; margin: auto; font-family: sans-serif;">
+    <h1>Pedido #@Model.Id</h1>
+    <p><strong>ID do Pedido:</strong> @Model.IdPedido</p>
+    <p><strong>CPF:</strong> @Model.CPF</p>
+    <p><strong>Local:</strong> @Model.Local</p>
+    <p><strong>Total:</strong> R$ @Model.Total.ToString("F2")</p>
+
+    <h2>Itens</h2>
+
+    @foreach (var item in Model.Itens)
+    {
+        <div style="border: 1px solid #ccc; margin-bottom: 20px; padding: 15px; border-radius: 8px;">
+            <img src="/img/@item.ImagemUrl" alt="@item.Nome" style="max-width: 150px; display: block; margin-bottom: 10px; justify-content: center; align-items: center; display: flex; left: 40%; position: relative;" />
+            <h3>@item.Nome</h3>
+            <p>@item.Descricao</p>
+            <p><strong>Quantidade:</strong> @item.Quantidade</p>
+            <p><strong>Preço Base:</strong> R$ @item.PrecoBase.ToString("F2")</p>
+            <p><strong>Preço Total:</strong> R$ @item.PrecoTotal.ToString("F2")</p>
+
+            @if (item.Ingredientes.Any())
+            {
+                <h4>Ingredientes Adicionais</h4>
+                <ul>
+                    @foreach (var ing in item.Ingredientes)
+                    {
+                        <li>ID Ingrediente: @ing.IngredienteId — Quantidade: @ing.Quantidade — Preço Adicional: R$ @ing.PrecoAdicional.ToString("F2")</li>
+                    }
+                </ul>
+            }
+
+            @if (item.ComboLanches.Any())
+            {
+                <h4>Combo Lanches</h4>
+                @foreach (var combo in item.ComboLanches)
+                {
+                    <div style="margin-left: 20px;">
+                        <p><strong>Lanche:</strong> @combo.NomeLanche</p>
+                        @if (combo.Ingredientes.Any())
+                        {
+                            <ul>
+                                @foreach (var cIng in combo.Ingredientes)
+                                {
+                                    <li>ID Ingrediente: @cIng.IngredienteId — Quantidade: @cIng.Quantidade — Preço Adicional: R$ @cIng.PrecoAdicional.ToString("F2")</li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                }
+            }
+        </div>
+    }
+</div>
