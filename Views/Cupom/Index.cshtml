@@ -5,40 +5,140 @@
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
 
-<link rel="stylesheet" href="~/css/Editar.css">
+<style>
+    .container.mt-5 {
+        background: #fff;
+        justify-self: center;
+        border-radius: 20px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        padding: 40px 32px 32px 32px;
+        max-width: 600px;
+        margin-top: 48px;
+    }
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin-bottom: 32px;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    .add-cupom-btn {
+        background: #c1d343;
+        color: #b71c1c;
+        font-weight: 700;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 36px;
+        font-size: 1.25rem;
+        margin-bottom: 36px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .add-cupom-btn:hover {
+        background: #b6c12f;
+        color: #b71c1c;
+    }
+    .contentIngredient {
+        background: #f7f7f7;
+        border-radius: 16px;
+        padding: 22px 20px 18px 20px;
+        margin-bottom: 28px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+    }
+    .contentIngredient h2 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin: 0;
+        flex: 1;
+    }
+    .cupom-info {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        font-size: 1.08rem;
+        color: #b71c1c;
+        font-weight: 500;
+    }
+    .btn-action-group {
+        display: flex;
+        gap: 18px;
+    }
+    .btn-danger {
+        background: #b71c1c;
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 32px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .btn-danger:hover {
+        background: #a31515;
+    }
+    .btn-primary {
+        background: #c1d343;
+        color: #b71c1c;
+        font-weight: 700;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 32px;
+        font-size: 1.15rem;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .btn-primary:hover {
+        background: #b6c12f;
+        color: #b71c1c;
+    }
+</style>
 
 <div class="content">
     <div class="container mt-5">
+        <button onclick="location.href='@Url.Action("Dashboard", "Admin")'" class="btn btn-primary">
+            Voltar
+        </button>
         <h1>Cupons Disponíveis</h1>
 
-        <button onclick="location.href = '/Cupom/Create';">Adicionar cupom</button>
+        <button class="add-cupom-btn" onclick="location.href = '/Cupom/Create';">Adicionar cupom</button>
 
         @foreach (var cupom in Model)
         {
             <div class="contentIngredient cupom-@cupom.Codigo">
                 <h2>@cupom.Codigo</h2>
-                <p>
-                    Tipo: <strong>@cupom.Type</strong>
-                </p>
-                <p>
-                    Desconto:
-                    @if (cupom.Type == TotemPWA.Models.CupomType.Porcentagem)
-                    {
-                        @($"{cupom.Desconto:P0}")
-                    }
-                    else
-                    {
-                        @cupom.Desconto.ToString("F2")
-                    }
-                </p>
-
-                <form asp-action="Delete" method="post">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" name="codigo" value="@cupom.Codigo" />
-                    <button type="submit" class="btn btn-danger">Excluir</button>
-                </form>
-
-                <button class="btn btn-primary" onclick="location.href = '/Cupom/Editar?codigo=@cupom.Codigo';">Editar</button>
+                <div class="cupom-info">
+                    <span>Tipo: <strong>@cupom.Type</strong></span>
+                    <span>
+                        Desconto:
+                        @if (cupom.Type == TotemPWA.Models.CupomType.Porcentagem)
+                        {
+                            @($"{cupom.Desconto:P0}")
+                        }
+                        else
+                        {
+                            @cupom.Desconto.ToString("F2")
+                        }
+                    </span>
+                </div>
+                <div class="btn-action-group">
+                    <form asp-action="Delete" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@cupom.Id" />
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+                </div>
+                <a asp-action="Editar" asp-route-id="@cupom.Id" class="btn btn-primary">Editar</a>
             </div>
         }
     </div>

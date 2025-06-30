@@ -5,13 +5,114 @@
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
 
-<link rel="stylesheet" href="~/css/Editar.css">
+<style>
+    .container.mt-5 {
+        background: #fff;
+        justify-self: center;
+        border-radius: 14px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        padding: 40px 32px 32px 32px;
+        max-width: 600px;
+        margin-top: 48px;
+    }
+    h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #b71c1c;
+        margin-bottom: 36px;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    .add-category-btn {
+        background: #c1d343;
+        color: #b71c1c;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 28px;
+        font-size: 1.1rem;
+        margin-bottom: 32px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .add-category-btn:hover {
+        background: #b6c12f;
+        color: #b71c1c;
+    }
+    .contentIngredient {
+        background: #f7f7f7;
+        border-radius: 10px;
+        padding: 22px 20px 18px 20px;
+        margin-bottom: 22px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+    }
+    .contentIngredient h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #b71c1c;
+        margin: 0;
+        flex: 1;
+    }
+    .contentIngredient form,
+    .contentIngredient .btn.btn-primary {
+        margin-left: 10px;
+    }
+    .btn.btn-danger {
+        background: #b71c1c;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-right: 8px;
+        transition: background 0.2s;
+    }
+    .btn.btn-danger:hover {
+        background: #a31515;
+    }
+    .btn.btn-primary {
+        background: #c1d343;
+        color: #b71c1c;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-size: 1rem;
+        transition: background 0.2s;
+    }
+    .btn.btn-primary2 {
+        background: #c1d343;
+        color: #b71c1c;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-size: 1rem;
+        transition: background 0.2s;
+    }
+    .btn.btn-primary:hover {
+        background: #b6c12f;
+        color: #b71c1c;
+    }
+</style>
 
 <div class="content">
+    
     <div class="container mt-5">
+        <button onclick="location.href='@Url.Action("Dashboard", "Admin")'" class="btn btn-primary2">
+            Voltar
+        </button>
         <h1>Categorias Disponíveis</h1>
 
-        <button onclick="location.href = `/Category/Create`;">Adicionar Categoria</button>
+        <button class="add-category-btn" onclick="location.href = `/Category/Create`;">Adicionar Categoria</button>
 
         @foreach (var ing in Model)
         {

@@ -40,12 +40,12 @@ public class CupomController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Editar(string codigo)
+    public async Task<IActionResult> Editar(int id)
     {
-        if (codigo == null)
+        if (id == 0)
             return NotFound();
 
-        var cupom = await _context.Cupons.FindAsync(codigo);
+        var cupom = await _context.Cupons.FindAsync(id);
         if (cupom == null)
         {
             return NotFound();
@@ -57,7 +57,7 @@ public class CupomController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Editar(Cupom cupom)
     {
-        var cupomDb = await _context.Cupons.FindAsync(cupom.Codigo);
+        var cupomDb = await _context.Cupons.FindAsync(cupom.Id);
         if (cupomDb == null)
         {
             return NotFound();
@@ -73,9 +73,9 @@ public class CupomController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Delete(string codigo)
+    public async Task<IActionResult> Delete(int id)
     {
-        var cupom = await _context.Cupons.FindAsync(codigo);
+        var cupom = await _context.Cupons.FindAsync(id);
         if (cupom == null) return NotFound();
 
         _context.Cupons.Remove(cupom);

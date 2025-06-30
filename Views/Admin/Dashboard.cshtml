@@ -11,28 +11,28 @@
 <body class="bg-gray-100 font-[Poppins]">
     <!-- Header -->
     <header class="bg-[#3d422f] shadow-md p-4 flex justify-between items-center">
-        <div class="flex gap-4">
+        <div class="flex gap-3">
             <a href="/Pedidos"
-                class="bg-[#a4a000] text-white font-bold px-4 py-2 rounded-md flex items-center gap-2 hover:brightness-110">
+               class="flex items-center gap-2 font-bold px-3 py-1 rounded-md shadow-md bg-[#c1d343] text-[#3d422f] hover:brightness-110 transition-all text-base"
+               style="box-shadow: 0 2px 8px #0002;">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18" />
                 </svg>
-                visualizar pedidos
+                <span class="font-bold">Visualizar Pedidos</span>
             </a>
-            <a href="/Funcionarios"
-                class="bg-gray-700 text-white font-bold px-4 py-2 rounded-md flex items-center gap-2 shadow-md">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.656 6.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                funcionários
-            </a>
+            @* <a href="/Funcionarios"
+               class="flex items-center gap-2 font-bold px-3 py-1 rounded-md shadow-md bg-[#666] text-white text-base"
+               style="box-shadow: 0 2px 8px #0002;">
+                <span class="material-icons" style="font-size: 1rem;">badge</span>
+                <span class="font-bold">funcionários</span>
+            </a> *@
         </div>
-        <div class="text-white font-bold flex items-center gap-2">
-            <a href="/Admin" class="text-500 hover:text-gray-300">
-                Logout
+        <div class="flex items-center gap-2 font-bold text-white text-base">
+            <span>Administrador</span>
+            <a href="/Admin" class="text-orange-400 hover:text-orange-300 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #fb923c;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v1" />
                 </svg>
             </a>
         </div>
