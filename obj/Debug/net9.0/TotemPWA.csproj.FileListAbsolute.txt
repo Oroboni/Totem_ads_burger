@@ -445,12 +445,7 @@ C:\Users\melio\Downloads\Totem_ads_burger\bin\Debug\net9.0\runtimes\win\lib\net6
 C:\Users\melio\Downloads\Totem_ads_burger\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\melio\Downloads\Totem_ads_burger\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\scopedcss\bundle\TotemPWA.styles.css
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\wg7p9i1w08-5g5ng28wsv.gz
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\1xn8zmblva-0dlsbw4sk6.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\fk5cfcji0l-isttsymxo9.gz
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\dugc06p6qn-s8t9qn0rju.gz
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\5x7mdqe4nv-b5yq64bu7m.gz
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\njoxicxkd2-a1ivbhahsi.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\ade2i2q1em-61n19gt1b8.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\gkpdw1s7lk-ofdi9poc5b.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\hxm0i14msq-pgyyjiz9hq.gz
@@ -528,7 +523,6 @@ C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\refint\TotemPWA.dll
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.pdb
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
-C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\i6djhtxhil-41qz4yplaa.gz
 C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\wcr0pha0z0-pw4uj0so9t.gz
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\totem 4\Totem_ads_burger\bin\Debug\net9.0\.prettierrc.json
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\totem 4\Totem_ads_burger\bin\Debug\net9.0\appsettings.Development.json
@@ -1079,7 +1073,6 @@ C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\T
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 5\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 5\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 >>>>>>> da61b237ed57a1d8a322637ba6a4622c9b697501
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 6\Totem_ads_burger\bin\Debug\net9.0\.prettierrc.json
@@ -1356,8 +1349,6 @@ C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\T
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 6\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.pdb
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 6\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\luisf\OneDrive\Documentos\FATEC\Técnicas Avançadas de Programação\Totem 6\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
-<<<<<<< HEAD
-=======
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\bin\Debug\net9.0\.prettierrc.json
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\bin\Debug\net9.0\appsettings.json
@@ -1633,5 +1624,10 @@ C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.pd
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\TotemPWA.genruntimeconfig.cache
 C:\Users\FoxB4\Documents\Followmme\Totem_ads_burger\obj\Debug\net9.0\ref\TotemPWA.dll
 >>>>>>> dc7c1816dba2343f3a6a9d955778459757ef59c1
-=======
->>>>>>> da61b237ed57a1d8a322637ba6a4622c9b697501
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\wg7p9i1w08-5og121nnnl.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\1xn8zmblva-dz1dnkolks.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\i6djhtxhil-xcgd13cit9.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\9v95lzwd9z-x5omy1li8v.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\dugc06p6qn-h2eg3od1sg.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\5x7mdqe4nv-ur77y99d6s.gz
+C:\Users\melio\Downloads\Totem_ads_burger\obj\Debug\net9.0\compressed\njoxicxkd2-semp5nowg8.gz
