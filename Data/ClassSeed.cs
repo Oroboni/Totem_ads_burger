@@ -43,7 +43,14 @@ namespace TotemPWA.Models
     {
         public int Id { get; set; }
         public string Codigo { get; set; } = string.Empty;
-        public CupomType Type { get; set; } 
+        public CupomType Type { get; set; }
         public decimal Desconto { get; set; }
+    }
+    
+    public class ClienteSeed
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string CPF { get; set; } = string.Empty;
     }
 }

@@ -14,6 +14,7 @@ namespace TotemPWA.Data
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Composition> Compositions { get; set; }
         public DbSet<Cupom> Cupons { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -213,6 +214,10 @@ namespace TotemPWA.Data
                 new Cupom { Id = 3, Codigo = "VERAO2023", Desconto = 10.00m, Type = CupomType.ValorFixo }
             );
 
+            modelBuilder.Entity<Cliente>().HasData(
+                new Cliente { Id = 1, Nome = "João da Silva", CPF = "12345678901" },
+                new Cliente { Id = 2, Nome = "Maria Oliveira", CPF = "98765432100" }
+            );
             // dotnet ef migrations add SeedProducts
             // dotnet ef database update
 

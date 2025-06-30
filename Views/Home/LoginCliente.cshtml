@@ -219,6 +219,31 @@
             } else {
                 alert("CPF inválido");
             }
+            // Chama o backend para verificar/cadastrar
+            fetch('/Cliente/Register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'cpf=' + encodeURIComponent(cpf)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.valido === false) {
+                    alert("CPF inválido!");
+                    return; // Não salva e não redireciona
+                }
+                localStorage.setItem("clienteCPF", cpf);
+                if (data.existe) {
+                    window.location='@Url.Action("Pedido", "Home")';
+                } else {
+                    alert("Cliente cadastrado!");
+                    window.location='@Url.Action("Pedido", "Home")';
+                }
+            })
+            .catch(() => {
+                alert("Erro ao verificar/cadastrar cliente.");
+            });
         }
     </script>
 </body>
