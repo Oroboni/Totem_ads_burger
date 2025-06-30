@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 6\\Totem_ads_burger\\TotemPWA.csproj": {}
   },
   "projects": {
@@ -12,9 +13,22 @@
         "projectPath": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 6\\Totem_ads_burger\\TotemPWA.csproj",
         "packagesPath": "C:\\Users\\luisf\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 6\\Totem_ads_burger\\obj\\",
+=======
+    "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\TotemPWA.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\TotemPWA.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\TotemPWA.csproj",
+        "projectName": "TotemPWA",
+        "projectPath": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\TotemPWA.csproj",
+        "packagesPath": "C:\\Users\\FoxB4\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FoxB4\\Documents\\Followmme\\Totem_ads_burger\\obj\\",
+>>>>>>> dc7c1816dba2343f3a6a9d955778459757ef59c1
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\luisf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FoxB4\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -92,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

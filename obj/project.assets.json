@@ -5472,7 +5472,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\luisf\\.nuget\\packages\\": {}
+    "C:\\Users\\FoxB4\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -5484,7 +5484,7 @@
       "outputPath": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 6\\Totem_ads_burger\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\luisf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\FoxB4\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5562,7 +5562,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
