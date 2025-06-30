@@ -27,14 +27,17 @@
         @foreach (var subcategory in ViewBag.SubCategories)
         {
             string activeClass = subcategory.active ? "active" : "";
-            <button type="button"
-                    class="subcategory-item-card @activeClass"
-                    onclick="window.location.href='/Pedido/@ViewBag.CategorySlug/@subcategory.Slug'">
-                <img class="subcategory-image" src="/img/IcedCola.png" alt="">
-                <span class="subcategory-name-label">
-                    <span class="label">@subcategory.name</span>
-                </span>
-            </button>
+            
+                <div class="subcategory-item-card">
+                    <div class="">
+                        <img class="subcategory-image" src="/img/IcedCola.png"
+                            alt="">
+                    </div>
+                    <a class="subcategory-name-label" href="/Pedido/@ViewBag.CategorySlug/@subcategory.Slug"
+                        class="subcategory-item-card.active @activeClass">
+                        <span class="label">@subcategory.name</span>
+                    </a>
+                </div>
         }
         </div>
     
@@ -68,9 +71,7 @@
             <div class="menu-item"
                 onclick="showModal('@product.name', '@(product.description ?? "Descrição não disponível")', '@priceStr', '@imageUrl', '@product.id')">
                 <div class="rectangle-background">
-                    <img class="image-background" src="@(imageUrl.StartsWith("http") ? imageUrl : Url.Content("~/img/" + imageUrl))"
-                    alt="@product.name" />
-
+                    <img class="image-background" src="/img/@imageUrl" alt="@product.name" />
                 </div>
                 <div class="options">
                     <h3 class="product-name">@product.name</h3>
@@ -168,7 +169,7 @@
         document.getElementById('descricao').innerText = description;
         document.getElementById('preco').innerText = preco;
         document.getElementById('id').innerText = id;
-        document.getElementById('modal-img').src = imageUrl.startsWith("http") ? imageUrl : Url.Content("~/img/" + imageUrl);
+        document.getElementById('modal-img').src = "/img/" + imageUrl;
         document.getElementById('quantity').innerText = 1;
         document.getElementById('modal').style.display = 'block';
     }
@@ -199,6 +200,7 @@
                 description,
                 name,
                 idpedido,
+                ingredients: [], 
             });
         }
 
