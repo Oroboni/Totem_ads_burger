@@ -64,12 +64,7 @@
             <label for="incluirCpfCheckbox" class="text-lg text-gray-700 cursor-pointer">Sim, Desejo incluir o
                 CPF</label>
         </div>
-        <button id="continueButton"
-            class="custom-button-color my-8 hover:bg-lime-500 text-orange-50 font-semibold py-3 px-10 rounded-lg text-lg shadow-md transition duration-150"
-            onclick="TestaCPF()">
-            Continuar
-        </button>
-
+        
         <!-- checkbox para CPF -->
         <div id="cpfSection" class="hidden w-full space-y-6">
             <input type="text" id="cpfInput"
@@ -296,7 +291,7 @@
             var Soma;
             var Resto;
             Soma = 0;
-            if (strCPF == "00000000000") return false;
+            if (/^(\d)\1{10}$/.test(strCPF)) return false;
 
             for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
             Resto = (Soma * 10) % 11;
