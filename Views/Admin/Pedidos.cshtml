@@ -5,55 +5,166 @@
     Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
 }
 
-<div style="max-width: 800px; margin: auto; font-family: sans-serif;">
-    <h1>Pedido #@Model.Id</h1>
-    <p><strong>ID do Pedido:</strong> @Model.IdPedido</p>
-    <p><strong>CPF:</strong> @Model.CPF</p>
-    <p><strong>Local:</strong> @Model.Local</p>
-    <p><strong>Total:</strong> R$ @Model.Total.ToString("F2")</p>
+<style>
+    body {
+        background: #f7f7fa;
+    }
+    .pedido-container {
+        max-width: 800px;
+        margin: 40px auto;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        padding: 32px 32px 24px 32px;
+    }
+    .pedido-header {
+        border-bottom: 1px solid #e0e0e0;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+    }
+    .pedido-header h1 {
+        font-size: 2.2rem;
+        color: #2d3748;
+        margin-bottom: 8px;
+    }
+    .pedido-info p {
+        margin: 4px 0;
+        color: #4a5568;
+        font-size: 1.05rem;
+    }
+    .pedido-total {
+        font-size: 1.2rem;
+        color: #3182ce;
+        font-weight: bold;
+        margin-top: 8px;
+    }
+    .itens-title {
+        margin-top: 32px;
+        font-size: 1.4rem;
+        color: #2b6cb0;
+        border-bottom: 2px solid #bee3f8;
+        padding-bottom: 4px;
+        margin-bottom: 18px;
+    }
+    .item-card {
+        border: 1px solid #e2e8f0;
+        margin-bottom: 24px;
+        padding: 18px 20px;
+        border-radius: 10px;
+        background: #f9fafb;
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+    }
+    .item-img {
+        max-width: 120px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+        background: #fff;
+        margin-right: 12px;
+    }
+    .item-details {
+        flex: 1;
+    }
+    .item-details h3 {
+        margin: 0 0 6px 0;
+        color: #2d3748;
+        font-size: 1.2rem;
+    }
+    .item-details p {
+        margin: 2px 0;
+        color: #4a5568;
+        font-size: 1rem;
+    }
+    .item-details strong {
+        color: #2b6cb0;
+    }
+    .ingredientes-list, .combo-list {
+        margin: 8px 0 0 0;
+        padding-left: 18px;
+        color: #555;
+        font-size: 0.98rem;
+    }
+    .ingredientes-list li, .combo-list li {
+        margin-bottom: 2px;
+    }
+    .combo-title {
+        margin-top: 10px;
+        color: #805ad5;
+        font-weight: 600;
+        font-size: 1.05rem;
+    }
+    .combo-lanche {
+        margin-left: 12px;
+        background: #edf2f7;
+        border-radius: 6px;
+        padding: 8px 12px;
+        margin-bottom: 6px;
+    }
+</style>
 
-    <h2>Itens</h2>
+<div class="pedido-container">
+    <div class="pedido-header">
+        <h1>Pedido #@Model.Id</h1>
+        <div class="pedido-info">
+            <p><strong>ID do Pedido:</strong> @Model.IdPedido</p>
+            <p><strong>CPF:</strong> @Model.CPF</p>
+            <p><strong>Local:</strong> @Model.Local</p>
+            <p class="pedido-total"><strong>Total:</strong> R$ @Model.Total.ToString("F2")</p>
+        </div>
+    </div>
 
-    @foreach (var item in Model.Itens)
-    {
-        <div style="border: 1px solid #ccc; margin-bottom: 20px; padding: 15px; border-radius: 8px;">
-            <img src="/img/@item.ImagemUrl" alt="@item.Nome" style="max-width: 150px; display: block; margin-bottom: 10px; justify-content: center; align-items: center; display: flex; left: 40%; position: relative;" />
-            <h3>@item.Nome</h3>
-            <p>@item.Descricao</p>
-            <p><strong>Quantidade:</strong> @item.Quantidade</p>
-            <p><strong>Preço Base:</strong> R$ @item.PrecoBase.ToString("F2")</p>
-            <p><strong>Preço Total:</strong> R$ @item.PrecoTotal.ToString("F2")</p>
+    <div>
+        <div class="itens-title">Itens</div>
+        @foreach (var item in Model.Itens)
+        {
+            <div class="item-card">
+                <img class="item-img" src="/img/@item.ImagemUrl" alt="@item.Nome" />
+                <div class="item-details">
+                    <h3>@item.Nome</h3>
+                    <p>@item.Descricao</p>
+                    <p><strong>Quantidade:</strong> @item.Quantidade</p>
+                    <p><strong>Preço Base:</strong> R$ @item.PrecoBase.ToString("F2")</p>
+                    <p><strong>Preço Total:</strong> R$ @item.PrecoTotal.ToString("F2")</p>
 
-            @if (item.Ingredientes.Any())
-            {
-                <h4>Ingredientes Adicionais</h4>
-                <ul>
-                    @foreach (var ing in item.Ingredientes)
+                    @if (item.Ingredientes.Any())
                     {
-                        <li>ID Ingrediente: @ing.IngredienteId — Quantidade: @ing.Quantidade — Preço Adicional: R$ @ing.PrecoAdicional.ToString("F2")</li>
-                    }
-                </ul>
-            }
-
-            @if (item.ComboLanches.Any())
-            {
-                <h4>Combo Lanches</h4>
-                @foreach (var combo in item.ComboLanches)
-                {
-                    <div style="margin-left: 20px;">
-                        <p><strong>Lanche:</strong> @combo.NomeLanche</p>
-                        @if (combo.Ingredientes.Any())
-                        {
-                            <ul>
-                                @foreach (var cIng in combo.Ingredientes)
+                        <div>
+                            <span class="combo-title">Ingredientes Adicionais</span>
+                            <ul class="ingredientes-list">
+                                @foreach (var ing in item.Ingredientes)
                                 {
-                                    <li>ID Ingrediente: @cIng.IngredienteId — Quantidade: @cIng.Quantidade — Preço Adicional: R$ @cIng.PrecoAdicional.ToString("F2")</li>
+                                    <li>ID Ingrediente: @ing.IngredienteId — Quantidade: @ing.Quantidade — Preço Adicional: R$ @ing.PrecoAdicional.ToString("F2")</li>
                                 }
                             </ul>
-                        }
-                    </div>
-                }
-            }
-        </div>
-    }
+                        </div>
+                    }
+
+                    @if (item.ComboLanches.Any())
+                    {
+                        <div>
+                            <span class="combo-title">Combo Lanches</span>
+                            @foreach (var combo in item.ComboLanches)
+                            {
+                                <div class="combo-lanche">
+                                    <p><strong>Lanche:</strong> @combo.NomeLanche</p>
+                                    @if (combo.Ingredientes.Any())
+                                    {
+                                        <ul class="combo-list">
+                                            @foreach (var cIng in combo.Ingredientes)
+                                            {
+                                                <li>ID Ingrediente: @cIng.IngredienteId — Quantidade: @cIng.Quantidade — Preço Adicional: R$ @cIng.PrecoAdicional.ToString("F2")</li>
+                                            }
+                                        </ul>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
 </div>

@@ -10,42 +10,51 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <style>
-                .footer {
+    <style>
+        .footer {
             width: 100%;
             background: white;
             padding: 12px 25px;
-            text-align: left; /* Embora o flexbox controle o alinhamento principal, é bom manter */
+            text-align: left;
+            /* Embora o flexbox controle o alinhamento principal, é bom manter */
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             z-index: 998;
-            font-size: 1rem; /* Tamanho base da fonte no footer */
+            font-size: 1rem;
+            /* Tamanho base da fonte no footer */
             display: flex;
-            justify-content: space-between; /* Coloca .footer-summary à esquerda e .button à direita */
+            justify-content: space-between;
+            /* Coloca .footer-summary à esquerda e .button à direita */
             align-items: center;
             min-height: 70px;
-            color: #1E1E1E; /* Cor padrão do texto*/
+            color: #1E1E1E;
+            /* Cor padrão do texto*/
         }
 
-        .footer-summary > div {
+        .footer-summary>div {
             /* Estilo para cada linha de texto: "Total de itens..." e "Total do pedido..." */
-            font-weight: 500; /* Rótulos com peso 500 */
-            line-height: 1.4; /* Espaçamento entre linhas se houver quebra, ou para melhor leitura */
+            font-weight: 500;
+            /* Rótulos com peso 500 */
+            line-height: 1.4;
+            /* Espaçamento entre linhas se houver quebra, ou para melhor leitura */
         }
 
-        .footer-summary > div:first-child {
-            margin-bottom: 0.5em; /* Pequeno espaço entre "Total de itens" e "Total do pedido" */
+        .footer-summary>div:first-child {
+            margin-bottom: 0.5em;
+            /* Pequeno espaço entre "Total de itens" e "Total do pedido" */
         }
 
         /* Estilos para os SPANs que contêm os valores numéricos e símbolos */
         .footer-summary span {
-            font-weight: 700; /* Todos os valores/símbolos em negrito */
+            font-weight: 700;
+            /* Todos os valores/símbolos em negrito */
         }
 
         .footer-summary span#cart-count {
-            color: #1E1E1E; /* Cor preta para a contagem de itens */
+            color: #1E1E1E;
+            /* Cor preta para a contagem de itens */
         }
 
         .footer-summary .currency-symbol,
@@ -63,11 +72,13 @@
             border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.2s ease;
-            white-space: nowrap; /* Impede que o texto do botão quebre linha */
+            white-space: nowrap;
+            /* Impede que o texto do botão quebre linha */
         }
 
         .footer .button:hover {
-            background: #365519; /* Um verde um pouco mais escuro para o hover */
+            background: #365519;
+            /* Um verde um pouco mais escuro para o hover */
         }
     </style>
 </head>
@@ -87,7 +98,8 @@
         <span class="close-cupom" onclick="fecharCupomModal()">&times;</span>
         <h2>Insira seu cupom</h2>
 
-        <input id="cupomInput" type="text" maxlength="20" class="use-keyboard-input" style="width: 100%; margin-bottom: 10px;"></input>
+        <input id="cupomInput" type="text" maxlength="20" class="use-keyboard-input"
+            style="width: 100%; margin-bottom: 10px;"></input>
 
         <button class="confirm-cupom-btn" onclick="confirmarCupom()">Aplicar Cupom</button>
     </div>
@@ -120,7 +132,7 @@
         <h2>Deseja remover o item?</h2>
 
         <button class="cancel-deletar-btn" onclick="fecharModalDeletar()">Cancelar</button>
-        <button id="confirmarRemocao" class="confirm-deletar-btn" >Remover Item</button>
+        <button id="confirmarRemocao" class="confirm-deletar-btn">Remover Item</button>
     </div>
 </div>
 
@@ -130,7 +142,7 @@
         <span class="close-deletar" onclick="fecharModalFinalizar()">&times;</span>
         <h2 id="finalizarTitulo"></h2>
         <div id="finalizarResumo"></div>
-        
+
     </div>
 </div>
 
@@ -169,6 +181,13 @@
 
         cart.forEach((item) => {
             const card = document.createElement("div");
+            const rawUrl = item.imageUrl || '';
+            const cleanUrl = extrairImagemReal(rawUrl);
+
+            const imgSrc = cleanUrl.startsWith('http')
+                ? cleanUrl
+                : '/img/' + cleanUrl;
+
             card.className = "card";
             card.innerHTML = `
                 <div class="card-details">
@@ -181,7 +200,7 @@
                         </div>
                     </div>
                     <div class="burguer-bar">
-                        <img class="img-card" src="/img/${item.imageUrl || "default-product.png"}" alt="${item.name || "Produto"}">
+                        <img class="img-card" src="${imgSrc}" alt="${item.name || "Produto"}">
                         <p class="text-body">${item.description || "Descrição não disponível"}</p>
                     </div>
                     <div class="burguer-bar-footer">
@@ -214,6 +233,15 @@
         location.href = '/Pedido'
     }
 
+    function extrairImagemReal(url) {
+        if (url.includes('riu=')) {
+            const decoded = decodeURIComponent(url.split('riu=')[1].split('&')[0]);
+            return decoded;
+        }
+        return url;
+    }
+
+
     function removerItem(idpedido) {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         const updatedCart = cart.filter(item => item.idpedido !== idpedido);
@@ -224,7 +252,7 @@
     function salvarEPersonalizar(id, idpedido) {
         localStorage.setItem("idpedidoSelecionado", idpedido);
         location.href = `/Cart/Editar?id=${id}`;
-    } 
+    }
 
     function adjustQty(idpedido, amount) {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -249,7 +277,7 @@
     // Modal para confirmação da remoção do item
     function abrirModalDeletar(idpedido) {
         document.getElementById('modalDeletar').style.display = 'flex';
-        document.getElementById('confirmarRemocao').onclick = function() {
+        document.getElementById('confirmarRemocao').onclick = function () {
             removerItem(idpedido);
             fecharModalDeletar();
         };
@@ -259,8 +287,8 @@
         document.getElementById('modalDeletar').style.display = 'none';
     }
 
-    function mostrarModalFinalizar(){
-        if(!cart || cart.length === 0){
+    function mostrarModalFinalizar() {
+        if (!cart || cart.length === 0) {
             document.getElementById('modalFinalizar').style.display = 'flex';
             titulo.innerText = "Sem item no carrinho";
             resumo.innerHTML = "<p>Adicione pelo menos um item para prosseguir.</p>";
@@ -269,11 +297,11 @@
             let totalBruto = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice), 0);
             let descontoValor = totalBruto * descontoCupom;
             let total = totalBruto - descontoValor;
-            let itens = cart.map(item => 
+            let itens = cart.map(item =>
                 `<li>${item.quantity}x ${item.name} - R$${parseFloat(item.totalItemPrice).toFixed(2)}</li>`
             ).join('');
             titulo.innerText = "Resumo do Pedido";
-resumo.innerHTML = `
+            resumo.innerHTML = `
     <div style="padding: 16px; border-radius: 8px; background-color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 480px; margin: auto; font-family: 'Poppins', sans-serif; color: #333;">
         <ul style="list-style: disc inside; text-align: left; font-size: 1rem; margin-bottom: 16px; padding-left: 0;">
             ${itens}
@@ -322,7 +350,7 @@ resumo.innerHTML = `
             alert('Digite um cupom!');
             return;
         }
-        
+
 
         fetch('/Order/ApplyCupom?code=' + encodeURIComponent(cupom))
             .then(response => response.json())
@@ -384,7 +412,7 @@ resumo.innerHTML = `
             if (descontoValor > totalBruto) descontoValor = totalBruto; // nunca maior que o total
             let total = totalBruto - descontoValor;
             if (total < 0) total = 0;
-            let itens = cart.map(item => 
+            let itens = cart.map(item =>
                 `<li>${item.quantity}x ${item.name} - R$${parseFloat(item.totalItemPrice).toFixed(2)}</li>`
             ).join('');
             titulo.innerText = "Resumo do Pedido";
@@ -405,7 +433,7 @@ resumo.innerHTML = `
             btn.className = "confirm-deletar-btn";
             btn.id = "btnFinalizarPedido";
             btn.innerText = "Prosseguir para o pagamento";
-            btn.onclick = function() {
+            btn.onclick = function () {
                 location.href = '@Url.Action("EscolherLocal", "Finalization")';
             };
         }
@@ -417,7 +445,7 @@ resumo.innerHTML = `
         document.getElementById('modalFinalizar').style.display = 'none';
     }
 
-    window.onload = function() {
+    window.onload = function () {
         // Verifica se o cliente está logado com CPF
         const clienteCPF = localStorage.getItem("clienteCPF");
         const cupomBtn = document.getElementById('cupomButton');
