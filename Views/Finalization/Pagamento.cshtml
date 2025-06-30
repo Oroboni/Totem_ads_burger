@@ -103,6 +103,65 @@
             border: 2px solid #b71c1c;
             box-shadow: 0 0 0 2px #ffe5e5;
         }
+
+        .footer {
+            width: 100%;
+            background: white;
+            padding: 12px 25px;
+            text-align: left; /* Embora o flexbox controle o alinhamento principal, é bom manter */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            font-size: 1rem; /* Tamanho base da fonte no footer */
+            display: flex;
+            justify-content: space-between; /* Coloca .footer-summary à esquerda e .button à direita */
+            align-items: center;
+            min-height: 70px;
+            color: #1E1E1E; /* Cor padrão do texto*/
+        }
+
+        .footer-summary > div {
+            /* Estilo para cada linha de texto: "Total de itens..." e "Total do pedido..." */
+            font-weight: 500; /* Rótulos com peso 500 */
+            line-height: 1.4; /* Espaçamento entre linhas se houver quebra, ou para melhor leitura */
+        }
+
+        .footer-summary > div:first-child {
+            margin-bottom: 0.5em; /* Pequeno espaço entre "Total de itens" e "Total do pedido" */
+        }
+
+        /* Estilos para os SPANs que contêm os valores numéricos e símbolos */
+        .footer-summary span {
+            font-weight: 700; /* Todos os valores/símbolos em negrito */
+        }
+
+        .footer-summary span#cart-count {
+            color: #1E1E1E; /* Cor preta para a contagem de itens */
+        }
+
+        .footer-summary .currency-symbol,
+        .footer-summary span#total-price {
+            color: #426B1F;
+        }
+
+        .footer .button {
+            background: #426B1F;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            white-space: nowrap; /* Impede que o texto do botão quebre linha */
+        }
+
+        .footer .button:hover {
+            background: #365519; /* Um verde um pouco mais escuro para o hover */
+        }
     </style>
 </head>
 <body class="bg-gray-100 flex flex-col min-h-screen">
@@ -131,17 +190,32 @@
         </div>
     </div>
         
-    <footer class="bg-red-700 text-white p-4 w-full mt-auto">
-        <div class="max-w-sm mx-auto flex justify-between items-center">
-            <button onclick="history.back()" id=" backButton"
+    <footer class="footer">
+        <div class="footer-summary">
+            <button onclick="history.back()" id="backButton"
                     class="bg-white hover:bg-gray-100 text-red-700 font-semibold py-2 px-6 rounded-lg shadow transition duration-150">
                 Voltar
             </button>
-            <span class="font-semibold text-lg">Valor : R$173,30</span>
+            <span id="total-price" class="font-semibold text-lg"></span>
         </div>
     </footer>
 
     <script>
+
+        function load() {
+            const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+            let total = localStorage.getItem("totalComDesconto");
+            if (!total) {
+                // fallback para o total normal, se não houver desconto
+                const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+                total = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice || 0), 0);
+            }
+           
+            const price = document.getElementById("total-price");
+            price.innerText = "Valor: R$ " + parseFloat(total).toFixed(2);
+            console.log(cart);
+        }
+        window.addEventListener("DOMContentLoaded", () => { load(); });
         function testarPagamento() {
             let num = Math.random();
             if (num > 0.33) {

@@ -50,6 +50,65 @@
             color: #C30909;
             font-weight: bolder;
         }
+
+           .footer {
+            width: 100%;
+            background: white;
+            padding: 12px 25px;
+            text-align: left; /* Embora o flexbox controle o alinhamento principal, é bom manter */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            font-size: 1rem; /* Tamanho base da fonte no footer */
+            display: flex;
+            justify-content: space-between; /* Coloca .footer-summary à esquerda e .button à direita */
+            align-items: center;
+            min-height: 70px;
+            color: #1E1E1E; /* Cor padrão do texto*/
+        }
+
+        .footer-summary > div {
+            /* Estilo para cada linha de texto: "Total de itens..." e "Total do pedido..." */
+            font-weight: 500; /* Rótulos com peso 500 */
+            line-height: 1.4; /* Espaçamento entre linhas se houver quebra, ou para melhor leitura */
+        }
+
+        .footer-summary > div:first-child {
+            margin-bottom: 0.5em; /* Pequeno espaço entre "Total de itens" e "Total do pedido" */
+        }
+
+        /* Estilos para os SPANs que contêm os valores numéricos e símbolos */
+        .footer-summary span {
+            font-weight: 700; /* Todos os valores/símbolos em negrito */
+        }
+
+        .footer-summary span#cart-count {
+            color: #1E1E1E; /* Cor preta para a contagem de itens */
+        }
+
+        .footer-summary .currency-symbol,
+        .footer-summary span#total-price {
+            color: #426B1F;
+        }
+
+        .footer .button {
+            background: #426B1F;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            white-space: nowrap; /* Impede que o texto do botão quebre linha */
+        }
+
+        .footer .button:hover {
+            background: #365519; /* Um verde um pouco mais escuro para o hover */
+        }
     </style>
 </head>
 
@@ -105,8 +164,8 @@
         </div>
     </div>
 
-    <footer class="bg-red-700 text-white p-4 w-full mt-auto">
-        <div class="max-w-sm mx-auto flex justify-between items-center">
+    <footer class="footer">
+        <div class="footer-summary" style="margin-left: 10px;">
             <button onclick="history.back()" id=" backButton"
                 class="bg-white hover:bg-gray-100 text-red-700 font-semibold py-2 px-6 rounded-lg shadow transition duration-150">
                 Voltar
@@ -127,7 +186,13 @@
 
         function load() {
             const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-            const total = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice || 0), 0);
+            let total = localStorage.getItem("totalComDesconto");
+            if (!total) {
+                // fallback para o total normal, se não houver desconto
+                const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+                total = cart.reduce((sum, item) => sum + parseFloat(item.totalItemPrice || 0), 0);
+            }
+           
             const price = document.getElementById("total-price");
             price.innerText = "Valor: R$ " + parseFloat(total).toFixed(2);
             console.log(cart);
@@ -147,52 +212,7 @@
             window.location.href = "@Url.Action("Editar", "Ingredient")";
         }
 
-        function TestaCPF() {
-            if (incluirCpfCheckbox.checked) {
-                var Soma = 0;
-                var Resto;
-                const CPF = cpfValue;
-                if ([
-                    '00000000000',
-                    '11111111111',
-                    '22222222222',
-                    '33333333333',
-                    '44444444444',
-                    '55555555555',
-                    '66666666666',
-                    '77777777777',
-                    '88888888888',
-                    '99999999999',
-                ].indexOf(CPF) !== -1) {
-                    alert("insira um cpf valido");
-                    return false
-                }
-                for (i = 1; i <= 9; i++) Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (11 - i);
-                Resto = (Soma * 10) % 11;
-
-                if ((Resto == 10) || (Resto == 11)) Resto = 0;
-                if (Resto != parseInt(CPF.substring(9, 10))) {
-                    alert("Insira um CPF valido");
-                    return false;
-                }
-
-                Soma = 0;
-                for (i = 1; i <= 10; i++) Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (12 - i);
-                Resto = (Soma * 10) % 11;
-
-                if ((Resto == 10) || (Resto == 11)) Resto = 0;
-                if (Resto != parseInt(CPF.substring(10, 11))) {
-                    alert("Insira um CPF valido");
-                    return false;
-                } else {
-                    carrinho();
-                    return true;
-                }
-            }else{
-                window.location.href = "@Url.Action("Index", "Combo")";
-            }
-            return false;
-        }
+        
 
         function formatCPF(value) {
             const digits = value.replace(/\D/g, "");
