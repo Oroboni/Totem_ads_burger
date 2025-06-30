@@ -28,7 +28,7 @@ body {
 /* --- Painel de Informações (Esquerda) --- */
 .info-panel {
     flex: 1;
-    background-color: #990000; /* Vermelho escuro da imagem */
+    background-color: #e6e6e6; /* Vermelho escuro da imagem */
     color: #F7F7CF;
     padding: 40px;
     display: flex;

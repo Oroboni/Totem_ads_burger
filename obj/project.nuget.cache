@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zHfJcjaVNOE=",
+  "dgSpecHash": "nxiIOtwOcqg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 5\\Totem_ads_burger\\TotemPWA.csproj",
+  "projectFilePath": "C:\\Users\\luisf\\OneDrive\\Documentos\\FATEC\\Técnicas Avançadas de Programação\\Totem 6\\Totem_ads_burger\\TotemPWA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luisf\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\luisf\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

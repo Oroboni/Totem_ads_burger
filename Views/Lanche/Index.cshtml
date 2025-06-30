@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Ingredientes";
-    Layout = "~/Views/Shared/_WelcomeLayout.cshtml";
+    Layout = "~/Views/Shared/_CarrinhoLayout.cshtml";
 }
 
 
@@ -130,7 +130,7 @@
         @foreach (var ing in Model)
         {
             <div class="contentIngredient ingrediente-@ing.Id">
-                <img class="fotoIngrediente" src="img/@ing.Foto" alt="@ing.Name" />
+                <img class="fotoIngrediente" src="@(ing.Foto.StartsWith("http") ? ing.Foto : Url.Content("~/img/" + ing.Foto))" alt="@ing.Name" />
                 <h2>@ing.Name</h2>
 
                 <form asp-action="Delete" method="post" >
