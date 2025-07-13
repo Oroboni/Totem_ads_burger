@@ -29,6 +29,7 @@ public class AdminController : Controller
         if (user != null)
         {
             // Autenticação bem-sucedida, redirecionar para a página de administração
+            HttpContext.Session.SetString("UserId", user.Id.ToString());
             return RedirectToAction("Dashboard");
         }
 

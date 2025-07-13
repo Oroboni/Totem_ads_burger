@@ -47,8 +47,36 @@
         <a href="/Pedido/@category.Slug" class="category-btn @activeClass">
 
             <span class="icon">
-                <img src="~/img/lanche.png"
-                    alt="Descrição da imagem" class="category-icon-img" width="100" height="100">
+                @if (category.name == "Burguer")
+                {
+                    <img src="~/img/burger.png"
+                        alt="Descrição da imagem" class="category-icon-img" width="100" height="100">
+                }
+                else if (category.name == "Combos")
+                {
+                    <img src="~/img/combo.png"
+                        alt="Descrição da imagem" class="category-icon-img" width="100" height="100">
+                }
+                else if (category.name == "Bebidas")
+                {
+                    <img src="~/img/coca.webp"
+                        alt="Descrição da imagem" class="category-icon-img" width="100" height="100">
+                }
+                else if (category.name == "Acompanhamentos")
+                {
+                    <img src="~/img/batata frita.jpg"
+                        alt="Descrição da imagem" class="category-icon-img" width="100" height="100">
+                }
+                else if (category.name == "Molhos")
+                {
+                    <img src="https://png.pngtree.com/png-vector/20230926/ourlarge/pngtree-fresh-red-sauce-bowl-isolated-png-image_10147443.png"
+                        alt="Descrição da imagem" class="category-icon-img" width="100" height="100">
+                }
+                else
+                {
+                    <img src="~/img/lanche.png"
+                        alt="Descrição da imagem" class="category-icon-img" width="100" height="100">
+                }
             </span>
             <span class="label">@category.name</span>
         </a>
@@ -168,7 +196,7 @@
         document.getElementById('descricao').innerText = description;
         document.getElementById('preco').innerText = preco;
         document.getElementById('id').innerText = id;
-        document.getElementById('modal-img').src = "/img/" + imageUrl;
+        document.getElementById('modal-img').src = imageUrl;
         document.getElementById('quantity').innerText = 1;
         document.getElementById('modal').style.display = 'block';
     }

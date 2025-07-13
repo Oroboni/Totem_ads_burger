@@ -12,6 +12,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddSession();
+
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
@@ -22,6 +24,7 @@ using (var scope = app.Services.CreateScope())
     await db.Database.MigrateAsync();
 }
 
+app.UseSession();  
 
 if (!app.Environment.IsDevelopment())
 {
