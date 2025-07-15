@@ -1,6 +1,8 @@
 # Ignore arquivos de build e cache
 bin/
 obj/
+[Bb]in/
+[Oo]bj/
 
 # Ignora arquivos gerados pelo VS Code
 .vscode/
