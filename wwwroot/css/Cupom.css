@@ -1,6 +1,6 @@
 /* Modal de confirmação de remoção */
 body{
-    background-color: #f1f1f1 !important;
+    /* background-color: #f1f1f1 !important; */
 }
 #modalDeletar.modal-cupom {
     position: fixed;
